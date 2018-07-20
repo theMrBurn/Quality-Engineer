@@ -1,6 +1,6 @@
 #FizzBuzz unit test
 #
-#run FizzBuzz.py
+
 #
 #how many 3's of 100
 #how many 5's of 100
@@ -13,17 +13,10 @@
 import unittest
 import fizzbuzz
 
-class FizzBuzzTest1(unittest.testcase):
-	def test_1_100(self)
-	#we can print 1 - 101
+class Test_FizzBuzz():
 
-
-for x in range (1, 101):
-	if x % 3 == 0 and x % 5 == 0:
-		print "FizzBuzz"
-	elif x % 3 == 0:
-		print "Fizz"	
-	elif x % 5 == 0:
-		print "Buzz"
-	else:
-		print x
+	def test_fizzbuzz_01_100(self):
+		# run FizzBuzz.py
+		result = fizzbuzz(1, 101)
+		# check for expected output
+	
