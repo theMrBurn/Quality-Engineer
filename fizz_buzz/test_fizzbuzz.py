@@ -12,15 +12,17 @@
 import unittest
 import fizzbuzz
 
-class Test_FizzBuzz():
+class Test_FizzBuzz(unittest.FizzbuzzTest):
 
 	def test_fizzbuzz_01_100(self):
 		# run FizzBuzz.py
 		result = fizzbuzz(1, 101)
-		# should've ran the imported program
-		
-	# def test_fizz
+		# should've ran the imported program		
 
+	# def test_fizz
+    def test_fizz(self):
+        self.assertFizzTrue(True)
+		self.assertFizzFalse(False)
 
 
 	# def test_buzz
@@ -32,3 +34,7 @@ class Test_FizzBuzz():
 
 
 	# def test_neither_fizz_nor_buzz_or_fizzbuzz	
+
+
+if __name__ == '__main__':
+    unittest.main()
