@@ -18,5 +18,16 @@ class Test_FizzBuzz():
 	def test_fizzbuzz_01_100(self):
 		# run FizzBuzz.py
 		result = fizzbuzz(1, 101)
-		# check for expected output
-	
+		# should've ran the imported program
+		
+	#def test_fizz
+
+
+
+	#def test_buzz
+
+
+
+	#def test_fizz_buzz
+
+
