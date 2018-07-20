@@ -10,6 +10,14 @@
 #sum of 3s+5s equals sum of "FizzBuzz"
 #
 
+import unittest
+import fizzbuzz
+
+class FizzBuzzTest1(unittest.testcase):
+	def test_1_100(self)
+	#we can print 1 - 101
+
+
 for x in range (1, 101):
 	if x % 3 == 0 and x % 5 == 0:
 		print "FizzBuzz"
