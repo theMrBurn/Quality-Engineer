@@ -1,9 +1,9 @@
 # FizzBuzz unit test
 #
-#
-# how many 3's of 100
-# how many 5's of 100
-# how many 3's and 5's of 100
+# does the fizzbuzz program run?
+# how many 3's of 100?
+# how many 5's of 100?
+# how many 3's and 5's of 100?
 # sum of 3s equals sum of "Fizz"
 # sum of 5s equals sum of "Buzz"
 # sum of 3s+5s equals sum of "FizzBuzz"
