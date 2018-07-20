@@ -20,14 +20,16 @@ class Test_FizzBuzz():
 		result = fizzbuzz(1, 101)
 		# should've ran the imported program
 		
-	#def test_fizz
+	# def test_fizz
 
 
 
-	#def test_buzz
+	# def test_buzz
 
 
 
-	#def test_fizz_buzz
+	# def test_fizz_buzz
 
 
+
+	# def test_neither_fizz_nor_buzz	
