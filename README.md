@@ -3,7 +3,7 @@ the Automation directory contains updated examples of Test Automation Framework
 
 To Install the webdriverIO automation, clone this repo and run `npm i`, provided you have NPM on your local machine, it will download all of the necessary items according to the dependencies in the 'package-lock.json' in `/wdio-test`
 
-to run the tests, navigate to `/wdio-test` in your terminal and run command `/node_modules/.bin/wdio --spec`
+to run the tests, navigate to `/wdio-test` in your terminal and run command `./node_modules/.bin/wdio --spec`
 
 Upon success, you should see Chrome launch, and run through the test steps
 
