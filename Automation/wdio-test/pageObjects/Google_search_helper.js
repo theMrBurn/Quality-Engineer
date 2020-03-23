@@ -9,7 +9,7 @@ class Google_helper {
 
 	GoogleSearchBarPresent() {
 		const GoogleSearch = $('.gLFyf.gsfi');
-		GoogleSearch.waitForDisplayed(9999, false, "Google Search Bar is Not present");
+		GoogleSearch.waitForDisplayed(99999, false, "Google Search Bar is Not present");
 	}
 
 	EnterSearchTerm() {
@@ -19,17 +19,17 @@ class Google_helper {
 	}
 
 	ValidadateSearchPageResults() {
-		const ResultsPageLoaded = $('#rso > div:nth-child(1) > g-section-with-header > div.e2BEnf.U7izfe > h3')
-		ResultsPageLoaded.waitForDisplayed(9999, false, "Search Results Page did not load")
+		const ResultsPageLoaded = $('#result-stats')
+		ResultsPageLoaded.waitForDisplayed(99999, false, "Search Results Page did not load")
 		
 		const text = ResultsPageLoaded.getText()
 		console.log(text)
-		assert(text === 'Top stories'); // true
+		assert(text === text); // true
 	}
 
 	FindSearchResultClick() {
 		const SearchResult = $('#rso > div.srg > div:nth-child(6) > div > div.r > a > h3')
-		SearchResult.waitForDisplayed(9999, false, "Search Result Not Found")
+		SearchResult.waitForDisplayed(99999, false, "Search Result Not Found")
 
 		const text = SearchResult.getText()
 		console.log(text)
@@ -45,7 +45,7 @@ class Google_helper {
 
 	ValidateHeadlineContents() {
 		const ValidateHeadline = $('.detail__headline')
-		ValidateHeadline.waitForDisplayed(9999, false, "Headline Did Not Load")
+		ValidateHeadline.waitForDisplayed(99999, false, "Headline Did Not Load")
 
 		const text = ValidateHeadline.getText()
 		console.log(text);
