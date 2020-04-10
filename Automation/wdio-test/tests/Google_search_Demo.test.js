@@ -32,7 +32,7 @@ describe('Visit Google.com, enter a search, find a result, click the result and 
 
       describe('Step 3 - Find Desired Search result and click result, validate that page has loaded and the Headline is the desired result', () => {
 
-            it('Desired Search Result found, clicked, and that reults page has loaded', () => {
+            it('Desired Search Result found, clicked, and that page has loaded and displays required results', () => {
                   Google_helper.FindSearchResultClick();
                   Google_helper.ValidateResultPageLoad();
                   Google_helper.ValidateHeadlineContents();
