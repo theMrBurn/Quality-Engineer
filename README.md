@@ -18,7 +18,8 @@ _______
 
 Postman regression testing
 
-Under the Automation directory is a Postman collection I created to do automated regression testing against an API that handled smart home technology and outside vendor hardware
+Under the Automation directory is a Postman collection I created to do automated regression testing against an API that handled smart home technology and outside vendor hardware.
+
 If imported in to your Postman IDE, it will not run, because you would need the global and environmental variable `.json` files necessary to retrieve authentecation. This is meant to be an example of how I would fully automate API testing for continous regression against new feature branches. 
 
 In practice this was part of a docker build and deploy job in CircleCI against Dev and Staging envionments using Newman, as well as against locally spun up instances for more robust functional testing and test case development. It could also be ran at-will against any of those environments via Newman in your local terminal.
