@@ -22,7 +22,7 @@ describe('Visit Google.com, enter a search, find a result, click the result and 
       });
 
 
-      describe('Step 2 - Enter Search Term "Covid 19 Portland Layoffs', () => {
+      describe('Step 2 - Enter Search Term "Covid 19 Portland Layoffs"', () => {
 
             it('Validates Search Results Page has Loaded', () => {
                   Google_helper.EnterSearchTerm();
