@@ -10,4 +10,16 @@ Currently, the applications or Projects being used by the test frameworks in thi
 
 Beyond this being a general Readme for the test Repository, it will also have technical onboarding instructions for any engineering team member that wishes to use these tools.
 
-#TODO: update readme when test frameworks are available for use.
+
+
+-----
+Tools used by Software Quality Engineers
+-----
+#TODO - update webdriver local install instructions
+#TODO - update Postman / Newman local install instructions
+
+
+Webdiriver.io To Install the webdriverIO automation, clone this repo and run npm i in the /wdio-test, provided you have NPM on your local machine, it will download all of the necessary items according to the dependencies in the package-lock.json in /wdio-test
+
+Additional help getting started can be found by visiting https://webdriver.io/docs/gettingstarted.html
+
