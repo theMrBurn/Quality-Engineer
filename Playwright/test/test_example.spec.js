@@ -11,6 +11,4 @@ test('Logon to /Payroll', async ({ browser }) => {
 
     await page.goto('https://azwu2apweb-test.azurewebsites.net/Payroll');
     await page.waitForTimeout(5000)
-    //const title = page.locator('.navbar__inner .navbar__title');
-    //await expect(title).toHaveText('Playwright');
 });
