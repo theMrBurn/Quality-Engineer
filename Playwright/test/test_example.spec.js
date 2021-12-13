@@ -1,14 +1,14 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require("@playwright/test");
 
-test('Logon to /Payroll', async ({ browser }) => {
-    const context = await browser.newContext({
-        storageState: "./auth-testenv.json"
-    })
-    
-    const page = await context.newPage();
-    const cxtx = page.context();
-    cxtx.storageState()
+test("Logon to /Payroll", async ({ browser }) => {
+  const context = await browser.newContext({
+    storageState: "./auth-testenv.json",
+  });
 
-    await page.goto('https://azwu2apweb-test.azurewebsites.net/Payroll');
-    await page.waitForTimeout(5000)
+  const page = await context.newPage();
+  const cxtx = page.context();
+  cxtx.storageState();
+
+  await page.goto("https://azwu2apweb-test.azurewebsites.net/Payroll");
+  await page.waitForTimeout(5000);
 });
