@@ -1,7 +1,3 @@
-TODO: UPDATE FOR PLAYWRIGHT INSTRUCTIONS
-
----
-
 ## Automated Quality Assurance Test Repository
 
 This is where all of the test automation created and maintained by the Software Quality Assurance team for Lithia Motors,internal development tools will live.
