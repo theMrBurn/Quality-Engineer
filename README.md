@@ -10,12 +10,6 @@ Beyond this being a general Readme for the test Repository, it will also have te
 
 ---
 
-## Tools used by Software Quality Engineers
-
-#TODO - update Postman / Newman local install instructions | We may only use Postman for manual testing as Playwright has the libraries to run REST API test automation as part of its boilerplate framework.
-
----
-
 ## Playwright | Functional UI, End-to-End and Rest API test automation framework
 
 Playwright | https://playwright.dev/docs/intro | - To install, it should be as simple as having NVM/NPM present on your developer machine, Windows or Mac, cloning this repo and running `npm clean-install` and then `npm i` in the directory you wish to store and run this automation.
