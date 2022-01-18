@@ -1,6 +1,8 @@
-const { test, expect } = require("@playwright/test");
+// global-setup.js
+const { page } = require("@playwright/test");
 
-test("Logon to /Payroll", async ({ browser }) => {
+module.exports = async (config) => {
+  // Sign in using the Super User json
   const context = await browser.newContext({
     storageState: "./pw_auth_testenv.json",
   });
@@ -10,5 +12,5 @@ test("Logon to /Payroll", async ({ browser }) => {
   cxtx.storageState();
 
   await page.goto("https://azwu2apweb-test.azurewebsites.net/Payroll");
-  await page.waitForTimeout(5000);
-});
+  await browser.close();
+};

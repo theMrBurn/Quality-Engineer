@@ -12,8 +12,14 @@
 # !package.json
 
 
+.markdownlint.yaml
+.node_modules
 /node_modules
 node_modules
 .DS_Store
 package-lock.json
 /.trunk
+./allure-results/
+./playwright-report/
+/allure-results/
+/playwright-report/
