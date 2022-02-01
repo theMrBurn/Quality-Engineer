@@ -1,12 +1,16 @@
 // Payroll Dashboard
+
 // POMs have to live in the same directory as the test, for now
-// since we will have multiple user paths, lets declare which user creds in this space.
 // we will paramaterize the storageState with other .json for each userLogin, if necessary
 
+// dependancies
 const { test, expect } = require("@playwright/test");
 const { PayrollDashboard } = require("./payroll_dashboard.js");
+
+// user
 test.use({ storageState: "pw_auth_testenv.json" });
 
+//test
 test.describe.serial("Payroll Home Page", () => {
   test("Navigate to Payroll Home and validate Page elements have loaded", async ({
     browser,

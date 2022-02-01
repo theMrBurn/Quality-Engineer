@@ -3,35 +3,52 @@
 const { devices } = require("@playwright/test");
 
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
-//@ts-check
-
 const config = {
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  reporter: "line",
 
-  globalSetup: require.resolve("./global-setup.js"),
+  // Options shared for all projects.
+  timeout: 90000,
+
+  // Give failing tests 3 retry attempts
+  retries: 3,
 
   use: {
-    trace: "retain-on-failure",
+    trace: "on-first-retry",
 
     //for login as superadmin
     storageState: "pw_auth_testenv.json",
   },
 
-  reporter: "html",
-
+  // Options specific to each project.
   projects: [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      name: "Desktop Chromium",
+      use: {
+        browserName: "chromium",
+        viewport: { width: 1280, height: 720 },
+      },
     },
     {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
+      name: "Desktop Safari",
+      use: {
+        browserName: "webkit",
+        viewport: { width: 1280, height: 720 },
+      },
     },
     {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] },
+      name: "Desktop Firefox",
+      use: {
+        browserName: "firefox",
+        viewport: { width: 1280, height: 720 },
+      },
+    },
+    {
+      name: "Mobile Chrome",
+      use: devices["Pixel 6"],
+    },
+    {
+      name: "Mobile Safari",
+      use: devices["iPhone 12"],
     },
   ],
 };
