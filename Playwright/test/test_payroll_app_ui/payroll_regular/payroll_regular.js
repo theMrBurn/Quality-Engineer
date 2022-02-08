@@ -192,14 +192,12 @@ class PayrollRegular {
     await this.payStatusListDropdown.fill(text);
     await this.payStatusListDropdown.press("ArrowDown");
     await this.payStatusListDropdown.press("Enter");
-    //await this.page.pause()
   }
   async inputPayDataLoadListDropdown(text) {
     await this.payDataLoadListDropdown.click();
     await this.payDataLoadListDropdown.fill(text);
     await this.payDataLoadListDropdown.press("ArrowDown");
     await this.payDataLoadListDropdown.press("Enter");
-    // await this.page.pause()
   }
 
   async inputPayInputSheetListDropdown(text) {
@@ -207,7 +205,6 @@ class PayrollRegular {
     await this.payInputSheetListDropdown.fill(text);
     await this.payInputSheetListDropdown.press("ArrowDown");
     await this.payInputSheetListDropdown.press("Enter");
-    // await this.page.pause()
   }
 
   async inputPayAdjustmentListDropdown(text) {
@@ -215,7 +212,6 @@ class PayrollRegular {
     await this.payAdjustmentListDropdown.fill(text);
     await this.payAdjustmentListDropdown.press("ArrowDown");
     await this.payAdjustmentListDropdown.press("Enter");
-    // await this.page.pause()
   }
 
   async inputPayRegisterReviewPayrollDropdown(text) {
@@ -223,7 +219,6 @@ class PayrollRegular {
     await this.payRegisterReviewPayrollDropdown.fill(text);
     await this.payRegisterReviewPayrollDropdown.press("ArrowDown");
     await this.payRegisterReviewPayrollDropdown.press("Enter");
-    // await this.page.pause()
   }
 
   async inputPayRegisterReviewLocationDropdown(text) {
@@ -231,7 +226,6 @@ class PayrollRegular {
     await this.payRegisterReviewLocationDropdown.fill(text);
     await this.payRegisterReviewLocationDropdown.press("ArrowDown");
     await this.payRegisterReviewLocationDropdown.press("Enter");
-    // await this.page.pause()
   }
 }
 module.exports = { PayrollRegular };
