@@ -1,4 +1,4 @@
-// this POM is for /Payroll
+// this POM is for /Payroll/Regular
 const { expect } = require("@playwright/test");
 
 class PayrollRegular {

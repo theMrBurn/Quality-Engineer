@@ -13,6 +13,10 @@ const config = {
   retries: 3,
 
   use: {
+    launchOptions: {
+      slowMo: 50,
+    },
+
     trace: "on-first-retry",
 
     //for login as superadmin
@@ -22,33 +26,16 @@ const config = {
   // Options specific to each project.
   projects: [
     {
-      name: "Desktop Chromium",
-      use: {
-        browserName: "chromium",
-        viewport: { width: 1280, height: 720 },
-      },
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
     {
-      name: "Desktop Safari",
-      use: {
-        browserName: "webkit",
-        viewport: { width: 1280, height: 720 },
-      },
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"] },
     },
     {
-      name: "Desktop Firefox",
-      use: {
-        browserName: "firefox",
-        viewport: { width: 1280, height: 720 },
-      },
-    },
-    {
-      name: "Mobile Chrome",
-      use: devices["Pixel 6"],
-    },
-    {
-      name: "Mobile Safari",
-      use: devices["iPhone 12"],
+      name: "webkit",
+      use: { ...devices["Desktop Safari"] },
     },
   ],
 };

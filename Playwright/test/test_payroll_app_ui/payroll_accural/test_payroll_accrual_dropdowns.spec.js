@@ -1,4 +1,4 @@
-// Payroll Dashboard
+// Payroll Accrual
 
 // POMs have to live in the same directory as the test, for now
 // we will paramaterize the storageState with other .json for each userLogin, if necessary

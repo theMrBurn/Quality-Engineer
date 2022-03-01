@@ -39,10 +39,10 @@ test.describe.serial("Payroll Home Page", () => {
     await payrollDashboard.getManualChecksBox();
     await payrollDashboard.getMonthToDateBox();
     await payrollDashboard.getMonthToDateCounter();
-    await payrollDashboard.getyearToDateBox();
+    // await payrollDashboard.getyearToDateBox(); -- needs unique data test tag
     await payrollDashboard.getYearToDateCounter();
     await payrollDashboard.getAveragePerMonthBox();
-    await payrollDashboard.getAveragePerMonthCounter();
+    // await payrollDashboard.getAveragePerMonthCounter(); -- needs unique data test tag
   });
 
   test("Navigate to Payroll home and Click top header Links", async ({

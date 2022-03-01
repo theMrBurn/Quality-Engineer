@@ -43,9 +43,11 @@ class PayrollDashboard {
     this.manualChecksBox = page.locator("text=Manual Checks");
     this.monthToDateBox = page.locator("#ManualChecksMonthToDateCount");
     this.monthToDateCounter = page.locator("text=MTD $0 >> label");
-    this.yearToDateBox = page.locator("#ManualChecksYearToDateCount");
-    this.yearToDateCounter = page.locator("text=YTD $0 >> label");
-    this.averagePerMonthBox = page.locator("#ManualChecksAveragePerMonthCount");
+    // this.yearToDateBox = page.locator('text=YTD'); -- needs unique data test tag
+    this.yearToDateCounter = page.locator("id=ManualChecksYearToDateCount");
+    this.averagePerMonthBox = page.locator(
+      "id=ManualChecksAveragePerMonthCount"
+    );
     this.averagePerMonthCounter = page.locator(
       "text=Average per Month $0 >> label"
     );
