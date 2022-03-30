@@ -78,7 +78,7 @@ class PayrollStoreInput {
     expect(medford).toBe("Medford CJD (L0004)");
   }
 
-  async inputCompanyDropdown(text) {
+  async inputPPEdateDropdown(text) {
     await this.storeInputPPEdate.click();
     await this.storeInputPPEdate.fill(text);
     await this.storeInputPPEdate.press("ArrowDown");
