@@ -12,7 +12,6 @@ test.use({ storageState: "pw_auth_testenv.json" });
 
 //test
 test.describe("Payroll /Accrual - dropdowns functional check", () => {
-  test.slow();
   test("Navigate to Payroll /Accrual and interact with Company dropdown", async ({
     page,
   }) => {
@@ -53,19 +52,24 @@ test.describe("Payroll /Accrual - dropdowns functional check", () => {
   test("Navigate to Payroll /Accrual and validate when Company, PPE and Pay Frequency are input, Accrual Grid is present", async ({
     page,
   }) => {
+    test.fixme("fix Input Company dropdown method");
+
     const payrollAccrual = new PayrollAccrual(page);
 
     await payrollAccrual.goto();
 
     // pay calendar
-    await payrollAccrual.inputCompanyDropdown("Med");
+    await payrollAccrual.inputCompanyDropdown("Medford");
 
-    const medford = await page.innerText("text=Medford CJD (L0004)");
-    expect(medford).toBe("Medford CJD (L0004)");
+    const medford = await page.innerText("text=Medford");
+    expect(medford).toBe("Medford Body Shop (L0003)");
 
-    await payrollAccrual.inputPPEDateDropdown("12/15/20");
+    await payrollAccrual.inputPPEDateDropdown("12/15/2022");
+    const ppeDate = await page.innerText("text=12/15/2022");
+    expect(ppeDate).toBe("12/15/2022");
 
     await payrollAccrual.inputPayFrequencyDropdown("Semi");
+    const payFrequency = await page.innerText("text=Semi-monthly");
 
     // if dropdowns chosen properly, this Run button should be visible
     await payrollAccrual.getAccrualRunButton1();

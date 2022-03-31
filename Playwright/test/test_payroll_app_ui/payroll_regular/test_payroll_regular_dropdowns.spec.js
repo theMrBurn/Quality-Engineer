@@ -12,7 +12,6 @@ test.use({ storageState: "pw_auth_testenv.json" });
 
 //test
 test.describe("Payroll /Regular - dropdowns functional check", () => {
-  test.slow();
   test("Navigate to Payroll /Regular and interact with Company dropdown", async ({
     page,
   }) => {

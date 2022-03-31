@@ -79,14 +79,12 @@ class PayrollAccrual {
     await this.accrualInputCompany.click();
     await this.accrualInputCompany.fill(text);
     await this.accrualInputCompany.press("ArrowDown");
-    await this.accrualInputCompany.press("ArrowDown");
     await this.accrualInputCompany.press("Enter");
   }
 
   async inputPPEDateDropdown(text) {
     await this.accrualInputPPEdate.click();
     await this.accrualInputPPEdate.fill(text);
-    await this.accrualInputPPEdate.press("ArrowDown");
     await this.accrualInputPPEdate.press("ArrowDown");
     await this.accrualInputPPEdate.press("Enter");
   }

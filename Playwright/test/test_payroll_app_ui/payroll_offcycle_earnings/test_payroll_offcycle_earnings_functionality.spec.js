@@ -229,7 +229,10 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     expect(payroll).toBe("Payroll");
   });
 
-  test.fixme("race condition preventing success", async ({ page }) => {
+  test("Navigate to /Payroll/Adjustment Validate when company and pay frequency are input PPEdate can be input", async ({
+    page,
+  }) => {
+    test.fixme("race condition preventing success");
     const payrollOffcycle = new PayrollOffCycleEarnings(page);
     await payrollOffcycle.goto();
 

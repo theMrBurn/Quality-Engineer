@@ -108,6 +108,7 @@ class PayrollAudit {
     await this.companyDropdown.click();
     await this.companyDropdown.fill(text);
     await this.companyDropdown.press("ArrowDown");
+    // await this.companyDropdown.press("ArrowDown");
     await this.companyDropdown.press("Enter");
   }
 
