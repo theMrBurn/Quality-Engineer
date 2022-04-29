@@ -1,0 +1,130 @@
+// Payplan Employee
+
+// POMs have to live in the same directory as the test, for now
+// we will paramaterize the storageState with other .json for each userLogin, if necessary
+
+// dependancies
+const { test, expect } = require("@playwright/test");
+const { PayplanEmployee } = require("./payplan_employee.js");
+
+// user
+test.use({ storageState: "pw_auth_testenv.json" });
+
+//test
+test.describe(
+  "Payplan Employees - dropdowns and inputs functional check",
+  () => {
+    test("Navigate to Payplan /Employee and interact with Employee dropdown", async ({
+      page,
+    }) => {
+      const payplanEmployee = new PayplanEmployee(page);
+
+      await payplanEmployee.goto();
+
+      // employee
+      await payplanEmployee.inputEmployeeDropdown("Curtis Zakrzewski");
+
+      // input employee and grid should show
+      const employeeGridResult = await page.innerText("text=Curtis Zakrzewski");
+      await page.locator("text=Curtis Zakrzewski (166341)").click();
+      expect(employeeGridResult).toBe("Curtis Zakrzewski (166341)");
+
+      const employeePayPlanID = await page.innerText("text=3844");
+      expect(employeePayPlanID).toBe("3844");
+    });
+
+    test("Navigate to Payplan /Employee and interact with Employee and Company dropdown", async ({
+      page,
+    }) => {
+      test.fixme(
+        "inputs that appear visible are coded hidden preventing success. Currently Covered by Manual testing"
+      );
+      const payplanEmployee = new PayplanEmployee(page);
+
+      await payplanEmployee.goto();
+
+      // employee
+      await payplanEmployee.inputEmployeeDropdown("Dean Faciane");
+
+      // input employee and grid should show
+      const employeeGridResult = await page.innerText("text=Dean Faciane");
+      await page.locator("text=Dean Faciane (204904)").click();
+      expect(employeeGridResult).toBe("Dean Faciane (204904)");
+
+      // company
+      await payplanEmployee.inputCompanyDropdown("Seattle BMW");
+
+      // input employee and grid should show
+      const companyGridResult = await page.innerText("text=Seattle BMW");
+      expect(companyGridResult).toBe("Seattle BMW");
+    });
+
+    test("Navigate to Payplan /Employee and interact with Employee, Company, Job dropdown", async ({
+      page,
+    }) => {
+      test.fixme(
+        "inputs that appear visible are coded hidden preventing success. Currently Covered by Manual testing"
+      );
+      const payplanEmployee = new PayplanEmployee(page);
+
+      await payplanEmployee.goto();
+
+      // employee
+      await payplanEmployee.inputEmployeeDropdown("99300");
+
+      // input employee and grid should show
+      const employeeGridResult = await page.innerText("text=Jeff Cartwright");
+      await page.locator("text=Jeff Cartwright (99300)").click();
+      expect(employeeGridResult).toBe("Jeff Cartwright (99300)");
+
+      // company
+      await payplanEmployee.inputCompanyDropdown("Des Moines Volkswagen");
+
+      // input employee and grid should show
+      const companyGridResult = await page.innerText(
+        "text=Des Moines Volkswagen"
+      );
+      expect(companyGridResult).toBe("Des Moines Volkswagen (L0192)");
+
+      // input job and grid should show relavant results
+      await payplanEmployee.inputJobDropdown("Detailer");
+      const jobGridResult = await page.innerText("text=35007");
+      expect(jobGridResult).toBe("Detailer 35007");
+    });
+
+    test("Navigate to Payplan /Employee and interact with Employee, Company, Job dropdown", async ({
+      page,
+    }) => {
+      test.fixme(
+        "inputs that appear visible are coded hidden preventing success. Currently Covered by Manual testing"
+      );
+      const payplanEmployee = new PayplanEmployee(page);
+
+      await payplanEmployee.goto();
+
+      // employee
+      await payplanEmployee.inputEmployeeDropdown("99300");
+
+      // input employee and grid should show
+      const employeeGridResult = await page.innerText("text=Jeff Cartwright");
+      await page.locator("text=Jeff Cartwright (99300)").click();
+      expect(employeeGridResult).toBe("Jeff Cartwright (99300)");
+
+      // company
+      await payplanEmployee.inputCompanyDropdown("Des Moines Volkswagen");
+
+      // input employee and grid should show
+      const companyGridResult = await page.innerText(
+        "text=Des Moines Volkswagen"
+      );
+      expect(companyGridResult).toBe("Des Moines Volkswagen (L0192)");
+
+      // input job and grid should show relavant results
+      await payplanEmployee.inputJobDropdown("Detailer");
+      const jobGridResult = await page.innerText("text=35007");
+      expect(jobGridResult).toBe("Detailer 35007");
+
+      // input status and should show relavant results
+    });
+  }
+);

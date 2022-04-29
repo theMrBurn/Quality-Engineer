@@ -136,7 +136,7 @@ class PayrollOffCycleEarnings {
 
   // get buttons
   async getSearchButton() {
-    await expect(this.searchButton);
+    await expect(this.searchButton).toBeVisible();
   }
 
   // get grid items

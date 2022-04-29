@@ -10,7 +10,7 @@ const config = {
   timeout: 90000,
 
   // Give failing tests 3 retry attempts
-  retries: 3,
+  retries: 5,
 
   use: {
     launchOptions: {
