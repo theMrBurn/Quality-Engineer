@@ -141,8 +141,6 @@ class PayrollAdjustment {
     await this.payGroupListDropdown.fill(text);
     await this.payGroupListDropdown.press("ArrowDown");
     await this.payGroupListDropdown.press("Enter");
-    const medford = await this.page.innerText("text=Medford CJD (L0004)");
-    expect(medford).toBe("Medford CJD (L0004)");
   }
 
   async inputPPEdateDropdown(text) {

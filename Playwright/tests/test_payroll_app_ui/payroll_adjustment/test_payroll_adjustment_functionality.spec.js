@@ -31,7 +31,7 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
     await payrollAdjustment.goto();
 
     // company
-    await payrollAdjustment.inputCompanyDropdown("Medford CJD");
+    await payrollAdjustment.inputCompanyDropdown("Medford");
   });
 
   test("Navigate to /Payroll/Adjustment Validate PPE dropdown options can be input", async ({

@@ -24,3 +24,9 @@ package-lock.json
 /playwright-report/
 .vscode
 /test_automation.code-workspace
+test-results/
+playwright-report/
+test-results/
+playwright-report/
+test-results/
+playwright-report/
