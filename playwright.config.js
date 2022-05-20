@@ -14,7 +14,7 @@ const { devices } = require("@playwright/test");
 const config = {
   testDir: "Playwright/tests",
   /* Maximum time one test can run for. */
-  timeout: 60 * 1000,
+  timeout: 400 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -29,7 +29,7 @@ const config = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "line",
+  reporter: "list",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
