@@ -14,11 +14,26 @@ class PayrollAccrual {
     this.accuralHeader = page.locator('h2:has-text("Accrual")');
     // dropdowns
     this.accrualInputCompany = page.locator('input[name="PayGroupList_input"]');
+
+    this.inputCompanyTriangle = page.locator('[aria-label="select"]');
+
+    this.inputPPEDateDropdownTriangle = page
+      .locator('[aria-label="select"]')
+      .nth(1);
+
     this.accrualInputPPEdate = page.locator(
       'input[name="PayPeriodEndDateList_input"]'
     );
+
+    this.inputPayFrequencyDropdownTriangle = page
+      .locator('[aria-label="select"]')
+      .nth(2);
+
     this.accrualInputPayFrequency = page.locator(
       'input[name="PayFrequencyList_input"]'
+    );
+    this.deletePayFrequency = page.locator(
+      ".k-dropdown-wrap.k-state-default.k-state-focused > .k-icon.k-clear-value"
     );
 
     // Accrual Grid items
@@ -75,25 +90,36 @@ class PayrollAccrual {
 
   // interact with elements
 
-  async inputCompanyDropdown(text) {
+  async clickCompanyDropdown() {
+    await this.inputCompanyTriangle.first().click();
+  }
+
+  async inputCompanyDropdownText(text) {
     await this.accrualInputCompany.click();
     await this.accrualInputCompany.fill(text);
-    await this.accrualInputCompany.press("ArrowDown");
-    await this.accrualInputCompany.press("Enter");
+  }
+
+  async clickPPEdateDropdown() {
+    await this.inputPPEDateDropdownTriangle.first().click();
   }
 
   async inputPPEDateDropdown(text) {
     await this.accrualInputPPEdate.click();
     await this.accrualInputPPEdate.fill(text);
-    await this.accrualInputPPEdate.press("ArrowDown");
-    await this.accrualInputPPEdate.press("Enter");
   }
 
+  async clickPayFrequencyDropdown() {
+    await this.inputPayFrequencyDropdownTriangle.first().click();
+  }
   async inputPayFrequencyDropdown(text) {
     await this.accrualInputPayFrequency.click();
     await this.accrualInputPayFrequency.fill(text);
     await this.accrualInputPayFrequency.press("ArrowDown");
     await this.accrualInputPayFrequency.press("Enter");
+  }
+
+  async clickDeletePayFrequency() {
+    await this.deletePayFrequency.click();
   }
 }
 

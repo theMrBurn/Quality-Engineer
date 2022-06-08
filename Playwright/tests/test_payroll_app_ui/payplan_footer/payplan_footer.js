@@ -85,6 +85,10 @@ class PayplanFooter {
     await expect(this.updatedOnColumnText).toBeVisible();
   }
 
+  async getEditButton() {
+    await expect.soft(this.editButton).toBeVisible();
+  }
+
   async getAddFooterButton() {
     await expect(this.addFooterButton).toBeVisible();
   }
@@ -122,6 +126,7 @@ class PayplanFooter {
   }
 
   async clickEditButton() {
+    await this.getEditButton();
     await this.editButton.click();
   }
 

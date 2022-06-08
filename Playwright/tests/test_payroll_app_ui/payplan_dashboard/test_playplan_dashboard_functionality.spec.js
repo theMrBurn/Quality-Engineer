@@ -15,19 +15,20 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
   test("Navigate to /Payplan/Dashboard Validate Expiration Date can be input", async ({
     page,
   }) => {
-    test.fixme(
-      "pop out calendars without data test tags are impossible to input"
-    );
-
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
     // input Expiration Date 1
-    await payplansDashboard.inputExpirationDate1("Feb", "2022");
+    await payplansDashboard.clickExpirationDate1();
+    await page.locator("text=Aug").click();
+    await payplansDashboard.clickExpirationDate1();
+    await page.locator('a[role="button"]:has-text("2022")').click();
+    await page.locator('a:has-text("2023")').click();
+    await page.locator("text=Aug").click();
 
     // can't validate correct date /// page.innerText: Target closed
-    // const expirationDate1 = await page.innerText("text=Feb 2022");
-    // expect(expirationDate1).toBe("February 2022");
+    // const expirationDate1 = await page.textContent("text=Aug 2023");
+    // expect(expirationDate1).toBe("Aug 2023");
   });
 
   test("Navigate to /Payplan/Dashboard Validate Pay Calendar Date can be input", async ({
@@ -145,15 +146,17 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
   test("Navigate to /Payplan/Dashboard Validate Expiration Date2 can be input", async ({
     page,
   }) => {
-    test.fixme(
-      "pop out calendars without data test tags are impossible to input"
-    );
-
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
     // input Expiration Date 2
-    await payplansDashboard.inputExpirationDate2("Feb", "2022");
+
+    await payplansDashboard.clickExpirationDate2();
+    await page.locator("text=Feb").click();
+    await payplansDashboard.clickExpirationDate2();
+    await page.locator('a[role="button"]:has-text("2022")').click();
+    await page.locator('table[role="grid"] >> text=2022').click();
+    await page.locator("text=Feb").click();
 
     // can't validate correct date /// page.innerText: Target closed
     // const expirationDate1 = await page.innerText("text=Feb 2022");
@@ -163,15 +166,16 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
   test("Navigate to /Payplan/Dashboard Validate Effective Date can be input", async ({
     page,
   }) => {
-    test.fixme(
-      "pop out calendars without data test tags are impossible to input"
-    );
-
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
     // input Effective Date
-    await payplansDashboard.inputEffectiveDate("Feb", "2022");
+    await payplansDashboard.clickEffectiveDate();
+    await page.locator("text=Mar").click();
+    await payplansDashboard.clickEffectiveDate();
+    await page.locator('a[role="button"]:has-text("2022")').click();
+    await page.locator('table[role="grid"] >> text=2022').click();
+    await page.locator("text=Mar").click();
 
     // can't validate correct date /// page.innerText: Target closed
     // const expirationDate1 = await page.innerText("text=Feb 2022");

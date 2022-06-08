@@ -232,7 +232,7 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
   test("Navigate to /Payroll/Adjustment Validate when company and pay frequency are input PPEdate can be input", async ({
     page,
   }) => {
-    test.fixme("race condition preventing success");
+    // test.fixme("race condition preventing success");
     const payrollOffcycle = new PayrollOffCycleEarnings(page);
     await payrollOffcycle.goto();
 
@@ -246,8 +246,9 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     const semiMonthly = await page.innerText("text=Semi-monthly");
     expect(semiMonthly).toBe("Semi-monthly");
 
-    if (await payrollOffcycle.getPPEdateDropdown()) {
-      await payrollOffcycle.inputPPEdateDropdown("02/15/2022");
+    if (await payrollOffcycle.clickPPEDateDropdown()) {
+      const ppeDate = payrollOffcycle.inputCompanyDropdown("02/15/2022");
+      expect(ppeDate).toBe("02/15/2022");
     }
   });
 });

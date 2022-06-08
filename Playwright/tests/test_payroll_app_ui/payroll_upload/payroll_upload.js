@@ -26,6 +26,11 @@ class PayrollUpload {
     this.ppeDateDropdown = page.locator(
       'input[name="PayPeriodEndDateList_input"]'
     );
+
+    this.accountingMonthCalendar = page.locator(
+      '[aria-label="select"] >> nth=2'
+    );
+
     this.accountingMonthDateDropdown = page.locator(
       'input[name="AccountingMonthDate"]'
     );
@@ -92,6 +97,10 @@ class PayrollUpload {
     await this.paycalendarListDropdown.fill(text);
     await this.paycalendarListDropdown.press("ArrowDown");
     await this.paycalendarListDropdown.press("Enter");
+  }
+
+  async clickAccountingMonthCalendar() {
+    await this.accountingMonthCalendar.click();
   }
 
   async inputPPEdateDropdown(text) {

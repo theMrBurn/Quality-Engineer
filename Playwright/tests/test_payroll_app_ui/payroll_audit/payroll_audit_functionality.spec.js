@@ -11,7 +11,7 @@ const { PayrollAudit } = require("./payroll_audit.js");
 test.use({ storageState: "pw_auth_testenv.json" });
 
 //test
-test.describe.serial("Payroll /Audit elements", () => {
+test.describe.serial("Payroll /Audit Functionality", () => {
   test("Navigate to /Payroll/Audit and validate Company dropdown functionality", async ({
     browser,
     page,
@@ -50,9 +50,13 @@ test.describe.serial("Payroll /Audit elements", () => {
     await payrollAudit.goto();
 
     await payrollAudit.inputCompanyDropdown("Spokane BMW");
-    await payrollAudit.inputPPEdateDropdown("07/15/2021");
+    await page.locator("text=Spokane BMW").click();
+    await payrollAudit.clickPPEdateDropdown();
+    await page.locator("text=07/31/2021").nth(2).click();
 
-    const CompleteDateGridcell = await page.innerText('text="07/21/2021"');
-    expect(CompleteDateGridcell).toBe("07/21/2021");
+    const CompleteDateGridcell = await page.locator(
+      'td[role="gridcell"]:has-text("07/31/2021")'
+    );
+    expect(CompleteDateGridcell).toHaveText("07/31/2021");
   });
 });

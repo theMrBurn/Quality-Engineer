@@ -26,9 +26,13 @@ class PayrollDashboard {
     this.payrollDashboardText = page.locator(
       "body > div.container-fluid.body-content > div.button-row"
     );
-    // this.payCalendarDrop = page.locator('.PayCalendarList_input');
-    // this.payPeriodDrop = page.locator('text=Pay Period End Date >> [placeholder="-- Select One --"]');
-    // this.monthPickerDrop = page.locator('input[name="MonthPicker"]');
+    this.payCalendarDrop = page.locator(
+      'text=Pay Calendar 2 >> [aria-label="select"]'
+    );
+    this.payPeriodDrop = page.locator(
+      'text=Pay Period End Date 182 >> [aria-label="select"]'
+    );
+    this.monthPickerDrop = page.locator('[aria-label="select"] >> nth=3');
     this.payrollSetupBox = page.locator("text=Payroll Setup");
     this.dataLoadBox = page.locator("text=Data Load");
     this.inputSheetBox = page.locator("text=Input Sheet");
@@ -45,7 +49,7 @@ class PayrollDashboard {
     this.monthToDateCounter = page.locator(
       '//*[@id="ManualChecksMonthToDateCount"]'
     );
-    // this.yearToDateBox = page.locator('text=YTD'); -- needs unique data test tag
+    this.yearToDateBox = page.locator("#ManualChecksYearToDateCount");
     this.yearToDateCounter = page.locator(
       '//*[@id="ManualChecksYearToDateCount"]'
     );
@@ -53,7 +57,7 @@ class PayrollDashboard {
       "id=ManualChecksAveragePerMonthCount"
     );
     this.averagePerMonthCounter = page.locator(
-      "text=Average per Month $0 >> label"
+      "#ManualChecksAveragePerMonthCount"
     );
   }
 

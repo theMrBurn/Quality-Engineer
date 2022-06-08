@@ -19,12 +19,9 @@ test.describe.serial("Payroll Home Page", () => {
     const payrollDashboard = new PayrollDashboard(page);
     await payrollDashboard.goto();
     await payrollDashboard.getHeaderContainer();
-
-    // these are flakey - need to figure out a better way to capture dropdown - OR request data-test
-    //await payrollDashboard.getPaycalendarDrop();
-    //await payrollDashboard.getPeriodDrop();
-    //await payrollDashboard.getMonthPickerDrop();
-
+    await payrollDashboard.getPaycalendarDrop();
+    await payrollDashboard.getPeriodDrop();
+    await payrollDashboard.getMonthPickerDrop();
     await payrollDashboard.getpayrollSetupBox();
     await payrollDashboard.getDataLoadBox();
     await payrollDashboard.getInputSheetBox();
@@ -39,10 +36,10 @@ test.describe.serial("Payroll Home Page", () => {
     await payrollDashboard.getManualChecksBox();
     await payrollDashboard.getMonthToDateBox();
     await payrollDashboard.getMonthToDateCounter();
-    // await payrollDashboard.getyearToDateBox(); -- needs unique data test tag
+    await payrollDashboard.getyearToDateBox();
     await payrollDashboard.getYearToDateCounter();
     await payrollDashboard.getAveragePerMonthBox();
-    // await payrollDashboard.getAveragePerMonthCounter(); -- needs unique data test tag
+    await payrollDashboard.getAveragePerMonthCounter();
   });
 
   test("Navigate to Payroll home and Click top header Links", async ({

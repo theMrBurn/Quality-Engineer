@@ -92,6 +92,14 @@ class PayplanDashboard {
       'input[name="PlanStatusMonthPicker"]'
     );
 
+    this.expirationDateCalendar1 = page.locator(
+      '[aria-label="select"] >> nth=0'
+    );
+
+    this.expirationDateCalendar2 = page.locator(
+      '[aria-label="select"] >> nth=3'
+    );
+
     this.payCalendarInput = page.locator('input[name="PayCalendarList_input"]');
 
     this.ppeDateInput = page.locator('input[name="PayPeriodList_input"]');
@@ -101,6 +109,8 @@ class PayplanDashboard {
     );
 
     this.effectiveDateInput = page.locator('input[id="MetricsMonthPicker"]');
+
+    this.effectiveDateCalendar = page.locator('[aria-label="select"] >> nth=4');
   }
 
   // Navigation
@@ -221,16 +231,27 @@ class PayplanDashboard {
 
   // input elements
 
-  async inputExpirationDate1(month, year) {
+  async clickExpirationDate1() {
+    await this.expirationDateCalendar1.click();
+  }
+
+  async inputExperationDate1(text) {
     await this.expirationDateInput.click();
-    await this.expirationDateInput.fill(month);
-    await this.expirationDateInput.fill(year);
+    await this.expirationDateInput.fill(text);
+  }
+
+  async clickExpirationDate2() {
+    await this.expirationDateCalendar2.click();
   }
 
   async inputExpirationDate2(month, year) {
     await this.expirationDateInput.click();
     await this.expirationDateInput.fill(month);
     await this.expirationDateInput.fill(year);
+  }
+
+  async clickEffectiveDate() {
+    await this.effectiveDateCalendar.click();
   }
 
   async inputEffectiveDate(month, year) {

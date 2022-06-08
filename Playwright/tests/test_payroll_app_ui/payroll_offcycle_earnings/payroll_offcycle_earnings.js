@@ -51,6 +51,10 @@ class PayrollOffCycleEarnings {
       'button[role="button"]:has-text("Search")'
     );
 
+    this.ppeDateDropdownTriangle = page.locator(
+      'text=Pay Frequency Pay Period End Date >> [aria-label="select"] >> nth=1'
+    );
+
     // forms and grids
     this.dataLoadGridLabel = page.locator("text=Data Load");
 
@@ -139,38 +143,22 @@ class PayrollOffCycleEarnings {
     await expect(this.searchButton).toBeVisible();
   }
 
-  // get grid items
-  // async getAuditDateGridLabel() {
-  //   await expect(this.auditDateGridLabel).toBeVisible();
-  // }
-
-  // async getReportGridLabel() {
-  //   await expect(this.reportGridLabel).toBeVisible();
-  // }
-
-  // // click elements
-  // async clickCompanyDropdown() {
-  //   await this.companyDropdown.click();
-  // }
-
-  // async clickPPEdateDropdown() {
-  //   await this.payPPEdateDropdown.click();
-  // }
-
-  // // interact with elements
+  // interact with elements
 
   async inputCompanyDropdown(text) {
     await this.companyDropdown.click();
     await this.companyDropdown.fill(text);
-    await this.companyDropdown.press("ArrowDown");
-    await this.companyDropdown.press("Enter");
+    await this.companyDropdown.click();
+  }
+
+  async clickPPEDateDropdown() {
+    await this.ppeDateDropdownTriangle.click();
   }
 
   async inputEmployeeDropdown(text) {
     await this.employeeDropdown.click();
     await this.employeeDropdown.fill(text);
-    await this.employeeDropdown.press("ArrowDown");
-    await this.employeeDropdown.press("Enter");
+    await this.employeeDropdown.click(text);
   }
 
   async inputPayFrequencyDropdown(text) {

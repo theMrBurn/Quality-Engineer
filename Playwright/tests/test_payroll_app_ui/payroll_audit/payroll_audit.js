@@ -24,6 +24,10 @@ class PayrollAudit {
       'input[name="PayPeriodEndDateList_input"]'
     );
 
+    this.ppeDateDropdownTriangle = page.locator(
+      '[aria-label="select"] >> nth=1'
+    );
+
     // forms and grids
     this.dataLoadGridLabel = page.locator("text=Data Load");
 
@@ -99,7 +103,7 @@ class PayrollAudit {
   }
 
   async clickPPEdateDropdown() {
-    await this.payPPEdateDropdown.click();
+    await this.ppeDateDropdownTriangle.click();
   }
 
   // interact with elements
@@ -107,16 +111,11 @@ class PayrollAudit {
   async inputCompanyDropdown(text) {
     await this.companyDropdown.click();
     await this.companyDropdown.fill(text);
-    await this.companyDropdown.press("ArrowDown");
-    // await this.companyDropdown.press("ArrowDown");
-    await this.companyDropdown.press("Enter");
   }
 
   async inputPPEdateDropdown(text) {
-    await this.payPPEdateDropdown.click();
+    await this.clickPPEdateDropdown();
     await this.payPPEdateDropdown.fill(text);
-    await this.payPPEdateDropdown.press("ArrowDown");
-    await this.payPPEdateDropdown.press("Enter");
   }
 }
 module.exports = { PayrollAudit };
