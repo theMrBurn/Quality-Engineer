@@ -292,6 +292,11 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.inputPlanTypeDropdown();
     await page.locator("text=Split Draw").click();
     await payplanTemplate.deletePlanTypeDropdown();
+
+    //Vehicle Allowance
+    await payplanTemplate.inputPlanTypeDropdown();
+    await page.locator("text=Vehicle Allowance").click();
+    await payplanTemplate.deletePlanTypeDropdown();
   });
 
   test("Navigate to Payplan Template and validate known Template Names input functionality", async ({
