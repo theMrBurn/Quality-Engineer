@@ -49,45 +49,66 @@ class PayrollUpload {
 
   // get elements
   async getPayrollUploadText() {
-    await expect(this.payrollUploadText).toBeVisible();
+    await expect(
+      this.payrollUploadText,
+      "Payroll Upload not found"
+    ).toBeVisible();
   }
 
   async getPayCalendarText() {
-    await expect(this.payCalendarText).toBeVisible();
+    await expect(this.payCalendarText, "Pay Calendar not found").toBeVisible();
   }
 
   async getPPEdateText() {
-    await expect(this.ppeDateText).toBeVisible();
+    await expect(this.ppeDateText, "PPE date not found").toBeVisible();
   }
 
   async getAccountingMonthDateText() {
-    await expect(this.accountingMonthDate).toBeVisible();
+    await expect(
+      this.accountingMonthDate,
+      "Accounting Month Date not found"
+    ).toBeVisible();
   }
 
   async getUploadTimecardText() {
-    await expect(this.uploadTimecardText).toBeVisible();
+    await expect(
+      this.uploadTimecardText,
+      "Upload Timecard option not found"
+    ).toBeVisible();
   }
 
   async getUploadButtonText() {
-    await expect(this.uploadButtonText).toBeVisible();
+    await expect(
+      this.uploadButtonText,
+      "Upload button Text not found"
+    ).toBeVisible();
   }
 
   async getUploadButton() {
-    await expect(this.uploadButton).toBeVisible();
+    await expect(this.uploadButton, "Upload button not found").toBeVisible();
   }
 
   // get Dropdowns
 
   async getpayCalendarDropdown() {
-    await expect(this.paycalendarListDropdown).toBeVisible();
+    await expect(
+      this.paycalendarListDropdown,
+      "PayCalendar list dropdown not found"
+    ).toBeVisible();
   }
 
   async getPPEDateDropdown() {
-    await expect(this.ppeDateDropdown).toBeVisible();
+    await expect(
+      this.ppeDateDropdown,
+      "PPE Date dropdown not found"
+    ).toBeVisible();
   }
 
   async getAccountingMonthDateDropdown() {
-    await expect(this.accountingMonthDateDropdown).toBeVisible();
+    await expect(
+      this.accountingMonthDateDropdown,
+      "Accounting Month Dropdown not found"
+    ).toBeVisible();
   }
 
   // interact with elements
@@ -116,15 +137,6 @@ class PayrollUpload {
     await this.accountingMonthDateDropdown.press("ArrowDown");
     await this.accountingMonthDateDropdown.press("Enter");
   }
-
-  // calendar pop out - without data test tags, this is nearly impossible
-
-  // async clickAccountingMonthCalendar() {
-  // // Click :nth-match([aria-label="select"], 3)
-  // await this.aMonthCalendarModal.click(':nth-match([aria-label="select"], 3)');
-  // // Click text=Jul
-  // await this.aMonthCalendarModal.click('text=July');
-  // }
 
   async uploadValidTimecard() {
     await this.uploadButton.setInputFiles(

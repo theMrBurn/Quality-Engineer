@@ -159,18 +159,6 @@ class PayrollRegular {
     expect(medford).toBe("Medford CJD (L0004)");
   }
 
-  // this isn't working in Chromium for some reason, saying NO DATA
-  // not occurring when using Chrome standard. Need to figure this out later
-
-  // async inputPPEDateListDropdown(text) {
-  // await this.payPeriodEndDateListDropdown.click();
-  // await this.payPeriodEndDateListDropdown.fill(text);
-  // await this.payPeriodEndDateListDropdown.press("Enter");
-
-  // const ppeDate = await this.page.innerText("text=01/15/2022");
-  // expect(ppeDate).toBe("01/15/2022");
-  // }
-
   async inputPayRegionListDropdown(text) {
     await this.payRegionListDropdown.click();
     await this.payRegionListDropdown.fill(text);
