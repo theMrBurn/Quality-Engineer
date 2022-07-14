@@ -30,7 +30,7 @@ class PayrollDashboard {
       'text=Pay Calendar 2 >> [aria-label="select"]'
     );
     this.payPeriodDrop = page.locator(
-      'text=Pay Period End Date 186 >> [aria-label="select"]'
+      'text=Pay Period End Date 190 >> [aria-label="select"]'
     );
     this.monthPickerDrop = page.locator('[aria-label="select"] >> nth=3');
     this.payrollSetupBox = page.locator("text=Payroll Setup");
