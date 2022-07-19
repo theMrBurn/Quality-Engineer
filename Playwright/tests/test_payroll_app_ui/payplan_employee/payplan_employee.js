@@ -28,8 +28,14 @@ class PayplanEmployee {
 
     // page elements
     this.employeeDropdown = page.locator('input[name="EmployeeList_input"]');
-    this.companyDropdown = page.locator('//*[@id="PayGroupList_taglist"]');
-    this.jobDropdown = page.locator('input[name="JobList_taglist"]');
+    // this.companyDropdown = page.locator('//*[@id="PayGroupList_taglist"]');
+    this.companyDropdown = page.locator(
+      'text=Company Anchorage CJD (L0106)Anchorage Hyundai (L0127)Anchorage BMW (L0154)Ancho >> div[role="listbox"]'
+    );
+    //this.jobDropdown = page.locator('input[name="JobList_taglist"]');
+    this.jobDropdown = page.locator(
+      'text=Job Accessory Sales Manager (90143)Accountant (51001)Accountant Associate (50001 >> input[role="listbox"]'
+    );
     this.statusDropdown = page.locator('input[name="StatusList_taglist"]');
     this.departmentDropdown = page.locator('input[name="DepartmentList"]');
     this.effectiveDatesInput1 = page.locator(
@@ -163,13 +169,13 @@ class PayplanEmployee {
 
   async inputCompanyDropdown(text) {
     await this.companyDropdown.click();
-    await this.companyDropdown.fill(text);
-    await this.page.locator(text).click();
+    // await this.companyDropdown.fill(text);
+    // await this.page.locator(text).click();
   }
 
   async inputJobDropdown(text) {
     await this.jobDropdown.click();
-    await this.jobDropdown.fill(text);
+    //await this.jobDropdown.fill(text);
   }
 
   async inputExpirationDate1(month, year) {

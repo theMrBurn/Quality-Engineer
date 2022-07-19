@@ -8,7 +8,7 @@ const { test, expect, devices } = require("@playwright/test");
 const { PayplanDashboard } = require("./payplan_dashboard.js");
 
 // user
-test.use({ storageState: "pw_auth_testenv.json" });
+test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
 test.describe.serial("Payplan /dashboard interactive tests", () => {
@@ -25,10 +25,6 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     await page.locator('a[role="button"]:has-text("2022")').click();
     await page.locator('a:has-text("2023")').click();
     await page.locator("text=Aug").click();
-
-    // can't validate correct date /// page.innerText: Target closed
-    // const expirationDate1 = await page.textContent("text=Aug 2023");
-    // expect(expirationDate1).toBe("Aug 2023");
   });
 
   test("Navigate to /Payplan/Dashboard Validate Pay Calendar Date can be input", async ({

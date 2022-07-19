@@ -8,7 +8,7 @@ const { test, expect, devices } = require("@playwright/test");
 const { PayrollUpload } = require("./payroll_upload.js");
 
 // user
-test.use({ storageState: "pw_auth_testenv.json" });
+test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
 test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {

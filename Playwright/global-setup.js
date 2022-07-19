@@ -4,7 +4,7 @@ const { page } = require("@playwright/test");
 module.exports = async () => {
   // Sign in using the Super User json
   const context = await browser.newContext({
-    storageState: "./pw_auth_testenv.json",
+    storageState: "./helpers",
   });
 
   const page = await context.newPage();

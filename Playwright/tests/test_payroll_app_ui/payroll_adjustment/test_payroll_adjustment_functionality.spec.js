@@ -8,7 +8,7 @@ const { test, expect, devices } = require("@playwright/test");
 const { PayrollAdjustment } = require("./payroll_adjustment.js");
 
 // user
-test.use({ storageState: "pw_auth_testenv.json" });
+test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
 test.describe.serial("Payroll /Adjustment interactive tests", () => {

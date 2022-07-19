@@ -8,7 +8,7 @@ const { test, expect } = require("@playwright/test");
 const { PayplanEmployee } = require("./payplan_employee.js");
 
 // user
-test.use({ storageState: "pw_auth_testenv.json" });
+test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
 test.describe(
@@ -36,15 +36,15 @@ test.describe(
     test("Navigate to Payplan /Employee and interact with Employee and Company dropdown", async ({
       page,
     }) => {
-      test.fixme(
-        "inputs that appear visible are coded hidden preventing success. Currently Covered by Manual testing"
-      );
+      // test.fixme(
+      //   "inputs that appear visible are coded hidden preventing success. Currently Covered by Manual testing"
+      // );
       const payplanEmployee = new PayplanEmployee(page);
 
       await payplanEmployee.goto();
 
       // employee
-      await payplanEmployee.inputEmployeeDropdown("Dean Faciane");
+      await payplanEmployee.inputEmployeeDropdown("204904");
 
       // input employee and grid should show
       const employeeGridResult = await page.innerText("text=Dean Faciane");
@@ -53,18 +53,22 @@ test.describe(
 
       // company
       await payplanEmployee.inputCompanyDropdown("Seattle BMW");
+      await page;
+      await page
+        .locator('li[role="option"]:has-text("Seattle BMW (L0110)")')
+        .click();
 
       // input employee and grid should show
       const companyGridResult = await page.innerText("text=Seattle BMW");
-      expect(companyGridResult).toBe("Seattle BMW");
+      expect(companyGridResult).toBe("Seattle BMW (L0110)");
     });
 
     test("Navigate to Payplan /Employee and interact with Employee, Company, Job dropdown", async ({
       page,
     }) => {
-      test.fixme(
-        "inputs that appear visible are coded hidden preventing success. Currently Covered by Manual testing"
-      );
+      // test.fixme(
+      //   "inputs that appear visible are coded hidden preventing success. Currently Covered by Manual testing"
+      // );
       const payplanEmployee = new PayplanEmployee(page);
 
       await payplanEmployee.goto();
@@ -78,7 +82,10 @@ test.describe(
       expect(employeeGridResult).toBe("Jeff Cartwright (99300)");
 
       // company
-      await payplanEmployee.inputCompanyDropdown("Des Moines Volkswagen");
+      await payplanEmployee.inputCompanyDropdown();
+      await page
+        .locator('li[role="option"]:has-text("Des Moines Volkswagen (L0192)")')
+        .click();
 
       // input employee and grid should show
       const companyGridResult = await page.innerText(
@@ -88,16 +95,19 @@ test.describe(
 
       // input job and grid should show relavant results
       await payplanEmployee.inputJobDropdown("Detailer");
+      await page
+        .locator('li[role="option"]:has-text("Detailer (35007)")')
+        .click();
       const jobGridResult = await page.innerText("text=35007");
-      expect(jobGridResult).toBe("Detailer 35007");
+      expect(jobGridResult).toBe("Detailer (35007)");
     });
 
     test("Navigate to Payplan /Employee and interact with Employee, Company, Job, Status and Department dropdowns", async ({
       page,
     }) => {
-      test.fixme(
-        "inputs that appear visible are coded hidden preventing success. Currently Covered by Manual testing"
-      );
+      // test.fixme(
+      //   "inputs that appear visible are coded hidden preventing success. Currently Covered by Manual testing"
+      // );
       const payplanEmployee = new PayplanEmployee(page);
 
       await payplanEmployee.goto();
@@ -111,7 +121,10 @@ test.describe(
       expect(employeeGridResult).toBe("Jeff Cartwright (99300)");
 
       // company
-      await payplanEmployee.inputCompanyDropdown("Des Moines Volkswagen");
+      await payplanEmployee.inputCompanyDropdown();
+      await page
+        .locator('li[role="option"]:has-text("Des Moines Volkswagen (L0192)")')
+        .click();
 
       // input employee and grid should show
       const companyGridResult = await page.innerText(
@@ -121,8 +134,11 @@ test.describe(
 
       // input job and grid should show relavant results
       await payplanEmployee.inputJobDropdown("Detailer");
+      await page
+        .locator('li[role="option"]:has-text("Detailer (35007)")')
+        .click();
       const jobGridResult = await page.innerText("text=35007");
-      expect(jobGridResult).toBe("Detailer 35007");
+      expect(jobGridResult).toBe("Detailer (35007)");
 
       // input status and should show relavant results
     });

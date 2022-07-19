@@ -8,7 +8,7 @@ const { test, expect, devices } = require("@playwright/test");
 const { PayrollRegular, PayrollAccrual } = require("./payroll_accrual.js");
 
 // user
-test.use({ storageState: "pw_auth_testenv.json" });
+test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
 test.describe("Payroll /Accrual - dropdowns functional check", () => {

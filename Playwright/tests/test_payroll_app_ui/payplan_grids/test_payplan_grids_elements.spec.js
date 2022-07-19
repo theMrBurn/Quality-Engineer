@@ -8,7 +8,7 @@ const { test, expect } = require("@playwright/test");
 const { PayPlanGrids } = require("./payplan_grids.js");
 
 // user
-test.use({ storageState: "pw_auth_testenv.json" });
+test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
 test.describe.serial("PayPlan /Grids", () => {
