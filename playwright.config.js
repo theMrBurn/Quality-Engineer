@@ -14,13 +14,13 @@ const { devices } = require("@playwright/test");
 const config = {
   testDir: "Playwright/tests",
   /* Maximum time one test can run for. */
-  timeout: 400 * 1000,
+  timeout: 10 * 60 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 9999,
+    timeout: 10 * 60 * 1000,
   },
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -64,7 +64,7 @@ const config = {
 
     {
       name: "SPEDev",
-      testMatch: "/Playwright/tests/test_performance_dashboard",
+      testDir: "Playwright/tests/test_performance_dashboard",
       retries: 3,
     },
 

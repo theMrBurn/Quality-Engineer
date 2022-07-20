@@ -7,39 +7,52 @@
 const { test, expect } = require("@playwright/test");
 const { MainStore } = require("./main_store.js");
 //const mainStore = new MainStore(page);
-// user
+// user to be implemented in future, hence commenting it until future implementation.
 //test.use({ storageState: "pw_auth_testenv.json" });
 
 //test
-test.describe.serial("SPE Home Page", () => {
-  
-  test("login to SPE", async ({
-       page
+test.describe.serial("/main", () => {
+   test("login to SPE", async ({
+       browser,
+       page,
     }) => {
-      
+      test.setTimeout(600000);
       const mainStore = new MainStore(page);
       await mainStore.goto();
       await mainStore.login();
       await mainStore.twostepauthlogin();
       await mainStore.NavigateToBodyShop();
-      await mainStore.NavigateToPartsreport();
+      await mainStore.NavigateToPartsReport();
       await mainStore.NavigateToServiceDashboard();
       await mainStore.NavigateToServiceFlateRateHrs();
       await mainStore.NavigateToServiceRepairOrderLog();
-      await mainStore.NavigateToServiceAdvisorreport()
-      await mainStore.NavigateToServicePDELMobilereport();
-      await mainStore.NavigateToServiceTechnicianPerformancereport();
-      await mainStore.NavigateToAdminTrackingDashboardreport();
+      await mainStore.NavigateToServiceAdvisorReport()
+      await mainStore.NavigateToServicePDELMobileReport();
+      await mainStore.NavigateToServiceTechnicianPerformanceReport();
+      await mainStore.NavigateToAdminTrackingDashboardReport();
       await mainStore.NavigateToDriveway();
-      //await mainStore.NAvigateToAdminEmployeeLookup();
-      //await mainStore.NAvigateToAdminJobLauncher();
-      //await mainStore.NavigateToAdminSiteAlert();
-      
-      
-      
-      
-      
-    });
-
-    
+      await mainStore.NAvigateToAdminEmployeeLookup();
+      await mainStore.NAvigateToAdminJobLauncher();
+      await mainStore.NavigateToCashARValidationLog();
+      await mainStore.NavigateToVehicleDocTracking();
+      await mainStore.NavigatetoInventoryNotInFirstLook();
+      await mainStore.NavigatetoBankofHawaii();
+      await mainStore.NavigateToAssuredServiceContractSalesSummary();
+      await mainStore.NavigateToOfficeSchedulesSummary();
+      await mainStore.NavigateToOfficeSchedulesARAP();
+      await mainStore.NavigateToOfficeSchedulesSARAdministration();
+      await mainStore.NavigateToOfficeSchedulesSARExceptionRequest();
+      await mainStore.NavigateToOfficeSchedulesSARExceptionApproval();
+      await mainStore.NavigateToOfficeMonthEndSubmittal();
+      await mainStore.NavigateToOfficeMonthEndReadOnly();
+      await mainStore.NavigateToOfficeMonthEndApproval();
+      await mainStore.NavigateToOfficeMonthEndAdmin();
+      await mainStore.NavigateToOfficeMonthEndAudit();
+      await mainStore.NavigateToOfficeFabsoftJournal();
+      await mainStore.NavigateToOfficeFabsoftProductionLog();
+      await mainStore.NavigatetoOfficeDealAutomationProductionLog();
+      await mainStore.NavigatetoOfficeOTIServiceDriveSales();
+      await mainStore.NavigatetoOfficeOTITableViewer();
+      await mainStore.NavigatetoOfficeShipper(); 
+  });
 });
