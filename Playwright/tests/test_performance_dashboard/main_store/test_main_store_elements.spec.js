@@ -15,7 +15,6 @@ test.describe.serial("/main_store", () => {
    test("login to SPE", async function ({
        browser, 
        page,
-       contextOptions:{ ignoreHTTPSErrors: true},
      }) {
        test.setTimeout(600000);
        const mainStore = new MainStore(page);
