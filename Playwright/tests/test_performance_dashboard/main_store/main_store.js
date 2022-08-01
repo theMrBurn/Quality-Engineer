@@ -60,7 +60,7 @@ class MainStore
   async goto() {
      await this.page.goto('https://spedev.lithiainc.com/main/store');
   // Pause for 10 seconds, to see what's going on.
-  await this.page.waitForTimeout(10000);
+  await this.page.waitForLoadState('networkidle');
   }
   // get elements of all locators
   async NavigateToDriveway() {
