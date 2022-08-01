@@ -12,48 +12,49 @@ test.use({ storageState: "helpers/spe_auth_testenv.json" });
 
 //test
 test.describe.serial("/main_store", () => {
-   test("login to SPE", async ({
-       browser,
+   test("login to SPE", async function ({
+       browser, 
        page,
-    }) => {
-      test.setTimeout(600000);
-      const mainStore = new MainStore(page);
-      await mainStore.goto();
-      // We can use these two methods in case if the storage state doesnt work
-      //await mainStore.login();
-      //await mainStore.twostepauthlogin();
-      await mainStore.NavigateToBodyShop();
-      await mainStore.NavigateToPartsReport();
-      await mainStore.NavigateToServiceDashboard();
-      await mainStore.NavigateToServiceFlateRateHrs();
-      await mainStore.NavigateToServiceRepairOrderLog();
-      await mainStore.NavigateToServiceAdvisorReport()
-      await mainStore.NavigateToServicePDELMobileReport();
-      await mainStore.NavigateToServiceTechnicianPerformanceReport();
-      await mainStore.NavigateToAdminTrackingDashboardReport();
-      await mainStore.NavigateToDriveway();
-      await mainStore.NAvigateToAdminEmployeeLookup();
-      await mainStore.NAvigateToAdminJobLauncher();
-      await mainStore.NavigateToCashARValidationLog();
-      await mainStore.NavigateToVehicleDocTracking();
-      await mainStore.NavigatetoInventoryNotInFirstLook();
-      await mainStore.NavigatetoBankofHawaii();
-      await mainStore.NavigateToAssuredServiceContractSalesSummary();
-      await mainStore.NavigateToOfficeSchedulesSummary();
-      await mainStore.NavigateToOfficeSchedulesARAP();
-      await mainStore.NavigateToOfficeSchedulesSARAdministration();
-      await mainStore.NavigateToOfficeSchedulesSARExceptionRequest();
-      await mainStore.NavigateToOfficeSchedulesSARExceptionApproval();
-      await mainStore.NavigateToOfficeMonthEndSubmittal();
-      await mainStore.NavigateToOfficeMonthEndReadOnly();
-      await mainStore.NavigateToOfficeMonthEndApproval();
-      await mainStore.NavigateToOfficeMonthEndAdmin();
-      await mainStore.NavigateToOfficeMonthEndAudit();
-      await mainStore.NavigateToOfficeFabsoftJournal();
-      await mainStore.NavigateToOfficeFabsoftProductionLog();
-      await mainStore.NavigatetoOfficeDealAutomationProductionLog();
-      await mainStore.NavigatetoOfficeOTIServiceDriveSales();
-      await mainStore.NavigatetoOfficeOTITableViewer();
-      await mainStore.NavigatetoOfficeShipper(); 
-  });
+       contextOptions:{ ignoreHTTPSErrors: true},
+     }) {
+       test.setTimeout(600000);
+       const mainStore = new MainStore(page);
+       await mainStore.goto();
+       // We can use these two methods in case if the storage state doesnt work
+       //await mainStore.login();
+       //await mainStore.twostepauthlogin();
+       await mainStore.NavigateToBodyShop();
+       await mainStore.NavigateToPartsReport();
+       await mainStore.NavigateToServiceDashboard();
+       await mainStore.NavigateToServiceFlateRateHrs();
+       await mainStore.NavigateToServiceRepairOrderLog();
+       await mainStore.NavigateToServiceAdvisorReport();
+       await mainStore.NavigateToServicePDELMobileReport();
+       await mainStore.NavigateToServiceTechnicianPerformanceReport();
+       await mainStore.NavigateToAdminTrackingDashboardReport();
+       await mainStore.NavigateToDriveway();
+       await mainStore.NAvigateToAdminEmployeeLookup();
+       await mainStore.NAvigateToAdminJobLauncher();
+       await mainStore.NavigateToCashARValidationLog();
+       await mainStore.NavigateToVehicleDocTracking();
+       await mainStore.NavigatetoInventoryNotInFirstLook();
+       await mainStore.NavigatetoBankofHawaii();
+       await mainStore.NavigateToAssuredServiceContractSalesSummary();
+       await mainStore.NavigateToOfficeSchedulesSummary();
+       await mainStore.NavigateToOfficeSchedulesARAP();
+       await mainStore.NavigateToOfficeSchedulesSARAdministration();
+       await mainStore.NavigateToOfficeSchedulesSARExceptionRequest();
+       await mainStore.NavigateToOfficeSchedulesSARExceptionApproval();
+       await mainStore.NavigateToOfficeMonthEndSubmittal();
+       await mainStore.NavigateToOfficeMonthEndReadOnly();
+       await mainStore.NavigateToOfficeMonthEndApproval();
+       await mainStore.NavigateToOfficeMonthEndAdmin();
+       await mainStore.NavigateToOfficeMonthEndAudit();
+       await mainStore.NavigateToOfficeFabsoftJournal();
+       await mainStore.NavigateToOfficeFabsoftProductionLog();
+       await mainStore.NavigatetoOfficeDealAutomationProductionLog();
+       await mainStore.NavigatetoOfficeOTIServiceDriveSales();
+       await mainStore.NavigatetoOfficeOTITableViewer();
+       await mainStore.NavigatetoOfficeShipper();
+     });
 });
