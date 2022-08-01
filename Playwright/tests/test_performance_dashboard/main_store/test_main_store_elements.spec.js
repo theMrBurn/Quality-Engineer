@@ -16,7 +16,7 @@ test.describe.serial("/main_store", () => {
        browser,
        page,
     }) => {
-      test.setTimeout(6000000);
+      test.setTimeout(600000);
       const mainStore = new MainStore(page);
       await mainStore.goto();
       // We can use these two methods in case if the storage state doesnt work
