@@ -16,13 +16,13 @@ test.describe.serial("/main_store", () => {
        browser,
        page,
     }) => {
-      test.setTimeout(600000);
+      test.setTimeout(6000000);
       const mainStore = new MainStore(page);
       await mainStore.goto();
       // We can use these two methods in case if the storage state doesnt work
       //await mainStore.login();
       //await mainStore.twostepauthlogin();
-      await mainStore.NavigateToBodyShop();
+      //await mainStore.NavigateToBodyShop();
       await mainStore.NavigateToPartsReport();
       await mainStore.NavigateToServiceDashboard();
       await mainStore.NavigateToServiceFlateRateHrs();
