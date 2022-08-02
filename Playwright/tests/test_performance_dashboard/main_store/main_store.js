@@ -58,9 +58,9 @@ class MainStore
   }
   // use goto() if you intend on starting the test on a particular page in SPEDashboard App
   async goto() {
-     await this.page.goto('https://spedev.lithiainc.com/main/store');
+     await this.page.goto('https://spedev.lithiainc.com/main/store',{timeout:0});
   // Pause for 10 seconds, to see what's going on.
-  //await this.page.waitForLoadState('networkidle');
+  await this.page.waitForLoadState('networkidle');
   }
   // get elements of all locators
   async NavigateToDriveway() {
