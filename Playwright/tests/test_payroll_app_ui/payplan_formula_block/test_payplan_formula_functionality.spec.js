@@ -40,10 +40,10 @@ test.describe.serial("PayPlan /FormulaBlockock Functionality", () => {
     await page.locator("text=Current Month Total").click();
 
     // since we cant full CRUD at the moment, click Validate, get error message and cancel Template build
-    if (await payplanFormulaBlock.clickValidateButton()) {
-      const divError = page.locator("divErrorText");
-      expect(divError).toBeVisible;
-      await clickCloseModalButton();
-    }
+    await payplanFormulaBlock.clickValidateButton();
+    const divError = page.locator("divErrorText");
+    expect(divError).toBeVisible;
+
+    await payplanFormulaBlock.clickBlockDetailsCloseButton();
   });
 });

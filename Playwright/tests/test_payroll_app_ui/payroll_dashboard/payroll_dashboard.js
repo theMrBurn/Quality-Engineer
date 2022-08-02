@@ -17,7 +17,7 @@ class PayrollDashboard {
     this.payrollLink = page.locator("text=Payroll Home");
     this.storeInputLink = page.locator("text=Store Input");
     this.adjustmentLink = page.locator("text=Adjustment");
-    this.accrualLink = page.locator("text=Accrual");
+    this.accrualLink = page.locator("#payrollMenuLevel2 > li:nth-child(5) > a");
     this.auditLink = page.locator("text=Audit");
     this.offCycleLink = page.locator("text=Off-Cycle Earnings");
     this.fileUploads = page.locator("text=File Upload");
@@ -165,6 +165,7 @@ class PayrollDashboard {
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/Payroll/Regular"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickStoreInputLink() {
@@ -172,6 +173,7 @@ class PayrollDashboard {
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/Payroll/StoreInput"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickAdjustmentLink() {
@@ -179,6 +181,7 @@ class PayrollDashboard {
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/Payroll/Adjustment"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickAccrualLink() {
@@ -186,6 +189,7 @@ class PayrollDashboard {
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/Payroll/Accrual"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickAuditLink() {
@@ -193,6 +197,7 @@ class PayrollDashboard {
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/Payroll/Audit"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickOffCycleLink() {
@@ -200,6 +205,7 @@ class PayrollDashboard {
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/Payroll/OffCycleEarnings"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickFileUploadsLink() {
@@ -207,6 +213,7 @@ class PayrollDashboard {
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/Upload"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 }
 

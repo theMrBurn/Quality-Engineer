@@ -37,9 +37,6 @@ class PayPlanFormulaBlock {
       'text=Block Description Paysheet Description Calculate on pay period type Simple Formu >> [aria-label="select"]'
     );
     this.validateButton = page.locator("text=Validate");
-    this.closeModalButton = page.locator(
-      'text=Block DetailsClose >> button[role="button"]'
-    );
 
     // forms and grids
     this.earningsCodeBlockName = page.locator(
@@ -235,11 +232,6 @@ class PayPlanFormulaBlock {
   async clickValidateButton() {
     await this.getValidateButton();
     await this.validateButton.click();
-  }
-
-  async clickCloseModalButton() {
-    await this.getCloseModalButton();
-    await this.closeModalButton.click();
   }
 
   // input elements and forms

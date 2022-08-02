@@ -245,9 +245,15 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     const semiMonthly = await page.innerText("text=Semi-monthly");
     expect(semiMonthly).toBe("Semi-monthly");
 
-    if (await payrollOffcycle.clickPPEDateDropdown()) {
-      const ppeDate = payrollOffcycle.inputCompanyDropdown("02/15/2022");
-      expect(ppeDate).toBe("02/15/2022");
-    }
+    await payrollOffcycle.clickPPEDateDropdown();
+    await page
+      .locator(
+        'text=Pay Frequency Pay Period End Date >> [aria-label="select"] >> nth=1'
+      )
+      .click();
+
+    await payrollOffcycle.clickSearchButton();
+
+    await page.locator("td:nth-child(7) >> nth=0").waitFor("visible");
   });
 });

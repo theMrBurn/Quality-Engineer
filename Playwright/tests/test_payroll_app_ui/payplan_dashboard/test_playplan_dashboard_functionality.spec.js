@@ -20,11 +20,11 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
 
     // input Expiration Date 1
     await payplansDashboard.clickExpirationDate1();
-    await page.locator("text=Aug").click();
+    await page.locator("text=Jan").click();
     await payplansDashboard.clickExpirationDate1();
     await page.locator('a[role="button"]:has-text("2022")').click();
     await page.locator('a:has-text("2023")').click();
-    await page.locator("text=Aug").click();
+    await page.locator("text=Jan").click();
   });
 
   test("Navigate to /Payplan/Dashboard Validate Pay Calendar Date can be input", async ({

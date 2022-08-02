@@ -155,6 +155,11 @@ class PayrollOffCycleEarnings {
     await this.ppeDateDropdownTriangle.click();
   }
 
+  async clickSearchButton() {
+    await this.getSearchButton();
+    await this.searchButton.click();
+  }
+
   async inputEmployeeDropdown(text) {
     await this.employeeDropdown.click();
     await this.employeeDropdown.fill(text);

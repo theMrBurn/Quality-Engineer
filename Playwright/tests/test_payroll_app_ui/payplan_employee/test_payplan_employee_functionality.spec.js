@@ -105,9 +105,6 @@ test.describe(
     test("Navigate to Payplan /Employee and interact with Employee, Company, Job, Status and Department dropdowns", async ({
       page,
     }) => {
-      // test.fixme(
-      //   "inputs that appear visible are coded hidden preventing success. Currently Covered by Manual testing"
-      // );
       const payplanEmployee = new PayplanEmployee(page);
 
       await payplanEmployee.goto();

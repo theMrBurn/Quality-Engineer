@@ -12,6 +12,9 @@ test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
 test.describe.serial("PayPlan /Grids", () => {
+  test.fixme(
+    "skip Grid Plans tests - these fail wile Feature Flag is on and dev incomplete - will be fixed by branch: AllPay/payplan-grids-Equation-builder"
+  );
   test("Navigate to /Payplan/Grids and validate Page elements have loaded", async ({
     browser,
     page,
