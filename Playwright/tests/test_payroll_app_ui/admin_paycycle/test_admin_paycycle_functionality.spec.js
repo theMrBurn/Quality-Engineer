@@ -35,6 +35,9 @@ test.describe.serial("/Admin/PayCycle", () => {
 
     const paygroupResult = page.locator("text=West Pay Group");
     expect(paygroupResult).toHaveText("West Pay Group");
+
+    const error = page.locator("#divErrorHolder");
+    await expect(error).not.toBeVisible();
   });
 
   test("Navigate to /Admin/PayCycle and validate when Company Number is chosen, is displayed as expected", async ({
@@ -60,6 +63,9 @@ test.describe.serial("/Admin/PayCycle", () => {
 
     const paygroupResult = page.locator("text=Midwest Pay Group");
     expect(paygroupResult).toHaveText("Midwest Pay Group");
+
+    const error = page.locator("#divErrorHolder");
+    await expect(error).not.toBeVisible();
   });
 
   test("Navigate to /Admin/PayCycle and validate Assign PayCycle basic functionality - cancel before Update (cant CRUD)", async ({
@@ -70,7 +76,7 @@ test.describe.serial("/Admin/PayCycle", () => {
     await adminPayCyclePage.goto();
 
     await adminPayCyclePage.clickAssignPayCycleButton();
-    
+
     await adminPayCyclePage.inputCompanyGridFromDropdown();
     await page.locator("text=Knoxville CJDR >> nth=2").click();
 
@@ -88,5 +94,8 @@ test.describe.serial("/Admin/PayCycle", () => {
     await page.locator('input[type="checkbox"]').check();
 
     await adminPayCyclePage.clickCancelButton();
+
+    const error = page.locator("#divErrorHolder");
+    await expect(error).not.toBeVisible();
   });
 });

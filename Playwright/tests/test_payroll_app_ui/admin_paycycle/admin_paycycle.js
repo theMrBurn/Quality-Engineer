@@ -213,11 +213,6 @@ class AdminPayCycle {
 
   // input elements and forms
 
-  async inputLegalExplanation(text) {
-    await this.getLegalExplanationInputBox();
-    await this.legalExplanationInput.fill(text);
-  }
-
   async inputCompany(text) {
     await this.getCompanyInputBox();
     await this.companyInputBox.fill(text);

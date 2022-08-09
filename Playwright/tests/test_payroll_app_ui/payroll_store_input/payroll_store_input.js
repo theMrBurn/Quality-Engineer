@@ -35,7 +35,7 @@ class PayrollStoreInput {
   // get elements
 
   async getStoreInputHeader() {
-    await expect(this.storeInputHeader).toBeVisible();
+    await expect(this.storeInputHeader, "Header Not Found").toBeVisible();
   }
 
   async getStoreInputCompanyDropdown() {
