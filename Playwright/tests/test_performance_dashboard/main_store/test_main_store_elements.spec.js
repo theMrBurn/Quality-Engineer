@@ -21,7 +21,7 @@ test.describe.serial("/main_store", () => {
        // We can use these two methods in case if the storage state doesnt work
        //await mainStore.goto();
        //await mainStore.login();
-       await mainStore.twostepauthlogin();
+       //await mainStore.twostepauthlogin();
        await mainStore.NavigateToBodyShop();
        await mainStore.NavigateToPartsReport();
        await mainStore.NavigateToServiceDashboard();
