@@ -56,5 +56,7 @@ test.describe.serial("/main_store", () => {
        await mainStore.NavigatetoOfficeOTIServiceDriveSales();
        await mainStore.NavigatetoOfficeOTITableViewer();
        await mainStore.NavigatetoOfficeShipper();
+       // Main
+      await mainStore.NavigateToMain();
      });
 });

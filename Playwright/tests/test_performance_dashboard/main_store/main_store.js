@@ -55,8 +55,69 @@ class MainStore
     this.getOfficeOTIServiceDriveSales=page.locator('text="OTI Service Drive Sales"');
     this.getOfficeOTiTableViewer=page.locator('text="OTI Table Viewer"');
     this.getOfficeShipper=page.locator('text="Shippers"');
-  }
-  // use goto() if you intend on starting the test on a particular page in SPEDashboard App
+    //Main Tb 
+    this.getMainTab=page.locator(':nth-match(:text("Main"),1)');
+    this.getMainStorePerformanceDashboard=page.locator('text=("Store Performance Dashboard"');
+    this.getMainStorePerformanceScorecardSPS=page.locator('text=("Store Performance Scorecard (SPS)"');
+    this.getMainAnnualOperatingPlan=page.locator('text=("Annual Operating Plan"');
+    this.getMainRetailReadinessOmnichannel=page.locator('text=(" Retail Readiness (Omnichannel)"');
+    this.getMainStaffingAnalysis =page.locator('text=("Staffing Analysis "');
+    this.getMainMIS=page.locator(':nth-match(:text("MIS"),1)');
+    this.getMainMIS1Standard=page.locator('text=("MIS 1 (Standard)"');
+    this.getMainMISComparison=page.locator('text=("MIS Comparison"');
+    this.getMainOperationalMIS=page.locator('text=("Operational MIS"');
+    this.getMainStoreRosters=page.locator('text=("Store Rosters"');
+    this.getMainStoreLeadershipReport =page.locator('text=("Store Leadership Report"');
+    this.getMainStoreRosters=page.locator('text=("Store Rosters"');
+    
+    //Sales Tab
+    this.getSalesTab=page.locator(':nth-match(:text("Sales"),1)');
+    this.getSalesNewVehicle=page.locator('text="New Vehicle"');
+    this.getSalesNewVehicleDashboard=page.locator('text="New Vehicle Dashboard"');
+    this.getSalesApprovabilityScorecard=page.locator('text="Approvability Scorecard"');
+    this.getSalesNewInventoryDetail=page.locator('text="New Inventory Detail"');
+    this.getSalesIncentiveLog=page.locator('text="Incentive Log"');
+    this.getSalesRDRReconciliation=page.locator('text=("RDR Reconciliation"');
+    this.getSalesLoanerVehicleDetail=page.locator('text=("Loaner Vehicle Detail"');
+    //Used Vehicle
+    this.getSalesUsedVehicle=page.locator('text="Used Vehicle"');
+    this.getSalesUsedVehicleDashboard=page.locator('text="Used Vehicle Dashboard"');
+    this.getSalesPurchaseLogTradeIn=page.locator('text="Purchase Log / Trade-In"');
+    this.getSalesUsedInventoryDetail=page.locator('text="Used Inventory Detail"');
+    this.getSalesInventoryAnalysisUVIA=page.locator('text="Inventory Analysis (UVIA)"');
+    this.getSalesUsedVehicleReportCard=page.locator('text="Used Vehicle Report Card"');
+    // F&I Ops 
+    this.getSalesFIOps=page.locator('text="F&I Ops"');
+    this.getSalesFIOpsDashboard=page.locator('text="F&I Ops Dashboard"');
+    this.getSalesFILog=page.locator('text="F&I Log"');
+    this.getSalesFILogNew=page.locator('text="F&I Log - New"');
+    this.getSalesFIPerformanceScorecard=page.locator('text="F&I Performance Scorecard"');
+    this.getSalesFIManagerPerformance=page.locator('text="F&I Manager Performance"');
+    this.getSalesFITopProducers=page.locator('text="F&I Top Producers"');
+    this.getSalesFIBankLog=page.locator('text="F&I Bank Log"');
+   //Sales Log
+   this.getSalesSalesLog=page.locator('text="Sales Log"');
+   this.getSalesRetailSalesLogALOG=page.locator('text="Retail Sales Log (ALOG)"');
+   this.getSalesWholesaleLogALOG=page.locator('text="Wholesale Log (ALOG"');
+   this.getSalesCITSummary=page.locator('text="CIT Summary"');
+    //
+    this.getSalesBookedandPending=page.locator('text="Booked and Pending"');
+    this.getSalesSalesPersonnelPerformance=page.locator('text="Sales Personnel Performance"');
+    this.getSalesWeekendMonthEndSummary=page.locator('text="Weekend/Month End Summary"');
+    this.getSalesSubmitaSummary=page.locator('text="Submit a Summary"');
+    this.getSalesViewReports=page.locator('text="View Reports"');
+    this.getSalesWeekendSummary=page.locator('text="Weekend Summary"');
+    this.getSalesMonthEndReport=page.locator('text="Month End Report"');
+    this.getSalesSalesMgrTopProducers=page.locator('text="Sales Mgr Top Producers"');
+    
+  } 
+  //Navigate to Main Tab/ Performace Dashboard Report
+      async NavigateToMain() {
+        await this.getMainTab.click();
+        await this.getMainStorePerformanceDashboard.click();
+        await this.page.waitForLoadState('networkidle');
+      }
+    // use goto() if you intend on starting the test on a particular page in SPEDashboard App
   async goto() {
      await this.page.goto('https://spedev.lithiainc.com/main/store',{timeout:0});
   // Pause for 10 seconds, to see what's going on.
