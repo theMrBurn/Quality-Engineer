@@ -35,7 +35,8 @@ test.describe.serial("/main_store", () => {
        await mainStore.NAvigateToAdminEmployeeLookup();
        await mainStore.NAvigateToAdminJobLauncher();
        await mainStore.NavigateToCashARValidationLog();
-       await mainStore.NavigateToVehicleDocTracking();
+       //we will implement this report redirection in future
+       //await mainStore.NavigateToVehicleDocTracking();
        await mainStore.NavigatetoInventoryNotInFirstLook();
        await mainStore.NavigatetoBankofHawaii();
        await mainStore.NavigateToAssuredServiceContractSalesSummary();
