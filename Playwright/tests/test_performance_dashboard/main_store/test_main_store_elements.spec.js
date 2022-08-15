@@ -8,7 +8,7 @@ const { test, expect } = require("@playwright/test");
 const { MainStore } = require("./main_store.js");
 //const mainStore = new MainStore(page);
 // user to be implemented in future, hence commenting it until future implementation.
-//test.use({ storageState: "helpers/spe_auth_testenv.json" });
+test.use({ storageState: "helpers/spe_auth_testenv.json" });
 
 //test
 test.describe.serial("/main_store", () => {
@@ -18,9 +18,9 @@ test.describe.serial("/main_store", () => {
      }) {
        test.setTimeout(600000);
        const mainStore = new MainStore(page);
-       await mainStore.goto();
        // We can use these two methods in case if the storage state doesnt work
-       await mainStore.login();
+       //await mainStore.goto();
+       //await mainStore.login();
        await mainStore.twostepauthlogin();
        await mainStore.NavigateToBodyShop();
        await mainStore.NavigateToPartsReport();
