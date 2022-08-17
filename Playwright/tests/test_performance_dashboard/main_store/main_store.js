@@ -111,246 +111,246 @@ class MainStore
     this.getSalesSalesMgrTopProducers=page.locator('text="Sales Mgr Top Producers"');
     
   } 
-  //Navigate to Main Tab/ Performace Dashboard Report
-      async NavigateToMain() {
-        await this.getMainTab.click();
-        await this.getMainStorePerformanceDashboard.click();
+    //Navigate to Main Tab/ Performace Dashboard Report
+    async NavigateToMainStorePerformanceDashboard() {
+      await this.getMainTab.click();
+      await this.getMainStorePerformanceDashboard.click();
+      await this.page.waitForLoadState('networkidle');
+        }
+    async NavigateToMainStorePerformanceScorecardSPS() {
+      await this.getMainTab.click();
+        await this.getMainStorePerformanceScorecardSPS.click();
         await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToMain() {
-        await this.getMainTab.click();
-          await this.getMainStorePerformanceScorecardSPS.click();
-          await this.page.waitForLoadState('networkidle');
-           }
-      
-      async NavigateToMain() {
-        await this.getMainTab.click();
-        await this.getMainAnnualOperatingPlan.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToMain() {
-        await this.getMainTab.click();
-        await this.getMainRetailReadinessOmnichannel.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToMain() {
-        await this.getMainTab.click();
-        await this.getMainStaffingAnalysis.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToMain() {
-        await this.getMainTab.click();
-        await this.getMainMIS.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToMain() {
-        await this.getMainTab.click();
-        await this.getMainMIS1Standard.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToMain() {
-        await this.getMainTab.click();
-        await this.getMainMISComparison.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToMain() {
-        await this.getMainTab.click();
-        await this.getMainOperationalMIS.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToMain() {
-        await this.getMainTab.click();
-        await this.getMainStoreRosters.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToMain() {
-        await this.getMainTab.click();
-        await this.getMainStoreLeadershipReport.click();
-        await this.page.waitForLoadState('networkidle');
-      }
+         }
     
-      async NavigateToMain() {
-        await this.getMainTab.click();
-        await this.getMainStoreRosters.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-    
-      // Navigate to Sales Tab/ Performance Dashboard.
-    
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesNewVehicle.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesNewVehicleDashboard.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesApprovabilityScorecard.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesNewInventoryDetail.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesIncentiveLog.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesRDRReconciliation.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesLoanerVehicleDetail.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-    
-      // Sales/ Used Vehicle
-    
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesUsedVehicle.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesUsedVehicleDashboard.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesPurchaseLogTradeIn.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesUsedInventoryDetail.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesInventoryAnalysisUVIA.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesUsedVehicleReportCard.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      //Navigate to Sales/ F&I Ops 
-    
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesFIOps.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesFIOpsDashboard.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesFILog.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesFILogNew.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesFIPerformanceScorecard.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesFIManagerPerformance.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesFITopProducers.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesFIBankLog.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      //Sales Log
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesSalesLog.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesRetailSalesLogALOG.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesWholesaleLogALOG.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesCITSummary.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-    
-      // Sales Log Report
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesBookedandPending.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesSalesPersonnelPerformance.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesWeekendMonthEndSummary.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesSubmitaSummary.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesViewReports.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesWeekendSummary.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesMonthEndReport.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-      async NavigateToSalesTab() {
-        await this.getSalesTab.click();
-        await this.getSalesSalesMgrTopProducers.click();
-        await this.page.waitForLoadState('networkidle');
-      }
-    // use goto() if you intend on starting the test on a particular page in SPEDashboard App
+    async NavigateToMainAnnualOperatingPlan() {
+      await this.getMainTab.click();
+      await this.getMainAnnualOperatingPlan.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainRetailReadinessOmnichannel() {
+      await this.getMainTab.click();
+      await this.getMainRetailReadinessOmnichannel.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainStaffingAnalysis() {
+      await this.getMainTab.click();
+      await this.getMainStaffingAnalysis.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainMIS() {
+      await this.getMainTab.click();
+      await this.getMainMIS.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainMIS1Standard() {
+      await this.getMainTab.click();
+      await this.getMainMIS1Standard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainMISComparison() {
+      await this.getMainTab.click();
+      await this.getMainMISComparison.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainOperationalMIS() {
+      await this.getMainTab.click();
+      await this.getMainOperationalMIS.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainStoreRosters() {
+      await this.getMainTab.click();
+      await this.getMainStoreRosters.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainStoreLeadershipReport() {
+      await this.getMainTab.click();
+      await this.getMainStoreLeadershipReport.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+  
+    async NavigateToMainStoreRosters() {
+      await this.getMainTab.click();
+      await this.getMainStoreRosters.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+  
+    // Navigate to Sales Tab/ Performance Dashboard.
+  
+    async NavigateToSalesNewVehicle() {
+      await this.getSalesTab.click();
+      await this.getSalesNewVehicle.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesNewVehicleDashboard() {
+      await this.getSalesTab.click();
+      await this.getSalesNewVehicleDashboard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesApprovabilityScorecard() {
+      await this.getSalesTab.click();
+      await this.getSalesApprovabilityScorecard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesNewInventoryDetail() {
+      await this.getSalesTab.click();
+      await this.getSalesNewInventoryDetail.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesIncentiveLog() {
+      await this.getSalesTab.click();
+      await this.getSalesIncentiveLog.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesRDRReconciliation() {
+      await this.getSalesTab.click();
+      await this.getSalesRDRReconciliation.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesLoanerVehicleDetail() {
+      await this.getSalesTab.click();
+      await this.getSalesLoanerVehicleDetail.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+  
+    // Sales/ Used Vehicle
+  
+    async NavigateToSalesUsedVehicle() {
+      await this.getSalesTab.click();
+      await this.getSalesUsedVehicle.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesUsedVehicleDashboard() {
+      await this.getSalesTab.click();
+      await this.getSalesUsedVehicleDashboard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesPurchaseLogTradeIn() {
+      await this.getSalesTab.click();
+      await this.getSalesPurchaseLogTradeIn.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesUsedInventoryDetail() {
+      await this.getSalesTab.click();
+      await this.getSalesUsedInventoryDetail.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesInventoryAnalysisUVIA() {
+      await this.getSalesTab.click();
+      await this.getSalesInventoryAnalysisUVIA.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesUsedVehicleReportCard() {
+      await this.getSalesTab.click();
+      await this.getSalesUsedVehicleReportCard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    //Navigate to Sales/ F&I Ops 
+  
+    async NavigateToSalesFIOp() {
+      await this.getSalesTab.click();
+      await this.getSalesFIOps.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFIOpsDashboard() {
+      await this.getSalesTab.click();
+      await this.getSalesFIOpsDashboard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFILog() {
+      await this.getSalesTab.click();
+      await this.getSalesFILog.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFILogNew() {
+      await this.getSalesTab.click();
+      await this.getSalesFILogNew.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFIPerformanceScorecard() {
+      await this.getSalesTab.click();
+      await this.getSalesFIPerformanceScorecard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFIManagerPerformance() {
+      await this.getSalesTab.click();
+      await this.getSalesFIManagerPerformance.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFITopProducers() {
+      await this.getSalesTab.click();
+      await this.getSalesFITopProducers.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFIBankLog() {
+      await this.getSalesTab.click();
+      await this.getSalesFIBankLog.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    //Sales Log
+    async NavigateToSalesSalesLog() {
+      await this.getSalesTab.click();
+      await this.getSalesSalesLog.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesRetailSalesLogALOG() {
+      await this.getSalesTab.click();
+      await this.getSalesRetailSalesLogALOG.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesWholesaleLogALOG() {
+      await this.getSalesTab.click();
+      await this.getSalesWholesaleLogALOG.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesCITSummary() {
+      await this.getSalesTab.click();
+      await this.getSalesCITSummary.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+  
+    // Sales Log Report
+    async NavigateToSalesBookedandPending() {
+      await this.getSalesTab.click();
+      await this.getSalesBookedandPending.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesSalesPersonnelPerformance() {
+      await this.getSalesTab.click();
+      await this.getSalesSalesPersonnelPerformance.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesWeekendMonthEndSummary() {
+      await this.getSalesTab.click();
+      await this.getSalesWeekendMonthEndSummary.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesSubmitaSummary() {
+      await this.getSalesTab.click();
+      await this.getSalesSubmitaSummary.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesViewReports() {
+      await this.getSalesTab.click();
+      await this.getSalesViewReports.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesWeekendSummary() {
+      await this.getSalesTab.click();
+      await this.getSalesWeekendSummary.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesMonthEndReport() {
+      await this.getSalesTab.click();
+      await this.getSalesMonthEndReport.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesSalesMgrTopProducers() {
+      await this.getSalesTab.click();
+      await this.getSalesSalesMgrTopProducers.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+  // use goto() if you intend on starting the test on a particular page in SPEDashboard App
   async goto() {
      await this.page.goto('https://spedev.lithiainc.com/main/store',{timeout:0});
   // Pause for 10 seconds, to see what's going on.
