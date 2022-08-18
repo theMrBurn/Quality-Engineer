@@ -51,12 +51,12 @@ test.describe.serial("Payplans Employee", () => {
     async ({ browser, page }) => {
       const employeePayPlans = new PayplanEmployee(page);
       await employeePayPlans.goto();
-      await employeePayPlans.getCompanyDropdownHidden(); // *
-      await employeePayPlans.getJobDropdownHidden(); // *
-      await employeePayPlans.getStatusDropdownHidden(); // *
-      await employeePayPlans.getDepartmentDropdownHidden(); // *
-      await employeePayPlans.getEffectiveEndDateInput(); // *
-      await employeePayPlans.getTagsDropdown(); // *
+      await employeePayPlans.getCompanyDropdownHidden();
+      await employeePayPlans.getJobDropdownHidden();
+      await employeePayPlans.getStatusDropdownHidden();
+      await employeePayPlans.getDepartmentDropdownHidden();
+      await employeePayPlans.getEffectiveEndDateInput();
+      await employeePayPlans.getTagsDropdown();
     }
   );
 });

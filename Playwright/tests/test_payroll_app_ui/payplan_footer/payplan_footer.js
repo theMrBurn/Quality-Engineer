@@ -46,63 +46,105 @@ class PayplanFooter {
     await this.page.goto(
       "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanFooter"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   /// get elements
   async getPayPlanFooterHeader() {
-    await expect(this.payplanHeader).toBeVisible();
+    await expect(
+      this.payplanHeader,
+      "Pay Plan Footer Header not found"
+    ).toBeVisible();
   }
 
   async getEditPayPlanFooterHeader() {
-    await expect(this.editPayPlanHeader).toBeVisible();
+    await expect(
+      this.editPayPlanHeader,
+      "Edit Pay Plan Footer Header not found"
+    ).toBeVisible();
   }
 
   async getFooterNameText1() {
-    await expect(this.footerNameText).toBeVisible();
+    await expect(this.footerNameText, "Footer Name not found").toBeVisible();
   }
 
   async getFooterNameColumnText() {
-    await expect(this.footerNameColumnText).toBeVisible();
+    await expect(
+      this.footerNameColumnText,
+      "Footer Name Column not found"
+    ).toBeVisible();
   }
 
   async getExperationDateText() {
-    await expect(this.experationDateText).toBeVisible();
+    await expect(
+      this.experationDateText,
+      "Experation Date not found"
+    ).toBeVisible();
   }
 
   async getEffectiveDateText() {
-    await expect(this.effectiveDateText).toBeVisible();
+    await expect(
+      this.effectiveDateText,
+      "Effective Date not found"
+    ).toBeVisible();
   }
 
   async getPayRateTypeColumnText() {
-    await expect(this.payRateTypeColumnText).toBeVisible();
+    await expect(
+      this.payRateTypeColumnText,
+      "Pay Rate Type Column not found"
+    ).toBeVisible();
   }
 
   async getUpdatedByColumnText() {
-    await expect(this.updatedByColumnText).toBeVisible();
+    await expect(
+      this.updatedByColumnText,
+      "Updated By Column not found"
+    ).toBeVisible();
   }
 
   async getUpdatedOnColumnText() {
-    await expect(this.updatedOnColumnText).toBeVisible();
+    await expect(
+      this.updatedOnColumnText,
+      "Updated On Column not found"
+    ).toBeVisible();
   }
 
   async getEditButton() {
-    await expect.soft(this.editButton).toBeVisible();
+    await expect.soft(this.editButton, "Edit Button not found").toBeVisible();
+  }
+
+  async getSaveButton() {
+    await expect(this.saveButton, "Save Button not found").toBeVisible();
   }
 
   async getAddFooterButton() {
-    await expect(this.addFooterButton).toBeVisible();
+    await expect(
+      this.addFooterButton,
+      "Add Footer Button not found"
+    ).toBeVisible();
   }
 
   async getBackButton() {
-    await expect(this.backButton).toBeVisible();
+    await expect(this.backButton, "Back Button not found").toBeVisible();
   }
 
   async getClearFiltersButton() {
-    await expect(this.clearFiltersButton).toBeVisible();
+    await expect(
+      this.clearFiltersButton,
+      "Cear Filters button not found"
+    ).toBeVisible();
   }
 
   async getSaveConfirmationAlert() {
-    await expect(this.saveConfirmationAlert).toBeVisible();
+    await expect(
+      this.saveConfirmationAlert,
+      "Confirmation Alert not found"
+    ).toBeVisible();
+  }
+
+  async getDropdownTriangle() {
+    await expect(this.dropdownTriangle, "Dropdown not found").toBeVisible();
   }
 
   // input elements
@@ -114,6 +156,7 @@ class PayplanFooter {
   }
 
   async inputFooterClickDropdown() {
+    await this.getDropdownTriangle();
     await this.dropdownTriangle.first().click();
   }
 
@@ -131,10 +174,12 @@ class PayplanFooter {
   }
 
   async clickSaveButton() {
+    await this.getSaveButton();
     await this.saveButton.click();
   }
 
   async clickBackButton() {
+    await this.getBackButton();
     await this.backButton.click();
   }
 }

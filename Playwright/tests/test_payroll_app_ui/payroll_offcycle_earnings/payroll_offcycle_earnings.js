@@ -68,90 +68,145 @@ class PayrollOffCycleEarnings {
     await this.page.goto(
       "https://azwu2apweb-test.azurewebsites.net/Payroll/OffCycleEarnings"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   /// get page elements
 
   // get text lables
   async getOffcycleHeader() {
-    await expect(this.offcycleHeader).toBeVisible();
+    await expect(
+      this.offcycleHeader,
+      "Off Cycle header not found"
+    ).toBeVisible();
   }
 
   async getCompanyText() {
-    await expect(this.companyText).toBeVisible();
+    await expect(
+      this.companyText,
+      "Company text not found on page"
+    ).toBeVisible();
   }
 
   async getStatusText() {
-    await expect(this.statusText).toBeVisible();
+    await expect(
+      this.statusText,
+      "Status text not found on page"
+    ).toBeVisible();
   }
 
   async getEmployeeText() {
-    await expect(this.employeeText).toBeVisible();
+    await expect(
+      this.employeeText,
+      "Employee text not found on page"
+    ).toBeVisible();
   }
 
   async getPPEdateText() {
-    await expect(this.ppeDateText).toBeVisible();
+    await expect(
+      this.ppeDateText,
+      "PPE Date text not found on page"
+    ).toBeVisible();
   }
 
   async getCostCenterText() {
-    await expect(this.costCenterText).toBeVisible();
+    await expect(
+      this.costCenterText,
+      "Cost Center text not found on page"
+    ).toBeVisible();
   }
 
   async getOffCycleInfoText() {
-    await expect(this.offCycleInfoText).toBeVisible();
+    await expect(
+      this.offCycleInfoText,
+      "Off Cycle info text not found on page"
+    ).toBeVisible();
   }
 
   // get dropdowns
   async getCompanyDropdown() {
-    await expect(this.companyDropdown).toBeVisible();
+    await expect(
+      this.companyDropdown,
+      "Company dropdown not found"
+    ).toBeVisible();
   }
 
   async getPayFrequencyDropdown() {
-    await expect(this.payFrequencyDropdown).toBeVisible();
+    await expect(
+      this.payFrequencyDropdown,
+      "Pay Frequency Dropdown not found"
+    ).toBeVisible();
   }
 
   async getEmployeeDropdown() {
-    await expect(this.employeeDropdown).toBeVisible();
+    await expect(
+      this.employeeDropdown,
+      "Employee Dropdown not found"
+    ).toBeVisible();
   }
 
   async getPPEdateDropdownHidden() {
-    await expect(this.ppeDateDropdown).toBeHidden();
+    await expect(
+      this.ppeDateDropdown,
+      "PPE Date Dropdown found, when it should be hidden"
+    ).toBeHidden();
   } // use this in element validation test
 
   async getPPEdateDropdown() {
-    await expect(this.ppeDateDropdown).toBeVisible();
+    await expect(
+      this.ppeDateDropdown,
+      "PPE Date Dropdown not found"
+    ).toBeVisible();
   } // use this in functional smoke check when PPE date has been entered in a previous test step
 
+  async getPPEdateDropdownTriangle() {
+    await expect(
+      this.ppeDateDropdownTriangle,
+      "PPE Date Dropdown triangle not found"
+    ).toBeVisible();
+  }
+
   async getJobTitleDropdown() {
-    await expect(this.jobTitleDropdown).toBeVisible();
+    await expect(
+      this.jobTitleDropdown,
+      "Job Title dropdown not found"
+    ).toBeVisible();
   }
 
   async getStatusDropdown() {
-    await expect(this.statusDropdown).toBeVisible();
+    await expect(
+      this.statusDropdown,
+      "Status Dropdown not found"
+    ).toBeVisible();
   }
 
   async getCostCenterDropdown() {
-    await expect(this.costCenterDropdown).toBeVisible();
+    await expect(
+      this.costCenterDropdown,
+      "Cost Center Dropdown not found"
+    ).toBeVisible();
   }
 
   async getTypeDropdown() {
-    await expect(this.typeDropdown).toBeVisible();
+    await expect(this.typeDropdown, "Type Dropdown").toBeVisible();
   }
 
   // get buttons
   async getSearchButton() {
-    await expect(this.searchButton).toBeVisible();
+    await expect(this.searchButton, "Search Button").toBeVisible();
   }
 
   // interact with elements
 
   async inputCompanyDropdown(text) {
+    await this.getCompanyDropdown();
     await this.companyDropdown.click();
     await this.companyDropdown.fill(text);
     await this.companyDropdown.click();
   }
 
   async clickPPEDateDropdown() {
+    await this.getPPEdateDropdownTriangle();
     await this.ppeDateDropdownTriangle.click();
   }
 
@@ -161,12 +216,14 @@ class PayrollOffCycleEarnings {
   }
 
   async inputEmployeeDropdown(text) {
+    await this.getEmployeeDropdown();
     await this.employeeDropdown.click();
     await this.employeeDropdown.fill(text);
     await this.employeeDropdown.click(text);
   }
 
   async inputPayFrequencyDropdown(text) {
+    await this.getPayFrequencyDropdown();
     await this.payFrequencyDropdown.click();
     await this.payFrequencyDropdown.fill(text);
     await this.payFrequencyDropdown.press("ArrowDown");
@@ -174,6 +231,7 @@ class PayrollOffCycleEarnings {
   }
 
   async inputPPEdateDropdown(text) {
+    await this.getPPEdateDropdown();
     await this.ppeDateDropdown.click();
     await this.ppeDateDropdown.fill(text);
     await this.ppeDateDropdown.press("ArrowDown");
@@ -181,6 +239,7 @@ class PayrollOffCycleEarnings {
   }
 
   async inputJobTitleDropdown(text) {
+    await this.getJobTitleDropdown();
     await this.jobTitleDropdown.click();
     await this.jobTitleDropdown.fill(text);
     await this.jobTitleDropdown.press("ArrowDown");
@@ -188,6 +247,7 @@ class PayrollOffCycleEarnings {
   }
 
   async inputCostCenterDropdown(text) {
+    await this.getCostCenterDropdown();
     await this.costCenterDropdown.click();
     await this.costCenterDropdown.fill(text);
     await this.costCenterDropdown.press("ArrowDown");
@@ -195,6 +255,7 @@ class PayrollOffCycleEarnings {
   }
 
   async inputStatusDropdown(text) {
+    await this.getStatusDropdown();
     await this.statusDropdown.click();
     await this.statusDropdown.fill(text);
     await this.statusDropdown.press("ArrowDown");
@@ -202,6 +263,7 @@ class PayrollOffCycleEarnings {
   }
 
   async inputTypeDropdown(text) {
+    await this.getTypeDropdown();
     await this.typeDropdown.click();
     await this.typeDropdown.fill(text);
     await this.typeDropdown.press("ArrowDown");

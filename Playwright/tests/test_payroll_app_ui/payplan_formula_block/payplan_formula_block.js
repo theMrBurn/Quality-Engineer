@@ -65,6 +65,7 @@ class PayPlanFormulaBlock {
     await this.page.goto(
       "https://azwu2apweb-test.azurewebsites.net/PayPlan/FormulaBlock"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   // get page elements

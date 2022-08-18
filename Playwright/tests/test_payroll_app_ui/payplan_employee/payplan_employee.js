@@ -73,109 +73,152 @@ class PayplanEmployee {
 
   /// get elements
   async getEmployeePlansHeader() {
-    await expect(this.employeePlansHeader).toBeVisible();
+    await expect(
+      this.employeePlansHeader,
+      "Employee Plans Header not found"
+    ).toBeVisible();
   }
 
   async getEmployeeDropdownText() {
-    await expect(this.employeeText).toBeVisible();
+    await expect(
+      this.employeeText,
+      "Employee Dropdown text not found"
+    ).toBeVisible();
   }
 
   async getEmployeeDropdown() {
-    await expect(this.employeeDropdown).toBeVisible();
+    await expect(
+      this.employeeDropdown,
+      "Employee Dropdown not found"
+    ).toBeVisible();
   }
 
   async getCompanyText() {
-    await expect(this.companyText).toBeVisible();
+    await expect(this.companyText, "Company text not found").toBeVisible();
   }
 
   async getCompanyDropdownHidden() {
-    await expect(this.companyDropdown).toBeHidden(); // should be visible? only passes when Hidden is chosen
+    await expect(
+      this.companyDropdown,
+      "Company Dropdown is visible when it should be hidden"
+    ).toBeHidden(); // should be visible? only passes when Hidden is chosen
   }
 
   async getJobText() {
-    await expect(this.jobText).toBeVisible();
+    await expect(this.jobText, "Job text not found").toBeVisible();
   }
 
   async getJobDropdownHidden() {
-    await expect(this.jobDropdown).toBeHidden(); // should be visible? only passes when Hidden is chosen
+    await expect(
+      this.jobDropdown,
+      "Job Dropdown is visible when it should be hidden"
+    ).toBeHidden(); // should be visible? only passes when Hidden is chosen
   }
 
   async getStatusText() {
-    await expect(this.statusText).toBeVisible();
+    await expect(this.statusText, "Status text not found").toBeVisible();
   }
 
   async getStatusDropdownHidden() {
-    await expect(this.statusDropdown).toBeHidden(); // should be visible? only passes when Hidden is chosen
+    await expect(
+      this.statusDropdown,
+      "Status Dropdown visible when it should be hidden"
+    ).toBeHidden(); // should be visible? only passes when Hidden is chosen
   }
 
   async getDepartmentText() {
-    await expect(this.departmentText).toBeVisible();
+    await expect(
+      this.departmentText,
+      "Department text not found"
+    ).toBeVisible();
   }
 
   async getDepartmentDropdownHidden() {
-    await expect(this.departmentDropdown).toBeHidden();
+    await expect(
+      this.departmentDropdown,
+      "Department Dropdown visible when it should be hidden"
+    ).toBeHidden();
   }
 
   async getEffectiveDatesText() {
-    await expect(this.effectiveDatesText).toBeVisible();
+    await expect(
+      this.effectiveDatesText,
+      "Effective Dates text not found"
+    ).toBeVisible();
   }
 
   async getEffectiveStartDateInput() {
-    await expect(this.effectiveDatesInput1).toBeVisible();
+    await expect(
+      this.effectiveDatesInput1,
+      "Effective Start Date input not found"
+    ).toBeVisible();
   }
 
   async getEffectiveEndDateInput() {
-    await expect(this.effectiveDatesInput2).toBeVisible();
+    await expect(
+      this.effectiveDatesInput2,
+      "Effective Date Input not found"
+    ).toBeVisible();
   }
 
   async getIsPayPlanExpiredText() {
-    await expect(this.isPayPlanExpiredText).toBeVisible();
+    await expect(
+      this.isPayPlanExpiredText,
+      "Is Payplan Expired text not found"
+    ).toBeVisible();
   }
 
   async getIsPayPlanExpiredInput() {
-    await expect(this.isPayPlanExpiredInput).toBeHidden(); // should be visible? only passes when Hidden is chosen
+    await expect(
+      this.isPayPlanExpiredInput,
+      "Is Pay Plan Expiried is visible should be hidden"
+    ).toBeHidden(); // should be visible? only passes when Hidden is chosen
   }
 
   async getTagsText() {
-    await expect(this.tagsText).toBeVisible();
+    await expect(this.tagsText, "Tags text not found").toBeVisible();
   }
 
   async getTagsDropdown() {
-    await expect(this.tagsDropdown).toBeHidden(); // should be visible? only passes when Hidden is chosen
+    await expect(
+      this.tagsDropdown,
+      "Tags dropdown is visible, should be hidden"
+    ).toBeHidden(); // should be visible? only passes when Hidden is chosen
   }
 
   async getClearFilters() {
-    await expect(this.filtersText).toBeVisible();
+    await expect(this.filtersText, "Clear Filters not found").toBeVisible();
   }
 
   async getExportExcelButton() {
-    await expect(this.exportExcelButton).toBeVisible();
+    await expect(
+      this.exportExcelButton,
+      "Export Excel Button not found"
+    ).toBeVisible();
   }
 
   async getAddPlanButton() {
-    await expect(this.addPlanButton).toBeVisible();
+    await expect(this.addPlanButton, "Add Plan Button not found").toBeVisible();
   }
 
   async getPageGrid() {
-    await expect(this.grid).toBeVisible();
+    await expect(this.grid, "Page Grid not found").toBeVisible();
   }
 
   // input elements
 
   async inputEmployeeDropdown(text) {
+    await this.getEmployeeDropdown();
     await this.employeeDropdown.click();
     await this.employeeDropdown.fill(text);
   }
 
-  async inputCompanyDropdown(text) {
+  async inputCompanyDropdown() {
     await this.companyDropdown.click();
-    // await this.companyDropdown.fill(text);
-    // await this.page.locator(text).click();
   }
 
-  async inputJobDropdown(text) {
+  async inputJobDropdown() {
     await this.jobDropdown.click();
-    //await this.jobDropdown.fill(text);
   }
 
   async inputExpirationDate1(month, year) {
@@ -220,6 +263,7 @@ class PayplanEmployee {
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanEmployee"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickClearFilters() {
@@ -235,6 +279,7 @@ class PayplanEmployee {
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/PayPlan/PlanDetails?id=0&payPlanUsage=Employee"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 }
 

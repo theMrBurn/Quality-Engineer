@@ -64,99 +64,151 @@ class PayrollDashboard {
   // use goto() if you intend on starting the test on a particilar page in Allpay App
   async goto() {
     await this.page.goto("https://azwu2apweb-test.azurewebsites.net/Payroll");
+    await this.page.waitForLoadState("networkidle");
   }
 
   // get elements
   async getAllPayLogo() {
-    await expect(mainLogo).toBeVisible();
+    await expect(mainLogo, "All Pay logo not found").toBeVisible();
   }
 
   async getHeaderContainer() {
-    await expect(this.headerContainer).toBeVisible();
+    await expect(
+      this.headerContainer,
+      "Header container not found"
+    ).toBeVisible();
   }
 
   async getPaycalendarDrop() {
-    await expect(this.payCalendarDrop).toBeVisible();
+    await expect(
+      this.payCalendarDrop,
+      "Pay Calendar Dropdown not found"
+    ).toBeVisible();
   }
 
   async getPeriodDrop() {
-    await expect(this.payPeriodDrop).toBeVisible();
+    await expect(this.payPeriodDrop, "Period dropdown not found").toBeVisible();
   }
 
   async getMonthPickerDrop() {
-    await expect(this.monthPickerDrop).toBeVisible();
+    await expect(
+      this.monthPickerDrop,
+      "Month Picker dropdown not found"
+    ).toBeVisible();
   }
 
   async getpayrollSetupBox() {
-    await expect(this.payrollSetupBox).toBeVisible();
+    await expect(
+      this.payrollSetupBox,
+      "Payroll Setup not found on page"
+    ).toBeVisible();
   }
 
   async getDataLoadBox() {
-    await expect(this.dataLoadBox).toBeVisible();
+    await expect(this.dataLoadBox, "Data Load not found on page").toBeVisible();
   }
 
   async getInputSheetBox() {
-    await expect(this.inputSheetBox).toBeVisible();
+    await expect(
+      this.inputSheetBox,
+      "Input Sheet not found on page"
+    ).toBeVisible();
   }
 
   async getPayRunStatusBox() {
-    await expect(this.payRunStatusBox).toBeVisible();
+    await expect(
+      this.payRunStatusBox,
+      "Pay Run Status not found on page"
+    ).toBeVisible();
   }
 
   async getNotRunBox() {
-    await expect(this.notRunBox).toBeVisible();
+    await expect(this.notRunBox, "Not Run, not found on page").toBeVisible();
   }
 
   async getPrelimiaryBox() {
-    await expect(this.prelimiaryBox).toBeVisible();
+    await expect(
+      this.prelimiaryBox,
+      "Preliminary not found on page"
+    ).toBeVisible();
   }
 
   async getErrorbox() {
-    await expect(this.errorBox).toBeVisible();
+    await expect(this.errorBox, "Error box not found on page").toBeVisible();
   }
 
   async getCompleteBox() {
-    await expect(this.completeBox).toBeVisible();
+    await expect(this.completeBox, "Complete not found on page").toBeVisible();
   }
 
   async getRegisterReviewBox() {
-    await expect(this.registerReviewBox).toBeVisible();
+    await expect(
+      this.registerReviewBox,
+      "Register Review not found on page"
+    ).toBeVisible();
   }
 
   async getPayrollBox() {
-    await expect(this.payrollBox).toBeVisible();
+    await expect(
+      this.payrollBox,
+      "Payroll box not found on page"
+    ).toBeVisible();
   }
 
   async getCompanyBox() {
-    await expect(this.companyBox).toBeVisible();
+    await expect(
+      this.companyBox,
+      "Company box not found on page"
+    ).toBeVisible();
   }
 
   async getManualChecksBox() {
-    await expect(this.manualChecksBox).toBeVisible();
+    await expect(
+      this.manualChecksBox,
+      "Manual Checks not found on page"
+    ).toBeVisible();
   }
 
   async getMonthToDateBox() {
-    await expect(this.monthToDateBox).toBeVisible();
+    await expect(
+      this.monthToDateBox,
+      "Month to Date not found on page"
+    ).toBeVisible();
   }
 
   async getMonthToDateCounter() {
-    await expect(this.monthToDateCounter).toBeVisible();
+    await expect(
+      this.monthToDateCounter,
+      "Month to Date Counter not found on page"
+    ).toBeVisible();
   }
 
   async getyearToDateBox() {
-    await expect(this.yearToDateBox).toBeVisible();
+    await expect(
+      this.yearToDateBox,
+      "Year to Date box not found on page"
+    ).toBeVisible();
   }
 
   async getYearToDateCounter() {
-    await expect(this.yearToDateCounter).toBeVisible();
+    await expect(
+      this.yearToDateCounter,
+      "Year to Date Counter not found on page"
+    ).toBeVisible();
   }
 
   async getAveragePerMonthBox() {
-    await expect(this.averagePerMonthBox).toBeVisible();
+    await expect(
+      this.averagePerMonthBox,
+      "Average Per Month box not found on page"
+    ).toBeVisible();
   }
 
   async getAveragePerMonthCounter() {
-    await expect(this.averagePerMonthCounter).toBeVisible();
+    await expect(
+      this.averagePerMonthCounter,
+      "Average Per Month Counter not found on page"
+    ).toBeVisible();
   }
 
   // click elements

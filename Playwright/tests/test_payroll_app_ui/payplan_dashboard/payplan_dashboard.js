@@ -122,145 +122,214 @@ class PayplanDashboard {
 
   /// get elements
   async getPayPlanHeader() {
-    await expect(this.payplanHeader).toBeVisible();
+    await expect(this.payplanHeader, "Pay Plan Header not found").toBeVisible();
   }
 
   async getPayplanLink() {
-    await expect(this.payplanLink).toBeVisible();
+    await expect(this.payplanLink, "PayPlan link not found").toBeVisible();
   }
 
   async getEmployeesLink() {
-    await expect(this.payplanLink).toBeVisible();
+    await expect(this.payplanLink, "Employees Link not found").toBeVisible();
   }
 
   async getFootersLink() {
-    await expect(this.footersLink).toBeVisible();
+    await expect(this.footersLink, "Footers Link not found").toBeVisible();
   }
 
   async getTemplatesLink() {
-    await expect(this.templatesLink).toBeVisible();
+    await expect(this.templatesLink, "Templates Link not found").toBeVisible();
   }
 
   async getFormulasLink() {
-    await expect(this.formulasLink).toBeVisible();
+    await expect(this.formulasLink, "Formulas link not found").toBeVisible();
   }
 
   async getGridsLink() {
-    await expect(this.gridsLink).toBeVisible();
+    await expect(this.gridsLink, "Grids Link text not found").toBeVisible();
   }
 
   async getExpirationDateText() {
-    await expect(this.expirationDateText).toBeVisible();
+    await expect(
+      this.expirationDateText,
+      "Experation Date Text not found"
+    ).toBeVisible();
   }
 
   async getExpirationDateText2() {
-    await expect(this.expirationDateText2).toBeVisible();
+    await expect(
+      this.expirationDateText2,
+      "Experation Date Text 2 not found"
+    ).toBeVisible();
   }
 
   async getPaycalendarText() {
-    await expect(this.paycalendarText).toBeVisible();
+    await expect(
+      this.paycalendarText,
+      "Pay Calendar Text not found"
+    ).toBeVisible();
   }
 
   async getEffectiveDateText() {
-    await expect(this.effectiveDateText).toBeVisible();
+    await expect(
+      this.effectiveDateText,
+      "Effective Date Text not found"
+    ).toBeVisible();
   }
 
   async getPPPEdateText() {
-    await expect(this.ppeDateText).toBeVisible();
+    await expect(this.ppeDateText, "PPE Date Text not found").toBeVisible();
   }
 
   async getPlanStatusText() {
-    await expect(this.planStatusText).toBeVisible();
+    await expect(
+      this.planStatusText,
+      "Plan Status Text not found"
+    ).toBeVisible();
   }
 
   async getPlanStatusExpiring() {
-    await expect(this.planstatusExpiring).toBeVisible();
+    await expect(
+      this.planstatusExpiring,
+      "Plan Status Expiring not found"
+    ).toBeVisible();
   }
 
   async getPlanStatusSuspended() {
-    await expect(this.planstatusSuspended).toBeVisible();
+    await expect(
+      this.planstatusSuspended,
+      "Plan Status Suspended not found"
+    ).toBeVisible();
   }
 
   async getPlanStatusPending() {
-    await expect(this.planstatusPending).toBeVisible();
+    await expect(
+      this.planstatusPending,
+      "Plan Status Pending not found"
+    ).toBeVisible();
   }
 
   async getPositionChangesText() {
-    await expect(this.positionChangesText).toBeVisible();
+    await expect(
+      this.positionChangesText,
+      "Position Changes Text not found"
+    ).toBeVisible();
   }
 
   async getNoPlanCreatedCount() {
-    await expect(this.noPlanCreatedCount).toBeVisible();
+    await expect(
+      this.noPlanCreatedCount,
+      "No Plan Created Count not found"
+    ).toBeVisible();
   }
 
   async getNewHiresPendingCount() {
-    await expect(this.newHiresPendingCount).toBeVisible();
+    await expect(
+      this.newHiresPendingCount,
+      "New Hires Pending Count not found"
+    ).toBeVisible();
   }
 
   async getNewHiresNoActiveStatusCount() {
-    await expect(this.newHiresNoActiveStatusCount).toBeVisible();
+    await expect(
+      this.newHiresNoActiveStatusCount,
+      "New Hires No Active Status count not found"
+    ).toBeVisible();
   }
 
   async getComplianceRiskText() {
-    await expect(this.complianceRiskText).toBeVisible();
+    await expect(
+      this.complianceRiskText,
+      "Compliance Risk Text not found"
+    ).toBeVisible();
   }
 
   async getComplianceRiskExceptionCount() {
-    await expect(this.complianceRiskExceptionCount).toBeVisible();
+    await expect(
+      this.complianceRiskExceptionCount,
+      "Compliance Risk Exception count not found"
+    ).toBeVisible();
   }
 
   async getComplainceRiskExipredCount() {
-    await expect(this.complainceRiskExipredCount).toBeVisible();
+    await expect(
+      this.complainceRiskExipredCount,
+      "Compiance Risk Expired count not found"
+    ).toBeVisible();
   }
 
   async getMetricsText() {
-    await expect(this.metricsText).toBeVisible();
+    await expect(this.metricsText, "Metrics Text not found").toBeVisible();
   }
 
   async getMetricsCreatedCount() {
-    await expect(this.metricsCreatedCount).toBeVisible();
+    await expect(
+      this.metricsCreatedCount,
+      "Metrics Created Count not found"
+    ).toBeVisible();
   }
 
   async getMetricsActiveCount() {
-    await expect(this.metricsActiveCount).toBeVisible();
+    await expect(
+      this.metricsActiveCount,
+      "Metrics Active Count not found"
+    ).toBeVisible();
   }
 
   async getAveragePerMonthBox() {
-    await expect(this.averagePerMonthBox).toBeVisible();
+    await expect(
+      this.averagePerMonthBox,
+      "Average Per Month Box not found"
+    ).toBeVisible();
+  }
+
+  async getPPEdateInputBox() {
+    await expect(
+      this.ppeDateInput,
+      "PPE Date Input box not found"
+    ).toBeVisible();
+  }
+
+  async getPayCalendarDropdown() {
+    await expect(
+      this.payCalendarInput,
+      "Pay Calendar Input Box Dropdown not found"
+    ).toBeVisible();
+  }
+
+  async getExperationDateCalendar1() {
+    await expect(
+      this.expirationDateInput,
+      "Exp Date Calendar 1 not found"
+    ).toBeVisible();
+  }
+
+  async getExperationDateCalendar2() {
+    await expect(
+      this.experitationDateInput2,
+      "Exp Date Calendar 2 not found"
+    ).toBeVisible();
   }
 
   // input elements
 
   async clickExpirationDate1() {
+    await this.getExperationDateCalendar1();
     await this.expirationDateCalendar1.click();
   }
 
-  async inputExperationDate1(text) {
-    await this.expirationDateInput.click();
-    await this.expirationDateInput.fill(text);
-  }
-
   async clickExpirationDate2() {
+    await this.getExperationDateCalendar2();
     await this.expirationDateCalendar2.click();
   }
 
-  async inputExpirationDate2(month, year) {
-    await this.expirationDateInput.click();
-    await this.expirationDateInput.fill(month);
-    await this.expirationDateInput.fill(year);
-  }
-
   async clickEffectiveDate() {
+    await this.getEffectiveDateText();
     await this.effectiveDateCalendar.click();
   }
 
-  async inputEffectiveDate(month, year) {
-    await this.expirationDateInput.click();
-    await this.expirationDateInput.fill(month);
-    await this.expirationDateInput.fill(year);
-  }
-
   async inputPayCalendarDropdown(text) {
+    await this.getPayCalendarDropdown();
     await this.payCalendarInput.click();
     await this.payCalendarInput.fill(text);
     await this.payCalendarInput.press("ArrowDown");
@@ -268,6 +337,7 @@ class PayplanDashboard {
   }
 
   async inputPPEdateDropdown(text) {
+    await this.getPPEdateInputBox();
     await this.ppeDateInput.click();
     await this.ppeDateInput.fill(text);
     await this.ppeDateInput.press("ArrowDown");
@@ -276,38 +346,48 @@ class PayplanDashboard {
 
   // click elements
   async clickEmployeesLink() {
+    await this.getEmployeesLink();
     await this.employeesLink.click();
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanEmployee"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickFootersLink() {
+    await this.getFootersLink();
     await this.footersLink.click();
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanFooter"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickTemplatesLink() {
+    await this.getTemplatesLink();
     await this.templatesLink.click();
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanTemplate"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickFormulasLink() {
+    await this.getFormulasLink();
     await this.formulasLink.click();
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/PayPlan/FormulaBlock"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickGridsLink() {
+    await this.getGridsLink();
     await this.gridsLink.click();
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/PayPlan/Grids"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 }
 

@@ -212,31 +212,37 @@ class Admin {
   async clickCategoryDropdown() {
     await this.getCategoryDropdown();
     await this.categoryDropdownTriangle.click();
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickPositionTypeDefinitions() {
     await this.getPositionTypeDefinitionsOption();
     await this.positionTypeDefinitions.click();
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickDataTypeDefinitions() {
     await this.getDataTypeDefinitionsOption();
     await this.dataTypeDefinitions.click();
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickStartDate() {
     await this.getStartDateCalendar();
     await this.startDateCalendar.click();
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickNewLegalButton() {
     await this.getNewLegalButton();
     await this.newLegalButton.click();
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickCancelButton() {
     await this.getCancelButton();
     await this.cancelButton.click();
+    await this.page.waitForLoadState("networkidle");
   }
 
   // input elements and forms

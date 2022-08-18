@@ -47,71 +47,122 @@ class PayrollAccrual {
     await this.page.goto(
       "https://azwu2apweb-test.azurewebsites.net/Payroll/Accrual"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   // get elements
 
   async getAccrualHeader() {
-    await expect(this.accuralHeader).toBeVisible();
+    await expect(this.accuralHeader, "Accrual Header not found").toBeVisible();
   }
 
   async getAccrualInputCompany() {
-    await expect(this.accrualInputCompany).toBeVisible();
+    await expect(
+      this.accrualInputCompany,
+      "Accrual Input Company not found"
+    ).toBeVisible();
   }
 
   async getAccrualInputPPEdate() {
-    await expect(this.accrualInputPPEdate).toBeVisible();
+    await expect(
+      this.accrualInputPPEdate,
+      "Accrual Input PPE Date not found"
+    ).toBeVisible();
   }
 
   async getAccrualInputPayFrequency() {
-    await expect(this.accrualInputPayFrequency).toBeVisible();
+    await expect(
+      this.accrualInputPayFrequency,
+      "Accrual Input Pay Frequency not found"
+    ).toBeVisible();
   }
 
   async getAccrualRunButton1() {
-    await expect(this.accrualRunButton1).toBeVisible();
+    await expect(
+      this.accrualRunButton1,
+      "Accrual Run button not found"
+    ).toBeVisible();
+  }
+
+  async getDeltePayFrequency() {
+    await expect(
+      this.deletePayFrequency,
+      "Delete Pay Frequency not found"
+    ).toBeVisible();
+  }
+
+  async getStoreInputCompany() {
+    await expect(
+      this.storeInputCompany,
+      "Company Store Input not found"
+    ).toBeVisible();
+  }
+
+  async getPayFrequencyDropdown() {
+    await expect(
+      this.accrualInputPayFrequency,
+      "Pay Frequency Dropdown not found"
+    ).toBeVisible();
+  }
+
+  async getCompanyDropdown() {
+    await expect(
+      this.accrualInputCompany,
+      "Company Dropdown not found"
+    ).toBeVisible();
   }
 
   // click elements
   async clickStoreInputCompany() {
+    await this.getStoreInputCompany();
     await this.storeInputCompany.click();
   }
 
   async clickAccrualInputCompany() {
+    await this.getCompanyDropdown();
     await this.accrualInputCompany.click();
   }
 
   async clickAccrualInputPPEdate() {
+    await this.getAccrualInputPPEdate();
     await this.accrualInputPPEdate.click();
   }
 
   async clickAccrualInputPayFrequency() {
+    await this.getPayFrequencyDropdown();
     await this.accrualInputPayFrequency.click();
   }
 
   // interact with elements
 
   async clickCompanyDropdown() {
+    await this.getCompanyDropdown();
     await this.inputCompanyTriangle.first().click();
   }
 
   async inputCompanyDropdownText(text) {
+    await this.getCompanyDropdown();
     await this.accrualInputCompany.click();
     await this.accrualInputCompany.fill(text);
   }
 
   async clickPPEdateDropdown() {
+    await this.getPPEdateDropdown();
     await this.inputPPEDateDropdownTriangle.first().click();
   }
 
   async inputPPEDateDropdown(text) {
+    await this.getAccrualInputPPEdate();
     await this.accrualInputPPEdate.click();
     await this.accrualInputPPEdate.fill(text);
   }
 
   async clickPayFrequencyDropdown() {
+    await this.getPayFrequencyDropdown();
     await this.inputPayFrequencyDropdownTriangle.first().click();
   }
   async inputPayFrequencyDropdown(text) {
+    await this.getPayFrequencyDropdown();
     await this.accrualInputPayFrequency.click();
     await this.accrualInputPayFrequency.fill(text);
     await this.accrualInputPayFrequency.press("ArrowDown");
@@ -119,6 +170,7 @@ class PayrollAccrual {
   }
 
   async clickDeletePayFrequency() {
+    await this.getDeltePayFrequency();
     await this.deletePayFrequency.click();
   }
 }

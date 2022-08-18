@@ -47,89 +47,110 @@ class PayrollAdjustment {
     await this.page.goto(
       "https://azwu2apweb-test.azurewebsites.net/Payroll/Adjustment"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   // get page elements
 
   async getAdjustmentHeader() {
-    await expect(this.adjustmentHeader).toBeVisible();
+    await expect(
+      this.adjustmentHeader,
+      "Adjustment header not found"
+    ).toBeVisible();
   }
 
   async getInstructionsText() {
-    await expect(this.instructionsText).toBeVisible();
+    await expect(
+      this.instructionsText,
+      "Instructions text not found"
+    ).toBeVisible();
   }
 
   async getPayrollText() {
-    await expect(this.payrollText).toBeVisible();
+    await expect(this.payrollText, "Payroll text not found").toBeVisible();
   }
 
   async getCompanyText() {
-    await expect(this.companyText).toBeVisible();
+    await expect(this.companyText, "Company text not found").toBeVisible();
   }
 
   async getPPEdateText() {
-    await expect(this.ppeDateText).toBeVisible();
+    await expect(this.ppeDateText, "PPE Date text not found").toBeVisible();
   }
 
   async getStatusText() {
-    await expect(this.statusText).toBeVisible();
+    await expect(this.statusText, "Status text not found").toBeVisible();
   }
 
   async getPayrollTypeListDropdown() {
-    await expect(this.payrollTypeListDropdown).toBeVisible();
+    await expect(
+      this.payrollTypeListDropdown,
+      "Payroll Type List not found"
+    ).toBeVisible();
   }
 
   async getPayGroupDropdown() {
-    await expect(this.payGroupListDropdown).toBeVisible();
+    await expect(
+      this.payGroupListDropdown,
+      "Paygroup Dropdown not found"
+    ).toBeVisible();
   }
 
   async getPPEdateDropdown() {
-    await expect(this.ppeDateDropdown).toBeVisible();
+    await expect(
+      this.ppeDateDropdown,
+      "PPE Date dropdown not found"
+    ).toBeVisible();
   }
 
   async getStatusInput() {
-    await expect(this.statusInputBox).toBeVisible();
+    await expect(this.statusInputBox, "Status Input not found").toBeVisible();
   }
 
   async getLoadButton() {
-    await expect(this.loadButton).toBeVisible();
+    await expect(this.loadButton, "Load button not found").toBeVisible();
   }
 
   async getLoadButtonNotVisible() {
-    await expect(this.loadButton).toBeHidden();
+    await expect(
+      this.loadButton,
+      "Load Button found, should be hidden"
+    ).toBeHidden();
   }
 
   async getAddAdjustmentButton() {
-    await expect(this.addAdjustmentButton).toBeVisible();
+    await expect(
+      this.addAdjustmentButton,
+      "Adjustment button not found"
+    ).toBeVisible();
   }
 
   // click elements
-  async clickPayrollLink() {
-    await this.payrollLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/adjustment"
-    );
-  }
 
   async clickPayrollTypeListDropdown() {
+    await this.getPayrollTypeListDropdown();
     await this.payrollTypeListDropdown.click();
   }
 
   async clickPaygroupListDropdown() {
+    await this.getPayGroupDropdown();
     await this.payGroupListDropdown.click();
   }
 
   async clickPPEdateDropdown() {
+    await this.getPPEdateDropdown();
     await this.ppeDateDropdown.click();
   }
 
   async clickLoadButton() {
+    await this.getLoadButton();
     await this.loadButton.click();
   }
 
   // interact with elements
 
   async inputPayTypeDropdown(text) {
+    await this.getPayrollTypeListDropdown();
     await this.payrollTypeListDropdown.click();
     await this.payrollTypeListDropdown.fill(text);
     await this.payrollTypeListDropdown.press("ArrowDown");
@@ -137,6 +158,7 @@ class PayrollAdjustment {
   }
 
   async inputCompanyDropdown(text) {
+    await this.getPayGroupDropdown();
     await this.payGroupListDropdown.click();
     await this.payGroupListDropdown.fill(text);
     await this.payGroupListDropdown.press("ArrowDown");
@@ -144,6 +166,7 @@ class PayrollAdjustment {
   }
 
   async inputPPEdateDropdown(text) {
+    await this.getPPEdateDropdown();
     await this.ppeDateDropdown.click();
     await this.ppeDateDropdown.fill(text);
     await this.ppeDateDropdown.press("ArrowDown");
@@ -151,6 +174,7 @@ class PayrollAdjustment {
   }
 
   async inputStatusBox(text) {
+    await this.getStatusInput();
     await this.statusInputBox.click();
     await this.statusInputBox.fill(text);
   }

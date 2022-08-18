@@ -30,6 +30,7 @@ class PayrollStoreInput {
     await this.page.goto(
       "https://azwu2apweb-test.azurewebsites.net/Payroll/storeinput"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   // get elements
@@ -39,46 +40,63 @@ class PayrollStoreInput {
   }
 
   async getStoreInputCompanyDropdown() {
-    await expect(this.storeInputCompany).toBeVisible();
+    await expect(
+      this.storeInputCompany,
+      "Store Input Company dropdown not found"
+    ).toBeVisible();
   }
 
   async getStoreInputPPEdate() {
-    await expect(this.storeInputPPEdate).toBeVisible();
+    await expect(
+      this.storeInputPPEdate,
+      "Store Input PPE Date not found"
+    ).toBeVisible();
   }
 
   async getStoreInputStatus() {
-    await expect(this.storeInputStatus).toBeVisible();
+    await expect(
+      this.storeInputStatus,
+      "Store Input Status not found"
+    ).toBeVisible();
   }
 
   async getStoreInputInstructions() {
-    await expect(this.storeInputInstructions).toBeVisible();
+    await expect(
+      this.storeInputInstructions,
+      "Store Input Instructions not found"
+    ).toBeVisible();
   }
 
   // click elements
   async clickStoreInputCompany() {
+    await this.getStoreInputCompanyDropdown();
     await this.storeInputCompany.click();
   }
 
   async clickStoreInputPPEdate() {
+    await this.getStoreInputPPEdate();
     await this.storeInputPPEdate.click();
   }
 
   async clickStoreInputStatus() {
+    await this.getStoreInputStatus();
     await this.storeInputStatus.click();
   }
 
   // interact with elements
 
   async inputCompanyDropdown(text) {
+    await this.getStoreInputCompanyDropdown();
     await this.storeInputCompany.click();
     await this.storeInputCompany.fill(text);
     await this.storeInputCompany.press("ArrowDown");
     await this.storeInputCompany.press("Enter");
-    const medford = await this.page.innerText("text=Medford CJD (L0004)");
-    expect(medford).toBe("Medford CJD (L0004)");
+    // const medford = await this.page.innerText("text=Medford CJD (L0004)");
+    // expect(medford).toBe("Medford CJD (L0004)");
   }
 
   async inputPPEdateDropdown(text) {
+    await this.getStoreInputPPEdate();
     await this.storeInputPPEdate.click();
     await this.storeInputPPEdate.fill(text);
     await this.storeInputPPEdate.press("ArrowDown");
@@ -86,6 +104,7 @@ class PayrollStoreInput {
   }
 
   async inputStatusDropdown(text) {
+    await this.getStoreInputStatus();
     await this.storeInputStatus.click();
     await this.storeInputStatus.fill(text);
     await this.storeInputStatus.press("ArrowDown");

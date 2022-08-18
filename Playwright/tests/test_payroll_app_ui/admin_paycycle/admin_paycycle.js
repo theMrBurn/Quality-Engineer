@@ -62,6 +62,7 @@ class AdminPayCycle {
     await this.page.goto(
       "https://azwu2apweb-test.azurewebsites.net/Admin/PayCycle"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   // get page elements
@@ -209,6 +210,7 @@ class AdminPayCycle {
   async clickCancelButton() {
     await this.getCancelButton();
     await this.cancelButton.click();
+    await this.page.waitForLoadState("networkidle");
   }
 
   // input elements and forms

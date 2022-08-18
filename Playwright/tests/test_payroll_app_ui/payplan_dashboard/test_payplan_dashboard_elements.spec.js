@@ -45,6 +45,10 @@ test.describe.serial("Payplans Dashboard", () => {
     await payplansDashboard.getMetricsCreatedCount();
     await payplansDashboard.getMetricsActiveCount();
     await payplansDashboard.getAveragePerMonthBox();
+    await payplansDashboard.getPayCalendarDropdown();
+    await payplansDashboard.getPPEdateInputBox();
+    await payplansDashboard.getExperationDateCalendar1();
+    await payplansDashboard.getExperationDateCalendar2();
   });
 
   test("Navigate to Payplan Dashboard and Click top header Links", async ({

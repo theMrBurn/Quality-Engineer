@@ -209,11 +209,13 @@ class AdminPayCalendar {
   async clickNewCalendarButton() {
     await this.getNewPayCalendarButton();
     await this.newCalendarButton.click();
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickGridCancelButton() {
     await this.getGridCancelButton();
     await this.gridCancelButton.click();
+    await this.page.waitForLoadState("networkidle");
   }
 
   async clickGridUpdateButton() {

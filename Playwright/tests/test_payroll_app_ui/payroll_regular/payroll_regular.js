@@ -53,35 +53,48 @@ class PayrollRegular {
     await this.page.goto(
       "https://azwu2apweb-test.azurewebsites.net/Payroll/Regular"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   // get elements
-  async getAllPayLogo() {
-    await expect(this.mainLogo).toBeVisible();
-  }
 
   async getPayrollGrid() {
-    await expect(this.payrollgGrid).toBeVisible();
+    await expect(this.payrollgGrid, "Payroll Grid not found").toBeVisible();
   }
 
   async getPayrollGroupListDropdown() {
-    await expect(this.payGroupListDropdown).toBeVisible();
+    await expect(
+      this.payGroupListDropdown,
+      "Paygrood List Dropdown not found"
+    ).toBeVisible();
   }
 
   async getPeriodEndDateListDropdown() {
-    await expect(this.payPeriodEndDateListDropdown).toBeVisible();
+    await expect(
+      this.payPeriodEndDateListDropdown,
+      "Period End Date list dropdown not found"
+    ).toBeVisible();
   }
 
   async getPayRegionlistDropdown() {
-    await expect(this.payRegionListDropdown).toBeVisible();
+    await expect(
+      this.payRegionListDropdown,
+      "Pay Region List dropdown not found"
+    ).toBeVisible();
   }
 
   async getPayCalendarListDropdown() {
-    await expect(this.payCalendarListDropdown).toBeVisible();
+    await expect(
+      this.payCalendarListDropdown,
+      "Pay Calendar List dropdown not found"
+    ).toBeVisible();
   }
 
   async getPayrollStatusListDropdown() {
-    await expect(this.payStatusListDropdown).toBeVisible();
+    await expect(
+      this.payStatusListDropdown,
+      "Payroll Status List dropdown not found"
+    ).toBeVisible();
   }
 
   async getPayrollDataLoadListDropdown() {
@@ -89,68 +102,84 @@ class PayrollRegular {
   }
 
   async getPayrollInputSheetListDropdown() {
-    await expect(this.payInputSheetListDropdown).toBeVisible();
+    await expect(
+      this.payInputSheetListDropdown,
+      "Payroll Input Sheet List dropdown not found"
+    ).toBeVisible();
   }
 
   async getAdjustmentListDropdown() {
-    await expect(this.payAdjustmentListDropdown).toBeVisible();
+    await expect(
+      this.payAdjustmentListDropdown,
+      "Adjustment List Dropdown"
+    ).toBeVisible();
   }
 
   async getRegisterReviewPayrollDropdown() {
-    await expect(this.payRegisterReviewPayrollDropdown).toBeVisible();
+    await expect(
+      this.payRegisterReviewPayrollDropdown,
+      "Register Review Payroll dropdown not found"
+    ).toBeVisible();
   }
 
   async getPayRegisterReviewLocationDropdown() {
-    await expect(this.payRegisterReviewLocationDropdown).toBeVisible();
+    await expect(
+      this.payRegisterReviewLocationDropdown,
+      "Pay Register Review Location dropdown not found"
+    ).toBeVisible();
   }
 
   // click elements
-  async clickPayrollLink() {
-    await this.payrollLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/Regular"
-    );
-  }
 
   async clickPayrollGroupListDropdown() {
+    await this.getPayrollGroupListDropdown();
     await this.payGroupListDropdown.click();
   }
 
   async clickPeriodEndDateListDropdown() {
+    await this.getPeriodEndDateListDropdown();
     await this.payPeriodEndDateListDropdown.click();
   }
 
   async clickPayRegionListDropdown() {
+    await this.getPayRegionlistDropdown();
     await this.payRegionListDropdown.click();
   }
 
   async clickPayCalendarListDropdown() {
+    await this.getPayCalendarListDropdown();
     await this.payCalendarListDropdown.click();
   }
 
   async clickPayrollStatusListDropdown() {
+    await this.getPayrollStatusListDropdown();
     await this.payStatusListDropdown.click();
   }
 
   async clickPayrollDataLoadListDropdown() {
+    await this.getPayrollDataLoadListDropdown();
     await this.payDataLoadListDropdown.click();
   }
 
   async clickAdjustmentListDropdown() {
+    await this.getAdjustmentListDropdown();
     await this.payAdjustmentListDropdown.click();
   }
 
   async clickPayrollRegisterReviewPayrollDropdown() {
+    await this.getRegisterReviewPayrollDropdown();
     await this.payRegisterReviewPayrollDropdown.click();
   }
 
   async clickPayRegisterReviewLocationDropdown() {
+    await this.getPayRegisterReviewLocationDropdown();
     await this.payRegisterReviewLocationDropdown.click();
   }
 
   // interact with elements
 
   async inputCompanyDropdown(text) {
+    await this.getPayrollGroupListDropdown();
     await this.payGroupListDropdown.click();
     await this.payGroupListDropdown.fill(text);
     await this.payGroupListDropdown.press("ArrowDown");
@@ -160,6 +189,7 @@ class PayrollRegular {
   }
 
   async inputPayRegionListDropdown(text) {
+    await this.getPayRegionlistDropdown();
     await this.payRegionListDropdown.click();
     await this.payRegionListDropdown.fill(text);
     await this.payRegionListDropdown.press("ArrowDown");
@@ -169,6 +199,7 @@ class PayrollRegular {
   }
 
   async inputPayCalendarListDropdown(text) {
+    await this.getPayCalendarListDropdown();
     await this.payCalendarListDropdown.click();
     await this.payCalendarListDropdown.fill(text);
     await this.payCalendarListDropdown.press("ArrowDown");
@@ -176,12 +207,14 @@ class PayrollRegular {
   }
 
   async inputPayStatusListDropdown(text) {
+    await this.getPayrollStatusListDropdown();
     await this.payStatusListDropdown.click();
     await this.payStatusListDropdown.fill(text);
     await this.payStatusListDropdown.press("ArrowDown");
     await this.payStatusListDropdown.press("Enter");
   }
   async inputPayDataLoadListDropdown(text) {
+    await this.getPayrollDataLoadListDropdown();
     await this.payDataLoadListDropdown.click();
     await this.payDataLoadListDropdown.fill(text);
     await this.payDataLoadListDropdown.press("ArrowDown");
@@ -189,6 +222,7 @@ class PayrollRegular {
   }
 
   async inputPayInputSheetListDropdown(text) {
+    await this.getPayrollInputSheetListDropdown();
     await this.payInputSheetListDropdown.click();
     await this.payInputSheetListDropdown.fill(text);
     await this.payInputSheetListDropdown.press("ArrowDown");
@@ -196,6 +230,7 @@ class PayrollRegular {
   }
 
   async inputPayAdjustmentListDropdown(text) {
+    await this.getAdjustmentListDropdown();
     await this.payAdjustmentListDropdown.click();
     await this.payAdjustmentListDropdown.fill(text);
     await this.payAdjustmentListDropdown.press("ArrowDown");
@@ -203,6 +238,7 @@ class PayrollRegular {
   }
 
   async inputPayRegisterReviewPayrollDropdown(text) {
+    await this.getPayRegisterReviewLocationDropdown();
     await this.payRegisterReviewPayrollDropdown.click();
     await this.payRegisterReviewPayrollDropdown.fill(text);
     await this.payRegisterReviewPayrollDropdown.press("ArrowDown");
@@ -210,6 +246,7 @@ class PayrollRegular {
   }
 
   async inputPayRegisterReviewLocationDropdown(text) {
+    await this.getPayRegisterReviewLocationDropdown();
     await this.payRegisterReviewLocationDropdown.click();
     await this.payRegisterReviewLocationDropdown.fill(text);
     await this.payRegisterReviewLocationDropdown.press("ArrowDown");

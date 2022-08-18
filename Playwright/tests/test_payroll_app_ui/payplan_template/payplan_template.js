@@ -102,6 +102,7 @@ class PayplanTemplate {
     await this.page.goto(
       "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanTemplate"
     );
+    await this.page.waitForLoadState("networkidle");
   }
 
   /// get elements
@@ -245,9 +246,17 @@ class PayplanTemplate {
     await expect(this.payRateTypeDropdown).toBeVisible();
   }
 
+  async getDeleteInput() {
+    await expect(
+      this.deleteInput,
+      "Delete Input from Dropdown not found"
+    ).toBeVisible();
+  }
+
   // input elements
 
   async inputJob(text) {
+    await this.getJobInput();
     await this.jobInput.click();
     await this.jobInput.fill(text);
     await this.jobInput.fill("Arrow Down");
@@ -255,6 +264,7 @@ class PayplanTemplate {
   }
 
   async inputDepartment(text) {
+    await this.getDepartmentInput();
     await this.departmentInput.click();
     await this.departmentInput.fill(text);
     await this.departmentInput.fill("Arrow Down");
@@ -262,6 +272,7 @@ class PayplanTemplate {
   }
 
   async inputState(text) {
+    await this.getStateInput();
     await this.stateInput.click();
     await this.stateInput.fill(text);
     await this.stateInput.fill("Arrow Down");
@@ -269,62 +280,76 @@ class PayplanTemplate {
   }
 
   async inputPositionTypeDropdown() {
+    await this.getPositionTypeDropdown();
     await this.positionTypeTriangle.first().click();
   }
 
   async deletePositionTypeDropdown() {
+    await this.getPositionTypeDropdown();
     await this.positionTypeDelete.first().click();
   }
 
   async inputPlanTypeDropdown() {
+    await this.getPlanTypeDropdown();
     await this.planTypeDropdownTriangle.first().click();
   }
 
   async deletePlanTypeDropdown() {
+    await this.getPlanTypeDropdown();
     await this.planTypeDelete.first().click();
   }
 
   async inputTemplateNameDropdown(text) {
+    await this.getTemplateNameDropdown();
     await this.templateNameDropdown.click();
     await this.templateNameDropdown.fill(text);
   }
 
   async deleteTemplateNameDropdown() {
+    await this.getTemplateNameDropdown();
     await this.templateNameDelete.first().click();
   }
 
   async inputPayRateTypeDropdown(text) {
+    await this.getPayRateTypeDropdown();
     await this.templateNameDropdown.click();
     await this.templateNameDropdown.fill(text);
   }
 
   async inputPayRateTypeTriangle() {
+    await this.getPayRateTypeDropdown();
     await this.payRateTypeDropdownTriangle.first().click();
   }
 
   async deletePayRateType() {
+    await this.getPayRateTypeDropdown();
     await this.payRateTypeDelete.click();
   }
 
   async clickDeleteInput() {
+    await this.getDeleteInput();
     await this.deleteInput.click();
   }
 
   // click elements
   async clickEditButton() {
+    await this.getEditButton();
     await this.editButton.click();
   }
 
   async clickSaveButton() {
+    await this.getSaveButton();
     await this.saveButton.click();
   }
 
   async clickBackButton() {
+    await this.getBackButton();
     await this.backButton.click();
   }
 
   async clickAddTemplate() {
     // Click text=Add Template
+    await this.getAddTemplateButton();
     await this.addTemplateButton.click();
   }
 }

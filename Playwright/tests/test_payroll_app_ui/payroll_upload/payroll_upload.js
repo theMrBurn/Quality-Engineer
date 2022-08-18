@@ -45,6 +45,7 @@ class PayrollUpload {
   // Navigate to /Payroll/Regular endpoint
   async goto() {
     await this.page.goto("https://azwu2apweb-test.azurewebsites.net/Upload");
+    await this.page.waitForLoadState("networkidle");
   }
 
   // get elements
@@ -114,6 +115,7 @@ class PayrollUpload {
   // interact with elements
 
   async inputPayCalendarDropdown(text) {
+    await this.getpayCalendarDropdown();
     await this.paycalendarListDropdown.click();
     await this.paycalendarListDropdown.fill(text);
     await this.paycalendarListDropdown.press("ArrowDown");
@@ -121,10 +123,12 @@ class PayrollUpload {
   }
 
   async clickAccountingMonthCalendar() {
+    await this.getAccountingMonthDateDropdown();
     await this.accountingMonthCalendar.click();
   }
 
   async inputPPEdateDropdown(text) {
+    await this.getPPEDateDropdown();
     await this.ppeDateDropdown.click();
     await this.ppeDateDropdown.fill(text);
     await this.ppeDateDropdown.press("ArrowDown");
@@ -132,6 +136,7 @@ class PayrollUpload {
   }
 
   async inputAccountingDate(text) {
+    await this.getAccountingMonthDateDropdown();
     await this.accountingMonthDateDropdown.click();
     await this.accountingMonthDateDropdown.fill(text);
     await this.accountingMonthDateDropdown.press("ArrowDown");
