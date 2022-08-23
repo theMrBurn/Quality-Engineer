@@ -46,6 +46,14 @@ class PayrollRegular {
     this.payRegisterReviewLocationDropdown = page.locator(
       'input[name="RegisterReviewLocationList_input"]'
     );
+    this.companyDropdownTriangle = page.locator(".k-select >> nth=0");
+    this.ppeDateDropdownTriangle = page.locator(".k-select >> nth=1");
+    this.expandAuditView = page.locator(
+      '//*[@id="PayrollGrid"]/table/tbody/tr[1]/td[1]/a'
+    );
+    this.collapseAuditView = page.locator(
+      '//*[@id="PayrollGrid"]/table/tbody/tr[1]/td[1]/a'
+    );
   }
 
   // Navigate to /Payroll/Regular endpoint
@@ -129,11 +137,39 @@ class PayrollRegular {
     ).toBeVisible();
   }
 
+  async getCompanyDropdown() {
+    await expect(
+      this.companyDropdownTriangle,
+      "Company Dropdown triangle not found"
+    ).toBeVisible();
+  }
+
+  async getPPEdateDropdownTriangle() {
+    await expect(
+      this.ppeDateDropdownTriangle,
+      "PPE Date dropdown triangle not found"
+    ).toBeVisible();
+  }
+
+  async getExpandAuditView() {
+    await expect(
+      this.expandAuditView,
+      "Unable to find Expand Audit View"
+    ).toBeVisible();
+  }
+
+  async getCollapseAuditView() {
+    await expect(
+      this.collapseAuditView,
+      "Unable to find Collapse Audit View"
+    ).toBeVisible();
+  }
+
   // click elements
 
   async clickPayrollGroupListDropdown() {
-    await this.getPayrollGroupListDropdown();
-    await this.payGroupListDropdown.click();
+    await this.getCompanyDropdownTriangle();
+    await this.companyDropdownTriangle.click();
   }
 
   async clickPeriodEndDateListDropdown() {
@@ -176,7 +212,27 @@ class PayrollRegular {
     await this.payRegisterReviewLocationDropdown.click();
   }
 
+  async clickExpandAuditView() {
+    await this.getExpandAuditView();
+    await this.expandAuditView.click();
+  }
+
+  async clickCollapseAuditView() {
+    await this.getCollapseAuditView();
+    await this.collapseAuditView.click();
+  }
+
   // interact with elements
+
+  async clickInputCompanyDropdown() {
+    await this.getCompanyDropdown();
+    await this.companyDropdownTriangle.click();
+  }
+
+  async clickPeriodEndDateListDropdown() {
+    await this.getPPEdateDropdownTriangle();
+    await this.ppeDateDropdownTriangle.click();
+  }
 
   async inputCompanyDropdown(text) {
     await this.getPayrollGroupListDropdown();

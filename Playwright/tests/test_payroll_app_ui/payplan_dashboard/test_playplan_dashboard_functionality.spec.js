@@ -8,7 +8,7 @@ const { test, expect, devices } = require("@playwright/test");
 const { PayplanDashboard } = require("./payplan_dashboard.js");
 
 // user
-test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
+//test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
 test.describe.serial("Payplan /dashboard interactive tests", () => {

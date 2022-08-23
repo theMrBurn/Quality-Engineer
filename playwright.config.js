@@ -12,6 +12,12 @@ const { devices } = require("@playwright/test");
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
 const config = {
+  globalSetup: require.resolve("./Playwright/global-setup.js"),
+  // use: {
+  //   // Tell all tests to load signed-in state from 'storageState.json'.
+  //   storageState: "allPay_superUser.json",
+  // },
+
   testDir: "Playwright/tests",
   /* Maximum time one test can run for. */
   timeout: 10 * 60 * 1000,
@@ -22,6 +28,7 @@ const config = {
      */
     timeout: 10 * 60 * 1000,
   },
+
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -30,6 +37,7 @@ const config = {
   workers: process.env.CI ? 1 : 6,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "list",
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -45,7 +53,7 @@ const config = {
     },
 
     //for AllPay login as superadmin
-    storageState: "pw_auth_testenv.json",
+    storageState: "Playwright/helpers/allPay_superUser.json",
   },
 
   /* Configure projects for major browsers */

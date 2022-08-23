@@ -8,7 +8,7 @@ const { test, expect } = require("@playwright/test");
 const { PayrollDashboard } = require("./payroll_dashboard.js");
 
 // user
-test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
+//test.use({ storageState: "Playwright/helpers/allPay_superUser.json" });
 
 //test
 test.describe.serial("Payroll Home Page", () => {

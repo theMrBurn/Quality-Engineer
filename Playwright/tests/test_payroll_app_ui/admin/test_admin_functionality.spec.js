@@ -8,7 +8,7 @@ const { test, expect } = require("@playwright/test");
 const { Admin } = require("./admin.js");
 
 // user
-test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
+//test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
 test.describe.serial("/Admin", () => {
