@@ -22,7 +22,7 @@ test.describe.serial("/main_store", () => {
        await mainStore.goto();
        await mainStore.login();
        await mainStore.twostepauthlogin();
-       await mainStore.NavigateToBodyShop();
+       /*await mainStore.NavigateToBodyShop();
        await mainStore.NavigateToPartsReport();
        await mainStore.NavigateToServiceDashboard();
        await mainStore.NavigateToServiceFlateRateHrs();
@@ -59,9 +59,12 @@ test.describe.serial("/main_store", () => {
        // Main
        await mainStore.NavigateToMainStorePerformanceDashboard();
        await mainStore.NavigateToMainStorePerformanceScorecardSPS();
+       
        await mainStore.NavigateToMainAnnualOperatingPlan();
        await mainStore.NavigateToMainRetailReadinessOmnichannel();
+       
        await mainStore.NavigateToMainStaffingAnalysis();
+       */
        await mainStore.NavigateToMainMIS();
        await mainStore.NavigateToMainMIS1Standard();
        await mainStore.NavigateToMainMISComparison();

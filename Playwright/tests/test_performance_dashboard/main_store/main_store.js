@@ -57,37 +57,38 @@ class MainStore
     this.getOfficeShipper=page.locator('text="Shippers"');
     //Main Tb 
     this.getMainTab=page.locator(':nth-match(:text("Main"),1)');
-    this.getMainStorePerformanceDashboard=page.locator('text=("Store Performance Dashboard"');
-    this.getMainStorePerformanceScorecardSPS=page.locator('text=("Store Performance Scorecard (SPS)"');
-    this.getMainAnnualOperatingPlan=page.locator('text=("Annual Operating Plan"');
-    this.getMainRetailReadinessOmnichannel=page.locator('text=(" Retail Readiness (Omnichannel)"');
-    this.getMainStaffingAnalysis =page.locator('text=("Staffing Analysis "');
+    //this.getMainStorePerformanceDashboard=page.locator('text=("Store Performance Dashboard"');
+    //this.getMainStorePerformanceScorecardSPS=page.locator('text=("Store Performance Scorecard (SPS)"');
+    this.getMainAnnualOperatingPlan=page.locator(':nth-match(:text("Annual Operating Plan"),1)');
+    this.getMainRetailReadinessOmnichannel=page.locator(':nth-match(:text(" Retail Readiness (Omnichannel)"),1)');
+    this.getMainStaffingAnalysis =page.locator(':nth-match(:text("Staffing Analysis "),1)');
     this.getMainMIS=page.locator(':nth-match(:text("MIS"),1)');
-    this.getMainMIS1Standard=page.locator('text=("MIS 1 (Standard)"');
-    this.getMainMISComparison=page.locator('text=("MIS Comparison"');
-    this.getMainOperationalMIS=page.locator('text=("Operational MIS"');
-    this.getMainStoreRosters=page.locator('text=("Store Rosters"');
-    this.getMainStoreLeadershipReport =page.locator('text=("Store Leadership Report"');
-    this.getMainStoreRosters=page.locator('text=("Store Rosters"');
+    this.getMainMIS1Standard=page.locator(':nth-match(:text("MIS 1 (Standard)"),3)');
+    this.getMainMISComparison=page.locator(':nth-match(:text("MIS Comparison"),1)');
+    this.getMainOperationalMIS=page.locator(':nth-match(:text("Operational MIS"),1');
+    this.getMainStoreRosters=page.locator(':nth-match(:text("Store Rosters"),1)');
+    this.getMainStoreLeadershipReport =page.locator(':nth-match(:text("Store Leadership Report"),1)');
+    this.getMainStoreRosters=page.locator(':nth-match(:text("Store Rosters"),1)');
     
     //Sales Tab
     this.getSalesTab=page.locator(':nth-match(:text("Sales"),1)');
-    this.getSalesNewVehicle=page.locator('text="New Vehicle"');
-    this.getSalesNewVehicleDashboard=page.locator('text="New Vehicle Dashboard"');
+    this.getSalesNewVehicle=page.locator(':nth-match(:text("New Vehicle"),1)');
+    this.getSalesNewVehicleDashboard=page.locator(':nth-match(:text("New Vehicle Dashboard"),1)');
     this.getSalesApprovabilityScorecard=page.locator('text="Approvability Scorecard"');
-    this.getSalesNewInventoryDetail=page.locator('text="New Inventory Detail"');
-    this.getSalesIncentiveLog=page.locator('text="Incentive Log"');
-    this.getSalesRDRReconciliation=page.locator('text=("RDR Reconciliation"');
-    this.getSalesLoanerVehicleDetail=page.locator('text=("Loaner Vehicle Detail"');
+    this.getSalesNewInventoryDetail=page.locator(':nth-match(:text("New Inventory Detail"),1)');
+    this.getSalesIncentiveLog=page.locator(':nth-match(:text("Incentive Log"),1)');
+    this.getSalesRDRReconciliation=page.locator(':nth-match(:text("RDR Reconciliation"),1)');
+    this.getSalesLoanerVehicleDetail=page.locator(':nth-match(:text("Loaner Vehicle Detail"),1)');
     //Used Vehicle
-    this.getSalesUsedVehicle=page.locator('text="Used Vehicle"');
-    this.getSalesUsedVehicleDashboard=page.locator('text="Used Vehicle Dashboard"');
-    this.getSalesPurchaseLogTradeIn=page.locator('text="Purchase Log / Trade-In"');
-    this.getSalesUsedInventoryDetail=page.locator('text="Used Inventory Detail"');
-    this.getSalesInventoryAnalysisUVIA=page.locator('text="Inventory Analysis (UVIA)"');
-    this.getSalesUsedVehicleReportCard=page.locator('text="Used Vehicle Report Card"');
+    this.getSalesUsedVehicle=page.locator(':nth-match(:text("Used Vehicle"),1)');
+    this.getSalesUsedVehicleDashboard=page.locator(':nth-match(:text("Used Vehicle Dashboard"),1)');
+    this.getSalesPurchaseLogTradeIn=page.locator(':nth-match(:text("Purchase Log / Trade-In"),1)');
+    this.getSalesUsedInventoryDetail=page.locator(':nth-match(:text("Used Inventory Detail"),1)');
+    this.getSalesInventoryAnalysisUVIA=page.locator(':nth-match(:text("Inventory Analysis (UVIA)"),1)');
+    this.getSalesUsedVehicleReportCard=page.locator(':nth-match(:text("Used Vehicle Report Card"),1)');
     // F&I Ops 
-    this.getSalesFIOps=page.locator('text="F&I Ops"');
+    this.getSalesFIOps=page.locator(':nth-match(:text("F&I Ops"),1)');
+    // I did change the locators until this.
     this.getSalesFIOpsDashboard=page.locator('text="F&I Ops Dashboard"');
     this.getSalesFILog=page.locator('text="F&I Log"');
     this.getSalesFILogNew=page.locator('text="F&I Log - New"');
@@ -145,16 +146,19 @@ class MainStore
     }
     async NavigateToMainMIS1Standard() {
       await this.getMainTab.click();
+      await this.getMainMIS.click();
       await this.getMainMIS1Standard.click();
       await this.page.waitForLoadState('networkidle');
     }
     async NavigateToMainMISComparison() {
       await this.getMainTab.click();
+      await this.getMainMIS.click();
       await this.getMainMISComparison.click();
       await this.page.waitForLoadState('networkidle');
     }
     async NavigateToMainOperationalMIS() {
       await this.getMainTab.click();
+      await this.getMainMIS.click();
       await this.getMainOperationalMIS.click();
       await this.page.waitForLoadState('networkidle');
     }
