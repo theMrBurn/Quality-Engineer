@@ -22,7 +22,7 @@ test.describe.serial("/main_store", () => {
        await mainStore.goto();
        await mainStore.login();
        await mainStore.twostepauthlogin();
-       /*await mainStore.NavigateToBodyShop();
+       await mainStore.NavigateToBodyShop();
        await mainStore.NavigateToPartsReport();
        await mainStore.NavigateToServiceDashboard();
        await mainStore.NavigateToServiceFlateRateHrs();
@@ -59,37 +59,29 @@ test.describe.serial("/main_store", () => {
        // Main
        await mainStore.NavigateToMainStorePerformanceDashboard();
        await mainStore.NavigateToMainStorePerformanceScorecardSPS();
-       
        await mainStore.NavigateToMainAnnualOperatingPlan();
        await mainStore.NavigateToMainRetailReadinessOmnichannel();
-       
        await mainStore.NavigateToMainStaffingAnalysis();
-       */
-       await mainStore.NavigateToMainMIS();
-       await mainStore.NavigateToMainMIS1Standard();
        await mainStore.NavigateToMainMISComparison();
-       await mainStore.NavigateToMainOperationalMIS();
+       await mainStore.NavigateToMainMIS1Standard();
        await mainStore.NavigateToMainStoreRosters();
+       await mainStore.NavigateToMainOperationalMIS();
        await mainStore.NavigateToMainStoreLeadershipReport();
-       await mainStore.NavigateToMainStore();
+       await mainStore.goto();  
        // Sales
-       await mainStore.NavigateToSalesNewVehicle();
        await mainStore.NavigateToSalesNewVehicleDashboard();
-       await mainStore.NavigateToSalesNewVehicle();
        await mainStore.NavigateToSalesApprovabilityScorecard();
        await mainStore.NavigateToSalesNewInventoryDetail();
        await mainStore.NavigateToSalesIncentiveLog();
        await mainStore.NavigateToSalesRDRReconciliation();
        await mainStore.NavigateToSalesLoanerVehicleDetail();
        //Sales Used Vehicle
-       await mainStore.NavigateToSalesUsedVehicle();
+       await mainStore.NavigateToSalesUsedVehicleDashboard();
        await mainStore.NavigateToSalesPurchaseLogTradeIn();
-       await mainStore.NavigateToSalesUsedVehicle();
        await mainStore.NavigateToSalesUsedInventoryDetail();
        await mainStore.NavigateToSalesInventoryAnalysisUVIA();
        await mainStore.NavigateToSalesUsedVehicleReportCard();
        // F&I Ops 
-       await mainStore.NavigateToSalesFIOp();
        await mainStore.NavigateToSalesFIOpsDashboard();
        await mainStore.NavigateToSalesFILog();
        await mainStore.NavigateToSalesFILogNew();
@@ -98,7 +90,6 @@ test.describe.serial("/main_store", () => {
        await mainStore.NavigateToSalesFITopProducers();
        await mainStore.NavigateToSalesFIBankLog();
        //Sales Log
-       await mainStore.NavigateToSalesSalesLog();
        await mainStore.NavigateToSalesRetailSalesLogALOG();
        await mainStore.NavigateToSalesWholesaleLogALOG();
        await mainStore.NavigateToSalesCITSummary();
@@ -110,6 +101,6 @@ test.describe.serial("/main_store", () => {
        await mainStore.NavigateToSalesViewReports();
        await mainStore.NavigateToSalesWeekendSummary();
        await mainStore.NavigateToSalesMonthEndReport();
-       await mainStore.NavigateToSalesSalesMgrTopProducers();
+       //await mainStore.NavigateToSalesSalesMgrTopProducers();
      });
 });
