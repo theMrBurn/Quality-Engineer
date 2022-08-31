@@ -62,16 +62,15 @@ class MainStore
     this.getMainAnnualOperatingPlan=page.locator(':nth-match(:text("Annual Operating Plan"),1)');
     this.getMainRetailReadinessOmnichannel=page.locator(':nth-match(:text(" Retail Readiness (Omnichannel)"),1)');
     this.getMainStaffingAnalysis =page.locator(':nth-match(:text("Staffing Analysis "),1)');
-    this.getMainMIS=page.locator(':nth-match(:text("MIS"),1)');
+    this.getMainMIS=page.locator('text="MIS"');
     this.getMainMIS1Standard=page.locator(':nth-match(:text("MIS 1 (Standard)"),1)');
     this.getMainMISComparison=page.locator(':nth-match(:text("MIS Comparison"),1)');
     this.getMainOperationalMIS=page.locator(':nth-match(:text("Operational MIS"),1)');
     this.getMainStoreRosters=page.locator(':nth-match(:text("Store Rosters"),1)');
     this.getMainStoreLeadershipReport =page.locator(':nth-match(:text("Store Leadership Report"),1)');
-    this.getMainStoreRosters2=page.locator(':nth-match(:text("Store Rosters"),2)');
-    
+    this.getMainStoreRosters2=page.locator(':nth-match(:text("Store Rosters"),2)');    
     //Sales Tab
-    this.getSalesTab=page.locator('text="Sales"');
+    this.getSalesTab=page.locator('text="Sales" >> nth=0');
     this.getSalesNewVehicle=page.locator(':nth-match(:text("New Vehicle"),1)');
     this.getSalesNewVehicleDashboard=page.locator(':nth-match(:text("New Vehicle Dashboard"),1)');
     this.getSalesApprovabilityScorecard=page.locator('text="Approvability Scorecard"');
@@ -90,17 +89,16 @@ class MainStore
     this.getSalesFIOps=page.locator(':nth-match(:text("F&I Ops"),1)');
     this.getSalesFIOpsDashboard=page.locator(':nth-match(:text("F&I Ops Dashboard"),1)');
     this.getSalesFILog=page.locator(':nth-match(:text("F&I Log"),1)');
-    this.getSalesFILogNew=page.locator(':nth-match(:text("F&I Log - New"),1');
-    this.getSalesFIPerformanceScorecard=page.locator(':nth-match(:text("F&I Performance Scorecard"),1)');
+    this.getSalesFILogNew=page.locator(':nth-match(:text("F&I Log - New"),1)');
+    this.getSalesFIPerformanceScorecard=page.locator('text="F&I Performance Scorecard"');
     this.getSalesFIManagerPerformance=page.locator(':nth-match(:text("F&I Manager Performance"),1)');
     this.getSalesFITopProducers=page.locator(':nth-match(:text("F&I Top Producers"),1)');
     this.getSalesFIBankLog=page.locator(':nth-match(:text("F&I Bank Log"),1)');
    //Sales Log
-   this.getSalesSalesLog=page.locator(':nth-match(:text("Sales Log"),1)');
-   this.getSalesRetailSalesLogALOG=page.locator(':nth-match(:text("Retail Sales Log (ALOG)"),1)');
-   this.getSalesWholesaleLogALOG=page.locator(':nth-match(:text("Wholesale Log (ALOG"),1)');
-   this.getSalesCITSummary=page.locator(':nth-match(:text("CIT Summary"),1)');
-    //
+    this.getSalesSalesLog=page.locator(':nth-match(:text("Sales Log"),1)');
+    this.getSalesRetailSalesLogALOG=page.locator(':nth-match(:text("Retail Sales Log (ALOG)"),1)');
+    this.getSalesWholesaleLogALOG=page.locator(':nth-match(:text("Wholesale Log (ALOG"),1)');
+    this.getSalesCITSummary=page.locator(':nth-match(:text("CIT Summary"),1)');
     this.getSalesBookedandPending=page.locator(':nth-match(:text("Booked and Pending"),1)');
     this.getSalesSalesPersonnelPerformance=page.locator(':nth-match(:text("Sales Personnel Performance"),1)');
     this.getSalesWeekendMonthEndSummary=page.locator(':nth-match(:text("Weekend/Month End Summary"),1)');
@@ -109,8 +107,7 @@ class MainStore
     this.getSalesWeekendSummary=page.locator(':nth-match(:text("Weekend Summary"),1)');
     this.getSalesMonthEndReport=page.locator(':nth-match(:text("Month End Report"),1)');
     this.getSalesSalesMgrTopProducers=page.locator(':nth-match(:text("Sales Mgr Top Producers"),1)');
-    
-  } 
+ } 
     //Navigate to Main Tab/ Performace Dashboard Report
     async NavigateToMainStorePerformanceDashboard() {
       await this.getMainTab.click();
@@ -119,10 +116,9 @@ class MainStore
         }
     async NavigateToMainStorePerformanceScorecardSPS() {
       await this.getMainTab.click();
-        await this.getMainStorePerformanceScorecardSPS.click();
-        await this.page.waitForLoadState('networkidle');
+      await this.getMainStorePerformanceScorecardSPS.click();
+      await this.page.waitForLoadState('networkidle');
          }
-    
     async NavigateToMainAnnualOperatingPlan() {
       await this.getMainTab.click();
       await this.getMainAnnualOperatingPlan.click();
@@ -168,10 +164,9 @@ class MainStore
       await this.getMainStoreRosters2.click();
       await this.page.waitForLoadState('networkidle');
     }
-  
     // Navigate to Sales Tab/ Performance Dashboard.
     async NavigateToSalesNewVehicleDashboard() {
-      await this.getSalesTab.click();
+      await this.getSalesTab.first().click();
       await this.getSalesNewVehicle.click();
       await this.getSalesNewVehicleDashboard.click();
       await this.page.waitForLoadState('networkidle');
@@ -298,8 +293,7 @@ class MainStore
       await this.getSalesCITSummary.click();
       await this.page.waitForLoadState('networkidle');
     }
-  
-    // Sales Log Report
+      // Sales Log Report
     async NavigateToSalesBookedandPending() {
       await this.getSalesTab.click();
       await this.getSalesBookedandPending.click();
@@ -530,7 +524,7 @@ class MainStore
     await this.getOfficeShipper.click();
     await this.page.waitForLoadState('networkidle');
   }
-  // click elements
+  // Login
   async login() {
   await this.getUsername.click();
   await this.page.fill('input[id="i0116"]', 't_PerfDash_01@lithia.com'); //username

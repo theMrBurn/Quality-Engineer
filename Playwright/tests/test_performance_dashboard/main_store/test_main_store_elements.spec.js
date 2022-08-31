@@ -16,7 +16,7 @@ test.describe.serial("/main_store", () => {
        browser, 
        page,
      }) {
-       test.setTimeout(600000);
+       test.setTimeout(6000000);
        const mainStore = new MainStore(page);
        // We can use these two methods in case if the storage state doesnt work
        await mainStore.goto();
@@ -56,13 +56,13 @@ test.describe.serial("/main_store", () => {
        await mainStore.NavigatetoOfficeOTIServiceDriveSales();
        await mainStore.NavigatetoOfficeOTITableViewer();
        await mainStore.NavigatetoOfficeShipper();
-       // Main
+       // Main    
        await mainStore.NavigateToMainStorePerformanceDashboard();
        await mainStore.NavigateToMainStorePerformanceScorecardSPS();
        await mainStore.NavigateToMainAnnualOperatingPlan();
        await mainStore.NavigateToMainRetailReadinessOmnichannel();
-       await mainStore.NavigateToMainStaffingAnalysis();
        await mainStore.NavigateToMainMISComparison();
+       await mainStore.NavigateToMainStaffingAnalysis();
        await mainStore.NavigateToMainMIS1Standard();
        await mainStore.NavigateToMainStoreRosters();
        await mainStore.NavigateToMainOperationalMIS();
@@ -83,9 +83,8 @@ test.describe.serial("/main_store", () => {
        await mainStore.NavigateToSalesUsedVehicleReportCard();
        // F&I Ops 
        await mainStore.NavigateToSalesFIOpsDashboard();
-       await mainStore.NavigateToSalesFILog();
-       await mainStore.NavigateToSalesFILogNew();
        await mainStore.NavigateToSalesFIPerformanceScorecard();
+       await mainStore.NavigateToSalesFILog();
        await mainStore.NavigateToSalesFIManagerPerformance();
        await mainStore.NavigateToSalesFITopProducers();
        await mainStore.NavigateToSalesFIBankLog();
@@ -96,11 +95,9 @@ test.describe.serial("/main_store", () => {
        // Sales Reports
        await mainStore.NavigateToSalesBookedandPending();
        await mainStore.NavigateToSalesSalesPersonnelPerformance();
-       await mainStore.NavigateToSalesWeekendMonthEndSummary();
        await mainStore.NavigateToSalesSubmitaSummary();
-       await mainStore.NavigateToSalesViewReports();
        await mainStore.NavigateToSalesWeekendSummary();
        await mainStore.NavigateToSalesMonthEndReport();
-       //await mainStore.NavigateToSalesSalesMgrTopProducers();
+       //await mainStore.NavigateToSalesSalesMgrTopProducers();-- Not sure on which tab this is
      });
 });
