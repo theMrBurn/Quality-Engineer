@@ -26,8 +26,8 @@ test.describe(
 
       // input employee and grid should show
       const employeeGridResult = await page.innerText("text=Curtis Zakrzewski");
-      await page.locator("text=Curtis Zakrzewski (166341)").click();
-      expect(employeeGridResult).toBe("Curtis Zakrzewski (166341)");
+      await page.locator("text=Curtis Zakrzewski (166341) >> nth=1").click();
+      expect(employeeGridResult).toBe("Curtis Zakrzewski");
 
       const employeePayPlanID = await page.innerText("text=3844");
       expect(employeePayPlanID).toBe("3844");
