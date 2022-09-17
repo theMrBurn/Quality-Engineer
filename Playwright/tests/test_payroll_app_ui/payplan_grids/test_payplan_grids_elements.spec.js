@@ -12,9 +12,6 @@ const { PayPlanGrids } = require("./payplan_grids.js");
 
 //test
 test.describe.serial("PayPlan /Grids", () => {
-  test.fixme(
-    "skip Grid Plans tests - these fail wile Feature Flag is on and dev incomplete - will be fixed by branch: AllPay/payplan-grids-Equation-builder"
-  );
   test("Navigate to /Payplan/Grids and validate Page elements have loaded", async ({
     browser,
     page,
@@ -34,14 +31,11 @@ test.describe.serial("PayPlan /Grids", () => {
 
     await payplanGrids.getNewGridsHeaderText();
     await payplanGrids.getRowFormatText();
-    await payplanGrids.getRowSourceSystemText();
-    await payplanGrids.getRowSourceSystemFieldText();
-    await payplanGrids.getRowFieldDescriptionText();
+    await payplanGrids.getRowSourceEquationText();
+    await payplanGrids.getFieldDescriptionText();
     await payplanGrids.getNumberOfFieldsText();
     await payplanGrids.getColumnFormatText();
-    await payplanGrids.getColumnSourceSystemText();
-    await payplanGrids.getCoulumnSourceSystemFieldText();
-    await payplanGrids.getColumnFieldDescriptionText();
+    await payplanGrids.getColumnSourceEquationText();
     await payplanGrids.getNumberOfColmunsText();
     await payplanGrids.getBodyFormatText();
     await payplanGrids.getGenerateGridButton();

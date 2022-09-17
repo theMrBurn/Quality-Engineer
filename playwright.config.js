@@ -20,13 +20,13 @@ const config = {
 
   testDir: "Playwright/tests",
   /* Maximum time one test can run for. */
-  timeout: 10 * 10 * 1000,
+  timeout: 10 * 60 * 100,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 10 * 10 * 1000,
+    timeout: 10 * 60 * 100,
   },
 
   /* Fail the build on CI if you accidentally left test.only in the source code. */
