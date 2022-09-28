@@ -80,6 +80,7 @@ const config = {
       name: "chromium",
       use: {
         ...devices["Desktop Chrome"],
+        ignoreHTTPSErrors: true,
       },
     },
 
@@ -87,6 +88,7 @@ const config = {
       name: "firefox",
       use: {
         ...devices["Desktop Firefox"],
+        ignoreHTTPSErrors: true,
       },
     },
 
@@ -94,6 +96,7 @@ const config = {
       name: "webkit",
       use: {
         ...devices["Desktop Safari"],
+        ignoreHTTPSErrors: true,
       },
     },
 

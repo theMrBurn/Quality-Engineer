@@ -55,12 +55,287 @@ class MainStore
     this.getOfficeOTIServiceDriveSales=page.locator('text="OTI Service Drive Sales"');
     this.getOfficeOTiTableViewer=page.locator('text="OTI Table Viewer"');
     this.getOfficeShipper=page.locator('text="Shippers"');
-  }
+    //Main Tb 
+    this.getMainTab=page.locator(':nth-match(:text("Main"),1)');
+    this.getMainStorePerformanceDashboard=page.locator(':nth-match(:text("Store Performance Dashboard"),1)');
+    this.getMainStorePerformanceScorecardSPS=page.locator(':nth-match(:text("Store Performance Scorecard (SPS)"),1)');
+    this.getMainAnnualOperatingPlan=page.locator(':nth-match(:text("Annual Operating Plan"),1)');
+    this.getMainRetailReadinessOmnichannel=page.locator(':nth-match(:text(" Retail Readiness (Omnichannel)"),1)');
+    this.getMainStaffingAnalysis =page.locator(':nth-match(:text("Staffing Analysis "),1)');
+    this.getMainMIS=page.locator('text="MIS"');
+    this.getMainMIS1Standard=page.locator(':nth-match(:text("MIS 1 (Standard)"),1)');
+    this.getMainMISComparison=page.locator(':nth-match(:text("MIS Comparison"),1)');
+    this.getMainOperationalMIS=page.locator(':nth-match(:text("Operational MIS"),1)');
+    this.getMainStoreRosters=page.locator(':nth-match(:text("Store Rosters"),1)');
+    this.getMainStoreLeadershipReport =page.locator(':nth-match(:text("Store Leadership Report"),1)');
+    this.getMainStoreRosters2=page.locator(':nth-match(:text("Store Rosters"),2)');    
+    //Sales Tab
+    this.getSalesTab=page.locator('text="Sales" >> nth=0');
+    this.getSalesNewVehicle=page.locator(':nth-match(:text("New Vehicle"),1)');
+    this.getSalesNewVehicleDashboard=page.locator(':nth-match(:text("New Vehicle Dashboard"),1)');
+    this.getSalesApprovabilityScorecard=page.locator('text="Approvability Scorecard"');
+    this.getSalesNewInventoryDetail=page.locator(':nth-match(:text("New Inventory Detail"),1)');
+    this.getSalesIncentiveLog=page.locator(':nth-match(:text("Incentive Log"),1)');
+    this.getSalesRDRReconciliation=page.locator(':nth-match(:text("RDR Reconciliation"),1)');
+    this.getSalesLoanerVehicleDetail=page.locator(':nth-match(:text("Loaner Vehicle Detail"),1)');
+    //Used Vehicle
+    this.getSalesUsedVehicle=page.locator(':nth-match(:text("Used Vehicle"),1)');
+    this.getSalesUsedVehicleDashboard=page.locator(':nth-match(:text("Used Vehicle Dashboard"),1)');
+    this.getSalesPurchaseLogTradeIn=page.locator(':nth-match(:text("Purchase Log / Trade-In"),1)');
+    this.getSalesUsedInventoryDetail=page.locator(':nth-match(:text("Used Inventory Detail"),1)');
+    this.getSalesInventoryAnalysisUVIA=page.locator(':nth-match(:text("Inventory Analysis (UVIA)"),1)');
+    this.getSalesUsedVehicleReportCard=page.locator(':nth-match(:text("Used Vehicle Report Card"),1)');
+    // F&I Ops 
+    this.getSalesFIOps=page.locator(':nth-match(:text("F&I Ops"),1)');
+    this.getSalesFIOpsDashboard=page.locator(':nth-match(:text("F&I Ops Dashboard"),1)');
+    this.getSalesFILog=page.locator(':nth-match(:text("F&I Log"),1)');
+    this.getSalesFILogNew=page.locator(':nth-match(:text("F&I Log - New"),1)');
+    this.getSalesFIPerformanceScorecard=page.locator('text="F&I Performance Scorecard"');
+    this.getSalesFIManagerPerformance=page.locator(':nth-match(:text("F&I Manager Performance"),1)');
+    this.getSalesFITopProducers=page.locator(':nth-match(:text("F&I Top Producers"),1)');
+    this.getSalesFIBankLog=page.locator(':nth-match(:text("F&I Bank Log"),1)');
+   //Sales Log
+    this.getSalesSalesLog=page.locator(':nth-match(:text("Sales Log"),1)');
+    this.getSalesRetailSalesLogALOG=page.locator(':nth-match(:text("Retail Sales Log (ALOG)"),1)');
+    this.getSalesWholesaleLogALOG=page.locator(':nth-match(:text("Wholesale Log (ALOG"),1)');
+    this.getSalesCITSummary=page.locator(':nth-match(:text("CIT Summary"),1)');
+    this.getSalesBookedandPending=page.locator(':nth-match(:text("Booked and Pending"),1)');
+    this.getSalesSalesPersonnelPerformance=page.locator(':nth-match(:text("Sales Personnel Performance"),1)');
+    this.getSalesWeekendMonthEndSummary=page.locator(':nth-match(:text("Weekend/Month End Summary"),1)');
+    this.getSalesSubmitaSummary=page.locator(':nth-match(:text("Submit a Summary"),1)');
+    this.getSalesViewReports=page.locator(':nth-match(:text("View Reports"),1)');
+    this.getSalesWeekendSummary=page.locator(':nth-match(:text("Weekend Summary"),1)');
+    this.getSalesMonthEndReport=page.locator(':nth-match(:text("Month End Report"),1)');
+    this.getSalesSalesMgrTopProducers=page.locator(':nth-match(:text("Sales Mgr Top Producers"),1)');
+ } 
+    //Navigate to Main Tab/ Performace Dashboard Report
+    async NavigateToMainStorePerformanceDashboard() {
+      await this.getMainTab.click();
+      await this.getMainStorePerformanceDashboard.click();
+      await this.page.waitForLoadState('networkidle');
+        }
+    async NavigateToMainStorePerformanceScorecardSPS() {
+      await this.getMainTab.click();
+      await this.getMainStorePerformanceScorecardSPS.click();
+      await this.page.waitForLoadState('networkidle');
+         }
+    async NavigateToMainAnnualOperatingPlan() {
+      await this.getMainTab.click();
+      await this.getMainAnnualOperatingPlan.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainRetailReadinessOmnichannel() {
+      await this.getMainTab.click();
+      await this.getMainRetailReadinessOmnichannel.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainStaffingAnalysis() {
+      await this.getMainTab.click();
+      await this.getMainStaffingAnalysis.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainMIS1Standard() {
+      await this.getMainTab.click();
+      await this.getMainMIS.click();
+      await this.getMainMIS1Standard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainMISComparison() {
+      await this.getMainTab.click();
+      await this.getMainMIS.click();
+      await this.getMainMISComparison.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainOperationalMIS() {
+      await this.getMainTab.click();
+      await this.getMainMIS.click();
+      await this.getMainOperationalMIS.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToMainStoreLeadershipReport() {
+      await this.getMainTab.click();
+      await this.getMainStoreRosters.click();
+      await this.getMainStoreLeadershipReport.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+      async NavigateToMainStoreRosters() {
+      await this.getMainTab.click();
+      await this.getMainStoreRosters.click();
+      await this.getMainStoreRosters2.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    // Navigate to Sales Tab/ Performance Dashboard.
+    async NavigateToSalesNewVehicleDashboard() {
+      await this.getSalesTab.first().click();
+      await this.getSalesNewVehicle.click();
+      await this.getSalesNewVehicleDashboard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesApprovabilityScorecard() {
+      await this.getSalesTab.click();
+      await this.getSalesNewVehicle.click();
+      await this.getSalesApprovabilityScorecard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesNewInventoryDetail() {
+      await this.getSalesTab.click();
+      await this.getSalesNewVehicle.click();
+      await this.getSalesNewInventoryDetail.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesIncentiveLog() {
+      await this.getSalesTab.click();
+      await this.getSalesNewVehicle.click();
+      await this.getSalesIncentiveLog.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesRDRReconciliation() {
+      await this.getSalesTab.click();
+      await this.getSalesNewVehicle.click();
+      await this.getSalesRDRReconciliation.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesLoanerVehicleDetail() {
+      await this.getSalesTab.click();
+      await this.getSalesNewVehicle.click();
+      await this.getSalesLoanerVehicleDetail.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesUsedVehicleDashboard() {
+      await this.getSalesTab.click();
+      await this.getSalesUsedVehicle.click();
+      await this.getSalesUsedVehicleDashboard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesPurchaseLogTradeIn() {
+      await this.getSalesTab.click();
+      await this.getSalesUsedVehicle.click();
+      await this.getSalesPurchaseLogTradeIn.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesUsedInventoryDetail() {
+      await this.getSalesTab.click();
+      await this.getSalesUsedVehicle.click();
+      await this.getSalesUsedInventoryDetail.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesInventoryAnalysisUVIA() {
+      await this.getSalesTab.click();
+      await this.getSalesUsedVehicle.click();
+      await this.getSalesInventoryAnalysisUVIA.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesUsedVehicleReportCard() {
+      await this.getSalesTab.click();
+      await this.getSalesUsedVehicle.click();
+      await this.getSalesUsedVehicleReportCard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    //Navigate to Sales/ F&I Ops 
+     async NavigateToSalesFIOpsDashboard() {
+      await this.getSalesTab.click();
+      await this.getSalesFIOps.click();
+      await this.getSalesFIOpsDashboard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFILog() {
+      await this.getSalesTab.click();
+      await this.getSalesFIOps.click();
+      await this.getSalesFILog.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFILogNew() {
+      await this.getSalesTab.click();
+      await this.getSalesFIOps.click();
+      await this.getSalesFILogNew.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFIPerformanceScorecard() {
+      await this.getSalesTab.click();
+      await this.getSalesFIOps.click();
+      await this.getSalesFIPerformanceScorecard.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFIManagerPerformance() {
+      await this.getSalesTab.click();
+      await this.getSalesFIOps.click();
+      await this.getSalesFIManagerPerformance.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFITopProducers() {
+      await this.getSalesTab.click();
+      await this.getSalesFIOps.click();
+      await this.getSalesFITopProducers.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesFIBankLog() {
+      await this.getSalesTab.click();
+      await this.getSalesFIOps.click();
+      await this.getSalesFIBankLog.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    //Sales Log
+    async NavigateToSalesRetailSalesLogALOG() {
+      await this.getSalesTab.click();
+      await this.getSalesSalesLog.click();
+      await this.getSalesRetailSalesLogALOG.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesWholesaleLogALOG() {
+      await this.getSalesTab.click();
+      await this.getSalesSalesLog.click();
+      await this.getSalesWholesaleLogALOG.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesCITSummary() {
+      await this.getSalesTab.click();
+      await this.getSalesSalesLog.click();
+      await this.getSalesCITSummary.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+      // Sales Log Report
+    async NavigateToSalesBookedandPending() {
+      await this.getSalesTab.click();
+      await this.getSalesBookedandPending.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesSalesPersonnelPerformance() {
+      await this.getSalesTab.click();
+      await this.getSalesSalesPersonnelPerformance.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesSubmitaSummary() {
+      await this.getSalesTab.click();
+      await this.getSalesWeekendMonthEndSummary.click();
+      await this.getSalesSubmitaSummary.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesWeekendSummary() {
+      await this.getSalesTab.click();
+      await this.getSalesWeekendMonthEndSummary.click();
+      await this.getSalesViewReports.click();
+      await this.getSalesWeekendSummary.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    async NavigateToSalesMonthEndReport() {
+      await this.getSalesTab.click();
+      await this.getSalesWeekendMonthEndSummary.click();
+      await this.getSalesViewReports.click();
+      await this.getSalesMonthEndReport.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    /* not sure where this is present
+    async NavigateToSalesSalesMgrTopProducers() {
+      await this.getSalesTab.click();
+      await this.getSalesSalesMgrTopProducers.click();
+      await this.page.waitForLoadState('networkidle');
+    }
+    */
   // use goto() if you intend on starting the test on a particular page in SPEDashboard App
   async goto() {
-     await this.page.goto('https://spedev.lithiainc.com/main/store');
+     await this.page.goto('https://spedev.lithiainc.com/main/store',{timeout:0});
   // Pause for 10 seconds, to see what's going on.
-  await this.page.waitForTimeout(10000);
+  await this.page.waitForLoadState('networkidle');
   }
   // get elements of all locators
   async NavigateToDriveway() {
@@ -249,7 +524,7 @@ class MainStore
     await this.getOfficeShipper.click();
     await this.page.waitForLoadState('networkidle');
   }
-  // click elements
+  // Login
   async login() {
   await this.getUsername.click();
   await this.page.fill('input[id="i0116"]', 't_PerfDash_01@lithia.com'); //username
