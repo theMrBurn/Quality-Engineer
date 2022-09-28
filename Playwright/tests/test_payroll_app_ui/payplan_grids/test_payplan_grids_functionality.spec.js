@@ -28,7 +28,7 @@ test.describe.serial("PayPlan /Grids - Validate basic Functionality", () => {
     const gridName = await page.innerText(
       "#GridsGrid > table > tbody > tr > td:nth-child(2)"
     );
-    expect(gridName).toContain("VPIxPVR");
+    expect.soft(gridName).toContain("VPIxPVR");
 
     const gridDescription = await page.innerText("text=F&I Grid VPI x PVR");
     expect(gridDescription).toContain("F&I Grid VPI x PVR");
@@ -45,7 +45,7 @@ test.describe.serial("PayPlan /Grids - Validate basic Functionality", () => {
     await page.locator('li[role="option"]:has-text("L0304")').click();
 
     const gridName = await page.innerText("text=VPIxPVR");
-    expect(gridName).toContain("VPIXPVR");
+    expect.soft(gridName).toContain("VPIXPVR");
 
     const gridDescription = await page.innerText("text=VPIXPVR");
     expect(gridDescription).toContain("VPIXPVR");
@@ -62,7 +62,7 @@ test.describe.serial("PayPlan /Grids - Validate basic Functionality", () => {
     await page.locator('li[role="option"]:has-text("PVRxVPI")').click();
 
     const gridName = await page.innerText("text=PVRxVPI");
-    expect(gridName).toContain("PVRxVPI");
+    expect.soft(gridName).toContain("PVRxVPI");
 
     const gridDescription = await page.innerText("text=PVRxVPI");
     expect(gridDescription).toContain("PVRxVPI");

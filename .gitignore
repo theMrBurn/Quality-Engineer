@@ -30,3 +30,4 @@ test-results/
 playwright-report/
 test-results/
 playwright-report/
+./helpers/allPay_superUser.json
