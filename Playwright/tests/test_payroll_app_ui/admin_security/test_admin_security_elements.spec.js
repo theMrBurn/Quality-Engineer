@@ -1,0 +1,26 @@
+// Payplan Employee Details
+
+// POMs have to live in the same directory as the test, for now
+// we will paramaterize the storageState with other .json for each userLogin, if necessary
+
+// dependancies
+const { test, expect } = require("@playwright/test");
+const { AdminSecurity } = require("./admin_security_roles.js");
+
+//test
+test.describe.serial("Admin Employee Details Page load", () => {
+  test("Navigate to Admin/EmployeeDetails and validate Page elements have loaded", async ({
+    browser,
+    page,
+  }) => {
+    const adminSecurityRoles = new AdminSecurity(page);
+    await adminSecurityRoles.goto();
+
+    await adminSecurityRoles.getSecurityRoleText();
+    await adminSecurityRoles.getSecurityRoleDropdown(); // using this because the Input box is hidden until interacted with
+    await adminSecurityRoles.getPrincipalText();
+    await adminSecurityRoles.getPrincipalText();
+    await adminSecurityRoles.getDepartmentText();
+    await adminSecurityRoles.getJobTitle();
+  });
+});
