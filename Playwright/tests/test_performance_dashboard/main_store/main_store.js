@@ -11,6 +11,9 @@ class MainStore
     this.getSPELogo=page.locator("id=logo");
     this.getDrivewayTab=page.locator(':nth-match(:text("Driveway"),1)');
     this.getDrivewaySuppressionReport=page.locator('text="Driveway Suppression Report"');
+    this.getDFC=page.locator('text="DFC"');
+    this.getDFCDrivewayFinanceCorpScorecard=page.locator('text="Driveway Finance Corp Scorecard"');
+    this.getStoreDrivewayScorecard=page.locator('text="Store Driveway Scorecard"');
     this.getUsername=page.locator('id=i0116');
     this.getPassword=page.locator('id=i0118');
     this.getBodyShop=page.locator('text=" Body Shop"');
@@ -107,7 +110,23 @@ class MainStore
     this.getSalesWeekendSummary=page.locator(':nth-match(:text("Weekend Summary"),1)');
     this.getSalesMonthEndReport=page.locator(':nth-match(:text("Month End Report"),1)');
     this.getSalesSalesMgrTopProducers=page.locator(':nth-match(:text("Sales Mgr Top Producers"),1)');
- } 
+    //US:103551 - locators to add Navigation to Ten Reports
+    this.getServiceFlatRateHrsPDF=page.locator(':nth-match(:text("Flat Rate Hours (pdf)"),1)');
+    this.getServiceContractSalesSummary=page.locator(':nth-match(:text("Contract Sales"),1)');
+    this.getServiceRAPReport=page.locator(':nth-match(:text("RAP Report"),1)');
+    this.getServiceLOCCycleTime=page.locator(':nth-match(:text("LOF Cycle Time"),1)');
+    this.getOfficeDealershipAccountingscorecard=page.locator(':nth-match(:text("Dealership Accounting Scorecard"),1)');
+    this.getOfficeCashARValidation=page.locator(':nth-match(:text("Cash & AR Validation"),1)');
+    this.getMArketLADBudget=page.locator(':nth-match(:text("LAD Budget"),1)');
+    this.getMarketVistaDash=page.locator(':nth-match(:text("VistaDash"),1)');
+    this.getMarketMArketingCreative=page.locator(':nth-match(:text("Marketing Creative"),1)');
+    this.getReferencePayrollProcessingCalendar=page.locator(':nth-match(:text("Payroll Processing Calendars"),1)');
+    this.getReferenceManagementFeeSummary=page.locator(':nth-match(:text("Management Fee Summary"),1)');
+    this.getReferenceFixedOpsGrossTools=page.locator(':nth-match(:text("Fixed Ops Gross Tools"),1)');
+    this.getReferenceVariableGrossTools=page.locator(':nth-match(:text("Variable Gross Tools"),1)');
+    this.getMarket=page.locator('text="Market"');
+    this.getReference=page.locator(':nth-match(:text("Reference"),1)');
+  }
     //Navigate to Main Tab/ Performace Dashboard Report
     async NavigateToMainStorePerformanceDashboard() {
       await this.getMainTab.click();
@@ -343,7 +362,17 @@ class MainStore
    await this.getDrivewaySuppressionReport.click();
    await this.page.waitForLoadState('networkidle');
   }
-  async NavigateToBodyShop(){
+  async NavigateToDrivewayStoreDrivewayScorecard() {
+    await this.getDrivewayTab.click();
+    await this.getStoreDrivewayScorecard.click();
+    await this.page.waitForLoadState('networkidle');
+   }
+   async NavigateToDFCDrivewayFinanceCorpScorecard() {
+    await this.getDFC.click();
+    await this.getDFCDrivewayFinanceCorpScorecard.click();
+    await this.page.waitForLoadState('networkidle');
+   }
+   async NavigateToBodyShop(){
     await this.getBodyShop.click();
     await this.getBodyShopReport.click();
     await this.page.waitForLoadState('networkidle');
@@ -406,21 +435,9 @@ class MainStore
     await this.getOfficeCashARVAlidationLOg.click();
     await this.page.waitForLoadState('networkidle');
   }
-  async NavigateToVehicleDocTracking()
-  {
-    await this.getOffice.click();
-    await this.getVehicleDocTracking.click();
-    await this.page.waitForLoadState('networkidle');
-    await this.getPopupCloseVehicleDocTracking.click();
-    await this.page.waitForLoadState('networkidle');
-  }
   async NavigatetoInventoryNotInFirstLook(){
     await this.getOffice.click();
     await this.getInventoryNotInFirstLook.click();
-  }
-  async NavigatetoBankofHawaii(){
-    await this.getOffice.click();
-    await this.getBankOfHawaii.click();
   }
   async NavigateToAssuredServiceContractSalesSummary(){
     await this.getOffice.click();
@@ -537,6 +554,80 @@ class MainStore
   async twostepauthlogin(){
     await this.page.click('id=KmsiCheckboxField');
     await this.page.click('id=idSIButton9');
+  }
+  //US:103551 - locators to add Navigation to Ten Reports
+  //Service
+  async NavigateToServiceFlatRateHrsPDF(){
+    await this.getServiceDashboard.click();
+    await this.getServiceFlatRateHrsPDF.click();
+    await this.page.waitForLoadState('networkidle');
+  }
+  async NavigateToServiceContractSales(){
+    await this.getServiceDashboard.click();
+    await this.getServiceContractSalesSummary.click();
+    await this.page.waitForLoadState('networkidle');
+  }
+  async NavigateToServiceRAPReport(){
+    await this.getServiceDashboard.click();
+    await this.getServiceRAPReport.click();
+    await this.page.waitForLoadState('networkidle');
+  }
+  async NavigateToServiceLOCCycleTime(){
+    await this.getServiceDashboard.click();
+    await this.getServiceLOCCycleTime.click();
+    await this.page.waitForLoadState('networkidle');
+  }
+  //Office
+  async NavigatetoBankofHawaii(){
+    await this.getOffice.click();
+    await this.getBankOfHawaii.click();
+    await this.page.waitForLoadState('networkidle');
+  }
+  async NavigateToOfficeDealershipAccountingscorecard(){
+    await this.getOffice.click();
+    await this.getOfficeDealershipAccountingscorecard.click();
+    await this.page.waitForLoadState('networkidle');
+  }
+  async NavigateToOfficeCashARValidation(){
+    await this.getOffice.click();
+    await this.getOfficeCashARValidation.click();
+    await this.page.waitForLoadState('networkidle');
+  }
+  async NavigateToOfficeVehicleDocTracking()
+  {
+    await this.getOffice.click();
+    await this.getVehicleDocTracking.click();
+  }
+  //MArket
+  async NavigateToMarketLADBudget(){
+    await this.getMarket.click();
+    await this.getMArketLADBudget.click();
+  }
+  async NavigateToMarketVistaDash(){
+    await this.getMarket.click();
+    await this.getMarketVistaDash.click();
+  }
+  async NavigateToMarketMarketingCreative(){
+    await this.getMarket.click();
+    await this.getMarketMArketingCreative.click();
+  }
+  //Reference
+  async NavigateToPayrollProcessingCalendar(){
+    await this.getReference.click();
+    await this.getReferencePayrollProcessingCalendar.click();
+    await this.page.waitForLoadState('networkidle');
+  }
+  async NavigateToManagementFeeSummary(){
+    await this.getReference.click();
+    await this.getReferenceManagementFeeSummary.click();
+  }
+  async NavigateToFixedOpsGrossTools(){
+    await this.getReference.click();
+    await this.getReferenceFixedOpsGrossTools.click();
+  }
+  async NavigateToVariableGrossTools(){
+    await this.getReference.click();
+    await this.getReferenceVariableGrossTools.click();
   }
 }
 module.exports = { MainStore };

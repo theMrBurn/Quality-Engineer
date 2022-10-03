@@ -99,5 +99,30 @@ test.describe.serial("/main_store", () => {
        await mainStore.NavigateToSalesWeekendSummary();
        await mainStore.NavigateToSalesMonthEndReport();
        //await mainStore.NavigateToSalesSalesMgrTopProducers();-- Not sure on which tab this is
+       //NewReportsAdded - US103551
+       await mainStore.NavigateToServiceFlatRateHrsPDF();
+       await mainStore.goto();
+       await mainStore.NavigateToServiceContractSales();
+       await mainStore.goto();
+       await mainStore.NavigateToServiceRAPReport();
+       await mainStore.NavigateToServiceLOCCycleTime();
+       await mainStore.goto();
+       //Office
+       await mainStore.NavigateToOfficeDealershipAccountingscorecard();
+       await mainStore.NavigateToOfficeCashARValidation();
+       await mainStore.NavigateToOfficeVehicleDocTracking();
+       await mainStore.goto();
+       //MArket
+       await mainStore.NavigateToMarketLADBudget();
+       await mainStore.goto();
+       await mainStore.NavigateToMarketVistaDash();
+       await mainStore.goto();
+       await mainStore.NavigateToMarketMarketingCreative();
+       await mainStore.goto();
+       //Reference
+       await mainStore.NavigateToPayrollProcessingCalendar();
+       await mainStore.NavigateToManagementFeeSummary();
+       await mainStore.NavigateToFixedOpsGrossTools();
+       await mainStore.NavigateToVariableGrossTools();      
      });
 });
