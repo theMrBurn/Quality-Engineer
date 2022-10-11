@@ -9,7 +9,7 @@ plugins:
       ref: v0.0.4
       uri: https://github.com/trunk-io/plugins
 cli:
-  version: 0.17.0-beta
+  version: 0.18.1-beta
 lint:
   disabled:
     - gitleaks

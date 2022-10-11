@@ -47,7 +47,7 @@ test.describe.serial("PayPlan /Grids - Validate basic Functionality", () => {
     const gridName = await page.innerText("text=VPIxPVR");
     expect.soft(gridName).toContain("VPIXPVR");
 
-    const gridDescription = await page.innerText("text=VPIXPVR");
+    const gridDescription = await page.innerText("text=VPIxPVR");
     expect(gridDescription).toContain("VPIXPVR");
   });
 
