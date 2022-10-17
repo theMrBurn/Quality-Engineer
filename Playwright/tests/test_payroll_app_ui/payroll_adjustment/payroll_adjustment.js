@@ -1,6 +1,7 @@
 // this POM is for /Payroll/Adjustment
 const { expect } = require("@playwright/test");
-
+const partialSuccess = "Playwright/helpers/ADJ L0026 08.15 Partial Success.csv";
+const successTest = "Playwright/helpers/ADJ L0026 08.15 Success.csv";
 class PayrollAdjustment {
   /**
    * @param {import('playwright').Page} page
@@ -12,6 +13,7 @@ class PayrollAdjustment {
 
     // headers
     this.adjustmentHeader = page.locator('h2:has-text("Adjustment")');
+    this.uploadAdjustmentHeader = page.locator("text=Upload Adjustment Data");
     // unique page text
     this.instructionsText = page.locator(
       "text=Payroll Type Company Pay Period End Date Status Specify Payroll Type, Company an"
@@ -24,6 +26,8 @@ class PayrollAdjustment {
     // buttons
     this.loadButton = page.locator('button[role="button"]:has-text("Load")');
     this.addAdjustmentButton = page.locator("text=Add Adjustment");
+    this.importButton = page.locator('[data-testid="Import"]');
+    this.selectFilesButton = page.locator('[data-testid="fileUpload"]');
 
     // dropdowns & inputs
     this.payrollTypeListDropdown = page.locator(
@@ -37,9 +41,18 @@ class PayrollAdjustment {
     );
     this.statusInputBox = page.locator('input[name="AdjustmentSheetStatus"]');
 
-    // forms and grids
-    /// this one is having issues, need a data-test tag
-    //this.adjustmentGridDiv = page.locator('text=Add AdjustmentAdjustment Sheet Data IdEmployeeSource SystemSource FieldCalculati >> div')
+    this.payrollTypeListDropdownTriangle = page.locator(
+      "body > div.container-fluid.body-content > div.section > div:nth-child(3) > div > div > div:nth-child(1) > div > span > span > span.k-select"
+    );
+    this.payGroupListDropdownTriangle = page.locator(
+      "body > div.container-fluid.body-content > div.section > div:nth-child(3) > div > div > div:nth-child(2) > div > span > span > span.k-select"
+    );
+    this.ppeDateDropdownTriangle = page.locator(
+      "body > div.container-fluid.body-content > div.section > div:nth-child(3) > div > div > div:nth-child(3) > div > span > span > span.k-select"
+    );
+
+    //import files
+    this.importFilesButton = page.locator('[data-testid="ImportFile"]');
   }
 
   // Navigate to /Payroll/Regular endpoint
@@ -125,26 +138,63 @@ class PayrollAdjustment {
     ).toBeVisible();
   }
 
-  // click elements
+  async getImportButton() {
+    await expect(
+      this.importButton,
+      "Bulk Import button not found"
+    ).toBeVisible();
+  }
 
+  async getUploadAdjustmentHeader() {
+    await expect(
+      this.uploadAdjustmentHeader,
+      "Upload Adjustment Data header not found"
+    ).toBeVisible();
+  }
+
+  async getSelectFilesButton() {
+    await expect(
+      this.selectFilesButton,
+      "Select Files button not found"
+    ).toBeVisible();
+  }
+
+  async getImportFilesButton() {
+    await expect(
+      this.importFilesButton,
+      "Import Files button not found."
+    ).toBeVisible();
+  }
+
+  // click elements
   async clickPayrollTypeListDropdown() {
     await this.getPayrollTypeListDropdown();
-    await this.payrollTypeListDropdown.click();
+    await this.payrollTypeListDropdownTriangle.click();
   }
 
   async clickPaygroupListDropdown() {
     await this.getPayGroupDropdown();
-    await this.payGroupListDropdown.click();
+    await this.payGroupListDropdownTriangle.click();
   }
 
   async clickPPEdateDropdown() {
     await this.getPPEdateDropdown();
-    await this.ppeDateDropdown.click();
+    await this.ppeDateDropdownTriangle.click();
   }
 
   async clickLoadButton() {
     await this.getLoadButton();
     await this.loadButton.click();
+  }
+
+  async clickImportButton() {
+    await this.getImportButton();
+    await this.importButton.click();
+  }
+
+  async clickImportFilesButton() {
+    await this.getImportFilesButton();
+    await this.importFilesButton.click();
   }
 
   // interact with elements
@@ -177,6 +227,22 @@ class PayrollAdjustment {
     await this.getStatusInput();
     await this.statusInputBox.click();
     await this.statusInputBox.fill(text);
+  }
+
+  //upload methods
+
+  async uploadPartialSuccessAdjustment() {
+    await this.selectFilesButton.setInputFiles(
+      ("input#file", partialSuccess),
+      "Partial Success CSV, file upload failed"
+    );
+  }
+
+  async uploadSuccessAdjustment() {
+    await this.selectFilesButton.setInputFiles(
+      ("input#file", successTest),
+      "Success Test CSV, file upload failed"
+    );
   }
 }
 module.exports = { PayrollAdjustment };

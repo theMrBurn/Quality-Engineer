@@ -1,4 +1,4 @@
-// Payroll Store Input Page
+// Payroll Supervisor Tasks
 
 // POMs have to live in the same directory as the test, for now
 // we will paramaterize the storageState with other .json for each userLogin, if necessary
@@ -7,9 +7,6 @@
 const { test, expect, devices } = require("@playwright/test");
 const { PayrollUpload } = require("./payroll_upload.js");
 
-// user
-//test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
-
 //test
 test.describe.serial("Payroll /Upload elements", () => {
   test("Navigate to /Payroll/Upload and validate Page elements have loaded", async ({
@@ -17,8 +14,10 @@ test.describe.serial("Payroll /Upload elements", () => {
   }) => {
     const payrollUpload = new PayrollUpload(page);
     await payrollUpload.goto();
+
+    //payroll file uploads
     await payrollUpload.getPayCalendarText();
-    await payrollUpload.getPPEdateText();
+    await payrollUpload.getPPEdateUploadText();
     await payrollUpload.getAccountingMonthDateText();
     await payrollUpload.getPayrollUploadText();
     await payrollUpload.getpayCalendarDropdown();
@@ -26,5 +25,12 @@ test.describe.serial("Payroll /Upload elements", () => {
     await payrollUpload.getAccountingMonthDateDropdown();
     await payrollUpload.getUploadButtonText();
     await payrollUpload.getUploadButton();
+
+    //payroll processing tasks
+    await payrollUpload.getPayrollProcText();
+    await payrollUpload.getPayGroupRegionDropdown();
+    await payrollUpload.getPPEDateProcessingDropdown();
+    await payrollUpload.getTasksText();
+    await payrollUpload.getTasksDropdown();
   });
 });

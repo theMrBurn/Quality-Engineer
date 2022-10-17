@@ -12,9 +12,6 @@ const { PayPlanGrids } = require("./payplan_grids.js");
 
 //test
 test.describe.serial("PayPlan /Grids - Validate basic Functionality", () => {
-  // test.fixme(
-  //   "skip Grid Plans tests - these fail wile Feature Flag is on and dev incomplete - will be fixed by branch: AllPay/payplan-grids-Equation-builder"
-  // );
   test("Navigate to /Payplan/Grids and use dropdown to validate Grid Name = VPIxPVR, description = F&I Grid VPI x PVR", async ({
     browser,
     page,
@@ -44,10 +41,10 @@ test.describe.serial("PayPlan /Grids - Validate basic Functionality", () => {
     await payplanGrids.clickGridsDropdownTriangle();
     await page.locator('li[role="option"]:has-text("L0304")').click();
 
-    const gridName = await page.innerText("text=VPIxPVR");
-    expect.soft(gridName).toContain("VPIXPVR");
+    const gridName = await page.innerHTML("text=VPIxPVR");
+    expect(gridName).toContain("VPIXPVR");
 
-    const gridDescription = await page.innerText("text=VPIxPVR");
+    const gridDescription = await page.innerHTML("text=VPIxPVR");
     expect(gridDescription).toContain("VPIXPVR");
   });
 

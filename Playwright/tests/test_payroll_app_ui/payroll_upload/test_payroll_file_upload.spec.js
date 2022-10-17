@@ -1,4 +1,4 @@
-// Payroll Upload Page
+// Payroll Sup Page
 
 // POMs have to live in the same directory as the test, for now
 // we will paramaterize the storageState with other .json for each userLogin, if necessary
@@ -12,7 +12,7 @@ const { PayrollUpload } = require("./payroll_upload.js");
 
 //test
 test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
-  test("Navigate to /Payroll/Upload input Pay Calendar Dropdown", async ({
+  test("Navigate to /Payroll/Sup input Pay Calendar Dropdown", async ({
     page,
   }) => {
     const payrollUpload = new PayrollUpload(page);
@@ -112,7 +112,7 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     await payrollUpload.inputPPEdateDropdown("12/04/2021");
   });
 
-  test("Navigate to /Payroll/Upload and validate PPE Date dropdown functionality, Bi-Weekly Wk2", async ({
+  test("Navigate to /Payroll/Sup and validate PPE Date dropdown functionality, Bi-Weekly Wk2", async ({
     browser,
     page,
   }) => {
@@ -154,7 +154,7 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     await page.locator("text=May").click();
   });
 
-  test("Navigate to /Payroll/Upplad and attempt to Upload valid Timecard file", async ({
+  test("Navigate to /Payroll/Upplad and attempt to Sup valid Timecard file", async ({
     browser,
     page,
   }) => {

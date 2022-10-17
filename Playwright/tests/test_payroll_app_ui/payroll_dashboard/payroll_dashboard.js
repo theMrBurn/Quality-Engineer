@@ -20,7 +20,7 @@ class PayrollDashboard {
     this.accrualLink = page.locator("#payrollMenuLevel2 > li:nth-child(5) > a");
     this.auditLink = page.locator("text=Audit");
     this.offCycleLink = page.locator("text=Off-Cycle Earnings");
-    this.fileUploads = page.locator("text=File Upload");
+    this.supervisorTasks = page.locator("text=Supervisor Tasks");
 
     // page elements
     this.payrollDashboardText = page.locator(
@@ -260,8 +260,8 @@ class PayrollDashboard {
     await this.page.waitForLoadState("networkidle");
   }
 
-  async clickFileUploadsLink() {
-    await this.fileUploads.click();
+  async clickSupervisorTasksLink() {
+    await this.supervisorTasks.click();
     await expect(this.page).toHaveURL(
       "https://azwu2apweb-test.azurewebsites.net/Upload"
     );

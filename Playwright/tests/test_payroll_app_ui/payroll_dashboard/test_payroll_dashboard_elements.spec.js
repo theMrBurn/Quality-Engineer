@@ -7,9 +7,6 @@
 const { test, expect } = require("@playwright/test");
 const { PayrollDashboard } = require("./payroll_dashboard.js");
 
-// user
-//test.use({ storageState: "Playwright/helpers/allPay_superUser.json" });
-
 //test
 test.describe.serial("Payroll Home Page", () => {
   test("Navigate to Payroll Home and validate Page elements have loaded", async ({
@@ -54,6 +51,6 @@ test.describe.serial("Payroll Home Page", () => {
     await payrollDashboard.clickAccrualLink();
     await payrollDashboard.clickAuditLink();
     await payrollDashboard.clickOffCycleLink();
-    await payrollDashboard.clickFileUploadsLink();
+    await payrollDashboard.clickSupervisorTasksLink();
   });
 });

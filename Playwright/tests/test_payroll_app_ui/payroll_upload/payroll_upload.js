@@ -12,12 +12,20 @@ class PayrollUpload {
     // text
     this.payrollUploadText = page.locator("text=Payroll File Upload");
     this.payCalendarText = page.locator('label:has-text("Pay Calendar")');
-    this.ppeDateText = page.locator("text=Pay Period End Date");
+    this.ppeDateUploadText = page.locator(
+      "#fileUpload >> text=Pay Period End Date"
+    );
     this.accountingMonthDate = page.locator("text=Accounting Month Date");
     this.uploadTimecardText = page.locator("text=Upload Timecard");
     this.uploadButtonText = page.locator(
       "text=Select FileDrop files here to upload"
     );
+
+    this.payrollProcessingTasksText = page.locator(
+      "text=Payroll Processing Tasks"
+    );
+
+    this.taskText = page.locator('label:has-text("Task")');
 
     // dropdowns
     this.paycalendarListDropdown = page.locator(
@@ -35,8 +43,23 @@ class PayrollUpload {
       'input[name="AccountingMonthDate"]'
     );
 
-    // calendar pop out - without data test tags, this is nearly impossible
-    // this.aMonthCalendarModal = page.locator(':nth-match([aria-label="select"], 3)');
+    this.payGroupRegionDropdown = page.locator(
+      'text=Pay Group Region Pay Period End Date Task Run >> [aria-label="select"] >> nth=0'
+    );
+
+    this.ppeDateProcessingDropdown = page.locator(
+      'text=Pay Group Region Pay Period End Date Task Run >> [aria-label="select"] >> nth=1'
+    );
+
+    this.tasksDropdown = page.locator(
+      "#payrollProcessing > div > div > div > div > div:nth-child(3) > span > span > input"
+    );
+
+    this.deleteRegionEntry = page
+      .locator(
+        "#payrollProcessing > .section > .row > .col-md-7 > .form-inline > div > .k-widget > .k-dropdown-wrap > span"
+      )
+      .first();
 
     // buttons
     this.uploadButton = page.locator('input[name="file"]');
@@ -60,8 +83,8 @@ class PayrollUpload {
     await expect(this.payCalendarText, "Pay Calendar not found").toBeVisible();
   }
 
-  async getPPEdateText() {
-    await expect(this.ppeDateText, "PPE date not found").toBeVisible();
+  async getPPEdateUploadText() {
+    await expect(this.ppeDateUploadText, "PPE date not found").toBeVisible();
   }
 
   async getAccountingMonthDateText() {
@@ -89,6 +112,17 @@ class PayrollUpload {
     await expect(this.uploadButton, "Upload button not found").toBeVisible();
   }
 
+  async getPayrollProcText() {
+    await expect(
+      this.payrollProcessingTasksText,
+      "Payroll Processing Tasks header not found"
+    ).toBeVisible();
+  }
+
+  async getTasksText() {
+    await expect(this.taskText, "Tasks text not found").toBeVisible();
+  }
+
   // get Dropdowns
 
   async getpayCalendarDropdown() {
@@ -112,6 +146,24 @@ class PayrollUpload {
     ).toBeVisible();
   }
 
+  async getPayGroupRegionDropdown() {
+    await expect(
+      this.payGroupRegionDropdown,
+      "Pay Group Region dropdown not found"
+    ).toBeVisible();
+  }
+
+  async getPPEDateProcessingDropdown() {
+    await expect(
+      this.ppeDateProcessingDropdown,
+      "Processing PPE Date dropdown not found"
+    ).toBeVisible();
+  }
+
+  async getTasksDropdown() {
+    await expect(this.tasksDropdown, "Tasks dropdown not found").toBeVisible();
+  }
+
   // interact with elements
 
   async inputPayCalendarDropdown(text) {
@@ -125,6 +177,16 @@ class PayrollUpload {
   async clickAccountingMonthCalendar() {
     await this.getAccountingMonthDateDropdown();
     await this.accountingMonthCalendar.click();
+  }
+
+  async clickPayGroupRegionDropdown() {
+    await this.getPayGroupRegionDropdown();
+    await this.payGroupRegionDropdown.click();
+  }
+
+  async clickTasksDropdown() {
+    await this.getTasksDropdown();
+    await this.tasksDropdown.click();
   }
 
   async inputPPEdateDropdown(text) {
@@ -141,6 +203,15 @@ class PayrollUpload {
     await this.accountingMonthDateDropdown.fill(text);
     await this.accountingMonthDateDropdown.press("ArrowDown");
     await this.accountingMonthDateDropdown.press("Enter");
+  }
+
+  async clickPPEDateProcessingDropdown() {
+    await this.getPPEDateProcessingDropdown();
+    await this.ppeDateProcessingDropdown.click();
+  }
+
+  async paygroupRegionDelete() {
+    await this.deleteRegionEntry.click();
   }
 
   async uploadValidTimecard() {
