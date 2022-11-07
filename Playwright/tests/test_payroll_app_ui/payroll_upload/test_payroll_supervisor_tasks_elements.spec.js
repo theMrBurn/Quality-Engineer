@@ -9,7 +9,7 @@ const { PayrollUpload } = require("./payroll_upload.js");
 
 //test
 test.describe.serial("Payroll /Upload elements", () => {
-  test("Navigate to /Payroll/Upload and validate Page elements have loaded", async ({
+  test("Navigate to /Payroll/Upload and validate Page elements have loaded @smoke", async ({
     page,
   }) => {
     const payrollUpload = new PayrollUpload(page);

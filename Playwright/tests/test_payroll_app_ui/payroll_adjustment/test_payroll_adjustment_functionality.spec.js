@@ -12,7 +12,7 @@ const { PayrollAdjustment } = require("./payroll_adjustment.js");
 
 //test
 test.describe.serial("Payroll /Adjustment interactive tests", () => {
-  test("Navigate to /Payroll/Adjustment Validate Payroll Type options can be input", async ({
+  test("Navigate to /Payroll/Adjustment Validate Payroll Type options can be input @func", async ({
     page,
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);
@@ -24,7 +24,7 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
     await payrollAdjustment.inputPayTypeDropdown("Pay");
   });
 
-  test("Navigate to /Payroll/Adjustment Validate Company dropdown options can be input", async ({
+  test("Navigate to /Payroll/Adjustment Validate Company dropdown options can be input @func", async ({
     page,
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);
@@ -34,7 +34,7 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
     await payrollAdjustment.inputCompanyDropdown("Medford");
   });
 
-  test("Navigate to /Payroll/Adjustment Validate PPE dropdown options can be input", async ({
+  test("Navigate to /Payroll/Adjustment Validate PPE dropdown options can be input @func", async ({
     page,
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);
@@ -42,7 +42,7 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
     await payrollAdjustment.inputPPEdateDropdown("02/15/2022");
   });
 
-  test("Navigate to /Payroll/Adjustment Load button is NOT present when input is incomplete ", async ({
+  test("Navigate to /Payroll/Adjustment Load button is NOT present when input is incomplete @func", async ({
     page,
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);
@@ -50,7 +50,7 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
     await payrollAdjustment.getLoadButtonNotVisible();
   });
 
-  test("Navigate to /Payroll/Adjustment Load button IS present when input is complete ", async ({
+  test("Navigate to /Payroll/Adjustment Load button IS present when input is complete @func", async ({
     page,
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);
@@ -61,18 +61,19 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
     // await payrollAdjustment.getLoadButton(); - load button Race Condition, manual testing validates this test case
   });
 
-  test("Navigate to /Payroll/Adjustment Load button generates Adjustment form when input is complete for Payroll Type Accrual, company and PPE date ", async ({
+  test("Navigate to /Payroll/Adjustment Load button generates Adjustment form when input is complete for Payroll Type Accrual, company and PPE date @func", async ({
     page,
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);
     await payrollAdjustment.goto();
-    await payrollAdjustment.inputPayTypeDropdown("Auccr");
+    await payrollAdjustment.clickPayrollTypeListDropdown();
+    await page.locator('li[role="option"]:has-text("Accrual")').click();
     await payrollAdjustment.inputCompanyDropdown("Medford CJD");
     await payrollAdjustment.inputPPEdateDropdown("1/15/2023");
     await payrollAdjustment.getAddAdjustmentButton();
   });
 
-  test("Navigate to /Payroll/Adjustment Load button generates Adjustment form when input is complete for Payroll Type Audit, company and PPE date ", async ({
+  test("Navigate to /Payroll/Adjustment Load button generates Adjustment form when input is complete for Payroll Type Audit, company and PPE date @func", async ({
     page,
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);
@@ -83,7 +84,7 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
     await payrollAdjustment.getAddAdjustmentButton();
   });
 
-  test("Navigate to /Payroll/Adjustment Load button generates Adjustment form when input is complete for Payroll Type Payroll, company and PPE date ", async ({
+  test("Navigate to /Payroll/Adjustment Load button generates Adjustment form when input is complete for Payroll Type Payroll, company and PPE date @func", async ({
     page,
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);

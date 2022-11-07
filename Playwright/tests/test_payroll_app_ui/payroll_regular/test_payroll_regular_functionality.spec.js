@@ -12,7 +12,7 @@ const { PayrollRegular } = require("./payroll_regular.js");
 
 //test
 test.describe("Payroll /Regular - dropdowns functional check", () => {
-  test("Navigate to Payroll /Regular and interact with Company dropdown", async ({
+  test("Navigate to Payroll /Regular and interact with Company dropdown @func", async ({
     page,
   }) => {
     const payrollRegular = new PayrollRegular(page);
@@ -23,7 +23,7 @@ test.describe("Payroll /Regular - dropdowns functional check", () => {
     await payrollRegular.inputCompanyDropdown("L0004");
   });
 
-  test("Navigate to Payroll /Regular and interact with Pay Group dropdown", async ({
+  test("Navigate to Payroll /Regular and interact with Pay Group dropdown @func", async ({
     page,
   }) => {
     const payrollRegular = new PayrollRegular(page);
@@ -46,7 +46,7 @@ test.describe("Payroll /Regular - dropdowns functional check", () => {
     await payrollRegular.inputPayRegionListDropdown("West");
   });
 
-  test("Navigate to Payroll /Regular and interact with Pay Calendar dropdown", async ({
+  test("Navigate to Payroll /Regular and interact with Pay Calendar dropdown @func", async ({
     page,
   }) => {
     const payrollRegular = new PayrollRegular(page);
@@ -65,7 +65,7 @@ test.describe("Payroll /Regular - dropdowns functional check", () => {
     await payrollRegular.inputPayCalendarListDropdown("2");
   });
 
-  test("Navigate to Payroll /Regular and interact with Status dropdown", async ({
+  test("Navigate to Payroll /Regular and interact with Status dropdown @func", async ({
     page,
   }) => {
     const payrollRegular = new PayrollRegular(page);
@@ -81,7 +81,7 @@ test.describe("Payroll /Regular - dropdowns functional check", () => {
     await payrollRegular.inputPayStatusListDropdown("Data");
   });
 
-  test("Navigate to Payroll /Regular and interact with Data Load dropdown", async ({
+  test("Navigate to Payroll /Regular and interact with Data Load dropdown @func", async ({
     page,
   }) => {
     const payrollRegular = new PayrollRegular(page);
@@ -93,7 +93,7 @@ test.describe("Payroll /Regular - dropdowns functional check", () => {
     await payrollRegular.inputPayDataLoadListDropdown("Incom");
   });
 
-  test("Navigate to Payroll /Regular and interact with Input Sheet dropdown", async ({
+  test("Navigate to Payroll /Regular and interact with Input Sheet dropdown @func", async ({
     page,
   }) => {
     const payrollRegular = new PayrollRegular(page);
@@ -105,7 +105,7 @@ test.describe("Payroll /Regular - dropdowns functional check", () => {
     await payrollRegular.inputPayInputSheetListDropdown("Incom");
   });
 
-  test("Navigate to Payroll /Regular and interact with Adjustment dropdown", async ({
+  test("Navigate to Payroll /Regular and interact with Adjustment dropdown @func", async ({
     page,
   }) => {
     const payrollRegular = new PayrollRegular(page);
@@ -117,7 +117,7 @@ test.describe("Payroll /Regular - dropdowns functional check", () => {
     await payrollRegular.inputPayAdjustmentListDropdown("Incom");
   });
 
-  test("Navigate to Payroll /Regular and interact with Register Review Payroll dropdown", async ({
+  test("Navigate to Payroll /Regular and interact with Register Review Payroll dropdown @func", async ({
     page,
   }) => {
     const payrollRegular = new PayrollRegular(page);
@@ -129,7 +129,7 @@ test.describe("Payroll /Regular - dropdowns functional check", () => {
     await payrollRegular.inputPayRegisterReviewPayrollDropdown("Incom");
   });
 
-  test("Navigate to Payroll /Regular and interact with Register Review Company dropdown", async ({
+  test("Navigate to Payroll /Regular and interact with Register Review Company dropdown @func", async ({
     page,
   }) => {
     const payrollRegular = new PayrollRegular(page);

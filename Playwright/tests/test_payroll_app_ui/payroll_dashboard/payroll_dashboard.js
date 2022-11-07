@@ -63,7 +63,7 @@ class PayrollDashboard {
 
   // use goto() if you intend on starting the test on a particilar page in Allpay App
   async goto() {
-    await this.page.goto("https://azwu2apweb-test.azurewebsites.net/Payroll");
+    await this.page.goto("/Payroll");
     await this.page.waitForLoadState("networkidle");
   }
 

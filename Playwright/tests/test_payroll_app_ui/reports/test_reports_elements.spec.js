@@ -9,7 +9,7 @@ const { AllPayReports } = require("./reports.js");
 
 //test
 test.describe.serial("Payroll /Reports", () => {
-  test("Navigate to /Reports and validate Page elements have loaded", async ({
+  test("Navigate to /Reports and validate Page elements have loaded @smoke", async ({
     page,
   }) => {
     const payrollReports = new AllPayReports(page);

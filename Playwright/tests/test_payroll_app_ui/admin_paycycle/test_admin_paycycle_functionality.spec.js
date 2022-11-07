@@ -12,7 +12,7 @@ const { AdminPayCycle } = require("./admin_paycycle.js");
 
 //test
 test.describe.serial("/Admin/PayCycle", () => {
-  test("Navigate to /Admin/PayCycle and validate when Company is chosen, is displayed as expected", async ({
+  test("Navigate to /Admin/PayCycle and validate when Company is chosen, is displayed as expected @func", async ({
     browser,
     page,
   }) => {
@@ -40,7 +40,7 @@ test.describe.serial("/Admin/PayCycle", () => {
     await expect(error).not.toBeVisible();
   });
 
-  test("Navigate to /Admin/PayCycle and validate when Company Number is chosen, is displayed as expected", async ({
+  test("Navigate to /Admin/PayCycle and validate when Company Number is chosen, is displayed as expected @func", async ({
     browser,
     page,
   }) => {
@@ -68,7 +68,7 @@ test.describe.serial("/Admin/PayCycle", () => {
     await expect(error).not.toBeVisible();
   });
 
-  test("Navigate to /Admin/PayCycle and validate Assign PayCycle basic functionality - cancel before Update (cant CRUD)", async ({
+  test("Navigate to /Admin/PayCycle and validate Assign PayCycle basic functionality - cancel before Update (cant CRUD) @func", async ({
     browser,
     page,
   }) => {

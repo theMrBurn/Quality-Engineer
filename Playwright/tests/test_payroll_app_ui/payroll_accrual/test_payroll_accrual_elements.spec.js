@@ -12,7 +12,7 @@ const { PayrollAccrual } = require("./payroll_accrual.js");
 
 //test
 test.describe.serial("Payroll /Accrual elements", () => {
-  test("Navigate to /Payroll/Accrual and validate Page elements have loaded", async ({
+  test("Navigate to /Payroll/Accrual and validate Page elements have loaded @smoke", async ({
     page,
   }) => {
     const payrollAccrual = new PayrollAccrual(page);

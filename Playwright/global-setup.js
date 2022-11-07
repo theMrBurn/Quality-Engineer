@@ -1,18 +1,5 @@
 // global-setup.js
 const { page } = require("@playwright/test");
-
-// module.exports = async () => {
-//   // Sign in using the Super User json
-//   const context = await browser.newContext({
-//     storageState: "./helpers",
-//   });
-
-//   const page = await context.newPage();
-//   const cxtx = page.context();
-//   cxtx.storageState();
-//   await browser.close();
-
-//   // global-setup.js
 const { chromium } = require("@playwright/test");
 
 module.exports = async (config) => {
@@ -53,8 +40,6 @@ module.exports = async (config) => {
   ]);
 
   // Save signed-in state to 'storageState.json'.
-  await page
-    .context()
-    .storageState({ path: "Playwright/helpers/allPay_superUser.json" });
+  await page.context().storageState({ path: "./helpers" });
   await browser.close();
 };

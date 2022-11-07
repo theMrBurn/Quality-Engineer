@@ -99,9 +99,7 @@ class PayplanTemplate {
 
   // Navigation
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanTemplate"
-    );
+    await this.page.goto("/PayPlan/PayPlanTemplate");
     await this.page.waitForLoadState("networkidle");
   }
 

@@ -9,7 +9,7 @@ const { PayrollDashboard } = require("./payroll_dashboard.js");
 
 //test
 test.describe.serial("Payroll Home Page", () => {
-  test("Navigate to Payroll Home and validate Page elements have loaded", async ({
+  test("Navigate to Payroll Home and validate Page elements have loaded @smoke", async ({
     browser,
     page,
   }) => {
@@ -39,7 +39,7 @@ test.describe.serial("Payroll Home Page", () => {
     await payrollDashboard.getAveragePerMonthCounter();
   });
 
-  test("Navigate to Payroll home and Click top header Links", async ({
+  test("Navigate to Payroll home and Click top header Links @smoke", async ({
     browser,
     page,
   }) => {

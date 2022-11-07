@@ -58,9 +58,7 @@ class PayrollRegular {
 
   // Navigate to /Payroll/Regular endpoint
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/Regular"
-    );
+    await this.page.goto("/Payroll/Regular");
     await this.page.waitForLoadState("networkidle");
   }
 

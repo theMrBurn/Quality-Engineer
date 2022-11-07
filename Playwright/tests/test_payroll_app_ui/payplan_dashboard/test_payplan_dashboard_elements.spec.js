@@ -12,7 +12,7 @@ const { PayplanDashboard } = require("./payplan_dashboard.js");
 
 //test
 test.describe.serial("Payplans Dashboard", () => {
-  test("Navigate to Payplans Dashboard and validate Page elements have loaded", async ({
+  test("Navigate to Payplans Dashboard and validate Page elements have loaded @smoke", async ({
     browser,
     page,
   }) => {
@@ -51,7 +51,7 @@ test.describe.serial("Payplans Dashboard", () => {
     await payplansDashboard.getExperationDateCalendar2();
   });
 
-  test("Navigate to Payplan Dashboard and Click top header Links", async ({
+  test("Navigate to Payplan Dashboard and Click top header Links @smoke", async ({
     browser,
     page,
   }) => {

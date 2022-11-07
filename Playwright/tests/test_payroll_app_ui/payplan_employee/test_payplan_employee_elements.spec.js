@@ -12,7 +12,7 @@ const { PayplanEmployee } = require("./payplan_employee.js");
 
 //test
 test.describe.serial("Payplans Employee", () => {
-  test("Navigate to Payplan/PayplanEmployee and validate Page elements have loaded", async ({
+  test("Navigate to Payplan/PayplanEmployee and validate Page elements have loaded @smoke", async ({
     browser,
     page,
   }) => {
@@ -35,7 +35,7 @@ test.describe.serial("Payplans Employee", () => {
     await employeePayPlans.getPageGrid();
   });
 
-  test("Navigate to Payplan Employee and Click links to validate functionality", async ({
+  test("Navigate to Payplan Employee and Click links to validate functionality @smoke", async ({
     browser,
     page,
   }) => {
@@ -47,7 +47,7 @@ test.describe.serial("Payplans Employee", () => {
   });
 
   test.fixme(
-    "for some reason these are formatted in a way that its hidden until its interacted with, which is wrong",
+    "for some reason these are formatted in a way that its hidden until its interacted with, which is wrong @smoke",
     async ({ browser, page }) => {
       const employeePayPlans = new PayplanEmployee(page);
       await employeePayPlans.goto();

@@ -12,7 +12,7 @@ const { AdminPayCalendar } = require("./admin_paycalendar.js");
 
 //test
 test.describe.serial("/Admin/PayCalendar", () => {
-  test("Navigate to /Admin/PayCalendar and validate Page elements have loaded as expected", async ({
+  test("Navigate to /Admin/PayCalendar and validate Page elements have loaded as expected @smoke", async ({
     browser,
     page,
   }) => {

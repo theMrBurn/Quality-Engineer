@@ -12,7 +12,7 @@ const { PayrollUpload } = require("./payroll_upload.js");
 
 //test
 test.describe
-  .serial("Payroll /Upload and Validate Payroll Tasks Functionality", () => {
+  .serial("Payroll /Upload and Validate Payroll Tasks Functionality @e2e", () => {
   test("Navigate to /Payroll/upload and input Pay Group Region", async ({
     page,
   }) => {
@@ -73,12 +73,13 @@ test.describe
     await page.locator("text=California Pay Group").click();
 
     await supervisorTasks.clickPPEDateProcessingDropdown();
-    await page.locator("text=9/15/2022").click();
+    await page.locator("text=9/17/2022").click();
   });
 
   test("Navigate to /Payroll/upload and input Pay Group Region East 2 Pay Group, and attempt PPE Date input", async ({
     page,
   }) => {
+    test.fixme("East2 Pay Group isn't loading PPE dates");
     const supervisorTasks = new PayrollUpload(page);
     await supervisorTasks.goto();
 
@@ -87,7 +88,7 @@ test.describe
     await page.locator("text=East 2 Pay Group").click();
 
     await supervisorTasks.clickPPEDateProcessingDropdown();
-    await page.locator("text=9/15/2022").click();
+    await page.locator("text=9/17/2022").click();
   });
 
   test("Navigate to /Payroll/upload and input Pay Group Region East Pay Group, and attempt PPE Date input", async ({

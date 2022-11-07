@@ -12,7 +12,7 @@ const { AdminPayCalendar } = require("./admin_paycalendar.js");
 
 //test
 test.describe.serial("/Admin/PayCalendar", () => {
-  test("Navigate to /Admin/PayCalendar and validate if Semi-Monthly is chosen from the Dropdown, grid results show Semi-Monthly, and does not display the other options", async ({
+  test("Navigate to /Admin/PayCalendar and validate if Semi-Monthly is chosen from the Dropdown, grid results show Semi-Monthly, and does not display the other options @func", async ({
     browser,
     page,
   }) => {
@@ -40,7 +40,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await expect(error).not.toBeVisible();
   });
 
-  test("Navigate to /Admin/PayCalendar and validate if Weekly is chosen from the Dropdown, grid results show Weekly, and does not display the other options", async ({
+  test("Navigate to /Admin/PayCalendar and validate if Weekly is chosen from the Dropdown, grid results show Weekly, and does not display the other options @func", async ({
     browser,
     page,
   }) => {
@@ -68,7 +68,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await expect(error).not.toBeVisible();
   });
 
-  test("Navigate to /Admin/PayCalendar and validate if Bi-Weekly is chosen from the Dropdown, grid results show Bi-Weekly, and does not display the other options", async ({
+  test("Navigate to /Admin/PayCalendar and validate if Bi-Weekly is chosen from the Dropdown, grid results show Bi-Weekly, and does not display the other options @func", async ({
     browser,
     page,
   }) => {
@@ -96,7 +96,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await expect(error).not.toBeVisible();
   });
 
-  test("Navigate to /Admin/PayCalendar and validate if BiWeekly Wk1 is chosen from the Dropdown, grid results show BiWeekly Wk1, and does not display the other options", async ({
+  test("Navigate to /Admin/PayCalendar and validate if BiWeekly Wk1 is chosen from the Dropdown, grid results show BiWeekly Wk1, and does not display the other options @func", async ({
     browser,
     page,
   }) => {
@@ -124,7 +124,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await expect(error).not.toBeVisible();
   });
 
-  test("Navigate to /Admin/PayCalendar and validate if BiWeekly Wk2 is chosen from the Dropdown, grid results show BiWeekly Wk2, and does not display the other options", async ({
+  test("Navigate to /Admin/PayCalendar and validate if BiWeekly Wk2 is chosen from the Dropdown, grid results show BiWeekly Wk2, and does not display the other options @func", async ({
     browser,
     page,
   }) => {
@@ -152,7 +152,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await expect(error).not.toBeVisible();
   });
 
-  test("Navigate to /Admin/PayCalendar and validate if Bad Input is attempted, appropriate error alert becomes present", async ({
+  test("Navigate to /Admin/PayCalendar and validate if Bad Input is attempted, appropriate error alert becomes present @func", async ({
     browser,
     page,
   }) => {
@@ -166,7 +166,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await expect(error).toBeVisible();
   });
 
-  test("Navigate to /Admin/PayCalendar and attempt to add New Pay calendar, then cancel it", async ({
+  test("Navigate to /Admin/PayCalendar and attempt to add New Pay calendar, then cancel it @func", async ({
     browser,
     page,
   }) => {
@@ -207,7 +207,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await expect(error).not.toBeVisible();
   });
 
-  test("Navigate to /Admin/PayCalendar and attempt to add New Pay calendar, then click update, find the new entry row and then edit it, update it again, then delete it", async ({
+  test("Navigate to /Admin/PayCalendar and attempt to add New Pay calendar, then click update, find the new entry row and then edit it, update it again, then delete it @func", async ({
     browser,
     page,
   }) => {

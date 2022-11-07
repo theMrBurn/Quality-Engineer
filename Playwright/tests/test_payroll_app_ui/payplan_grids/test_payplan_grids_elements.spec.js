@@ -12,7 +12,7 @@ const { PayPlanGrids } = require("./payplan_grids.js");
 
 //test
 test.describe.serial("PayPlan /Grids", () => {
-  test("Navigate to /Payplan/Grids and validate Page elements have loaded", async ({
+  test("Navigate to /Payplan/Grids and validate Page elements have loaded @smoke", async ({
     browser,
     page,
   }) => {

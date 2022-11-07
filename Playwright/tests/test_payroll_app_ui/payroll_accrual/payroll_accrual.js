@@ -44,9 +44,7 @@ class PayrollAccrual {
 
   // Navigate to /Payroll/Accrual endpoint
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/Accrual"
-    );
+    await this.page.goto("/Payroll/Accrual");
     await this.page.waitForLoadState("networkidle");
   }
 

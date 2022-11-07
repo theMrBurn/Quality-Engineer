@@ -12,7 +12,7 @@ const { AdminEmployee } = require("./admin_employee_details.js");
 
 //test
 test.describe.serial("Admin Employee Details Functionality Test", () => {
-  test("Navigate to Admin/EmployeeDetails and validate if Company chosen, grid results reflect company chosen from Dropdown", async ({
+  test("Navigate to Admin/EmployeeDetails and validate if Company chosen, grid results reflect company chosen from Dropdown @func", async ({
     browser,
     page,
   }) => {
@@ -26,7 +26,7 @@ test.describe.serial("Admin Employee Details Functionality Test", () => {
     await expect(gridResults).toHaveText("Medford CJD (L0004)");
   });
 
-  test("Navigate to Admin/EmployeeDetails and validate if Status chosen, grid results reflect Status chosen from Dropdown", async ({
+  test("Navigate to Admin/EmployeeDetails and validate if Status chosen, grid results reflect Status chosen from Dropdown @func", async ({
     browser,
     page,
   }) => {
@@ -61,7 +61,7 @@ test.describe.serial("Admin Employee Details Functionality Test", () => {
     await page.locator("#StatusList_listbox >> text=Suspended").click();
   });
 
-  test("Navigate to Admin/EmployeeDetails and validate if Job chosen, grid results reflect Job chosen from Dropdown", async ({
+  test("Navigate to Admin/EmployeeDetails and validate if Job chosen, grid results reflect Job chosen from Dropdown @func", async ({
     browser,
     page,
   }) => {
@@ -78,7 +78,7 @@ test.describe.serial("Admin Employee Details Functionality Test", () => {
     await expect(jobResults).toHaveText("Accounting Supervisor");
   });
 
-  test("Navigate to Admin/EmployeeDetails and validate if Department chosen, grid results reflect Department chosen from Dropdown", async ({
+  test("Navigate to Admin/EmployeeDetails and validate if Department chosen, grid results reflect Department chosen from Dropdown @func", async ({
     browser,
     page,
   }) => {
@@ -149,7 +149,7 @@ test.describe.serial("Admin Employee Details Functionality Test", () => {
     await expect(serviceResults).toHaveText("Service");
   });
 
-  test("Navigate to Admin/EmployeeDetails and validate if Active YES or NO chosen, grid results reflect Active results chosen from Dropdown", async ({
+  test("Navigate to Admin/EmployeeDetails and validate if Active YES or NO chosen, grid results reflect Active results chosen from Dropdown @func", async ({
     browser,
     page,
   }) => {

@@ -12,7 +12,7 @@ const { Admin } = require("./admin.js");
 
 //test
 test.describe.serial("/Admin", () => {
-  test("Navigate to /Admin and validate when Position Type Category is chosen, is displayed as expected", async ({
+  test("Navigate to /Admin and validate when Position Type Category is chosen, is displayed as expected @func", async ({
     browser,
     page,
   }) => {
@@ -28,7 +28,7 @@ test.describe.serial("/Admin", () => {
     expect(dataTypeVisible).toBeHidden();
   });
 
-  test("Navigate to /Admin and validate when Data Type Category is chosen, is displayed as expected", async ({
+  test("Navigate to /Admin and validate when Data Type Category is chosen, is displayed as expected @func", async ({
     browser,
     page,
   }) => {
@@ -44,7 +44,7 @@ test.describe.serial("/Admin", () => {
     expect(positionTypeVisible).toBeHidden();
   });
 
-  test("Navigate to /Admin and validate Legal Explaination Text can be entered, and search results displayed if found", async ({
+  test("Navigate to /Admin and validate Legal Explaination Text can be entered, and search results displayed if found @func", async ({
     browser,
     page,
   }) => {
@@ -59,7 +59,7 @@ test.describe.serial("/Admin", () => {
     expect(searchResult).toHaveText("RGPS Data Explanation");
   });
 
-  test("Navigate to /Admin and validate Start Date can be chosen, and search results displayed if found", async ({
+  test("Navigate to /Admin and validate Start Date can be chosen, and search results displayed if found @func", async ({
     browser,
     page,
   }) => {
@@ -79,7 +79,7 @@ test.describe.serial("/Admin", () => {
     expect(endDate).toHaveText("12/31/2090");
   });
 
-  test("Navigate to /Admin and click New Legal Explanation", async ({
+  test("Navigate to /Admin and click New Legal Explanation @func", async ({
     browser,
     page,
   }) => {

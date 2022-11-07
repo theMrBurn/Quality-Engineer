@@ -12,7 +12,7 @@ const { PayrollOffCycleEarnings } = require("./payroll_offcycle_earnings.js");
 
 //test
 test.describe.serial("Payroll /OffCycleEarnings elements", () => {
-  test("Navigate to /Payroll/Adjustment Validate Company dropdown options can be input", async ({
+  test("Navigate to /Payroll/Adjustment Validate Company dropdown options can be input @func", async ({
     page,
   }) => {
     const payrollOffcycle = new PayrollOffCycleEarnings(page);
@@ -29,7 +29,7 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     expect(montereyPorsche).toBe("Monterey Porsche (L0184)");
   });
 
-  test("Navigate to /Payroll/Adjustment Validate Employee dropdown options can be input", async ({
+  test("Navigate to /Payroll/Adjustment Validate Employee dropdown options can be input @func", async ({
     page,
   }) => {
     const payrollOffcycle = new PayrollOffCycleEarnings(page);
@@ -42,7 +42,7 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     expect(employeeOne).toBe("Brian Maksin (174403)");
   });
 
-  test("Navigate to /Payroll/Adjustment Load button is NOT present when input is incomplete ", async ({
+  test("Navigate to /Payroll/Adjustment Load button is NOT present when input is incomplete @func", async ({
     page,
   }) => {
     const payrollOffcycle = new PayrollOffCycleEarnings(page);
@@ -50,7 +50,7 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     await payrollOffcycle.getPPEdateDropdownHidden();
   });
 
-  test("Navigate to /Payroll/Adjustment Validate Pay Frequency dropdown options can be input", async ({
+  test("Navigate to /Payroll/Adjustment Validate Pay Frequency dropdown options can be input @func", async ({
     page,
   }) => {
     const payrollOffcycle = new PayrollOffCycleEarnings(page);
@@ -82,7 +82,7 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     expect(biWeekly2).toBe("BiWeekly Wk2");
   });
 
-  test("Navigate to /Payroll/Adjustment Validate Job Title dropdown options can be input", async ({
+  test("Navigate to /Payroll/Adjustment Validate Job Title dropdown options can be input @func", async ({
     page,
   }) => {
     const payrollOffcycle = new PayrollOffCycleEarnings(page);
@@ -103,7 +103,7 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     expect(semiMonthly).toBe("Body Shop Paint Technician (35019)");
   });
 
-  test("Navigate to /Payroll/Adjustment Validate Cost Center dropdown options can be input", async ({
+  test("Navigate to /Payroll/Adjustment Validate Cost Center dropdown options can be input @func", async ({
     page,
   }) => {
     const payrollOffcycle = new PayrollOffCycleEarnings(page);
@@ -150,7 +150,7 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     expect(servic).toBe("Service (SERVIC)");
   });
 
-  test("Navigate to /Payroll/Adjustment Validate Status dropdown options can be input", async ({
+  test("Navigate to /Payroll/Adjustment Validate Status dropdown options can be input @func", async ({
     page,
   }) => {
     const payrollOffcycle = new PayrollOffCycleEarnings(page);
@@ -187,7 +187,7 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     expect(dataLoadErr).toBe("Data Load Error");
   });
 
-  test("Navigate to /Payroll/Adjustment Validate Type dropdown options can be input", async ({
+  test("Navigate to /Payroll/Adjustment Validate Type dropdown options can be input @func", async ({
     page,
   }) => {
     const payrollOffcycle = new PayrollOffCycleEarnings(page);
@@ -229,7 +229,7 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     expect(payroll).toBe("Payroll");
   });
 
-  test("Navigate to /Payroll/Adjustment Validate when company and pay frequency are input PPEdate can be input", async ({
+  test("Navigate to /Payroll/Adjustment Validate when company and pay frequency are input PPEdate can be input @func", async ({
     page,
   }) => {
     const payrollOffcycle = new PayrollOffCycleEarnings(page);
@@ -246,14 +246,10 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     expect(semiMonthly).toBe("Semi-monthly");
 
     await payrollOffcycle.clickPPEDateDropdown();
-    await page
-      .locator(
-        'text=Pay Frequency Pay Period End Date >> [aria-label="select"] >> nth=1'
-      )
-      .click();
+    await page.locator("text=3/31/2022").click();
 
     await payrollOffcycle.clickSearchButton();
 
-    await page.locator("td:nth-child(7) >> nth=0").waitFor("visible");
+    await page.locator("td:nth-child(10) >> nth=0").waitFor("visible");
   });
 });

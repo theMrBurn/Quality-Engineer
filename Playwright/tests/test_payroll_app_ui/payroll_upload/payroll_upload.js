@@ -67,7 +67,7 @@ class PayrollUpload {
 
   // Navigate to /Payroll/Regular endpoint
   async goto() {
-    await this.page.goto("https://azwu2apweb-test.azurewebsites.net/Upload");
+    await this.page.goto("/Upload");
     await this.page.waitForLoadState("networkidle");
   }
 

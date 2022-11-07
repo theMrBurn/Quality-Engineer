@@ -12,7 +12,7 @@ const { PayplanFooter } = require("./payplan_footer.js");
 
 //test
 test.describe.serial("Payplan Footer", () => {
-  test("Navigate to Payplan Footer and validate Page elements have loaded", async ({
+  test("Navigate to Payplan Footer and validate Page elements have loaded @smoke", async ({
     browser,
     page,
   }) => {

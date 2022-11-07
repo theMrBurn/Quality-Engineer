@@ -23,7 +23,7 @@ class AllPayReports {
 
   // Navigate to /reports endpoint
   async goto() {
-    await this.page.goto("https://azwu2apweb-test.azurewebsites.net/Reports");
+    await this.page.goto("/Reports");
     await this.page.waitForLoadState("networkidle");
   }
 

@@ -12,7 +12,7 @@ const { PayrollRegular } = require("./payroll_regular.js");
 
 //test
 test.describe.serial("Payroll /Regular elements", () => {
-  test("Navigate to /Payroll/Regular and validate Page elements have loaded", async ({
+  test("Navigate to /Payroll/Regular and validate Page elements have loaded @smoke", async ({
     page,
   }) => {
     const payrollRegular = new PayrollRegular(page);

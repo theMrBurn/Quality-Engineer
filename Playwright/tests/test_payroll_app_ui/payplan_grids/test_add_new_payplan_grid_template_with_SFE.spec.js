@@ -7,11 +7,9 @@
 const { test, expect } = require("@playwright/test");
 const { PayPlanGrids } = require("./payplan_grids.js");
 
-// user
-test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
-
 //test
-test.describe.serial("PayPlan /Grids - New Pay Plan Template CRUD E2E", () => {
+test.describe
+  .serial("PayPlan /Grids - New Pay Plan Template CRUD E2E @e2e", () => {
   test.fixme(
     "Unable to complete FUll Crud - locator.click: Target closed / waiting for selector text=Delete >> nth=3 "
   );

@@ -12,7 +12,7 @@ const { AdminEmployee } = require("./admin_employee_details.js");
 
 //test
 test.describe.serial("Admin Employee Details", () => {
-  test("Navigate to Admin/EmployeeDetails and validate Page elements have loaded", async ({
+  test("Navigate to Admin/EmployeeDetails and validate Page elements have loaded @smoke", async ({
     browser,
     page,
   }) => {

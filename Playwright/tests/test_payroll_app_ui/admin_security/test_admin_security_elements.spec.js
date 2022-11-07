@@ -9,7 +9,7 @@ const { AdminSecurity } = require("./admin_security_roles.js");
 
 //test
 test.describe.serial("Admin Employee Details Page load", () => {
-  test("Navigate to Admin/EmployeeDetails and validate Page elements have loaded", async ({
+  test("Navigate to Admin/EmployeeDetails and validate Page elements have loaded @smoke", async ({
     browser,
     page,
   }) => {

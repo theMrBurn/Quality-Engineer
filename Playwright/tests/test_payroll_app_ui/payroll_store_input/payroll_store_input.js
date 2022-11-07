@@ -25,11 +25,9 @@ class PayrollStoreInput {
     );
   }
 
-  // Navigate to /Payroll/Regular endpoint
+  // Navigate
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/storeinput"
-    );
+    await this.page.goto("/Payroll/storeinput");
     await this.page.waitForLoadState("networkidle");
   }
 

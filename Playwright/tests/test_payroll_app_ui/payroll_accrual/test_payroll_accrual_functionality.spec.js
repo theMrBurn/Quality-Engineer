@@ -12,7 +12,7 @@ const { PayrollRegular, PayrollAccrual } = require("./payroll_accrual.js");
 
 //test
 test.describe("Payroll /Accrual - dropdowns functional check", () => {
-  test("Navigate to Payroll /Accrual and interact with Company dropdown", async ({
+  test("Navigate to Payroll /Accrual and interact with Company dropdown @func", async ({
     page,
   }) => {
     const payrollAccrual = new PayrollAccrual(page);
@@ -28,7 +28,7 @@ test.describe("Payroll /Accrual - dropdowns functional check", () => {
     expect(medford).toBe("Medford Body Shop (L0003)");
   });
 
-  test("Navigate to Payroll /Accrual and interact with PPE Date dropdown", async ({
+  test("Navigate to Payroll /Accrual and interact with PPE Date dropdown @func", async ({
     page,
   }) => {
     const payrollAccrual = new PayrollAccrual(page);
@@ -44,7 +44,7 @@ test.describe("Payroll /Accrual - dropdowns functional check", () => {
     expect(ppeDate).toBe("02/15/2022");
   });
 
-  test("Navigate to Payroll /Accrual and interact with Pay Frequency Dropdown", async ({
+  test("Navigate to Payroll /Accrual and interact with Pay Frequency Dropdown @func", async ({
     page,
   }) => {
     const payrollAccrual = new PayrollAccrual(page);
@@ -76,7 +76,7 @@ test.describe("Payroll /Accrual - dropdowns functional check", () => {
     await payrollAccrual.clickDeletePayFrequency();
   });
 
-  test("Navigate to Payroll /Accrual and validate when Company, PPE and Pay Frequency are input, Accrual Grid is present", async ({
+  test("Navigate to Payroll /Accrual and validate when Company, PPE and Pay Frequency are input, Accrual Grid is present @func", async ({
     page,
   }) => {
     const payrollAccrual = new PayrollAccrual(page);

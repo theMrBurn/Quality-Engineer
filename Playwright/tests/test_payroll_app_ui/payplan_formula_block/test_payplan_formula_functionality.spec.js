@@ -12,7 +12,7 @@ const { PayPlanFormulaBlock } = require("./payplan_formula_block.js");
 
 //test
 test.describe.serial("PayPlan /FormulaBlockock Functionality", () => {
-  test("Navigate to /Payroll/formulablock and validate Basic Smoke check for attempting to add a new PayPlan Block", async ({
+  test("Navigate to /Payroll/formulablock and validate Basic Smoke check for attempting to add a new PayPlan Block @func", async ({
     browser,
     page,
   }) => {

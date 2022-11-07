@@ -12,7 +12,7 @@ const { AdminPayCycle } = require("./admin_paycycle.js");
 
 //test
 test.describe.serial("/Admin/PayCycle", () => {
-  test("Navigate to /Admin/PayCycle and validate Page elements have loaded as expected", async ({
+  test("Navigate to /Admin/PayCycle and validate Page elements have loaded as expected @smoke", async ({
     browser,
     page,
   }) => {

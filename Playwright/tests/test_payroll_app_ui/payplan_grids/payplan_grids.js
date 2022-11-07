@@ -96,9 +96,7 @@ class PayPlanGrids {
 
   // Navigate to /Payroll/Regular endpoint
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/Grids"
-    );
+    await this.page.goto("/PayPlan/Grids");
   }
 
   // get page elements

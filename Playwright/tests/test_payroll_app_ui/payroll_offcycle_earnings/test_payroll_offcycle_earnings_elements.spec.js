@@ -12,7 +12,7 @@ const { PayrollOffCycleEarnings } = require("./payroll_offcycle_earnings.js");
 
 //test
 test.describe.serial("Payroll /OffCycleEarnings elements", () => {
-  test("Navigate to /Payroll/OffCycleEarnings and validate expected Page elements have loaded", async ({
+  test("Navigate to /Payroll/OffCycleEarnings and validate expected Page elements have loaded @smoke", async ({
     browser,
     page,
   }) => {

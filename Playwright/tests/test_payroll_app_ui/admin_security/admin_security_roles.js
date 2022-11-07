@@ -30,9 +30,7 @@ class AdminSecurity {
 
   // Navigation
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/Admin/SecurityRoles"
-    );
+    await this.page.goto("/Admin/SecurityRoles");
   }
 
   /// get elements

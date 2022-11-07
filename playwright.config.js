@@ -1,6 +1,23 @@
 // @ts-check
 const { devices } = require("@playwright/test");
 
+// JUnit reporter config for Xray
+const xrayOptions = {
+  // Whether to add <properties> with all annotations; default is false
+  embedAnnotationsAsProperties: true,
+
+  // By default, annotation is reported as <property name='' value=''>.
+  // These annotations are reported as <property name=''>value</property>.
+  textContentAnnotations: ["test_description"],
+
+  // This will create a "testrun_evidence" property that contains all attachments. Each attachment is added as an inner <item> element.
+  // Disables [[ATTACHMENT|path]] in the <system-out>.
+  embedAttachmentsAsProperty: "testrun_evidence",
+
+  // Where to put the report.
+  outputFile: "./test_results/test-xray-report.xml",
+};
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -20,7 +37,7 @@ const config = {
 
   testDir: "Playwright/tests",
   /* Maximum time one test can run for. */
-  timeout: 10 * 60 * 100,
+  timeout: 10 * 80 * 100,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -36,7 +53,9 @@ const config = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : 6,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "list",
+  reporter: [
+    ["junit", { outputFile: "Playwright/test_results/test-xray-report.xml" }],
+  ],
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -51,9 +70,6 @@ const config = {
     launchOptions: {
       slowMo: 120,
     },
-
-    //for AllPay login as superadmin
-    storageState: "Playwright/helpers/allPay_superUser.json",
   },
 
   /* Configure projects for major browsers */
@@ -62,6 +78,19 @@ const config = {
       name: "AllPay",
       testDir: "Playwright/tests/test_payroll_app_ui",
       retries: 3,
+      use: {
+        storageState: "Playwright/helpers/allPay_superUser.json",
+        baseURL: "https://azwu2apweb-test.azurewebsites.net/",
+      },
+    },
+
+    {
+      testDir: "Playwright/tests/test_payroll_app_ui",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/allPay_dev_superUser.json",
+        baseURL: "https://azwu2aptest-dev.azurewebsites.net/",
+      },
     },
 
     // {
@@ -130,7 +159,7 @@ const config = {
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  // outputDir: 'test-results/',
+  outputDir: "test-results/",
 
   /* Run your local dev server before starting the tests */
   // webServer: {

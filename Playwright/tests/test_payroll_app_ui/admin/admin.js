@@ -60,7 +60,7 @@ class Admin {
 
   // Navigate to /Payroll/Regular endpoint
   async goto() {
-    await this.page.goto("https://azwu2apweb-test.azurewebsites.net/Admin");
+    await this.page.goto("/Admin");
   }
 
   // get page elements

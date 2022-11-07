@@ -12,7 +12,7 @@ const { PayplanFooter } = require("./payplan_footer.js");
 
 //test
 test.describe.serial("Payplan Footer", () => {
-  test("Navigate to Payplan Footer and validate Footer Name dropdown works as expected - pick an option from the dropdown, validate choice appears in the grid", async ({
+  test("Navigate to Payplan Footer and validate Footer Name dropdown works as expected - pick an option from the dropdown, validate choice appears in the grid @func", async ({
     browser,
     page,
   }) => {
@@ -29,7 +29,7 @@ test.describe.serial("Payplan Footer", () => {
     await page.locator('td[role="gridcell"]:has-text("Technician")');
   });
 
-  test("Navigate to Payplan Footer, pick dropdown option and then click Edit button", async ({
+  test("Navigate to Payplan Footer, pick dropdown option and then click Edit button @func", async ({
     browser,
     page,
   }) => {

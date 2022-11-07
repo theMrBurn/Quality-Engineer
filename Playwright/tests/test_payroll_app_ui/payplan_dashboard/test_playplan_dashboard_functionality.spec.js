@@ -12,7 +12,7 @@ const { PayplanDashboard } = require("./payplan_dashboard.js");
 
 //test
 test.describe.serial("Payplan /dashboard interactive tests", () => {
-  test("Navigate to /Payplan/Dashboard Validate Expiration Date can be input", async ({
+  test("Navigate to /Payplan/Dashboard Validate Expiration Date can be input @func", async ({
     page,
   }) => {
     const payplansDashboard = new PayplanDashboard(page);
@@ -27,7 +27,7 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     await page.locator("text=Jan").click();
   });
 
-  test("Navigate to /Payplan/Dashboard Validate Pay Calendar Date can be input", async ({
+  test("Navigate to /Payplan/Dashboard Validate Pay Calendar Date can be input @func", async ({
     page,
   }) => {
     const payplansDashboard = new PayplanDashboard(page);
@@ -59,7 +59,7 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     expect(biWeekly2).toBe("BiWeekly Wk2");
   });
 
-  test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Semi Monthly", async ({
+  test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Semi Monthly @func", async ({
     browser,
     page,
   }) => {
@@ -75,7 +75,7 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     await payplansDashboard.inputPPEdateDropdown("07/15/2021");
   });
 
-  test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Weekly", async ({
+  test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Weekly @func", async ({
     browser,
     page,
   }) => {
@@ -91,7 +91,7 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     await payplansDashboard.inputPPEdateDropdown("05/21/2021");
   });
 
-  test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Bi-Weekly", async ({
+  test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Bi-Weekly @func", async ({
     browser,
     page,
   }) => {
@@ -107,7 +107,7 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     await payplansDashboard.inputPPEdateDropdown("01/22/2021");
   });
 
-  test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Bi-Weekly Wk1", async ({
+  test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Bi-Weekly Wk1 @func", async ({
     browser,
     page,
   }) => {
@@ -123,7 +123,7 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     await payplansDashboard.inputPPEdateDropdown("12/04/2021");
   });
 
-  test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Bi-Weekly Wk2", async ({
+  test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Bi-Weekly Wk2 @func", async ({
     browser,
     page,
   }) => {
@@ -139,7 +139,7 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     await payplansDashboard.inputPPEdateDropdown("12/10/2021");
   });
 
-  test("Navigate to /Payplan/Dashboard Validate Expiration Date2 can be input", async ({
+  test("Navigate to /Payplan/Dashboard Validate Expiration Date2 can be input @func", async ({
     page,
   }) => {
     const payplansDashboard = new PayplanDashboard(page);
@@ -159,7 +159,7 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     // expect(expirationDate1).toBe("February 2022");
   });
 
-  test("Navigate to /Payplan/Dashboard Validate Effective Date can be input", async ({
+  test("Navigate to /Payplan/Dashboard Validate Effective Date can be input @func", async ({
     page,
   }) => {
     const payplansDashboard = new PayplanDashboard(page);

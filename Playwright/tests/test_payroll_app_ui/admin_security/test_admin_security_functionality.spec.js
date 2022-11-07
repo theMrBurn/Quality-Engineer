@@ -9,7 +9,7 @@ const { AdminSecurity } = require("./admin_security_roles.js");
 
 //test
 test.describe.serial("Admin Employee Details Functionality", () => {
-  test("Navigate to Admin/EmployeeDetails and validate when Compensation is chosen from the dropdown, appropriate results are displayed", async ({
+  test("Navigate to Admin/EmployeeDetails and validate when Compensation is chosen from the dropdown, appropriate results are displayed @func", async ({
     browser,
     page,
   }) => {
@@ -25,7 +25,7 @@ test.describe.serial("Admin Employee Details Functionality", () => {
     await expect(gridResult).toContainText("Compensation");
   });
 
-  test("Navigate to Admin/EmployeeDetails and validate when Compensation Senior is chosen from the dropdown, appropriate results are displayed", async ({
+  test("Navigate to Admin/EmployeeDetails and validate when Compensation Senior is chosen from the dropdown, appropriate results are displayed @func", async ({
     browser,
     page,
   }) => {
@@ -41,7 +41,7 @@ test.describe.serial("Admin Employee Details Functionality", () => {
     await expect(gridResult).toContainText("Senior Compensation Manager");
   });
 
-  test("Navigate to Admin/EmployeeDetails and validate when Payroll is chosen from the dropdown, appropriate results are displayed", async ({
+  test("Navigate to Admin/EmployeeDetails and validate when Payroll is chosen from the dropdown, appropriate results are displayed @func", async ({
     browser,
     page,
   }) => {
@@ -57,7 +57,7 @@ test.describe.serial("Admin Employee Details Functionality", () => {
     await expect(gridResult).toContainText("Payroll");
   });
 
-  test("Navigate to Admin/EmployeeDetails and validate when Payroll Senior is chosen from the dropdown, appropriate results are displayed", async ({
+  test("Navigate to Admin/EmployeeDetails and validate when Payroll Senior is chosen from the dropdown, appropriate results are displayed @func", async ({
     browser,
     page,
   }) => {
@@ -73,7 +73,7 @@ test.describe.serial("Admin Employee Details Functionality", () => {
     await expect(gridResult).toBeVisible();
   });
 
-  test("Navigate to Admin/EmployeeDetails and validate when Store is chosen from the dropdown, appropriate results are displayed", async ({
+  test("Navigate to Admin/EmployeeDetails and validate when Store is chosen from the dropdown, appropriate results are displayed @func", async ({
     browser,
     page,
   }) => {
@@ -89,7 +89,7 @@ test.describe.serial("Admin Employee Details Functionality", () => {
     await expect(gridResult).toBeVisible();
   });
 
-  test("Navigate to Admin/EmployeeDetails and validate when Superuser is chosen from the dropdown, appropriate results are displayed", async ({
+  test("Navigate to Admin/EmployeeDetails and validate when Superuser is chosen from the dropdown, appropriate results are displayed @func", async ({
     browser,
     page,
   }) => {
@@ -105,7 +105,7 @@ test.describe.serial("Admin Employee Details Functionality", () => {
     await expect(gridResult).toBeVisible();
   });
 
-  test("Navigate to Admin/EmployeeDetails and validate when bad info is input, appropriate error or exception is displayed", async ({
+  test("Navigate to Admin/EmployeeDetails and validate when bad info is input, appropriate error or exception is displayed @func", async ({
     browser,
     page,
   }) => {

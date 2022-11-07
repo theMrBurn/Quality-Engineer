@@ -66,9 +66,7 @@ class PayplanEmployee {
 
   // Navigation
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanEmployee"
-    );
+    await this.page.goto("/PayPlan/PayPlanEmployee");
   }
 
   /// get elements

@@ -11,7 +11,7 @@ const { PayrollRegular } = require("./payroll_regular.js");
 //test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
-test.describe("Payroll /Regular - Audit View validation", () => {
+test.describe("Payroll /Regular - Audit View validation @e2e", () => {
   test("Navigate to Payroll /Regular and validate Audit View grid", async ({
     page,
   }) => {
@@ -45,17 +45,17 @@ test.describe("Payroll /Regular - Audit View validation", () => {
     // validate Audit View results
 
     const dataGridResultDateTime = await page.locator(
-      '//*[@id="PayrollEventAuditGrid_4725_34_07102022120000"]/table/tbody/tr[1]/td[3]'
+      "#PayrollEventAuditGrid_8896_34_07102022120000 >> text=Date/Time"
     );
     expect(dataGridResultDateTime).not.toBeEmpty();
 
     const dataGridResultUser = await page.locator(
-      '//*[@id="PayrollEventAuditGrid_4725_34_07102022120000"]/table/tbody/tr[1]/td[4]'
+      '#PayrollEventAuditGrid_8896_34_07102022120000 th[role="columnheader"]:has-text("User")'
     );
     expect(dataGridResultUser).not.toBeEmpty();
 
     const dataGridResultPayrollTask = await page.locator(
-      '//*[@id="PayrollEventAuditGrid_4725_34_07102022120000"]/table/tbody/tr[1]/td[5]'
+      '#PayrollEventAuditGrid_8896_34_07102022120000 th[role="columnheader"]:has-text("Task")'
     );
     expect(dataGridResultPayrollTask).not.toBeEmpty();
 

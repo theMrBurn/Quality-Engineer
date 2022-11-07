@@ -12,7 +12,7 @@ const { PayplanTemplate } = require("./payplan_template.js");
 
 //test
 test.describe.serial("Payplan Template", () => {
-  test("Navigate to Payplan Template and validate expected Page elements have loaded", async ({
+  test("Navigate to Payplan Template and validate expected Page elements have loaded @smoke", async ({
     browser,
     page,
   }) => {

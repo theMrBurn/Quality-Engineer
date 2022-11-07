@@ -12,7 +12,7 @@ const { PayrollStoreInput } = require("./payroll_store_input.js");
 
 //test
 test.describe.serial("Payroll /Storeinput elements", () => {
-  test("Navigate to /Payroll/Storeinput and validate Page elements have loaded", async ({
+  test("Navigate to /Payroll/Storeinput and validate Page elements have loaded @smoke", async ({
     page,
   }) => {
     const payrollStoreInput = new PayrollStoreInput(page);

@@ -12,7 +12,7 @@ const { PayrollAudit } = require("./payroll_audit.js");
 
 //test
 test.describe.serial("Payroll /Audit Functionality", () => {
-  test("Navigate to /Payroll/Audit and validate Company dropdown functionality", async ({
+  test("Navigate to /Payroll/Audit and validate Company dropdown functionality @func", async ({
     browser,
     page,
   }) => {
@@ -27,7 +27,7 @@ test.describe.serial("Payroll /Audit Functionality", () => {
     expect(SpokaneBMW).toBe("Spokane BMW (L0052)");
   });
 
-  test("Navigate to /Payroll/Audit and validate PPE Date dropdown functionality", async ({
+  test("Navigate to /Payroll/Audit and validate PPE Date dropdown functionality @func", async ({
     browser,
     page,
   }) => {
@@ -42,7 +42,7 @@ test.describe.serial("Payroll /Audit Functionality", () => {
     expect(ppeDate).toBe("07/15/2021");
   });
 
-  test("Navigate to /Payroll/Audit and validate when Company and PPE Date entered, audit for the correct Date is displayed on the grid", async ({
+  test("Navigate to /Payroll/Audit and validate when Company and PPE Date entered, audit for the correct Date is displayed on the grid @func", async ({
     browser,
     page,
   }) => {

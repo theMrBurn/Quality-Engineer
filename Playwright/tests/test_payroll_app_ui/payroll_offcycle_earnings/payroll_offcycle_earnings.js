@@ -63,11 +63,9 @@ class PayrollOffCycleEarnings {
     );
   }
 
-  // Navigate to /Payroll/Regular endpoint
+  // Navigate
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/OffCycleEarnings"
-    );
+    await this.page.goto("/Payroll/OffCycleEarnings");
     await this.page.waitForLoadState("networkidle");
   }
 
@@ -213,6 +211,7 @@ class PayrollOffCycleEarnings {
   async clickSearchButton() {
     await this.getSearchButton();
     await this.searchButton.click();
+    await this.page.waitForLoadState("networkidle");
   }
 
   async inputEmployeeDropdown(text) {

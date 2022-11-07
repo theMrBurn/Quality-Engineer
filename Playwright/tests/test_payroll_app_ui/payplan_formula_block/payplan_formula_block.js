@@ -60,11 +60,9 @@ class PayPlanFormulaBlock {
     );
   }
 
-  // Navigate to /Payroll/Regular endpoint
+  // Navigate
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/FormulaBlock"
-    );
+    await this.page.goto("/PayPlan/FormulaBlock");
     await this.page.waitForLoadState("networkidle");
   }
 

@@ -2,6 +2,8 @@
 const { expect } = require("@playwright/test");
 const partialSuccess = "Playwright/helpers/ADJ L0026 08.15 Partial Success.csv";
 const successTest = "Playwright/helpers/ADJ L0026 08.15 Success.csv";
+const empNameMissing =
+  "Playwright/helpers/ADJ L0023 10.01 Employee Name Missing.csv";
 class PayrollAdjustment {
   /**
    * @param {import('playwright').Page} page
@@ -57,9 +59,7 @@ class PayrollAdjustment {
 
   // Navigate to /Payroll/Regular endpoint
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/Adjustment"
-    );
+    await this.page.goto("/Payroll/Adjustment");
     await this.page.waitForLoadState("networkidle");
   }
 
@@ -242,6 +242,13 @@ class PayrollAdjustment {
     await this.selectFilesButton.setInputFiles(
       ("input#file", successTest),
       "Success Test CSV, file upload failed"
+    );
+  }
+
+  async uploadEmpNameMissingAdjustment() {
+    await this.selectFilesButton.setInputFiles(
+      ("input#file", empNameMissing),
+      "Employee Name Missing CSV, file upload failed"
     );
   }
 }

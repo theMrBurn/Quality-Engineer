@@ -12,7 +12,7 @@ const { PayPlanFormulaBlock } = require("./payplan_formula_block.js");
 
 //test
 test.describe.serial("PayPlan /FormulaBlockock", () => {
-  test("Navigate to /Payroll/formulablock and validate Page elements have loaded", async ({
+  test("Navigate to /Payroll/formulablock and validate Page elements have loaded @smoke", async ({
     browser,
     page,
   }) => {

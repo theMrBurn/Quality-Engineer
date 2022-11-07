@@ -9,7 +9,7 @@ const { AllPayReports } = require("./reports.js");
 
 //test
 test.describe.serial("Payroll /Reports", () => {
-  test("Navigate to /Reports CA Tech Link, click URL and validate success", async ({
+  test("Navigate to /Reports CA Tech Link, click URL and validate success @func", async ({
     page,
   }) => {
     const payrollReports = new AllPayReports(page);
@@ -19,7 +19,7 @@ test.describe.serial("Payroll /Reports", () => {
     await payrollReports.clickJVCATechLink();
   });
 
-  test("Navigate to /Reports Cash Spliff, click URL and validate success", async ({
+  test("Navigate to /Reports Cash Spliff, click URL and validate success @func", async ({
     page,
   }) => {
     const payrollReports = new AllPayReports(page);
@@ -29,7 +29,7 @@ test.describe.serial("Payroll /Reports", () => {
     await payrollReports.clickCashSpliffLink();
   });
 
-  test("Navigate to /Reports Sales Rep, click URL and validate success", async ({
+  test("Navigate to /Reports Sales Rep, click URL and validate success @func", async ({
     page,
   }) => {
     const payrollReports = new AllPayReports(page);
@@ -39,7 +39,7 @@ test.describe.serial("Payroll /Reports", () => {
     await payrollReports.clickSalesRepLink();
   });
 
-  test("Navigate to /Reports Vacation Temp Rates, click URL and validate success", async ({
+  test("Navigate to /Reports Vacation Temp Rates, click URL and validate success @func", async ({
     page,
   }) => {
     const payrollReports = new AllPayReports(page);

@@ -49,10 +49,10 @@ class AdminPayCalendar {
     this.calendarInputDropdown = page.locator('[aria-label="select"] >> nth=0');
     this.newCalendarButton = page.locator("text=New Pay Calendar");
     this.gridEditButton = page.locator(
-      '//*[@id="PayCalendarGrid"]/table/tbody/tr[1]/td[13]/a[1]'
+      '//*[@id="PayCalendarGrid"]/table/tbody/tr[1]/td[15]/a[1]'
     );
     this.gridDeleteButton = page.locator(
-      '//*[@id="PayCalendarGrid"]/table/tbody/tr[1]/td[13]/a[2]'
+      '//*[@id="PayCalendarGrid"]/table/tbody/tr[1]/td[15]/a[2]'
     );
     this.gridUpdateButton = page.locator("text=Update");
     this.gridCancelButton = page.locator("text=Cancel");
@@ -66,9 +66,7 @@ class AdminPayCalendar {
 
   // Navigate to /Payroll/Regular endpoint
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/Admin/PayCalendar"
-    );
+    await this.page.goto("/Admin/PayCalendar");
   }
 
   // get page elements

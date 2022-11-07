@@ -12,7 +12,7 @@ const { PayrollAudit } = require("./payroll_audit.js");
 
 //test
 test.describe.serial("Payroll /Audit elements", () => {
-  test("Navigate to /Payroll/Audit and validate Page elements have loaded", async ({
+  test("Navigate to /Payroll/Audit and validate Page elements have loaded @smoke", async ({
     browser,
     page,
   }) => {

@@ -12,7 +12,7 @@ const { PayPlanGrids } = require("./payplan_grids.js");
 
 //test
 test.describe.serial("PayPlan /Grids - Validate basic Functionality", () => {
-  test("Navigate to /Payplan/Grids and use dropdown to validate Grid Name = VPIxPVR, description = F&I Grid VPI x PVR", async ({
+  test("Navigate to /Payplan/Grids and use dropdown to validate Grid Name = VPIxPVR, description = F&I Grid VPI x PVR @func", async ({
     browser,
     page,
   }) => {
@@ -31,24 +31,25 @@ test.describe.serial("PayPlan /Grids - Validate basic Functionality", () => {
     expect(gridDescription).toContain("F&I Grid VPI x PVR");
   });
 
-  test("Navigate to /Payplan/Grids and use dropdown to validate Grid Name = VPIxPVR (SIS), description = VPIxPVR (SIS)", async ({
-    browser,
-    page,
-  }) => {
-    const payplanGrids = new PayPlanGrids(page);
-    await payplanGrids.goto();
+  // test DB update removed this from the dropdown. Deprecated until the next DB update when we can just delete this
+  // test("Navigate to /Payplan/Grids and use dropdown to validate Grid Name = VPIxPVR (SIS), description = VPIxPVR (SIS)", async ({
+  //   browser,
+  //   page,
+  // }) => {
+  //   const payplanGrids = new PayPlanGrids(page);
+  //   await payplanGrids.goto();
 
-    await payplanGrids.clickGridsDropdownTriangle();
-    await page.locator('li[role="option"]:has-text("L0304")').click();
+  //   await payplanGrids.clickGridsDropdownTriangle();
+  //   await page.locator('li[role="option"]:has-text("L0304")').click();
 
-    const gridName = await page.innerHTML("text=VPIxPVR");
-    expect(gridName).toContain("VPIXPVR");
+  //   const gridName = await page.innerHTML("text=VPIxPVR");
+  //   expect(gridName).toContain("VPIXPVR");
 
-    const gridDescription = await page.innerHTML("text=VPIxPVR");
-    expect(gridDescription).toContain("VPIXPVR");
-  });
+  //   const gridDescription = await page.innerHTML("text=VPIxPVR");
+  //   expect(gridDescription).toContain("VPIXPVR");
+  // });
 
-  test("Navigate to /Payplan/Grids and use dropdown to validate Grid Name = PVRxVPI, description = PVRxVPI", async ({
+  test("Navigate to /Payplan/Grids and use dropdown to validate Grid Name = PVRxVPI, description = PVRxVPI @func", async ({
     browser,
     page,
   }) => {

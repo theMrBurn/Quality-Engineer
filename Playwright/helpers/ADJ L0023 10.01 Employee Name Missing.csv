@@ -1,0 +1,6 @@
+Employee,Source System,Source Field,Calc Period Type,New Value,Orig Value,Comment,Exclude from Payroll
+Armando Hernandez (202361),RTH Closed,SoldHours,Week_1,50,,,
+Armando Hernandez (202361),RTH Closed,SoldHours,Week_2,10,,,
+Ernesto Acevedo (169498),RAP Individual,ELRC,Week_1,20,,,
+Ernesto Acevedo (169498),RAP Total,ELRC,Week_2,500000,,,
+,RTH Closed,SoldHours,Week_1,50,,,

@@ -12,7 +12,7 @@ const { PayrollUpload } = require("./payroll_upload.js");
 
 //test
 test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
-  test("Navigate to /Payroll/Sup input Pay Calendar Dropdown", async ({
+  test("Navigate to /Payroll/Sup input Pay Calendar Dropdown @func", async ({
     page,
   }) => {
     const payrollUpload = new PayrollUpload(page);
@@ -44,7 +44,7 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     expect(biWeekly2).toBe("BiWeekly Wk2");
   });
 
-  test("Navigate to /Payroll/Upplad and validate PPE Date dropdown functionality, Semi Monthly", async ({
+  test("Navigate to /Payroll/Upplad and validate PPE Date dropdown functionality, Semi Monthly @func", async ({
     browser,
     page,
   }) => {
@@ -61,7 +61,7 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     await payrollUpload.inputPPEdateDropdown("07/15/2021");
   });
 
-  test("Navigate to /Payroll/Upplad and validate PPE Date dropdown functionality, Weekly", async ({
+  test("Navigate to /Payroll/Upplad and validate PPE Date dropdown functionality, Weekly @func", async ({
     browser,
     page,
   }) => {
@@ -78,7 +78,7 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     await payrollUpload.inputPPEdateDropdown("05/21/2021");
   });
 
-  test("Navigate to /Payroll/Upplad and validate PPE Date dropdown functionality, Bi-Weekly", async ({
+  test("Navigate to /Payroll/Upplad and validate PPE Date dropdown functionality, Bi-Weekly @func", async ({
     browser,
     page,
   }) => {
@@ -95,7 +95,7 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     await payrollUpload.inputPPEdateDropdown("01/22/2021");
   });
 
-  test("Navigate to /Payroll/Upplad and validate PPE Date dropdown functionality, Bi-Weekly Wk1", async ({
+  test("Navigate to /Payroll/Upplad and validate PPE Date dropdown functionality, Bi-Weekly Wk1 @func", async ({
     browser,
     page,
   }) => {
@@ -112,7 +112,7 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     await payrollUpload.inputPPEdateDropdown("12/04/2021");
   });
 
-  test("Navigate to /Payroll/Sup and validate PPE Date dropdown functionality, Bi-Weekly Wk2", async ({
+  test("Navigate to /Payroll/Sup and validate PPE Date dropdown functionality, Bi-Weekly Wk2 @func", async ({
     browser,
     page,
   }) => {
@@ -129,7 +129,7 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     await payrollUpload.inputPPEdateDropdown("12/04/2021");
   });
 
-  test("Navigate to /Payroll and validate Accounting Month Date dropdown functionality", async ({
+  test("Navigate to /Payroll and validate Accounting Month Date dropdown functionality @func", async ({
     browser,
     page,
   }) => {
@@ -154,7 +154,7 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     await page.locator("text=May").click();
   });
 
-  test("Navigate to /Payroll/Upplad and attempt to Sup valid Timecard file", async ({
+  test("Navigate to /Payroll/Upplad and attempt to Sup valid Timecard file @func", async ({
     browser,
     page,
   }) => {

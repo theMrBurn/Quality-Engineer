@@ -57,11 +57,9 @@ class AdminPayCycle {
     );
   }
 
-  // Navigate to /Payroll/Regular endpoint
+  // Navigate to /Admin/Paycycle endpoint
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/Admin/PayCycle"
-    );
+    await this.page.goto("/Admin/PayCycle");
     await this.page.waitForLoadState("networkidle");
   }
 

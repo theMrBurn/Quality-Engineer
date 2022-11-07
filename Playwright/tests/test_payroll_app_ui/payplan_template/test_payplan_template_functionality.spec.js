@@ -12,7 +12,7 @@ const { PayplanTemplate } = require("./payplan_template.js");
 
 //test
 test.describe.serial("Payplan Template", () => {
-  test("Navigate to Payplan Template and validate Job input functionality", async ({
+  test("Navigate to Payplan Template and validate Job input functionality @func", async ({
     browser,
     page,
   }) => {
@@ -39,7 +39,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.clickDeleteInput();
   });
 
-  test("Navigate to Payplan Template and validate Department input functionality", async ({
+  test("Navigate to Payplan Template and validate Department input functionality @func", async ({
     browser,
     page,
   }) => {
@@ -64,7 +64,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.clickDeleteInput();
   });
 
-  test("Navigate to Payplan Template and validate State input functionality", async ({
+  test("Navigate to Payplan Template and validate State input functionality @func", async ({
     browser,
     page,
   }) => {
@@ -89,7 +89,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.clickDeleteInput();
   });
 
-  test("Navigate to Payplan Template and validate known Position Types input functionality", async ({
+  test("Navigate to Payplan Template and validate known Position Types input functionality @func", async ({
     browser,
     page,
   }) => {
@@ -236,7 +236,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.deletePositionTypeDropdown();
   });
 
-  test("Navigate to Payplan Template and validate known PayPlan Types input functionality", async ({
+  test("Navigate to Payplan Template and validate known PayPlan Types input functionality @func", async ({
     browser,
     page,
   }) => {
@@ -299,7 +299,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.deletePlanTypeDropdown();
   });
 
-  test("Navigate to Payplan Template and validate known Template Names input functionality", async ({
+  test("Navigate to Payplan Template and validate known Template Names input functionality @func", async ({
     browser,
     page,
   }) => {
@@ -307,11 +307,9 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.goto();
 
     //SM - Tech - Sch 70
-    await payplanTemplate.inputTemplateNameDropdown("SM - Tech - Sch 70");
-    await page
-      .locator('li[role="option"]:has-text("SM - Tech - Sch 70")')
-      .click();
-    await page.locator('span:has-text("SM - Tech - Sch 70")');
+    await payplanTemplate.inputTemplateNameDropdown("Tech - Sch 70");
+    await page.locator('li[role="option"]:has-text("Tech - Sch 70")').click();
+    await page.locator('span:has-text("Tech - Sch 70")');
 
     //SM - Sales Rep - Semi-Monthly COM
     await payplanTemplate.inputTemplateNameDropdown(
@@ -330,50 +328,48 @@ test.describe.serial("Payplan Template", () => {
     await page.locator('span:has-text("SM - Sales Rep - Monthly COM")');
 
     //SM - Tech - Body Shop
-    await payplanTemplate.inputTemplateNameDropdown("SM - Tech - Body Shop");
+    await payplanTemplate.inputTemplateNameDropdown("Tech - Body Shop");
     await page
-      .locator('li[role="option"]:has-text("SM - Tech - Body Shop")')
+      .locator('li[role="option"]:has-text("Tech - Body Shop")')
       .click();
-    await page.locator('span:has-text("SM - Tech - Body Shop")');
+    await page.locator('span:has-text("Tech - Body Shop")');
 
     //SM - Tech - RTH Booked
-    await payplanTemplate.inputTemplateNameDropdown("SM - Tech - RTH Booked");
+    await payplanTemplate.inputTemplateNameDropdown("Tech - RTH Booked");
     await page
-      .locator('li[role="option"]:has-text("SM - Tech - RTH Booked")')
+      .locator('li[role="option"]:has-text("Tech - RTH Booked")')
       .click();
-    await page.locator('span:has-text("SM - Tech - RTH Booked")');
+    await page.locator('span:has-text("Tech - RTH Booked")');
 
     //SM - Tech - RTH Closed
-    await payplanTemplate.inputTemplateNameDropdown("SM - Tech - RTH Closed");
+    await payplanTemplate.inputTemplateNameDropdown("Tech - RTH Closed");
     await page
-      .locator('li[role="option"]:has-text("SM - Tech - RTH Closed")')
+      .locator('li[role="option"]:has-text("Tech - RTH Closed")')
       .click();
-    await page.locator('span:has-text("SM - Tech - RTH Closed")');
+    await page.locator('span:has-text("Tech - RTH Closed")');
 
     //SM - Sales Rep - Monthly COM - Unit Gua
     await payplanTemplate.inputTemplateNameDropdown(
-      "SM - Sales Rep - Monthly COM - Unit Gua"
+      "Sales Rep - Monthly COM - Unit Gua"
     );
     await page
       .locator(
-        'li[role="option"]:has-text("SM - Sales Rep - Monthly COM - Unit Gua")'
+        'li[role="option"]:has-text("Sales Rep - Monthly COM - Unit Gua")'
       )
       .click();
-    await page.locator(
-      'span:has-text("SM - Sales Rep - Monthly COM - Unit Gua")'
-    );
+    await page.locator('span:has-text("Sales Rep - Monthly COM - Unit Gua")');
 
     //SM - Sales Rep - Semi-Monthly COM - Unit Gua
     await payplanTemplate.inputTemplateNameDropdown(
-      "SM - Sales Rep - Semi-Monthly COM - Unit Gua"
+      "Sales Rep - Semi-Monthly COM - Unit Gua"
     );
     await page
       .locator(
-        'li[role="option"]:has-text("SM - Sales Rep - Semi-Monthly COM - Unit Gua")'
+        'li[role="option"]:has-text("Sales Rep - Semi-Monthly COM - Unit Gua")'
       )
       .click();
     await page.locator(
-      'span:has-text("SM - Sales Rep - Semi-Monthly COM - Unit Gua")'
+      'span:has-text("Sales Rep - Semi-Monthly COM - Unit Gua")'
     );
 
     //Service Advisor ADS
@@ -386,34 +382,32 @@ test.describe.serial("Payplan Template", () => {
     //F&I Grid Plan Template
     await payplanTemplate.inputTemplateNameDropdown("F&I Grid Plan Template");
     await page
-      .locator('li[role="option"]:has-text("F&I Grid Plan Template")')
+      .locator('li[role="option"]:has-text("F&I Grid Plan Template") >> nth=0')
       .click();
     await page.locator('span:has-text("F&I Grid Plan Template")');
 
     //SM - Tech - RTH Skill Cost Booked
     await payplanTemplate.inputTemplateNameDropdown(
-      "SM - Tech - RTH Skill Cost Booked"
+      "Tech - RTH Skill Cost Booked"
     );
     await page
-      .locator(
-        'li[role="option"]:has-text("SM - Tech - RTH Skill Cost Booked")'
-      )
+      .locator('li[role="option"]:has-text("Tech - RTH Skill Cost Booked")')
       .click();
-    await page.locator('span:has-text("SM - Tech - RTH Skill Cost Booked")');
+    await page.locator('span:has-text("Tech - RTH Skill Cost Booked")');
 
     //SM - Tech - RTH Skill Cost Closed
     await payplanTemplate.inputTemplateNameDropdown(
-      "SM - Tech - RTH Skill Cost Closed"
+      "Tech - RTH Skill Cost Closed"
     );
     await page
-      .locator(
-        'li[role="option"]:has-text("SM - Tech - RTH Skill Cost Closed")'
-      )
+      .locator('li[role="option"]:has-text("Tech - RTH Skill Cost Closed")')
       .click();
-    await page.locator('span:has-text("SM - Tech - RTH Skill Cost Closed")');
+    await page.locator('span:has-text("Tech - RTH Skill Cost Closed")');
 
     //Sales Rep - Always COM
-    await payplanTemplate.inputTemplateNameDropdown("Sales Rep - Always COM");
+    await payplanTemplate.inputTemplateNameDropdown(
+      "WK - Sales Rep - Always COM"
+    );
     await page
       .locator('li[role="option"]:has-text("Sales Rep - Always COM")')
       .click();
@@ -423,20 +417,16 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.inputTemplateNameDropdown(
       "Sales Rep - Hourly Offset"
     );
-    await page
-      .locator('li[role="option"]:has-text("Sales Rep - Hourly Offset")')
-      .click();
+    await page.locator('text="Sales Rep - Hourly Offset"').click();
     await page.locator('span:has-text("Sales Rep - Hourly Offset")');
 
     //Sales Rep - Hourly Plus
     await payplanTemplate.inputTemplateNameDropdown("Sales Rep - Hourly Plus");
-    await page
-      .locator('li[role="option"]:has-text("Sales Rep - Hourly Plus")')
-      .click();
+    await page.locator('text="Sales Rep - Hourly Plus"').click();
     await page.locator('span:has-text("Sales Rep - Hourly Plus")');
   });
 
-  test("Navigate to Payplan Template and validate known PayPlan Pay Rate Types input functionality", async ({
+  test("Navigate to Payplan Template and validate known PayPlan Pay Rate Types input functionality @func", async ({
     browser,
     page,
   }) => {
@@ -464,7 +454,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.deletePayRateType();
   });
 
-  test("Navigate to Payplan Template and click Add PayPlan, basic smoke check of functionality", async ({
+  test("Navigate to Payplan Template and click Add PayPlan, basic smoke check of functionality @func", async ({
     browser,
     page,
   }) => {

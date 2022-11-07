@@ -12,7 +12,7 @@ const { PayrollAdjustment } = require("./payroll_adjustment.js");
 
 //test
 test.describe.serial("Payroll /Adjustment elements", () => {
-  test("Navigate to /Payroll/Adjustment and validate Page elements have loaded", async ({
+  test("Navigate to /Payroll/Adjustment and validate Page elements have loaded @smoke", async ({
     page,
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);
@@ -28,7 +28,7 @@ test.describe.serial("Payroll /Adjustment elements", () => {
     await payrollAdjustment.getPPEdateDropdown();
   });
 
-  test("Navigate to /Payroll/Adjustment and validate dropdowns can be clicked", async ({
+  test("Navigate to /Payroll/Adjustment and validate dropdowns can be clicked @smoke", async ({
     page,
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);

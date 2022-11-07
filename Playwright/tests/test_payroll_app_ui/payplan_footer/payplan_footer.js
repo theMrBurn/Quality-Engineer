@@ -43,9 +43,7 @@ class PayplanFooter {
 
   // Navigation
   async goto() {
-    await this.page.goto(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanFooter"
-    );
+    await this.page.goto("/PayPlan/PayPlanFooter");
     await this.page.waitForLoadState("networkidle");
   }
 

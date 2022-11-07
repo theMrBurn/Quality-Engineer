@@ -12,7 +12,7 @@ const { Admin } = require("./admin.js");
 
 //test
 test.describe.serial("/Admin", () => {
-  test("Navigate to /Admin and validate Page elements have loaded as expected", async ({
+  test("Navigate to /Admin and validate Page elements have loaded as expected @smoke", async ({
     browser,
     page,
   }) => {
