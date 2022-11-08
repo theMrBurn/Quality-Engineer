@@ -13,7 +13,7 @@ class NewVehicleInventory
     this.getSalesNewVehicle=page.locator(':nth-match(:text("New Vehicle"),1)');
     this.getSalesNewInventoryDetail=page.locator(':nth-match(:text("New Inventory Detail"),1)');
     this.getNewInventorySummaryTotals=page.locator('text="Totals"');
-    this.getNewInventoryExcess=page.locator('text="Excess"');
+    this.getNewInventoryExcess=page.locator(':nth-match(:text("Excess"),1)');
     this.getNVITotalINventory=page.locator('xpath=//body/div[1]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/a[1]');
     this.getNVIExcessTotals=page.locator('xpath=//body/div[1]/main[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/a[1]');
     this.getNVIExcessTotals2=page.locator('span[class="k-pager-info k-label"]');
