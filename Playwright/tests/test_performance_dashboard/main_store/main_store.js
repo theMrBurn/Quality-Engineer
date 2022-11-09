@@ -9,16 +9,16 @@ class MainStore
   constructor(page) {
     this.page = page;
     this.getSPELogo=page.locator("id=logo");
-    this.getDrivewayTab=page.locator(':nth-match(:text("Driveway"),1)');
-    this.getDrivewaySuppressionReport=page.locator('text="Driveway Suppression Report"');
-    this.getDFC=page.locator('text="DFC"');
+    this.getDrivewayTab=page.locator('xpath=//body/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[3]/span[1]');
+    this.getDrivewaySuppressionReport=page.locator(':nth-match(:text("Driveway Suppression Report"),1)');
+    this.getDFC=page.locator(':nth-match(:text("DFC"),1)');
     this.getDFCDrivewayFinanceCorpScorecard=page.locator('text="Driveway Finance Corp Scorecard"');
-    this.getStoreDrivewayScorecard=page.locator('text="Store Driveway Scorecard"');
+    this.getStoreDrivewayScorecard=page.locator(':nth-match(:text("Store Driveway Scorecard"),1)');
     this.getUsername=page.locator('id=i0116');
     this.getPassword=page.locator('id=i0118');
     this.getBodyShop=page.locator('text=" Body Shop"');
     this.getBodyShopReport =page.locator('text="Body Shop Report"');
-    this.getServiceDashboard=page.locator(':nth-match(:text("Service"),1)');
+    this.getServiceDashboard=page.locator('xpath=//body/div[1]/header[1]/nav[1]/div[1]/ul[1]/li[5]/span[1]');
     this.getServiceDashboardReport =page.locator('text=Service Dashboard');
     this.getServiceRepairOrderLogReport =page.locator('text="Repair Order Log"');
     this.getServiceFlatRateHrsReport=page.locator(':nth-match(:text("Flat Rate Hours"),2)');
@@ -110,7 +110,7 @@ class MainStore
     this.getSalesWeekendSummary=page.locator(':nth-match(:text("Weekend Summary"),1)');
     this.getSalesMonthEndReport=page.locator(':nth-match(:text("Month End Report"),1)');
     this.getSalesSalesMgrTopProducers=page.locator(':nth-match(:text("Sales Mgr Top Producers"),1)');
-    //US:103551 - locators to add Navigation to Ten Reports
+    //NewStuff
     this.getServiceFlatRateHrsPDF=page.locator(':nth-match(:text("Flat Rate Hours (pdf)"),1)');
     this.getServiceContractSalesSummary=page.locator(':nth-match(:text("Contract Sales"),1)');
     this.getServiceRAPReport=page.locator(':nth-match(:text("RAP Report"),1)');
@@ -126,7 +126,7 @@ class MainStore
     this.getReferenceVariableGrossTools=page.locator(':nth-match(:text("Variable Gross Tools"),1)');
     this.getMarket=page.locator('text="Market"');
     this.getReference=page.locator(':nth-match(:text("Reference"),1)');
-  }
+ } 
     //Navigate to Main Tab/ Performace Dashboard Report
     async NavigateToMainStorePerformanceDashboard() {
       await this.getMainTab.click();
@@ -360,7 +360,6 @@ class MainStore
   async NavigateToDriveway() {
    await this.getDrivewayTab.click();
    await this.getDrivewaySuppressionReport.click();
-   await this.page.waitForLoadState('networkidle');
   }
   async NavigateToDrivewayStoreDrivewayScorecard() {
     await this.getDrivewayTab.click();
@@ -372,7 +371,7 @@ class MainStore
     await this.getDFCDrivewayFinanceCorpScorecard.click();
     await this.page.waitForLoadState('networkidle');
    }
-   async NavigateToBodyShop(){
+  async NavigateToBodyShop(){
     await this.getBodyShop.click();
     await this.getBodyShopReport.click();
     await this.page.waitForLoadState('networkidle');
@@ -380,17 +379,14 @@ class MainStore
   async NavigateToServiceDashboard(){
     await this.getServiceDashboard.click();
     await this.getServiceDashboardReport.click();
-    await this.page.waitForLoadState('networkidle');
   }
   async NavigateToServiceRepairOrderLog(){
     await this.getServiceDashboard.click();
     await this.getServiceRepairOrderLogReport.click();
-    await this.page.waitForLoadState('networkidle');
   }
   async NavigateToServiceFlateRateHrs(){
     await this.getServiceDashboard.click();
     await this.getServiceFlatRateHrsReport.click();
-    await this.page.waitForLoadState('networkidle');
   }
   async NavigateToServiceAdvisorReport(){
     await this.getServiceDashboard.click();
@@ -435,9 +431,21 @@ class MainStore
     await this.getOfficeCashARVAlidationLOg.click();
     await this.page.waitForLoadState('networkidle');
   }
+  async NavigateToVehicleDocTracking()
+  {
+    await this.getOffice.click();
+    await this.getVehicleDocTracking.click();
+    await this.page.waitForLoadState('networkidle');
+    await this.getPopupCloseVehicleDocTracking.click();
+    await this.page.waitForLoadState('networkidle');
+  }
   async NavigatetoInventoryNotInFirstLook(){
     await this.getOffice.click();
     await this.getInventoryNotInFirstLook.click();
+  }
+  async NavigatetoBankofHawaii(){
+    await this.getOffice.click();
+    await this.getBankOfHawaii.click();
   }
   async NavigateToAssuredServiceContractSalesSummary(){
     await this.getOffice.click();
@@ -555,8 +563,7 @@ class MainStore
     await this.page.click('id=KmsiCheckboxField');
     await this.page.click('id=idSIButton9');
   }
-  //US:103551 - locators to add Navigation to Ten Reports
-  //Service
+  //new reports navigation
   async NavigateToServiceFlatRateHrsPDF(){
     await this.getServiceDashboard.click();
     await this.getServiceFlatRateHrsPDF.click();
@@ -575,7 +582,6 @@ class MainStore
   async NavigateToServiceLOCCycleTime(){
     await this.getServiceDashboard.click();
     await this.getServiceLOCCycleTime.click();
-    await this.page.waitForLoadState('networkidle');
   }
   //Office
   async NavigatetoBankofHawaii(){
