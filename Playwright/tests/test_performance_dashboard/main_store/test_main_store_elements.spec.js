@@ -11,32 +11,65 @@ const { MainStore } = require("./main_store.js");
 //test.use({ storageState: "helpers/spe_auth_testenv.json" });
 
 //test
-test.describe.serial("/main_store", () => {
+test.describe.serial("/main_store_dev", () => {
+  //test.fixme("this test is timing out");
    test("login to SPE", async function ({
        browser, 
        page,
      }) {
-       test.setTimeout(6000000);
+       test.setTimeout(300000);
        const mainStore = new MainStore(page);
        // We can use these two methods in case if the storage state doesnt work
        await mainStore.goto();
        await mainStore.login();
        await mainStore.twostepauthlogin();
+       await mainStore.NavigateToDrivewayStoreDrivewayScorecard();
+       await mainStore.NavigateToDFCDrivewayFinanceCorpScorecard();
        await mainStore.NavigateToBodyShop();
        await mainStore.NavigateToPartsReport();
-       await mainStore.NavigateToServiceDashboard();
-       await mainStore.NavigateToServiceFlateRateHrs();
-       await mainStore.NavigateToServiceRepairOrderLog();
-       await mainStore.NavigateToServiceAdvisorReport();
-       await mainStore.NavigateToServicePDELMobileReport();
-       await mainStore.NavigateToServiceTechnicianPerformanceReport();
-       await mainStore.NavigateToAdminTrackingDashboardReport();
-       await mainStore.NavigateToDriveway();
-       await mainStore.NAvigateToAdminEmployeeLookup();
-       await mainStore.NAvigateToAdminJobLauncher();
+
+     });
+     test("Navigate to Service Menu", async function ({
+      browser, 
+      page,
+    }) {
+      test.setTimeout(300000);
+      const mainStore = new MainStore(page);
+      await mainStore.goto();
+      await mainStore.login();
+      await mainStore.twostepauthlogin();
+      await mainStore.NavigateToServiceDashboard();
+      await mainStore.NavigateToServiceFlateRateHrs();
+      await mainStore.NavigateToServiceRepairOrderLog();
+      await mainStore.NavigateToServiceAdvisorReport();
+      await mainStore.NavigateToServicePDELMobileReport();
+      await mainStore.NavigateToServiceTechnicianPerformanceReport();
+    });
+    test("Navigate to admin and driveway", async function ({
+      browser, 
+      page,
+    }) {
+      test.setTimeout(300000);
+      const mainStore = new MainStore(page);
+      await mainStore.goto();
+      await mainStore.login();
+      await mainStore.twostepauthlogin();
+      await mainStore.NavigateToDriveway();
+      await mainStore.NavigateToAdminTrackingDashboardReport();
+      await mainStore.goto();
+      await mainStore.NAvigateToAdminEmployeeLookup();
+    });
+    test("Navigate to Office", async function ({
+      browser, 
+      page,
+    }) {
+      test.setTimeout(600000);
+      const mainStore = new MainStore(page);
+       await mainStore.goto();
+       await mainStore.login();
+       await mainStore.twostepauthlogin();
+       //await mainStore.NAvigateToAdminJobLauncher(); Temporarily disabling until cloud team gives a fix for the on prem problem
        await mainStore.NavigateToCashARValidationLog();
-       //we will implement this report redirection in future
-       //await mainStore.NavigateToVehicleDocTracking();
        await mainStore.NavigatetoInventoryNotInFirstLook();
        await mainStore.NavigatetoBankofHawaii();
        await mainStore.NavigateToAssuredServiceContractSalesSummary();
@@ -56,7 +89,17 @@ test.describe.serial("/main_store", () => {
        await mainStore.NavigatetoOfficeOTIServiceDriveSales();
        await mainStore.NavigatetoOfficeOTITableViewer();
        await mainStore.NavigatetoOfficeShipper();
+    });
        // Main    
+       test("Navigate to Main", async function ({
+        browser, 
+        page,
+      }) {
+        test.setTimeout(300000);
+        const mainStore = new MainStore(page);
+       await mainStore.goto();
+       await mainStore.login();
+       await mainStore.twostepauthlogin();
        await mainStore.NavigateToMainStorePerformanceDashboard();
        await mainStore.NavigateToMainStorePerformanceScorecardSPS();
        await mainStore.NavigateToMainAnnualOperatingPlan();
@@ -68,20 +111,48 @@ test.describe.serial("/main_store", () => {
        await mainStore.NavigateToMainOperationalMIS();
        await mainStore.NavigateToMainStoreLeadershipReport();
        await mainStore.goto();  
-       // Sales
+      });
+      test("Navigate to Sales New Inventory", async function ({
+        browser, 
+        page,
+      }) {
+        test.setTimeout(300000);
+        const mainStore = new MainStore(page);
+       await mainStore.goto();
+       await mainStore.login();
+       await mainStore.twostepauthlogin();
        await mainStore.NavigateToSalesNewVehicleDashboard();
        await mainStore.NavigateToSalesApprovabilityScorecard();
        await mainStore.NavigateToSalesNewInventoryDetail();
        await mainStore.NavigateToSalesIncentiveLog();
        await mainStore.NavigateToSalesRDRReconciliation();
        await mainStore.NavigateToSalesLoanerVehicleDetail();
-       //Sales Used Vehicle
+      });
+      test("Navigate to Sales Used Inventory", async function ({
+        browser, 
+        page,
+      }) {
+        test.setTimeout(300000);
+        const mainStore = new MainStore(page);
+       await mainStore.goto();
+       await mainStore.login();
+       await mainStore.twostepauthlogin();
        await mainStore.NavigateToSalesUsedVehicleDashboard();
        await mainStore.NavigateToSalesPurchaseLogTradeIn();
        await mainStore.NavigateToSalesUsedInventoryDetail();
        await mainStore.NavigateToSalesInventoryAnalysisUVIA();
        await mainStore.NavigateToSalesUsedVehicleReportCard();
+      });
        // F&I Ops 
+       test("Navigate to Sales F& I ops", async function ({
+        browser, 
+        page,
+      }) {
+        test.setTimeout(400000);
+        const mainStore = new MainStore(page);
+       await mainStore.goto();
+       await mainStore.login();
+       await mainStore.twostepauthlogin();
        await mainStore.NavigateToSalesFIOpsDashboard();
        await mainStore.NavigateToSalesFIPerformanceScorecard();
        await mainStore.NavigateToSalesFILog();
@@ -98,8 +169,17 @@ test.describe.serial("/main_store", () => {
        await mainStore.NavigateToSalesSubmitaSummary();
        await mainStore.NavigateToSalesWeekendSummary();
        await mainStore.NavigateToSalesMonthEndReport();
-       //await mainStore.NavigateToSalesSalesMgrTopProducers();-- Not sure on which tab this is
+      });
        //NewReportsAdded - US103551
+       test("Navigate to New Reports", async function ({
+        browser, 
+        page,
+      }) {
+        test.setTimeout(300000);
+        const mainStore = new MainStore(page);
+       await mainStore.goto();
+       await mainStore.login();
+       await mainStore.twostepauthlogin();
        await mainStore.NavigateToServiceFlatRateHrsPDF();
        await mainStore.goto();
        await mainStore.NavigateToServiceContractSales();
@@ -107,22 +187,52 @@ test.describe.serial("/main_store", () => {
        await mainStore.NavigateToServiceRAPReport();
        await mainStore.NavigateToServiceLOCCycleTime();
        await mainStore.goto();
+      });
+      test("Navigate to New Reports under Office", async function ({
+        browser, 
+        page,
+      }) {
+        test.setTimeout(300000);
+        const mainStore = new MainStore(page);
        //Office
+       await mainStore.goto();
+       await mainStore.login();
+       await mainStore.twostepauthlogin();
        await mainStore.NavigateToOfficeDealershipAccountingscorecard();
        await mainStore.NavigateToOfficeCashARValidation();
        await mainStore.NavigateToOfficeVehicleDocTracking();
        await mainStore.goto();
        //MArket
+      });
+      test("Navigate to Under MArket", async function ({
+        browser, 
+        page,
+      }) {
+        test.setTimeout(300000);
+        const mainStore = new MainStore(page);
+       await mainStore.goto();
+       await mainStore.login();
+       await mainStore.twostepauthlogin();
        await mainStore.NavigateToMarketLADBudget();
        await mainStore.goto();
        await mainStore.NavigateToMarketVistaDash();
        await mainStore.goto();
        await mainStore.NavigateToMarketMarketingCreative();
        await mainStore.goto();
+      });
        //Reference
+       test("Navigate to Under Reference", async function ({
+        browser, 
+        page,
+      }) {
+        test.setTimeout(300000);
+        const mainStore = new MainStore(page);
+       await mainStore.goto();
+       await mainStore.login();
+       await mainStore.twostepauthlogin();
        await mainStore.NavigateToPayrollProcessingCalendar();
        await mainStore.NavigateToManagementFeeSummary();
        await mainStore.NavigateToFixedOpsGrossTools();
-       await mainStore.NavigateToVariableGrossTools();      
+       await mainStore.NavigateToVariableGrossTools();
      });
 });
