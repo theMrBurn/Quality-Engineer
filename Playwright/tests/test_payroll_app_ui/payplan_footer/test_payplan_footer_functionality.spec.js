@@ -40,7 +40,7 @@ test.describe.serial("Payplan Footer", () => {
     await payplansFooter.inputFooterClickDropdown();
 
     // should click the triangle and then display options to then also click
-    await page.locator("text=Technician").nth(1).click();
+    await page.locator("text=Technician >> nth=1").click();
 
     // confirm on Grid that item above was chosen
     await page.locator('td[role="gridcell"]:has-text("Technician")');

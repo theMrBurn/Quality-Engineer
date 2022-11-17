@@ -29,7 +29,7 @@ const xrayOptions = {
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
 const config = {
-  globalSetup: require.resolve("./Playwright/global-setup.js"),
+  globalSetup: require.resolve("./Playwright/env-test-setup.js"),
   // use: {
   //   // Tell all tests to load signed-in state from 'storageState.json'.
   //   storageState: "allPay_superUser.json",
@@ -43,7 +43,7 @@ const config = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 10 * 60 * 100,
+    timeout: 10 * 80 * 100,
   },
 
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -75,29 +75,34 @@ const config = {
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "AllPay",
+      name: "AllPayTest",
       testDir: "Playwright/tests/test_payroll_app_ui",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/allPay_superUser.json",
+        storageState: "Playwright/helpers/test_allpay_superUser.json",
         baseURL: "https://azwu2apweb-test.azurewebsites.net/",
       },
     },
 
     {
+      name: "AllPayDev",
       testDir: "Playwright/tests/test_payroll_app_ui",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/allPay_dev_superUser.json",
+        storageState: "Playwright/helpers/dev_allPay_superuser_auth.json",
         baseURL: "https://azwu2aptest-dev.azurewebsites.net/",
       },
     },
 
-    // {
-    //   name: 'AllPay Elements',
-    //   testIgnore: /.*functionality.spec.js/,
-    //   retries: 3,
-    // },
+    {
+      name: "AllPayUAT",
+      testDir: "Playwright/tests/test_payroll_app_ui",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/uat_allPay_superuser_auth.json",
+        baseURL: "https://azwu2apweb-uat.azurewebsites.net/",
+      },
+    },
 
     {
       name: "SPEDev",

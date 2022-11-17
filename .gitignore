@@ -28,6 +28,6 @@ test-results/
 playwright-report/
 test-results/
 playwright-report/
-test-results/
+Playwright/test_results
 playwright-report/
-/Users/SeanGoiburn/git/Application%20QA%20Test%20Automation/Playwright/helpers/allPay_superUser.json
+Playwright/helpers/allPay_superUser.json
