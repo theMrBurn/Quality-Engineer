@@ -346,45 +346,35 @@ class PayplanDashboard {
   async clickEmployeesLink() {
     await this.getEmployeesLink();
     await this.employeesLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanEmployee"
-    );
+    await expect(this.page).toHaveURL("/PayPlan/PayPlanEmployee");
     await this.page.waitForLoadState("networkidle");
   }
 
   async clickFootersLink() {
     await this.getFootersLink();
     await this.footersLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanFooter"
-    );
+    await expect(this.page).toHaveURL("/PayPlan/PayPlanFooter");
     await this.page.waitForLoadState("networkidle");
   }
 
   async clickTemplatesLink() {
     await this.getTemplatesLink();
     await this.templatesLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanTemplate"
-    );
+    await expect(this.page).toHaveURL("/PayPlan/PayPlanTemplate");
     await this.page.waitForLoadState("networkidle");
   }
 
   async clickFormulasLink() {
     await this.getFormulasLink();
     await this.formulasLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/FormulaBlock"
-    );
+    await expect(this.page).toHaveURL("/PayPlan/FormulaBlock");
     await this.page.waitForLoadState("networkidle");
   }
 
   async clickGridsLink() {
     await this.getGridsLink();
     await this.gridsLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/Grids"
-    );
+    await expect(this.page).toHaveURL("/PayPlan/Grids");
     await this.page.waitForLoadState("networkidle");
   }
 }

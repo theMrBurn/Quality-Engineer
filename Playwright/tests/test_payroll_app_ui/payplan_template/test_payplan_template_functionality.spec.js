@@ -11,8 +11,8 @@ const { PayplanTemplate } = require("./payplan_template.js");
 //test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
-test.describe.serial("Payplan Template", () => {
-  test("Navigate to Payplan Template and validate Job input functionality @func", async ({
+test.describe.serial("Payplan Template @func", () => {
+  test("Navigate to Payplan Template and validate Job input functionality", async ({
     browser,
     page,
   }) => {
@@ -39,7 +39,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.clickDeleteInput();
   });
 
-  test("Navigate to Payplan Template and validate Department input functionality @func", async ({
+  test("Navigate to Payplan Template and validate Department input functionality", async ({
     browser,
     page,
   }) => {
@@ -64,7 +64,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.clickDeleteInput();
   });
 
-  test("Navigate to Payplan Template and validate State input functionality @func", async ({
+  test("Navigate to Payplan Template and validate State input functionality", async ({
     browser,
     page,
   }) => {
@@ -89,7 +89,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.clickDeleteInput();
   });
 
-  test("Navigate to Payplan Template and validate known Position Types input functionality @func", async ({
+  test("Navigate to Payplan Template and validate known Position Types input functionality", async ({
     browser,
     page,
   }) => {
@@ -236,7 +236,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.deletePositionTypeDropdown();
   });
 
-  test("Navigate to Payplan Template and validate known PayPlan Types input functionality @func", async ({
+  test("Navigate to Payplan Template and validate known PayPlan Types input functionality", async ({
     browser,
     page,
   }) => {
@@ -299,7 +299,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.deletePlanTypeDropdown();
   });
 
-  test("Navigate to Payplan Template and validate known Template Names input functionality @func", async ({
+  test("Navigate to Payplan Template and validate known Template Names input functionality", async ({
     browser,
     page,
   }) => {
@@ -426,7 +426,7 @@ test.describe.serial("Payplan Template", () => {
     await page.locator('span:has-text("Sales Rep - Hourly Plus")');
   });
 
-  test("Navigate to Payplan Template and validate known PayPlan Pay Rate Types input functionality @func", async ({
+  test("Navigate to Payplan Template and validate known PayPlan Pay Rate Types input functionality", async ({
     browser,
     page,
   }) => {
@@ -454,7 +454,7 @@ test.describe.serial("Payplan Template", () => {
     await payplanTemplate.deletePayRateType();
   });
 
-  test("Navigate to Payplan Template and click Add PayPlan, basic smoke check of functionality @func", async ({
+  test("Navigate to Payplan Template and click Add PayPlan, basic smoke check of functionality", async ({
     browser,
     page,
   }) => {
@@ -463,7 +463,7 @@ test.describe.serial("Payplan Template", () => {
 
     await payplanTemplate.clickAddTemplate();
     await expect(page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PlanDetails?id=0&payPlanUsage=Template"
+      "/PayPlan/PlanDetails?id=0&payPlanUsage=Template"
     );
 
     //click save
@@ -471,8 +471,6 @@ test.describe.serial("Payplan Template", () => {
 
     //click back
     await payplanTemplate.clickBackButton();
-    await expect(page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanTemplate"
-    );
+    await expect(page).toHaveURL("/PayPlan/PayPlanTemplate");
   });
 });

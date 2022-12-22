@@ -59,15 +59,16 @@ test.describe("Payroll /Regular - Audit View validation @e2e", () => {
     );
     expect(dataGridResultPayrollTask).not.toBeEmpty();
 
-    const payrollTaskRRP = await page.locator(
-      'td[role="gridcell"]:has-text("Register Review Payroll")'
-    );
-    expect(payrollTaskRRP).toHaveText("Register Review Payroll");
+    const payrollTaskRRP = await page.getByRole("link", {
+      name: "Register Review Payroll",
+    });
 
-    const payrollTaskRRC = await page.locator(
-      'td[role="gridcell"]:has-text("Register Review Company")'
-    );
-    expect(payrollTaskRRC).toHaveText("Register Review Company");
+    expect(payrollTaskRRP).toHaveText("RegisterReview Payroll");
+
+    const payrollTaskRRC = await page.getByRole("link", {
+      name: "Register Review Company",
+    });
+    expect(payrollTaskRRC).toHaveText("RegisterReview Company");
 
     const payrollTaskComplete = await page.locator(
       'td[role="gridcell"]:has-text("Complete") >> nth=0'

@@ -258,9 +258,7 @@ class PayplanEmployee {
   // click elements
   async clickEmployeesLink() {
     await this.employeesLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanEmployee"
-    );
+    await expect(this.page).toHaveURL("/PayPlan/PayPlanEmployee");
     await this.page.waitForLoadState("networkidle");
   }
 
@@ -275,7 +273,7 @@ class PayplanEmployee {
   async clickAddPlanButton() {
     await this.addPlanButton.click();
     await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PlanDetails?id=0&payPlanUsage=Employee"
+      "/PayPlan/PlanDetails?id=0&payPlanUsage=Employee"
     );
     await this.page.waitForLoadState("networkidle");
   }

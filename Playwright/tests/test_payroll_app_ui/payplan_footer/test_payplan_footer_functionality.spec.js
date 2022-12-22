@@ -55,8 +55,6 @@ test.describe.serial("Payplan Footer", () => {
     await payplansFooter.clickBackButton();
 
     // saved and back button clicked, should return to Footer Page
-    await expect(page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanFooter"
-    );
+    await expect(page).toHaveURL("/PayPlan/PayPlanFooter");
   });
 });

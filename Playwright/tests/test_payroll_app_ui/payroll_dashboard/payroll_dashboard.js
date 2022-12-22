@@ -214,57 +214,44 @@ class PayrollDashboard {
   // click elements
   async clickPayrollLink() {
     await this.payrollLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/Regular"
-    );
+    //await expect(page).toHaveURL('/Payroll/Regular');
+    await expect(this.page.url()).toContain("/Payroll/Regular");
     await this.page.waitForLoadState("networkidle");
   }
 
   async clickStoreInputLink() {
     await this.storeInputLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/StoreInput"
-    );
+    await expect(this.page.url()).toContain("Payroll/StoreInput");
     await this.page.waitForLoadState("networkidle");
   }
 
   async clickAdjustmentLink() {
     await this.adjustmentLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/Adjustment"
-    );
+    await expect(this.page.url()).toContain("/Payroll/Adjustment");
     await this.page.waitForLoadState("networkidle");
   }
 
   async clickAccrualLink() {
     await this.accrualLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/Accrual"
-    );
+    await expect(this.page.url()).toContain("Payroll/Accrual");
     await this.page.waitForLoadState("networkidle");
   }
 
   async clickAuditLink() {
     await this.auditLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/Audit"
-    );
+    await expect(this.page.url()).toContain("Payroll/Audit");
     await this.page.waitForLoadState("networkidle");
   }
 
   async clickOffCycleLink() {
     await this.offCycleLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/Payroll/OffCycleEarnings"
-    );
+    await expect(this.page.url()).toContain("/Payroll/OffCycleEarnings");
     await this.page.waitForLoadState("networkidle");
   }
 
   async clickSupervisorTasksLink() {
     await this.supervisorTasks.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/Upload"
-    );
+    await expect(this.page.url()).toContain("/Upload");
     await this.page.waitForLoadState("networkidle");
   }
 }

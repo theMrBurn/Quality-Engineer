@@ -28,7 +28,7 @@ class PayrollAdjustment {
     // buttons
     this.loadButton = page.locator('button[role="button"]:has-text("Load")');
     this.addAdjustmentButton = page.locator("text=Add Adjustment");
-    this.importButton = page.locator('[data-testid="Import"]');
+    this.importButton = page.locator('[data-testid="Load"]');
     this.selectFilesButton = page.locator('[data-testid="fileUpload"]');
 
     // dropdowns & inputs

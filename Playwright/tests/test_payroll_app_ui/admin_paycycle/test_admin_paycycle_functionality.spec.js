@@ -49,14 +49,14 @@ test.describe.serial("/Admin/PayCycle", () => {
 
     await adminPayCyclePage.clickCompanyNumberDropdown();
 
-    await page.locator("#PayGroupList_listbox >> text=L0179").click();
-    const companyResult = page.locator(
-      'td[role="gridcell"]:has-text("Grand Forks Toyota")'
-    );
-    expect(companyResult).toHaveText("Grand Forks Toyota");
+    await page.locator("#PayGroupList_listbox >> text=L0152").click();
+    const companyResult = await page.getByRole("gridcell", {
+      name: "Great Falls CJD",
+    });
+    expect(companyResult).toHaveText("Great Falls CJD");
 
-    const companyNumber = page.locator('td[role="gridcell"]:has-text("L0179")');
-    expect(companyNumber).toHaveText("L0179");
+    const companyNumber = page.locator('td[role="gridcell"]:has-text("L0152")');
+    expect(companyNumber).toHaveText("L0152");
 
     const calendarResult = page.locator("text=Semi-monthly");
     expect(calendarResult).toHaveText("Semi-monthly");
