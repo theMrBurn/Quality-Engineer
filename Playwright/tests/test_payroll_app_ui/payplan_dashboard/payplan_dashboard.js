@@ -92,13 +92,13 @@ class PayplanDashboard {
       'input[name="PlanStatusMonthPicker"]'
     );
 
-    this.expirationDateCalendar1 = page.locator(
-      '[aria-label="select"] >> nth=0'
-    );
+    this.expirationDateCalendar1 = page
+      .getByRole("button", { name: "select" })
+      .first();
 
-    this.expirationDateCalendar2 = page.locator(
-      '[aria-label="select"] >> nth=3'
-    );
+    this.expirationDateCalendar2 = page
+      .getByRole("button", { name: "select" })
+      .nth(3);
 
     this.payCalendarInput = page.locator('input[name="PayCalendarList_input"]');
 
@@ -108,7 +108,9 @@ class PayplanDashboard {
       'input[id="ComplianceRiskMonthPicker"]'
     );
 
-    this.effectiveDateInput = page.locator('input[id="MetricsMonthPicker"]');
+    this.effectiveDateInput = page
+      .getByRole("button", { name: "select" })
+      .nth(4);
 
     this.effectiveDateCalendar = page.locator('[aria-label="select"] >> nth=4');
   }

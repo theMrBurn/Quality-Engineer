@@ -35,9 +35,10 @@ class PayrollUpload {
       'input[name="PayPeriodEndDateList_input"]'
     );
 
-    this.accountingMonthCalendar = page.locator(
-      '[aria-label="select"] >> nth=2'
-    );
+    this.accountingMonthCalendar = page
+      .locator("#fileUpload")
+      .getByRole("button", { name: "select" })
+      .nth(2);
 
     this.accountingMonthDateDropdown = page.locator(
       'input[name="AccountingMonthDate"]'

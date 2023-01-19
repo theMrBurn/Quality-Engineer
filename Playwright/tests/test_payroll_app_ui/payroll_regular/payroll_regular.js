@@ -1,5 +1,5 @@
 // this POM is for /Payroll/Regular
-const { expect } = require("@playwright/test");
+import { test, expect } from "@playwright/test";
 
 class PayrollRegular {
   /**
@@ -46,14 +46,23 @@ class PayrollRegular {
     this.payRegisterReviewLocationDropdown = page.locator(
       'input[name="RegisterReviewLocationList_input"]'
     );
-    this.companyDropdownTriangle = page.locator(".k-select >> nth=0");
-    this.ppeDateDropdownTriangle = page.locator(".k-select >> nth=1");
+    this.companyDropdownTriangle = page.locator(".k-select").first();
+    this.ppeDateDropdownTriangle = page.locator(
+      "div:nth-child(2) > div > .k-widget > .k-dropdown-wrap > .k-select"
+    );
     this.expandAuditView = page.locator(
       '//*[@id="PayrollGrid"]/table/tbody/tr[1]/td[1]/a'
     );
     this.collapseAuditView = page.locator(
       '//*[@id="PayrollGrid"]/table/tbody/tr[1]/td[1]/a'
     );
+
+    this.uncompleteFromMenu = page.getByRole("img", { name: "Open Menu" });
+    this.completeButton = page
+      .getByRole("gridcell", { name: " Complete" })
+      .getByText("Complete");
+
+    this.payrollSuccess = page.getByText("Payroll run successful");
   }
 
   // Navigate to /Payroll/Regular endpoint
@@ -63,6 +72,20 @@ class PayrollRegular {
   }
 
   // get elements
+
+  async getCompleteButton() {
+    await expect(
+      this.completeButton,
+      "Complete Button not found"
+    ).toBeVisible();
+  }
+
+  async getCompanyDropdownTriangle() {
+    await expect(
+      this.companyDropdownTriangle,
+      "Company Dropdown not found"
+    ).toBeVisible();
+  }
 
   async getPayrollGrid() {
     await expect(this.payrollgGrid, "Payroll Grid not found").toBeVisible();
@@ -163,6 +186,20 @@ class PayrollRegular {
     ).toBeVisible();
   }
 
+  async getUncompletePayroll() {
+    await expect(
+      this.uncompleteFromMenu,
+      "Unable to Uncomplete Payroll"
+    ).toBeVisible();
+  }
+
+  async getPayrollSuccessMessage() {
+    await expect(
+      this.payrollSuccess,
+      "Payroll run successful message not found"
+    ).toBeVisible();
+  }
+
   // click elements
 
   async clickPayrollGroupListDropdown() {
@@ -173,6 +210,11 @@ class PayrollRegular {
   async clickPeriodEndDateListDropdown() {
     await this.getPeriodEndDateListDropdown();
     await this.payPeriodEndDateListDropdown.click();
+  }
+
+  async clickPPEDateDropdownTriangle() {
+    await this.getPPEdateDropdownTriangle();
+    await this.ppeDateDropdownTriangle.click();
   }
 
   async clickPayRegionListDropdown() {
@@ -218,6 +260,21 @@ class PayrollRegular {
   async clickCollapseAuditView() {
     await this.getCollapseAuditView();
     await this.collapseAuditView.click();
+  }
+
+  async clickUncompletePayroll() {
+    await this.page.getByRole("img", { name: "Open Menu" }).click();
+    // this.page.once("dialog", (dialog) => {
+    //   //console.log(`Dialog message: ${dialog.message()}`);
+    //   dialog.dismiss().catch(() => {});
+    // });
+    await this.page.locator("#menu_mn_active").click();
+    await page.reload();
+  }
+
+  async clickCompletePayroll() {
+    await this.getCompleteButton();
+    await this.completeButton.click();
   }
 
   // interact with elements

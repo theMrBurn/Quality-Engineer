@@ -23,6 +23,9 @@ class PayrollStoreInput {
     this.storeInputInstructions = page.locator(
       "text=Specify both Company and Payroll Period to display rows in the grid UnlockImport"
     );
+
+    //buttons
+    this.UnlockButton = page.getByRole("button", { name: " Unlock" });
   }
 
   // Navigate
@@ -63,6 +66,10 @@ class PayrollStoreInput {
       this.storeInputInstructions,
       "Store Input Instructions not found"
     ).toBeVisible();
+  }
+
+  async getUnlockButton() {
+    await expect(this.UnlockButton, "Unlock Button Not Found").toBeVisible();
   }
 
   // click elements

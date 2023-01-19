@@ -5,7 +5,7 @@
 
 // dependancies
 const { test, expect } = require("@playwright/test");
-const { PayPlanGrids } = require("./payplan_grids.js");
+const { PayPlanGrids } = require("../payplan_grids/payplan_grids.js");
 
 //test
 test.describe

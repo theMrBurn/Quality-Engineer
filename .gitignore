@@ -31,3 +31,6 @@ playwright-report/
 Playwright/test_results
 playwright-report/
 Playwright/helpers/allPay_superUser.json
+/test-results/
+/playwright-report/
+/playwright/.cache/

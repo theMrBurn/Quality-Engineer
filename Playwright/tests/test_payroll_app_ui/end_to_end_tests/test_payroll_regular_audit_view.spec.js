@@ -5,7 +5,7 @@
 
 // dependancies
 const { test, expect, devices } = require("@playwright/test");
-const { PayrollRegular } = require("./payroll_regular.js");
+const { PayrollRegular } = require("../payroll_regular/payroll_regular.js");
 
 // user
 //test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });

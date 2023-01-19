@@ -5,7 +5,7 @@
 
 // dependancies
 const { test, expect, devices } = require("@playwright/test");
-const { PayrollUpload } = require("./payroll_upload.js");
+const { PayrollUpload } = require("../payroll_upload/payroll_upload.js");
 
 // user
 //test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
@@ -149,9 +149,8 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     await payrollUpload.clickAccountingMonthCalendar();
     await page.locator("text=May").click();
     await payrollUpload.clickAccountingMonthCalendar();
-    await page.locator('a[role="button"]:has-text("2022")').click();
-    await page.locator('table[role="grid"] >> text=2022').click();
-    await page.locator("text=May").click();
+    await page.getByRole("button", { name: "Previous" }).click();
+    await page.getByRole("link", { name: "May" }).click();
   });
 
   test("Navigate to /Payroll/Upplad and attempt to Sup valid Timecard file @func", async ({
