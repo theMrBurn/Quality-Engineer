@@ -12,7 +12,7 @@ class AdminSecurity {
     // headers
 
     // text and lables
-    this.securityRoleText = page.locator('label:has-text("Security Role")');
+    this.securityRoleText = page.getByRole("link", { name: "Security Roles" });
     this.displayNameText = page.locator("text=Display Name");
     this.principalNameText = page.locator("text=User Principal Name");
     this.departmentText = page.locator("text=Department");

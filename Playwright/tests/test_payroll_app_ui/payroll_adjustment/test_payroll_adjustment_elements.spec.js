@@ -7,9 +7,6 @@
 const { test, expect, devices } = require("@playwright/test");
 const { PayrollAdjustment } = require("./payroll_adjustment.js");
 
-// user
-//test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
-
 //test
 test.describe.serial("Payroll /Adjustment elements", () => {
   test("Navigate to /Payroll/Adjustment and validate Page elements have loaded @smoke", async ({

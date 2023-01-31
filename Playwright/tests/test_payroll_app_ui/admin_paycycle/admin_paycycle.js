@@ -10,7 +10,7 @@ class AdminPayCycle {
 
     //// locators
     // headers
-    this.payCyclePageHeader = page.locator('h2:has-text("Pay Cycle")');
+    this.payCyclePageHeader = page.getByRole("heading", { name: "Pay Cycle" });
 
     // unique page text
     this.companyText = page.locator("text=Company >> nth=0");

@@ -14,7 +14,7 @@ class PayrollAdjustment {
     //// locators
 
     // headers
-    this.adjustmentHeader = page.locator('h2:has-text("Adjustment")');
+    this.adjustmentHeader = page.getByRole("heading", { name: "Adjustment" });
     this.uploadAdjustmentHeader = page.locator("text=Upload Adjustment Data");
     // unique page text
     this.instructionsText = page.locator(
@@ -27,20 +27,20 @@ class PayrollAdjustment {
 
     // buttons
     this.loadButton = page.locator('button[role="button"]:has-text("Load")');
-    this.addAdjustmentButton = page.locator("text=Add Adjustment");
+    this.addAdjustmentButton = page.getByRole("button", {
+      name: " Add Adjustment",
+    });
     this.importButton = page.locator('[data-testid="Load"]');
     this.selectFilesButton = page.locator('[data-testid="fileUpload"]');
 
     // dropdowns & inputs
-    this.payrollTypeListDropdown = page.locator(
-      'input[name="PayrollTypeList_input"]'
-    );
-    this.payGroupListDropdown = page.locator(
-      'input[name="PayGroupList_input"]'
-    );
-    this.ppeDateDropdown = page.locator(
-      'input[name="PayCalendarPeriodList_input"]'
-    );
+    this.payrollTypeListDropdown = page
+      .getByRole("button", { name: "select" })
+      .first();
+    this.payGroupListDropdown = page
+      .getByRole("button", { name: "select" })
+      .nth(1);
+    this.ppeDateDropdown = page.getByRole("button", { name: "select" }).nth(2);
     this.statusInputBox = page.locator('input[name="AdjustmentSheetStatus"]');
 
     this.payrollTypeListDropdownTriangle = page.locator(
@@ -169,17 +169,17 @@ class PayrollAdjustment {
   // click elements
   async clickPayrollTypeListDropdown() {
     await this.getPayrollTypeListDropdown();
-    await this.payrollTypeListDropdownTriangle.click();
+    await this.payrollTypeListDropdown.click();
   }
 
   async clickPaygroupListDropdown() {
     await this.getPayGroupDropdown();
-    await this.payGroupListDropdownTriangle.click();
+    await this.payGroupListDropdown.click();
   }
 
   async clickPPEdateDropdown() {
     await this.getPPEdateDropdown();
-    await this.ppeDateDropdownTriangle.click();
+    await this.ppeDateDropdown.click();
   }
 
   async clickLoadButton() {

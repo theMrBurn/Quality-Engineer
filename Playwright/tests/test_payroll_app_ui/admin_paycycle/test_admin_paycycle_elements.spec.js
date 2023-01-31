@@ -1,14 +1,8 @@
 // Admin Page
 
-// POMs have to live in the same directory as the test, for now
-// we will paramaterize the storageState with other .json for each userLogin, if necessary
-
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { AdminPayCycle } = require("./admin_paycycle.js");
-
-// user
-//test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
 test.describe.serial("/Admin/PayCycle", () => {

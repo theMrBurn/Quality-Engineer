@@ -10,7 +10,9 @@ class Admin {
 
     //// locators
     // headers
-    this.adminPageHeader = page.locator('h2:has-text("Legal Explanation")');
+    this.adminPageHeader = page.getByRole("heading", {
+      name: "Legal Explanation",
+    });
 
     // unique page text
     this.gridNameText = page.locator("text=Grid Name");

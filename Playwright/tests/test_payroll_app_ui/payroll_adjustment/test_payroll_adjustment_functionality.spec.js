@@ -1,14 +1,8 @@
 // Payroll Adjustment
 
-// POMs have to live in the same directory as the test, for now
-// we will paramaterize the storageState with other .json for each userLogin, if necessary
-
 // dependancies
 const { test, expect, devices } = require("@playwright/test");
 const { PayrollAdjustment } = require("./payroll_adjustment.js");
-
-// user
-//test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
 //test
 test.describe.serial("Payroll /Adjustment interactive tests", () => {
@@ -19,9 +13,12 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
     await payrollAdjustment.goto();
 
     // Payroll Type
-    await payrollAdjustment.inputPayTypeDropdown("Acc");
-    await payrollAdjustment.inputPayTypeDropdown("Aud");
-    await payrollAdjustment.inputPayTypeDropdown("Pay");
+    await payrollAdjustment.clickPayrollTypeListDropdown();
+    await page.getByRole("option", { name: "Accrual" }).click();
+    await payrollAdjustment.clickPayrollTypeListDropdown();
+    await page.getByRole("option", { name: "Audit" }).click();
+    await payrollAdjustment.clickPayrollTypeListDropdown();
+    await page.getByRole("option", { name: "Payroll" }).click();
   });
 
   test("Navigate to /Payroll/Adjustment Validate Company dropdown options can be input @func", async ({
@@ -31,15 +28,8 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
     await payrollAdjustment.goto();
 
     // company
-    await payrollAdjustment.inputCompanyDropdown("Medford");
-  });
-
-  test("Navigate to /Payroll/Adjustment Validate PPE dropdown options can be input @func", async ({
-    page,
-  }) => {
-    const payrollAdjustment = new PayrollAdjustment(page);
-    await payrollAdjustment.goto();
-    await payrollAdjustment.inputPPEdateDropdown("02/15/2022");
+    await payrollAdjustment.clickPaygroupListDropdown();
+    await page.getByRole("option", { name: "Medford CJD" }).click();
   });
 
   test("Navigate to /Payroll/Adjustment Load button is NOT present when input is incomplete @func", async ({
@@ -55,26 +45,30 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);
     await payrollAdjustment.goto();
-    await payrollAdjustment.inputPayTypeDropdown("Aud");
-    await payrollAdjustment.inputCompanyDropdown("Medford CJD");
-    await payrollAdjustment.inputPPEdateDropdown("3/31/2021");
-    // await payrollAdjustment.getLoadButton(); - load button Race Condition, manual testing validates this test case
+
+    await payrollAdjustment.clickPayrollTypeListDropdown();
+    await page.getByRole("option", { name: "Audit" }).click();
+
+    await payrollAdjustment.clickPaygroupListDropdown();
+    await page.getByRole("option", { name: "Medford CJD (L0004)" }).click();
+
+    await payrollAdjustment.clickPPEdateDropdown();
+    await page.getByRole("option", { name: "11/30/2022" }).click();
+
+    await payrollAdjustment.getLoadButton();
   });
 
   test("Navigate to /Payroll/Adjustment Load button generates Adjustment form when input is complete for Payroll Type Accrual, company and PPE date @func", async ({
     page,
   }) => {
-    test.fixme(
-      "this has weird behavior sometimes the Import button is there, sometimes it isnt"
-    );
     const payrollAdjustment = new PayrollAdjustment(page);
     await payrollAdjustment.goto();
-    await page.getByRole("button", { name: "select" }).first().click();
+    await payrollAdjustment.clickPayrollTypeListDropdown();
     await page.getByRole("option", { name: "Accrual" }).click();
-    await payrollAdjustment.inputCompanyDropdown("Medford CJD");
-    await page.getByRole("button", { name: "select" }).nth(2).click();
+    await payrollAdjustment.clickPaygroupListDropdown();
+    await page.getByRole("option", { name: "Medford Toyota" }).click();
+    await payrollAdjustment.clickPPEdateDropdown();
     await page.getByRole("option", { name: "11/15/2022" }).click();
-    await payrollAdjustment.clickImportButton();
     await payrollAdjustment.getAddAdjustmentButton();
   });
 
@@ -83,10 +77,23 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);
     await payrollAdjustment.goto();
-    await payrollAdjustment.inputPayTypeDropdown("Aud");
-    await payrollAdjustment.inputCompanyDropdown("Medford CJD");
-    await payrollAdjustment.inputPPEdateDropdown("1/15/2023");
-    await payrollAdjustment.getAddAdjustmentButton();
+
+    await payrollAdjustment.clickPayrollTypeListDropdown();
+    await page.getByRole("option", { name: "Audit" }).click();
+
+    await payrollAdjustment.clickPaygroupListDropdown();
+    await page.getByRole("option", { name: "Medford Toyota (L0006)" }).click();
+
+    await payrollAdjustment.clickPPEdateDropdown();
+    await page.getByRole("option", { name: "12/15/2022" }).click();
+
+    const loadButton = page.getByTestId("Load");
+    if (loadButton.isHidden()) {
+      await payrollAdjustment.getAddAdjustmentButton();
+    } else {
+      if (loadButton.isVisible());
+      await loadButton.click();
+    }
   });
 
   test("Navigate to /Payroll/Adjustment Load button generates Adjustment form when input is complete for Payroll Type Payroll, company and PPE date @func", async ({
@@ -94,9 +101,23 @@ test.describe.serial("Payroll /Adjustment interactive tests", () => {
   }) => {
     const payrollAdjustment = new PayrollAdjustment(page);
     await payrollAdjustment.goto();
-    await payrollAdjustment.inputPayTypeDropdown("Payr");
-    await payrollAdjustment.inputCompanyDropdown("Medford CJD");
-    await payrollAdjustment.inputPPEdateDropdown("1/15/2023");
-    await payrollAdjustment.getAddAdjustmentButton();
+
+    await payrollAdjustment.clickPayrollTypeListDropdown();
+    await page.getByRole("option", { name: "Payroll" }).click();
+
+    await payrollAdjustment.clickPaygroupListDropdown();
+    await page.getByRole("option", { name: "Medford CJD (L0004)" }).click();
+
+    await payrollAdjustment.clickPPEdateDropdown();
+    await page.getByRole("option", { name: "02/15/2022" }).click();
+
+    const loadButton = page.getByTestId("Load");
+
+    if (loadButton.isHidden()) {
+      await payrollAdjustment.getAddAdjustmentButton();
+    } else {
+      if (loadButton.isVisible());
+      await loadButton.click();
+    }
   });
 });
