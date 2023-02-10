@@ -30,7 +30,7 @@ test.describe.serial("/Admin/PayCycle", () => {
     const companyNumber = page.locator('td[role="gridcell"]:has-text("L0143")');
     expect(companyNumber).toHaveText("L0143");
 
-    const calendarResult = page.locator("text=Semi-monthly");
+    const calendarResult = page.getByRole('gridcell', { name: 'Semi-monthly' });
     expect(calendarResult).toHaveText("Semi-monthly");
 
     const paygroupResult = page.locator("text=West Pay Group");
