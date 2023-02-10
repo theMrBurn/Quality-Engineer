@@ -67,9 +67,7 @@ class PayplanTemplate {
       'input[name="PositionTypeList_input"]'
     );
     this.positionTypeTriangle = page.locator('[aria-label="select"] >> nth=0');
-    this.positionTypeDelete = page.locator(
-      ".k-dropdown-wrap .k-icon.k-clear-value"
-    );
+    this.positionTypeDelete = page.getByRole('button', { name: '' });
 
     //plan type
     this.planTypeDropdown = page.locator('input[name="PlanTypeList_input"]');
