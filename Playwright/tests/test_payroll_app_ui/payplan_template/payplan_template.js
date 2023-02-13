@@ -51,7 +51,7 @@ class PayplanTemplate {
     this.saveButton = page.locator("text=Save");
     this.deleteButton = page.locator("text=Delete");
     this.backButton = page.locator("text=Back");
-    this.deleteInput = page.getByRole('button', { name: 'delete'});
+    this.deleteInput = page.getByTitle('delete');
 
     // inputs
     this.jobInput = page.locator('input[aria-describedby="JobList_taglist"]');
