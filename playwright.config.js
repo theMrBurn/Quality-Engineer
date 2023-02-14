@@ -111,28 +111,38 @@ const config = {
     },
 
     {
-      name: "chromium",
+      name: "Impact_Builder_Web_Test",
+      testDir: "Playwright/tests/test_impact_builder_web",
+      retries: 3,
       use: {
-        ...devices["Desktop Chrome"],
-        ignoreHTTPSErrors: true,
+        storageState: "Playwright/helpers/test_allpay_superUser.json",
+        //baseURL: "https://app-allpaytest-wu2-web.azurewebsites.net/",
       },
     },
 
-    {
-      name: "firefox",
-      use: {
-        ...devices["Desktop Firefox"],
-        ignoreHTTPSErrors: true,
-      },
-    },
+    // {
+    //   name: "chromium",
+    //   use: {
+    //     ...devices["Desktop Chrome"],
+    //     ignoreHTTPSErrors: true,
+    //   },
+    // },
 
-    {
-      name: "webkit",
-      use: {
-        ...devices["Desktop Safari"],
-        ignoreHTTPSErrors: true,
-      },
-    },
+    // {
+    //   name: "firefox",
+    //   use: {
+    //     ...devices["Desktop Firefox"],
+    //     ignoreHTTPSErrors: true,
+    //   },
+    // },
+
+    // {
+    //   name: "webkit",
+    //   use: {
+    //     ...devices["Desktop Safari"],
+    //     ignoreHTTPSErrors: true,
+    //   },
+    // },
 
     /* Test against mobile viewports. */
     // {
