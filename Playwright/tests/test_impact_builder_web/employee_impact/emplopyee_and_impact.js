@@ -1,7 +1,7 @@
 // this POM is for /Admin
 const { expect } = require("@playwright/test");
 
-class ImpactBuilder {
+class EmployeeAndImpact {
   /**
    * @param {import('playwright').Page} page
    */
@@ -11,9 +11,9 @@ class ImpactBuilder {
     //// locators
 
     // headers
-    this.ImpactBuilderHeader = page.getByRole("heading", {
-      name: "Impact Builder",
-    });
+    this.employeeAndImpact = page.locator(
+      '//*[@id="root"]/div/div[3]/div/div[1]/div/div[1]/div/label'
+    );
 
     // unique page text
     this.employeeName = page.getByLabel("Employee");
@@ -29,6 +29,9 @@ class ImpactBuilder {
     // buttons, dropdowns and input boxes
     this.reasonTypeDropdown = page.locator('//*[@id="mui-1"]');
     this.monthlyAverageDropdown = page.locator('//*[@id="mui-2"]'); //need data-test-id in order to properly automate choosing the various options
+    this.impactBuilderButton = page.getByRole("button", {
+      name: " Impact Builder",
+    });
 
     // forms and grids
 
@@ -36,17 +39,17 @@ class ImpactBuilder {
     this.closingMonthCalendar = page.locator('//*[@id="mui-1"]');
   }
 
-  // Navigate to Impact Builder and pass PayPlan object *** this isn't working right now for some reason, must use direct page.goto() on test file
+  // Navigate to Impact Builder and pass PayPlan object
   async goto(text) {
     await this.page.goto(text), { waitUntil: "networkidle" };
   }
 
   // get page elements
 
-  async getImpactBuilderHeader() {
+  async getEmployeeAndImpactHeader() {
     await expect(
-      this.ImpactBuilderHeader,
-      "Impact Builder Page header not found"
+      this.employeeAndImpact,
+      "Employee And Impact component header not found"
     ).toBeVisible();
   }
 
@@ -96,17 +99,13 @@ class ImpactBuilder {
 
   // interact with elements
 
-  async clickCategoryDropdown() {
-    await this.getCategoryDropdown();
-    await this.categoryDropdownTriangle.click();
-    await this.page.waitForLoadState("networkidle");
+  async clickImpactBuilderButton() {
+    await this.impactBuilderButton.click();
+    await this.page.getByRole("button", { name: " Impact Builder" }).click();
   }
 
   // input elements and forms
 
-  async inputLegalExplanation(text) {
-    await this.getLegalExplanationInputBox();
-    await this.legalExplanationInput.fill(text);
-  }
+  // Navigate to Impact Builder from Employee payplan
 }
-module.exports = { ImpactBuilder };
+module.exports = { EmployeeAndImpact };

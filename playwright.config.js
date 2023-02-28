@@ -115,8 +115,8 @@ const config = {
       testDir: "Playwright/tests/test_impact_builder_web",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_allpay_superUser.json",
-        //baseURL: "https://app-allpaytest-wu2-web.azurewebsites.net/",
+        storageState: "Playwright/helpers/impact_builder_TEST.json",
+        baseURL: "https://app-allpaytest-wu2-web.azurewebsites.net/",
       },
     },
 
