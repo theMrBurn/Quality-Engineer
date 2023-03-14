@@ -27,6 +27,5 @@ test.describe
     await bonusImpact.getWeightColumnText();
     await bonusImpact.getFICommissionText();
     await bonusImpact.getFICommissionsPercentText();
-    await bonusImpact.getFICommissionText();
   });
 });

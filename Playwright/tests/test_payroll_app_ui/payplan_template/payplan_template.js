@@ -51,7 +51,7 @@ class PayplanTemplate {
     this.saveButton = page.locator("text=Save");
     this.deleteButton = page.locator("text=Delete");
     this.backButton = page.locator("text=Back");
-    this.deleteInput = page.getByTitle('delete');
+    this.deleteInput = page.getByTitle("delete");
 
     // inputs
     this.jobInput = page.locator('input[aria-describedby="JobList_taglist"]');
@@ -67,7 +67,7 @@ class PayplanTemplate {
       'input[name="PositionTypeList_input"]'
     );
     this.positionTypeTriangle = page.locator('[aria-label="select"] >> nth=0');
-    this.positionTypeDelete = page.getByRole('button', { name: '' });
+    this.positionTypeDelete = page.getByRole("button", { name: "" });
 
     //plan type
     this.planTypeDropdown = page.locator('input[name="PlanTypeList_input"]');

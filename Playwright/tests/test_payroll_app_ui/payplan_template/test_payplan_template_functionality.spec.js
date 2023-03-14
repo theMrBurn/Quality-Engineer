@@ -49,6 +49,14 @@ test.describe.serial("Payplan Template @func", () => {
     // get Job input box
     await payplanTemplate.getDepartmentInput();
 
+
+    // validate Department can be input
+    await payplanTemplate.inputDepartment("Fleet");
+
+    // confirm on Grid that item above was chosen
+    await page.locator('span:has-text("Fleet (FLEETS)")');
+    await payplanTemplate.clickDeleteInput();
+
     // validate Department can be input
     await payplanTemplate.inputDepartment("Parts");
 

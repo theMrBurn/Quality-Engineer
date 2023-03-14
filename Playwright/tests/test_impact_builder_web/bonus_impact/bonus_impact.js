@@ -22,12 +22,8 @@ class BonusImpact {
       .getByText("Performance Objective")
       .nth(2);
     this.weightColumnText = page.getByText("Weight").nth(1);
-    this.fandiCommissionText = page
-      .getByRole("row", { name: "Edit F&I Commissions $500 $500 $500 5%" })
-      .getByRole("cell", { name: "F&I Commissions" });
-    this.fandiCommissionsPercentText = page.getByRole("cell", {
-      name: "F&I Commissions (1%)",
-    });
+    this.fandiCommissionText = page.getByText('F&I Commissions', { exact: true });
+    this.fandiCommissionsPercentText = page.getByText('F&I Commissions (1%)');
     // buttons, dropdowns and input boxes
 
     // forms and grids

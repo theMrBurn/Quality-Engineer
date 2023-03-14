@@ -43,7 +43,7 @@ const config = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 10 * 80 * 100,
+    timeout: 10 * 60 * 100,
   },
 
   /* Fail the build on CI if you accidentally left test.only in the source code. */

@@ -34,3 +34,5 @@ Playwright/helpers/allPay_superUser.json
 /test-results/
 /playwright-report/
 /playwright/.cache/
+Playwright/test_results/test-xray-report.xml
+helpers

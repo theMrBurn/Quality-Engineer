@@ -27,7 +27,9 @@ class EmployeeAndImpact {
       .first();
 
     // buttons, dropdowns and input boxes
-    this.reasonTypeDropdown = page.locator('//*[@id="mui-1"]');
+    this.reasonTypeDropdown = page.getByRole("button", {
+      name: "Reason Type Pay Plan Change",
+    });
     this.monthlyAverageDropdown = page.locator('//*[@id="mui-2"]'); //need data-test-id in order to properly automate choosing the various options
     this.impactBuilderButton = page.getByRole("button", {
       name: " Impact Builder",
@@ -102,6 +104,11 @@ class EmployeeAndImpact {
   async clickImpactBuilderButton() {
     await this.impactBuilderButton.click();
     await this.page.getByRole("button", { name: " Impact Builder" }).click();
+  }
+
+  async clickReasonTypeDropdownInput() {
+    await this.getReasonTypeDropdown();
+    await this.reasonTypeDropdown.click();
   }
 
   // input elements and forms

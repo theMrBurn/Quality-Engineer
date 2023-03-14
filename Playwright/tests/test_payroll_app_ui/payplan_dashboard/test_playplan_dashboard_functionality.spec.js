@@ -166,6 +166,6 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     // input Effective Date
     await payplansDashboard.clickEffectiveDate();
     await page.getByRole("button", { name: "Previous" }).click();
-    await page.getByRole("link", { name: "Mar" }).click();
+    await page.getByRole("link", { name: "Feb" }).click();
   });
 });
