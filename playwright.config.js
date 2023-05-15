@@ -115,6 +115,26 @@ const config = {
     },
 
     {
+      name: "SaharaLPOTest",
+      testDir: "Playwright/tests/test_LPP_web/sahara_LPO",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
+      name: "SaharaNewLienTest",
+      testDir: "Playwright/tests/test_LPP_web/sahara_new_lien",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
       name: "SPEDev",
       testDir: "Playwright/tests/test_performance_dashboard",
       retries: 3,

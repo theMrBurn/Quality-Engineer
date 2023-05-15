@@ -19,8 +19,9 @@ test.describe.serial("Saraha Lein Payoff - Page Elements @smoke", () => {
     const saharaLPO = new SaharaLPO(page);
     await saharaLPO.goto();
 
-    //validate expected page elements have loaded
+    // validate expected page elements have loaded
     await saharaLPO.getPageHeader();
+    await saharaLPO.getLPOLogo();
     await saharaLPO.getSearchBar();
     await saharaLPO.getGroupDropdown();
     await saharaLPO.getApprovedColumn();
@@ -29,5 +30,11 @@ test.describe.serial("Saraha Lein Payoff - Page Elements @smoke", () => {
     await saharaLPO.getCustomerColumn();
     await saharaLPO.getSalesStockNumColumn();
     await saharaLPO.getTradeVINColumn();
+
+    // if data load is successful, the following interactive page elemends should be available
+    await saharaLPO.getLPOGridToolbar();
+
+    // validate logo url directs back to LP
+    await saharaLPO.getLPOLogoURL();
   });
 });
