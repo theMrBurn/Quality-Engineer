@@ -106,7 +106,7 @@ const config = {
 
     {
       name: "DenaliLPPTest",
-      testDir: "Playwright/tests/test_LPP_web",
+      testDir: "Playwright/tests/test_LPP_web/denali_portal",
       retries: 3,
       use: {
         storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",

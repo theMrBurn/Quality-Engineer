@@ -214,7 +214,6 @@ class PayrollDashboard {
   // click elements
   async clickPayrollLink() {
     await this.payrollLink.click();
-    //await expect(page).toHaveURL('/Payroll/Regular');
     await expect(this.page.url()).toContain("/Payroll/Regular");
     await this.page.waitForLoadState("networkidle");
   }

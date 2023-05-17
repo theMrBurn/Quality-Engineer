@@ -1,6 +1,7 @@
 version: 0.1
 runtimes:
   enabled:
+    - python@3.10.8
     - go@1.19.5
     - node@18.12.1
 plugins:
@@ -9,13 +10,14 @@ plugins:
       ref: v0.0.16
       uri: https://github.com/trunk-io/plugins
 cli:
-  version: 1.8.1
+  version: 1.9.1
 lint:
   disabled:
     - gitleaks
   enabled:
+    - yamllint@1.31.0
     - git-diff-check@SYSTEM
-    - markdownlint@0.33.0
+    - markdownlint@0.34.0
     - prettier@2.8.8
 actions:
   disabled:

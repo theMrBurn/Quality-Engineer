@@ -12,14 +12,47 @@ const { DenaliPortal } = require("./denaliPortal.js");
 
 //test
 test.describe.serial("Denali Portal - Functionality @func", () => {
-  test("Navigate to Denali Portal and validate basic functional elements are working as expected", async ({
+  test("Navigate to Denali Portal and validate when LPO Launch is clicked, valid destination URL reached as expected", async ({
     browser,
     page,
   }) => {
     const denaliPortal = new DenaliPortal(page);
     await denaliPortal.goto();
 
-    //validate expected text elements have loaded
-    await denaliPortal.getPageHeader();
+    //click LPO Launch button, validate landing URL contains "/lienpayoff"
+    await denaliPortal.clickLeinPayoffLaunch();
+  });
+
+  test("Navigate to Denali Portal and validate when Flooring Launch is clicked, valid destination URL reached as expected", async ({
+    browser,
+    page,
+  }) => {
+    const denaliPortal = new DenaliPortal(page);
+    await denaliPortal.goto();
+
+    //click LPO Launch button, validate landing URL contains "/lienpayoff"
+    await denaliPortal.clickFlooringLaunch();
+  });
+
+  test("Navigate to Denali Portal and validate when Lienholder Management Launch is clicked, valid destination URL reached as expected", async ({
+    browser,
+    page,
+  }) => {
+    const denaliPortal = new DenaliPortal(page);
+    await denaliPortal.goto();
+
+    //click LPO Launch button, validate landing URL contains "/lienpayoff"
+    await denaliPortal.clickLHMlaunch();
+  });
+
+  test("Navigate to Denali Portal and validate when Central Vehicle Processing Launch is clicked, valid destination URL reached as expected", async ({
+    browser,
+    page,
+  }) => {
+    const denaliPortal = new DenaliPortal(page);
+    await denaliPortal.goto();
+
+    //click LPO Launch button, validate landing URL contains "/lienpayoff"
+    await denaliPortal.clickCVPLaunch();
   });
 });
