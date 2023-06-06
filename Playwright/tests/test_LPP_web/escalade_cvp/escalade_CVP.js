@@ -38,6 +38,9 @@ class EscaladeCVP {
     this.cancelButton = page.getByRole("button", { name: "Cancel" });
     this.completeButton = page.getByRole("button", { name: "Complete" });
     this.closeEditPanelIcon = page.locator('[data-testid="CloseIcon"]');
+    this.hubNameDropdown = page.locator(
+      '//*[@id="root"]/div/div[1]/div[3]/span[2]/div/div/div[2]/span/div/div/div/form/div[2]/div/div/div'
+    );
 
     // Sales Data Upload
     this.salesDataUploadButton = page.getByRole("button", {
@@ -141,6 +144,13 @@ class EscaladeCVP {
     await expect(this.acceptButton, "Accept button not found").toBeVisible();
   }
 
+  async getHubNameDropdown() {
+    await expect(
+      this.hubNameDropdown,
+      "Hub Name dropdown not found"
+    ).toBeVisible();
+  }
+
   // interact with elements
 
   async clickResetFiltersButton() {
@@ -207,6 +217,12 @@ class EscaladeCVP {
     await this.page.waitForLoadState("networkidle");
   }
 
+  async clickHubNameDropdown() {
+    await this.getHubNameDropdown();
+    await this.hubNameDropdown.click();
+    await this.page.waitForLoadState("networkidle");
+  }
+
   // upload
 
   async uploadSalesData(salesDataFile) {
@@ -235,6 +251,29 @@ class EscaladeCVP {
         "TIMECARD.csv: File did not match fields for ACV or Manheim files."
       )
     ).toBeVisible();
+  }
+
+  async findFirstGridRow(gridElement) {
+    await this.page.waitForSelector(gridElement); // Wait for the grid element to be available in the DOM
+    const gridRowHandles = await this.page.$$(gridElement); // Get handles for all grid rows
+
+    // Check if any grid rows are found
+    if (gridRowHandles.length > 0) {
+      const firstGridRow = gridRowHandles[0];
+
+      // Ensure the element is attached to the DOM
+      await this.page.evaluate((element) => {
+        if (!element.isConnected) {
+          throw new Error("Element is not attached to the DOM");
+        }
+      }, firstGridRow);
+
+      // Click on the first grid row
+      await firstGridRow.click();
+      console.log("Clicked on the first grid row.");
+    } else {
+      console.log("No grid rows found.");
+    }
   }
 
   // search

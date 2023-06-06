@@ -194,21 +194,14 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     // click Inventory and interact with search
     await escaladeCVP.clickInvintoryTab();
 
-    const gridRows = await page.$$(
-      '//*[@id="root"]/div/div[1]/div[3]/span[2]/div/div/div[1]/div/div/div/div[3]/div/div[1]/table/tbody/tr[1]'
+    // Check if any grid rows are found and click the first one
+    await escaladeCVP.findFirstGridRow(
+      '//*[@id="root"]/div/div[1]/div[3]/span[2]/div/div/div/div/div'
     );
-
-    // Check if any grid rows are found
-    if (gridRows.length > 0) {
-      // Click on the first grid row
-      await gridRows[0].click();
-      console.log("Clicked on the first grid row.");
-    } else {
-      console.log("No grid rows found.");
-    }
 
     await escaladeCVP.clickEditButton();
 
+    await escaladeCVP.clickHubNameDropdown();
     await page.getByRole("option", { name: "Portland" }).click();
     await page.getByRole("button", { name: "Cancel" }).click();
   });
@@ -223,21 +216,14 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     // click Inventory and interact with search
     await escaladeCVP.clickInvintoryTab();
 
-    const gridRows = await page.$$(
-      '//*[@id="root"]/div/div[1]/div[3]/span[2]/div/div/div[1]/div/div/div/div[3]/div/div[1]/table/tbody/tr[1]'
+    // Check if any grid rows are found and click the first one
+    await escaladeCVP.findFirstGridRow(
+      '//*[@id="root"]/div/div[1]/div[3]/span[2]/div/div/div/div/div'
     );
-
-    // Check if any grid rows are found
-    if (gridRows.length > 0) {
-      // Click on the first grid row
-      await gridRows[0].click();
-      console.log("Clicked on the first grid row.");
-    } else {
-      console.log("No grid rows found.");
-    }
 
     await escaladeCVP.clickEditButton();
 
+    await escaladeCVP.clickHubNameDropdown();
     await page.getByRole("option", { name: "Portland" }).click();
     await page.getByRole("button", { name: "Save" }).click();
   });
