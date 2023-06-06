@@ -135,6 +135,16 @@ const config = {
     },
 
     {
+      name: "EscaladeCVP",
+      testDir: "Playwright/tests/test_LPP_web/escalade_cvp",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
       name: "SPEDev",
       testDir: "Playwright/tests/test_performance_dashboard",
       retries: 3,

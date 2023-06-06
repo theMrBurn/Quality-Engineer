@@ -20,15 +20,15 @@ test.describe("Payplan Employees - dropdowns and inputs functional check", () =>
     await payplanEmployee.goto();
 
     // employee
-    await payplanEmployee.inputEmployeeDropdown("Curtis Zakrzewski");
+    await payplanEmployee.inputEmployeeDropdown("Mark Valdez");
 
     // input employee and grid should show
-    const employeeGridResult = await page.innerText("text=Curtis Zakrzewski");
-    await page.locator("text=Curtis Zakrzewski (166341) >> nth=1").click();
-    expect(employeeGridResult).toBe("Curtis Zakrzewski");
+    const employeeGridResult = await page.innerText("text=Mark Valdez");
+    await page.getByRole("option", { name: "Mark Valdez (163056)" }).click();
+    expect(employeeGridResult).toBe("Mark Valdez");
 
-    const employeePayPlanID = await page.innerText("text=3844");
-    expect(employeePayPlanID).toBe("3844");
+    const employeePayPlanID = await page.innerText("text=3828");
+    expect(employeePayPlanID).toBe("3828");
   });
 
   test("Navigate to Payplan /Employee and interact with Employee and Company dropdown @func", async ({

@@ -129,7 +129,7 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     await payrollUpload.inputPPEdateDropdown("12/04/2021");
   });
 
-  test("Navigate to /Payroll and validate Accounting Month Date dropdown functionality @func", async ({
+  test("Navigate to /Payroll and validate Accounting Month Date Calendar functionality @func", async ({
     browser,
     page,
   }) => {
@@ -146,14 +146,15 @@ test.describe.serial("Payroll /Upload and Validate basic Functionality", () => {
     await payrollUpload.inputPPEdateDropdown("07/15/2021");
 
     // click and choose Accounting Month Date
-    await payrollUpload.clickAccountingMonthCalendar();
-    await page.locator("text=May").click();
-    await payrollUpload.clickAccountingMonthCalendar();
-    await page.getByRole("button", { name: "Previous" }).click();
-    await page.getByRole("link", { name: "May" }).click();
+    await page
+      .locator("#fileUpload")
+      .getByRole("button", { name: "select" })
+      .nth(2)
+      .click();
+    await page.getByRole("link", { name: "Apr" }).click();
   });
 
-  test("Navigate to /Payroll/Upplad and attempt to Sup valid Timecard file @func", async ({
+  test("Navigate to /Payroll/Upload and attempt to Sup valid Timecard file @func", async ({
     browser,
     page,
   }) => {

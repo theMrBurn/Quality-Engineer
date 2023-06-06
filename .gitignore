@@ -25,3 +25,6 @@ package-lock.json
 /playwright/.cache/
 /Playwright/test_results/test-xray-report.xml
 ./test_results/test-xray-report.xml
+/test-results/
+/playwright-report/
+/playwright/.cache/
