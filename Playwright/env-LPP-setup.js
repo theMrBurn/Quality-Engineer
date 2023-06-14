@@ -12,7 +12,7 @@ module.exports = async (config) => {
   //input username
   await page
     .locator('[placeholder="someone\\@example\\.com"]')
-    .fill("u_AP_SupUser_Test@lithia.com");
+    .fill("u_LPP_SupUser_Test@lithia.com");
 
   //input pass
   await Promise.all([
@@ -23,7 +23,7 @@ module.exports = async (config) => {
   // Click [placeholder="Password"]
   await page.locator('[placeholder="Password"]').click();
   // Fill [placeholder="Password"]
-  await page.locator('[placeholder="Password"]').fill("IhHF:k8AvX$4u-s");
+  await page.locator('[placeholder="Password"]').fill("*vtS5*QD&x!ZXEQi&K");
 
   // Click text=Sign in
   await Promise.all([

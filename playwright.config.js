@@ -145,6 +145,16 @@ const config = {
     },
 
     {
+      name: "CamaroDMM",
+      testDir: "Playwright/tests/test_LPP_web/camero_DMM",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
       name: "SPEDev",
       testDir: "Playwright/tests/test_performance_dashboard",
       retries: 3,
@@ -214,7 +224,7 @@ const config = {
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: "test-results/",
+  outputDir: "Playwright/test_results",
 
   /* Run your local dev server before starting the tests */
   // webServer: {

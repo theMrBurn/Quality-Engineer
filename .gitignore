@@ -24,7 +24,7 @@ package-lock.json
 /test_automation.code-workspace
 /playwright/.cache/
 /Playwright/test_results/test-xray-report.xml
-./test_results/test-xray-report.xml
-/test-results/
-/playwright-report/
+/test-xray-report.xml
+./Playwright/test_results/test-xray-report.xml
 /playwright/.cache/
+/Playwright/test_results/
