@@ -75,6 +75,26 @@ const config = {
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "TahoeLOFAPI_Local",
+      testDir: "Playwright/tests/test_LPP_api/tahoe_api",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        baseURL: "http://localhost:5000/api",
+      },
+    },
+
+    {
+      name: "TahoeLOFAPI_Test",
+      testDir: "Playwright/tests/test_LPP_api/tahoe_api",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        baseURL: "https://azwu2loftest-apim.azure-api.net/api/",
+      },
+    },
+
+    {
       name: "AllPayTest",
       testDir: "Playwright/tests/test_payroll_app_ui",
       retries: 3,

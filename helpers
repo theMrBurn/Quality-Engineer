@@ -21,18 +21,8 @@
       "sameSite": "None"
     },
     {
-      "name": "brcap",
-      "value": "0",
-      "domain": ".login.microsoftonline.com",
-      "path": "/",
-      "expires": 1720391018,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "None"
-    },
-    {
       "name": "uaid",
-      "value": "f41ece368c59487d898960997a0d78f3",
+      "value": "6f4aea3d70264f558740042408d2b2ba",
       "domain": ".login.live.com",
       "path": "/",
       "expires": -1,
@@ -42,7 +32,7 @@
     },
     {
       "name": "MSPRequ",
-      "value": "id=N&lt=1686695018&co=1",
+      "value": "id=N&lt=1689009691&co=1",
       "domain": ".login.live.com",
       "path": "/",
       "expires": -1,
@@ -51,11 +41,31 @@
       "sameSite": "None"
     },
     {
+      "name": "MicrosoftApplicationsTelemetryDeviceId",
+      "value": "a563bd0a-f752-4eab-8312-6729a6edeb4f",
+      "domain": "login.microsoftonline.com",
+      "path": "/",
+      "expires": 1720545694.84283,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "brcap",
+      "value": "0",
+      "domain": ".login.microsoftonline.com",
+      "path": "/",
+      "expires": 1722705691,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
       "name": "fpc",
-      "value": "AgbJeOyo-khIjLY1YC8NRhI",
+      "value": "AiBahlrxEthJs_t4b1tA-us",
       "domain": "autologon.microsoftazuread-sso.com",
       "path": "/",
-      "expires": 1689287020.468166,
+      "expires": 1691601693.745316,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
@@ -82,17 +92,17 @@
     },
     {
       "name": "wlidperf",
-      "value": "FR=L&ST=1686695021211",
+      "value": "FR=L&ST=1689009694489",
       "domain": ".microsoftonline.com",
       "path": "/",
-      "expires": 1720391021,
+      "expires": 1722705694,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "ESTSAUTHLIGHT",
-      "value": "+03f87f90-fa80-4883-84e3-fe4f53674a4f",
+      "value": "+bd9636fb-c3cd-416a-8746-25ca95b80a18",
       "domain": "login.microsoftonline.com",
       "path": "/",
       "expires": -1,
@@ -102,7 +112,7 @@
     },
     {
       "name": "esctx",
-      "value": "PAQABAAEAAAD--DLA3VO7QrddgJg7Wevrytp2Wne_93FRMyhyrXktb05Pb7hfuwjY96puu0orzTKlqVb2PXNB312Fatabjv8NlS7GSzV1uZcmYxlQIRj1jzaVctH8E5LmOhYZpvFsfabtrlbfLrNfyDWEkUJXNMG4r_h8w8rK38BcSYq23sE6Dg5jBehxX0h1mZuF0-8OBuX-mXXRwzalQdQORPVkSv5Ptx477H6sBAlsrN1Sbd6GQ7MA08Jj2QUR-B0piH2rZjAgAA",
+      "value": "PAQABAAEAAAD--DLA3VO7QrddgJg7WevrfR0bvtUkbhrmilUA6rVWLviKJvQSEvqBVN2sTINw8Gr1QUTZCzlwzXhqE2bxJYr8sPXkuC4-daNUOp6akr-w0U_qFNwTraaCp5aP9Il1F21qCIcE0N8eJqDkstc20KC9Nfhi5l69nYT6GOAdn_6QD-aJtQPso8SiA4qhN88sOAc3PMFVlpoRwysePItQB2OUgJBkuu24a8kjnzJZylpPs1qledoPpBZpQ1K_GQ01N9wgAA",
       "domain": ".login.microsoftonline.com",
       "path": "/",
       "expires": -1,
@@ -112,17 +122,17 @@
     },
     {
       "name": "ESTSAUTHPERSISTENT",
-      "value": "0.AQgA7hWi8RBpE0Kuxqw2_cpgSGV7ZTdqb5JMqrpByN_Icm4IAAA.AgABAAQAAAD--DLA3VO7QrddgJg7WevrAgDs_wUA9P-3bGcnB9edIHRshNwzYLfFV0r-jOVB4kphhrK7azx2y3Rcvt9_J-1u9TjHadrW6k4-6OFISeHJqa8zcFkZwxlxIr66qdzBTENaJDhqkiPazaq8Lhrm_CjxVtzm5_jaBMlkz-zya00PvPdMF3BLwlRCDaMm72afsCEykKIM7HUXmr8LRuEmGGY3E6QHgot-xxfBiQoTcfrXObIrJQCPzxS3gord4NB3kHI2XGPd_24P9ZNTMInI_Hm0Pq850pstDJR7ZUR-5mD7psW2uOQN5AvMEjGUGDnv9QLDYKcfTSmUtyo6GBMzwzFotzk57fRAcH-tCtV5l2-6OjDPWKnoHl8TPU7VSFb9xBQXDgDm2_LQ09qeehBHf5bD_FEMp3VFYD5rHWieADqvMGb9HNo83zGZ2pxOwGgEdbwl35Rf_uOlL33UqvZq9ZjxZkCHP9GC1OMaNVgXCT_6aerlzLp_fPaexIRWNqPkTYR8cY58ezsRZD86TQ_f9wzt8YiD3lqAfAHUYlMKc6hdRobUfO7o6V5tyCSU6j9trG1A7_xS792gcPAnro3igIRIj4xME_pt-5gnzsZO3nNNj2i7EUZ-tQwGmnwkM6YNAXzgdNc8cXZ8Aw",
+      "value": "0.AQgA7hWi8RBpE0Kuxqw2_cpgSGV7ZTdqb5JMqrpByN_Icm7XAAA.AgABAAQAAAD--DLA3VO7QrddgJg7WevrAgDs_wUA9P9XoH8ptdbrT3-kt8u84tlGdeqtP96fkiXc-2fs_mWTTKr1BidSx8tmwUNPo2g5ntmwsq6c7y32w3uwh5ECdaSVQ1sZMv2RHPyPqoNM607eM2xKz_D8NrNAQ_PBTJY6-pHhx0ubEXiOpb3Te5qfdeWISwiWl70xKnOQpYiOG-ooTvEFIO1Pzx9ibI6tak_BXS2JLbOhwAD1ihfbh8cpBNOMocdjdtWYx07YHdW02Hxbtsip5cXv23jupdHCR56J2tco4_Uf_T7N7sXU3Y2NwJTHiafyVe_Nyx5h280h9dOkHmkooByCUFgtHrKKoSU-rIfZUwNa4FfVojJ0lidgyhtvkfFHcpxP74vn9MNETF5XNKuxu_3DpgZSDxjfP4bW37ecG0uv-fgbXYNHoDkkOAdo46pSA71BbunUE45lbMe_1QcgQHaxHSODLkK51wbuoorMWSDTmNMG0S6rIXOGfEwWGttYhhrnbMnhdDSSbbBsQmPqAUJnFy0STVJL7jIlG96Sp5r9u77Tt8lzIPyk1P1GsmkelfhhtT3V22NgMUHpsw5qduZwd9Lh0zivQSM5T5BwkFHwYqlD74Kek7a2adopjGX0j1IrGHGTPIKrt83j",
       "domain": ".login.microsoftonline.com",
       "path": "/",
-      "expires": 1694471023.111565,
+      "expires": 1696785696.282011,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "ESTSAUTH",
-      "value": "0.AQgA7hWi8RBpE0Kuxqw2_cpgSGV7ZTdqb5JMqrpByN_Icm4IAAA.AgABAAQAAAD--DLA3VO7QrddgJg7WevrAgDs_wUA9P8kZRfulV1Zv4jtOwFOMtjXACBNA_a322xUvy72ccN34ItKLxX_CPYprIO4Ww8HFM76rSaeFZEajA",
+      "value": "0.AQgA7hWi8RBpE0Kuxqw2_cpgSGV7ZTdqb5JMqrpByN_Icm7XAAA.AgABAAQAAAD--DLA3VO7QrddgJg7WevrAgDs_wUA9P_rOdoiCnF3JRfbWfyK9c3Akitjh3myqeWdMEnWsKi2YbyJwUiuY7NEMNEkWkOcXp721IYp52SgVw",
       "domain": ".login.microsoftonline.com",
       "path": "/",
       "expires": -1,
@@ -132,27 +142,27 @@
     },
     {
       "name": "buid",
-      "value": "0.AQgA7hWi8RBpE0Kuxqw2_cpgSGV7ZTdqb5JMqrpByN_Icm4IAAA.AQABAAEAAAD--DLA3VO7QrddgJg7Wevrq7VELZmVVVUOmYweaSlhcD-PoKNyP8MYy54zbSpVLhW3oLGREXZjoJxLCu05fLGDsn2z0mnAK5MdmGFjUnmbTlUaTQ8ZbCpDNLK41rwrw0xrEvkTSEkCf0Ud6nynq9gLfcOYHEX6lsrbdp_O5VjAyV-GChN7cCsdvh13FM_zJ28gAA",
+      "value": "0.AQgA7hWi8RBpE0Kuxqw2_cpgSGV7ZTdqb5JMqrpByN_Icm7XAAA.AQABAAEAAAD--DLA3VO7QrddgJg7Wevri_aRJCX57abT_KjfM57muoJGO6EksWBZjfbGoASobfMLPzhy2J5DuCpSec8X4EaF3xOgFaKguRoU3cJaWWFiIXoWigxDIVzwpqV9iE4irXlk_nzimhutsFKEYdsj_UHdcgjIkSq244ha9Ht0vu71a1avXyqZJXIvcDjFNjj1X7UgAA",
       "domain": "login.microsoftonline.com",
       "path": "/",
-      "expires": 1689287023.111679,
+      "expires": 1691601696.282101,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "CCState",
-      "value": "RWhJS0VNeENBSnBZelh0TmxCWWJsN2tWeURzPQ==",
+      "value": "RWhJS0VJOUJ4Y3F0bGpWRXJSa1FyWktpaVlRPQ==",
       "domain": ".login.microsoftonline.com",
       "path": "/",
-      "expires": 1687559023.111711,
+      "expires": 1689873696.282125,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "SignInStateCookie",
-      "value": "CAgABAAIAAAD--DLA3VO7QrddgJg7WevrAgDs_wUA9P9WH_LEiGR37CIQlpz7Je6P-6e3_zzl-QXAH3L7Entdbne5zAd7p88HnBkM7RYW_ZGnM2wu6riihQol0qtBPmKh-kbOaL2cR4YRqgtWVjki77tGz4ve2Z-IgjBiRop7D8XqjQm_qyuvin9XKJJEjxhKDQSKZgAT0yu5wnFKKlHVIxBylaYc8cN6W4gQk0RSMytMQjfu6ISRAeL042y5WbKyXGP7nslR_7eVZkRGCY466TyKCyvOMY18qIDlpEGuqx-4",
+      "value": "CAgABAAIAAAD--DLA3VO7QrddgJg7WevrAgDs_wUA9P9uzg-NxsehcI0fdJ735O_0BHtlK4i48oOnzGArIF8KfgxnIbQrXloJ6SrTDjQKzILYSb_flPPhgI-diyv7Of18w26ql1b5Hy0MgxMFJf9d98XezWYTnZa1SJfWP3Ukc9peE1X8QzYal_kKQnqGNyHx2AcBce79mRf_SRNGxsHWTkXhw7q1j3h62uLS6d6Tq9lpSLsBiLFQ9NEbMMb7n6Uc3_lP9gf2wY-GlC3lK6KDwu-tN1-AzUcx3pS23NzZ6wF6",
       "domain": ".login.microsoftonline.com",
       "path": "/",
       "expires": -1,
@@ -162,31 +172,21 @@
     },
     {
       "name": "fpc",
-      "value": "AtTt_tEaxqdNqzclp8_3uev-gWcLAQAAAGjjGtwOAAAA3NuyUAEAAABs4xrcDgAAAHyD50YBAAAAbeMa3A4AAAA",
+      "value": "Ag2wGrwlwP1Fv8LwYFiF8IT-gWcLAQAAABo1PtwOAAAA3NuyUAEAAAAeNT7cDgAAAHyD50YBAAAAHjU-3A4AAAA",
       "domain": "login.microsoftonline.com",
       "path": "/",
-      "expires": 1689287023.111759,
+      "expires": 1691601696.282172,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
-      "name": "ARRAffinity",
-      "value": "db1c4fc504e7f8b96f7a4eb3e31768b893b3a60431cd496cd8b52be5ea0f6563",
-      "domain": ".azwu2apweb-test.azurewebsites.net",
+      "name": "ai_session",
+      "value": "Yq0HqxWcQF9q4Zc6KF/ISU|1689009692318|1689009695286",
+      "domain": "login.microsoftonline.com",
       "path": "/",
-      "expires": -1,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "ARRAffinitySameSite",
-      "value": "db1c4fc504e7f8b96f7a4eb3e31768b893b3a60431cd496cd8b52be5ea0f6563",
-      "domain": ".azwu2apweb-test.azurewebsites.net",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": true,
+      "expires": 1689011495,
+      "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     }
