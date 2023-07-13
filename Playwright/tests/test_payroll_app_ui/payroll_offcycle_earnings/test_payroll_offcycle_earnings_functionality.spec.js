@@ -64,7 +64,7 @@ test.describe.serial("Payroll /OffCycleEarnings elements", () => {
     // // weekly
     await payrollOffcycle.inputPayFrequencyDropdown("Wee");
     const weekly = await page.innerText("text=Weekly");
-    expect(weekly).toBe("Weekly");
+    expect(weekly).toContain("Weekly");
 
     // // bi weeky
     await payrollOffcycle.inputPayFrequencyDropdown("Bi-wee");

@@ -35,7 +35,8 @@ test.describe.serial("Admin Employee Details Functionality", () => {
     // Click dropdown and choose Compensation
     await adminSecurityRoles.clickSecurityRoleDropdown();
     await page.locator("text=Compensation Senior").first().click();
-
+    await page.getByRole('listbox').locator('span').nth(3).click();
+    await page.getByRole('option', { name: '200' }).click();
     // if compensation chosen from dropdown, grid result should contain Compensation
     const gridResult = await page.locator("#SecurityRolesGrid");
     await expect(gridResult).toContainText("Senior Compensation Manager");
