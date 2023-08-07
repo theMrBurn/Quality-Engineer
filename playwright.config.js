@@ -155,6 +155,27 @@ const config = {
     },
 
     {
+      name: "SaharaFlooringPayoffs",
+      testDir: "Playwright/tests/test_LPP_web/sahara_flooring_payoffs",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
+      name: "SaharaFlooringRequests",
+      testDir: "Playwright/tests/test_LPP_web/sahara_flooring_requests",
+      timeout: 10 * 1000 * 10000,
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
       name: "EscaladeCVP",
       testDir: "Playwright/tests/test_LPP_web/escalade_cvp",
       retries: 3,

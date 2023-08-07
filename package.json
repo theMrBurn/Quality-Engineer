@@ -1,6 +1,7 @@
 {
   "devDependencies": {
-    "@playwright/test": "^1.34.0"
+    "@playwright/test": "^1.34.0",
+    "lolex": "^6.0.0"
   },
   "scripts": {},
   "dependencies": {
