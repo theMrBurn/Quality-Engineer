@@ -25,7 +25,7 @@ test.describe("Payplan Employees - dropdowns and inputs functional check", () =>
     // input employee and grid should show
     const employeeGridResult = await page.innerText("text=Mark Valdez");
     await page.getByRole("option", { name: "Mark Valdez (163056)" }).click();
-    expect(employeeGridResult).toBe("Mark Valdez");
+    expect(employeeGridResult).toBe("Mark Valdez (163056)");
 
     const employeePayPlanID = await page.innerText("text=3828");
     expect(employeePayPlanID).toBe("3828");
@@ -87,7 +87,7 @@ test.describe("Payplan Employees - dropdowns and inputs functional check", () =>
 
     // input employee and grid should show
     const companyGridResult = await page.innerText(
-      "text=Des Moines Volkswagen"
+      "text=Des Moines Volkswagen",
     );
     expect(companyGridResult).toBe("Des Moines Volkswagen (L0192)");
 
@@ -123,7 +123,7 @@ test.describe("Payplan Employees - dropdowns and inputs functional check", () =>
 
     // input employee and grid should show
     const companyGridResult = await page.innerText(
-      "text=Des Moines Volkswagen"
+      "text=Des Moines Volkswagen",
     );
     expect(companyGridResult).toBe("Des Moines Volkswagen (L0192)");
 

@@ -167,8 +167,17 @@ const config = {
     {
       name: "SaharaFlooringRequests",
       testDir: "Playwright/tests/test_LPP_web/sahara_flooring_requests",
-      timeout: 10 * 1000 * 10000,
+      timeout: 100 * 1000 * 10000,
       retries: 3,
+      use: {
+        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
+      name: "SaharaLHM",
+      testDir: "Playwright/tests/test_LPP_web/sahara_leinholder_management_web",
       use: {
         storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",

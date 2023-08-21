@@ -14,11 +14,59 @@ test.describe
     const saharaLHM = new SaharaLHMweb(page);
     await saharaLHM.goto();
 
-    // validate expected page elements have loaded
-    await saharaFlooringRequests.getPageHeader();
+    const locatorNames = [
+      "searchBar",
+      "codeColumn",
+      "eligibleColumn",
+      "nameColumn",
+      "addressColumn1",
+      "addressColumn2",
+      "citycolumn",
+      "stateColumn",
+      "zipColumn",
+      "countryColumn",
+      "bankAccountColumn",
+      "routingNumberColumn",
+      "paymentTypeColumn",
+      "checkMailColumn",
+      "entryDescriptionColumn",
+      "exportGridDataButton",
+      "newButton",
+    ];
 
+    for (const locatorName of locatorNames) {
+      await saharaLHM.checkElementVisibility(locatorName);
+    }
+  });
 
-    // validate grid elements
-    await saharaFlooringRequests.getGrid();
+  test("Navigate to Saraha Lienholder Management Web, click a row and validate Modal elements have loaded as expected", async ({
+    browser,
+    page,
+  }) => {
+    const saharaLHM = new SaharaLHMweb(page);
+    await saharaLHM.goto();
+
+    await page.getByRole("button", { name: "NEW" }).click();
+    const locatorNames = [
+      "newLHHeader",
+      "inputCode",
+      "inputName",
+      "inputAdd1",
+      "inputAdd2",
+      "inputCity",
+      "inputState",
+      "inputZip",
+      "inputCountry",
+      "inputBankAccount",
+      "inputRoutingNumber",
+      "atEligible",
+      "cancelButton",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await saharaLHM.checkElementVisibility(locatorName);
+    }
+    // click Cancel to close modal
+    await saharaLHM.locators.cancelButton().click();
   });
 });

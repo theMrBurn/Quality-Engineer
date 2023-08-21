@@ -7,18 +7,18 @@ runtimes:
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.17
+      ref: v1.0.0
       uri: https://github.com/trunk-io/plugins
 cli:
-  version: 1.10.0
+  version: 1.13.0
 lint:
   disabled:
     - gitleaks
   enabled:
     - yamllint@1.32.0
     - git-diff-check@SYSTEM
-    - markdownlint@0.34.0
-    - prettier@2.8.8
+    - markdownlint@0.35.0
+    - prettier@3.0.2
 actions:
   disabled:
     - trunk-announce
