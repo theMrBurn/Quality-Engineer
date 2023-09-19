@@ -75,6 +75,16 @@ const config = {
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "AtlasWeb",
+      testDir: "Playwright/tests/test_LPP_web/atlas_web",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        baseURL: "http://localhost:3000/",
+      },
+    },
+
+    {
       name: "TahoeLOFAPI_Local",
       testDir: "Playwright/tests/test_LPP_api/tahoe_api",
       retries: 3,
