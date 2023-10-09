@@ -20,12 +20,18 @@ test.describe.serial("Denali Portal - Page Elements @smoke", () => {
     await denaliPortal.goto();
 
     //validate expected text elements have loaded
-    await denaliPortal.getPageHeader();
-    await denaliPortal.getElementHeaderLPO();
-    await denaliPortal.getElementHeaderFlooring();
-    await denaliPortal.getDealershipsHeader();
-    await denaliPortal.getLienHolderManagerHeader();
-    await denaliPortal.getCVPheader();
+    const locatorNames = [
+      "pageHeaderDenali",
+      "elementHeaderLPO",
+      "elementHeaderFlooring",
+      "elementHeaderDealerships",
+      "elementHeaderLHM",
+      "elementHeaderCVP",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await denaliPortal.checkElementVisibility(locatorName);
+    }
   });
 
   test("Navigate to Denali Portal, click left Popout and validate Page elements have loaded as expected", async ({
@@ -38,17 +44,24 @@ test.describe.serial("Denali Portal - Page Elements @smoke", () => {
     //click Left Menu hamburger and validate when expanded, all expected menu element items are present
 
     await denaliPortal.clickLeftMenuOpen();
-    await denaliPortal.getDenaliPortalHomeLink();
-    await denaliPortal.getFlooringPayoffCenterTriangle();
-    await denaliPortal.getLienPayoffLink();
-    await denaliPortal.getFlooringPayofCenterfLink();
-    await denaliPortal.getPayoffRequestlink();
-    await denaliPortal.getCashForcastingLink();
-    await denaliPortal.getVehicleProcessingTriangle();
-    await denaliPortal.getDocumentTrackingSubLink();
-    await denaliPortal.getDealershipManagementSubLink();
-    await denaliPortal.getLienholderManagmentSubLink();
 
+    //validate expected text elements have loaded
+    const locatorNames = [
+      "denaliPortalHomeLink",
+      "flooringPayoffCenterLink",
+      "lienPayoffLink",
+      "flooringPayoffCenterLink",
+      "payoffRequestSubLink",
+      "cashForcastingSubLink",
+      "vehicleProcessingTriangle",
+      "documentTrackingSubLink",
+      "dealershipManagementSubLink",
+      "lienholderManagementSubLink",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await denaliPortal.checkElementVisibility(locatorName);
+    }
     //click Left Menu again to retract menu
     await denaliPortal.clickLeftMenuClose();
   });

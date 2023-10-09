@@ -9,42 +9,51 @@ class CameroDMM {
     this.page = page;
 
     //// locators
-    // headers
-    this.pageHeader = page.getByRole("heading", {
-      name: "Dealership Management Web",
-    });
 
-    // grid columns
+    this.locators = {
+      pageheader: () =>
+        this.page.getByRole("heading", {
+          name: "Dealership Management Web",
+        }),
+      searchInput: () => this.page.getByPlaceholder("SEARCH"),
+      // search and Filtering
 
-    // search and Filtering
-    this.searchInput = page.getByPlaceholder("SEARCH");
-    this.filterReset = page.getByRole("button", { name: "Reset Filters" });
-    this.storeNameInnerFilter = page.getByText("Filter", { exact: true });
+      filterReset: () =>
+        this.page.getByRole("button", { name: "Reset Filters" }),
+      storeNameInnerFilter: () =>
+        this.page.getByText("Filter", { exact: true }),
 
-    // buttons and dropdowns
-    this.newDealershipButton = page.getByRole("button", { name: "NEW" });
+      // buttons and dropdowns
+      newDealershipButton: () => this.page.getByRole("button", { name: "NEW" }),
 
-    // columns and rows
-    this.selectFirstColumn = page.locator("td").first();
+      // columns and rows
+      selectFirstColumn: () => this.page.locator("td").first(),
 
-    this.actionColumn = page.getByRole("columnheader", {
-      name: "ACTION ",
-    });
+      actionColumn: () =>
+        this.page.getByRole("columnheader", {
+          name: "ACTION ",
+        }),
 
-    this.storeNumberColumn = page.getByRole("columnheader", {
-      name: "STORE NUMBER ",
-    });
-    this.storeNameColumn = page.getByRole("columnheader", {
-      name: "STORE NAME ",
-    });
+      storeNumberColumn: () =>
+        this.page.getByRole("columnheader", {
+          name: "STORE NUMBER ",
+        }),
+      storeNameColumn: () =>
+        this.page.getByRole("columnheader", {
+          name: "STORE NAME ",
+        }),
 
-    this.dealerIDColumn = page.getByRole("columnheader", {
-      name: "DEALER ID ",
-    });
-    this.bankAccountColumn = page.getByRole("columnheader", {
-      name: "BANK ACCOUNT ",
-    });
-    this.groupColumn = page.getByRole("columnheader", { name: "GROUP " });
+      dealerIDColumn: () =>
+        this.page.getByRole("columnheader", {
+          name: "DEALER ID ",
+        }),
+      bankAccountColumn: () =>
+        this.page.getByRole("columnheader", {
+          name: "BANK ACCOUNT ",
+        }),
+      groupColumn: () =>
+        this.page.getByRole("columnheader", { name: "GROUP " }),
+    };
   }
 
   // Navigate to dealerships endpoint
@@ -55,66 +64,30 @@ class CameroDMM {
 
   // get page elements
 
-  async getSearchInput() {
-    await expect(this.searchInput, "Search not found").toBeVisible();
+  async checkElementVisibility(locatorName) {
+    const locatorFunction = this.locators[locatorName];
+    const element = await locatorFunction().first();
+    try {
+      await expect(element).toBeVisible();
+      await this.page.waitForLoadState("networkidle");
+    } catch (error) {
+      throw new Error(`Locator '${locatorName}' failed: ${error.message}`);
+    }
   }
 
-  async getNewDealershipButton() {
-    await expect(
-      this.newDealershipButton,
-      "New Dealership Button not found"
-    ).toBeVisible();
-  }
+  /// interact with elements
 
-  async getPageHeader() {
-    await expect(this.pageHeader, "Page header not found").toBeVisible();
-  }
-
-  async getSelectFirstColumn() {
-    await expect(
-      this.selectFirstColumn,
-      "First Column 'Select' not found"
-    ).toBeVisible();
-  }
-
-  async getActionColumn() {
-    await expect(this.actionColumn, "Action column not found").toBeVisible();
-  }
-
-  async getStoreNumberColumn() {
-    await expect(
-      this.storeNumberColumn,
-      "Store Number column not found"
-    ).toBeVisible();
-  }
-
-  async getStoreNameColumn() {
-    await expect(
-      this.storeNameColumn,
-      "Store Name column not found"
-    ).toBeVisible();
-  }
-
-  async getDealerIDColumn() {
-    await expect(
-      this.dealerIDColumn,
-      "Dealer ID column not found"
-    ).toBeVisible();
-  }
-
-  async getBankAccountColumn() {
-    await expect(
-      this.bankAccountColumn,
-      "Bank ID Column not found"
-    ).toBeVisible();
-  }
-
-  async getGroupColumn() {
-    await expect(this.groupColumn, "Group Column not found").toBeVisible();
-  }
-
-  async getFilterReset() {
-    await expect(this.filterReset, "Filter Reset not found").toBeVisible();
+  async fillForm(testData) {
+    for (const [key, value] of Object.entries(testData)) {
+      const locatorFunction = this.locators[key];
+      if (locatorFunction) {
+        await this.page.waitForLoadState("networkidle");
+        const inputElement = await locatorFunction();
+        await inputElement.fill(value);
+      } else {
+        console.warn(`Locator not found for key: ${key}`);
+      }
+    }
   }
 
   // interact with elements
@@ -146,13 +119,12 @@ class CameroDMM {
 
   async inputSearch(text) {
     await this.page.waitForLoadState();
-    await this.getSearchInput();
-    await this.searchInput.fill(text);
+    await this.locators.searchInput().fill(text);
     await this.page.waitForLoadState("networkidle");
   }
 
   async clearFilter() {
-    await this.filterReset.click();
+    await this.locators.filterReset().click();
     await this.page.waitForLoadState("networkidle");
   }
 

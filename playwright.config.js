@@ -79,8 +79,8 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
-        baseURL: "http://localhost:3000/",
+        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        baseURL: "https://test.lpp.lithia.com/",
       },
     },
 
@@ -89,8 +89,8 @@ const config = {
       testDir: "Playwright/tests/test_LPP_api/atlas_api",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
-        baseURL: "http://localhost:5000/",
+        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        baseURL: "https://test.lpp.lithia.com/",
       },
     },
 

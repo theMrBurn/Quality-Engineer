@@ -46,12 +46,13 @@ class AtlasWeb {
   // Navigate to endpoint
   async goto() {
     await this.page.goto("/atlas");
-    await this.page.waitForLoadState("networkidle");
+    await this.page.waitForLoadState("load");
   }
 
   // get page elements
 
   async checkElementVisibility(locatorName) {
+    await this.page.waitForLoadState("load");
     const locatorFunction = this.locators[locatorName];
     const element = await locatorFunction().first();
     try {

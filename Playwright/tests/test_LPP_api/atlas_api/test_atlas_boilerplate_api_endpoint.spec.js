@@ -3,7 +3,7 @@ import { test, expect, request } from "@playwright/test";
 //test
 test.describe.serial("API testing - GET /plans @atlasapi", () => {
   test("GET /plans returns 200", async ({ request, page }) => {
-    const baseURL = "http://localhost:5000";
+    const baseURL = "https://test.lpp.lithia.com/atlas/api/";
 
     const response = await request.get(`${baseURL}/plans`);
 
@@ -16,7 +16,7 @@ test.describe.serial("API testing - GET /plans @atlasapi", () => {
     request,
     page,
   }) => {
-    const baseURL = "http://localhost:5000/";
+    const baseURL = "https://test.lpp.lithia.com/atlas/api/";
 
     const response = await request.post(`${baseURL}/plans`);
     // const responseBody = JSON.parse(await response.text());
