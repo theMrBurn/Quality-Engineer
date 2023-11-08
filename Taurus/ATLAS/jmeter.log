@@ -1,0 +1,2 @@
+2023-10-12 15:25:48,550 INFO o.j.r.PluginManagerCMD: Command is: install-for-jmx
+2023-10-12 15:25:48,616 INFO o.j.r.JARSourceHTTP: Requesting https://jmeter-plugins.org/repo/?installID=mac_os_x-10f8d630675513eb272bcd54148d07a5-nongui

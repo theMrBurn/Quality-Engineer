@@ -1,4 +1,4 @@
-// Sahara LPO
+// Escalade CVP
 
 // POMs have to live in the same directory as the test, for now
 // we will paramaterize the storageState with other .json for each userLogin, if necessary
@@ -59,11 +59,11 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
 
     //validate grid only displays single row
     await page.waitForSelector(
-      "#root > div > div.MuiBox-root.css-1bkvht1 > div.MuiContainer-root.MuiContainer-maxWidthLg.css-1a6buty > span:nth-child(2) > div > div > div > div > div > div > div.k-grid-container > div > div:nth-child(1) > table > tbody > tr"
+      "#root > div > div.MuiBox-root.css-1bkvht1 > div.MuiContainer-root.MuiContainer-maxWidthLg.css-1a6buty > span:nth-child(2) > div > div > div > div > div > div > div.k-grid-container > div > div:nth-child(1) > table > tbody > tr",
     );
     // Get all rows in the grid
     const rows = await page.$$(
-      "#root > div > div.MuiBox-root.css-1bkvht1 > div.MuiContainer-root.MuiContainer-maxWidthLg.css-1a6buty > span:nth-child(2) > div > div > div > div > div > div > div.k-grid-container > div > div:nth-child(1) > table > tbody > tr"
+      "#root > div > div.MuiBox-root.css-1bkvht1 > div.MuiContainer-root.MuiContainer-maxWidthLg.css-1a6buty > span:nth-child(2) > div > div > div > div > div > div > div.k-grid-container > div > div:nth-child(1) > table > tbody > tr",
     );
 
     // Assert that there is exactly one row
@@ -98,18 +98,34 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     // click on Grid Result to expand Edit panel
     await page.getByRole("cell", { name: "1234568" }).click();
 
-    // Edit panel should be visible and we're going to validate certain elements are present
-    await escaladeCVP.getInfoIcon();
-    await escaladeCVP.getEditButton();
+    //validate expected text elements have loaded
+    const locatorNames1 = ["infoIcon", "editButton"];
+
+    for (const locatorName of locatorNames1) {
+      await escaladeCVP.checkElementVisibility(locatorName);
+    }
 
     // click Edit and then validate Cancel button available
     await escaladeCVP.clickEditButton();
-    await escaladeCVP.getCancelButton();
+    //validate expected text elements have loaded
+    const locatorNames2 = ["cancelButton"];
+
+    for (const locatorName of locatorNames2) {
+      await escaladeCVP.checkElementVisibility(locatorName);
+    }
 
     // click Cancel and validate Complete Button is available
     await escaladeCVP.clickCancelButton();
-    await escaladeCVP.getCompleteButton();
 
+    // click Edit and then validate Cancel button available
+    await escaladeCVP.clickEditButton();
+    await escaladeCVP.clickCancelButton();
+    //validate expected text elements have loaded
+    const locatorNames3 = ["completeButton"];
+
+    for (const locatorName of locatorNames3) {
+      await escaladeCVP.checkElementVisibility(locatorName);
+    }
     // // close panel
     await escaladeCVP.clickClosePanel();
   });
@@ -196,7 +212,7 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
 
     // Check if any grid rows are found and click the first one
     await escaladeCVP.findFirstGridRow(
-      '//*[@id="root"]/div/div[1]/div[3]/span[2]/div/div/div/div/div'
+      '//*[@id="root"]/div/div[1]/div[3]/span[2]/div/div/div/div/div',
     );
 
     await escaladeCVP.clickEditButton();
@@ -218,7 +234,7 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
 
     // Check if any grid rows are found and click the first one
     await escaladeCVP.findFirstGridRow(
-      '//*[@id="root"]/div/div[1]/div[3]/span[2]/div/div/div/div/div'
+      '//*[@id="root"]/div/div[1]/div[3]/span[2]/div/div/div/div/div',
     );
 
     await escaladeCVP.clickEditButton();

@@ -5,7 +5,7 @@ test.describe.serial("API testing - GET /plans @atlasapi", () => {
   test("GET /plans returns 200", async ({ request, page }) => {
     const baseURL = "https://test.lpp.lithia.com/atlas/api/";
 
-    const response = await request.get(`${baseURL}/plans`);
+    const response = await request.get(`${baseURL}/plan`);
 
     expect(response.status()).toBe(200);
     const body = await response.json();
