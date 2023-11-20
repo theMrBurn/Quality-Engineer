@@ -107,7 +107,7 @@ test.describe.serial("Payplan Template @func", () => {
 
     //Bonus Only
     await payplanTemplate.inputPositionTypeDropdown();
-    await page.locator("#PositionTypeList_listbox >> text=Bonus Only").click();
+    await page.getByRole('option', { name: 'Individual Bonus Only' }).click();
     await payplanTemplate.deletePositionTypeDropdown();
 
     //Combined MIS

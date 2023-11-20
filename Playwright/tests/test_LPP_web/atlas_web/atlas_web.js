@@ -20,7 +20,6 @@ class AtlasWeb {
       submitButton: () => this.page.getByRole("button", { name: "Submit" }),
       resetFiltersButton: () =>
         this.page.getByRole("button", { name: "Reset Filters" }),
-      newButton: () => this.page.locator("div").filter({ hasText: /^NEW$/ }),
       codeColumn: () =>
         (this.codeColumn = page
           .getByRole("columnheader", { name: "CODE " })
