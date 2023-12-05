@@ -1,0 +1,203 @@
+// this POM is for /lienpayoff
+const { expect } = require("@playwright/test");
+
+class PlanDetailsView {
+  /**
+   * @param {import('playwright').Page} page
+   */
+  constructor(page) {
+    this.page = page;
+
+    /// Atlas landing page elements
+    this.locators = {
+      /// Plan Details page elements
+      // Role Assignments
+      roleAssignmentsColumn: () =>
+        this.page
+          .locator("div")
+          .filter({ hasText: /^Role Assignments$/ })
+          .first(),
+      salesOperationsHeading: () =>
+        this.page.getByRole("heading", { name: "Sales Operations" }).first(),
+      assignEmployeeSalesOps: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div[1]/div/div[2]/button',
+        ),
+      usedSalesOperations: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div[2]/div/div[2]/button',
+        ),
+      assignButton1: () =>
+        this.page
+          .getByRole("button", { name: "Assign employee to department" })
+          .nth(1),
+      infobox1: () =>
+        this.page.getByText(
+          "This is an optional assignment. If no user is assigned, it will fall under Sales",
+        ),
+      serviceDetailOperations1: () =>
+        this.page
+          .getByRole("heading", { name: "Service / Detail Operations" })
+          .first(),
+      assignButton2: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div[3]/div/div[2]/button',
+        ),
+      partsOperations1: () =>
+        this.page.getByRole("heading", { name: "Parts Operations" }).first(),
+      assignButton3: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div[4]/div/div[2]/button',
+        ),
+      bodyshopOperations1: () =>
+        this.page
+          .getByRole("heading", { name: "Body Shop Operations" })
+          .first(),
+      assignButton4: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div[5]/div/div[2]/button',
+        ),
+
+      // Plan Progress
+      planProgress: () => this.page.getByText("Plan Progress"),
+      salesOperations: () =>
+        this.page.getByRole("heading", { name: "Sales Operations" }).nth(2),
+      serviceDetailOperations2: () =>
+        this.page.getByRole("heading", { name: "Service / Detail Operations" }),
+      partsOperations2: () =>
+        this.page.getByRole("heading", { name: "Parts Operations" }).nth(1),
+      bodyshopOperations2: () =>
+        this.page.getByRole("heading", { name: "Body Shop Operations" }).nth(1),
+      totalStoreOps: () =>
+        this.page.getByRole("heading", { name: "Total Store Operations" }),
+
+      bodyShopPlanProgress: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div[2]',
+        ),
+      partsOpsPlanDetails: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/div/div[2]',
+        ),
+
+      serviceDetailsOpsPlanDetails: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div/div[2]',
+        ),
+
+      salesOpsPlanDetails: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/div[2]/div/div[2]',
+        ),
+
+      // Store Performance
+      storePerformance: () => this.page.getByText("Store Performance"),
+      aopByMonth: () =>
+        this.page.getByRole("heading", { name: "2024 AOP by Month" }),
+      viewAOPButton: () => this.page.getByRole("button", { name: "View AOP" }),
+      viewSeasonValuesCalcd: () =>
+        this.page.getByText(
+          "View the seasonalized values calculated for the 2024 AOP",
+        ),
+      actualValues2023ByMonth: () =>
+        this.page.getByRole("heading", {
+          name: "2023 Actual/Forecast by Month",
+        }),
+      viewDataButton1: () =>
+        this.page.getByRole("button", { name: "View Data" }).first(),
+      currentYearDownload: () =>
+        this.page.getByText(
+          "Download the historical performance of the dealership for the current year",
+        ),
+      mbmActual2022: () =>
+        this.page.getByRole("heading", { name: "2022 Actual by Month" }),
+      viewDataButton2: () =>
+        this.page.getByRole("button", { name: "View Data" }).nth(1),
+      historicalDownload: () =>
+        this.page.getByText(
+          "Download the historical performance of the dealership for the year 2022",
+        ),
+      trendAnalyzer: () =>
+        this.page.getByRole("heading", { name: "Trend Analyzer" }),
+      viewTrends: () => this.page.getByRole("button", { name: "View Trends" }),
+      compareAOP: () =>
+        this.page.getByText(
+          "Compare the entered AOP values to the prior two years for select categories",
+        ),
+    };
+  }
+
+  // Navigate to endpoint
+  async goto() {
+    await this.page.goto("atlas/plan/0");
+    await this.page.waitForLoadState("networkidle");
+  }
+
+  // get page elements
+
+  async checkElementVisibility(locatorName) {
+    await this.page.waitForLoadState("load");
+    const locatorFunction = this.locators[locatorName];
+    const element = await locatorFunction().first();
+    try {
+      await expect(element).toBeVisible();
+      await this.page.waitForLoadState("networkidle");
+    } catch (error) {
+      throw new Error(`Locator '${locatorName}' failed: ${error.message}`);
+    }
+  }
+
+  /// interact with elements
+
+  async fillForm(testData) {
+    for (const [key, value] of Object.entries(testData)) {
+      const locatorFunction = this.locators[key];
+      if (locatorFunction) {
+        await this.page.waitForLoadState("networkidle");
+        const inputElement = await locatorFunction();
+        await inputElement.fill(value);
+      } else {
+        console.warn(`Locator not found for key: ${key}`);
+      }
+    }
+  }
+
+  /// columns have specific filter options
+
+  async inputContractDateColumnFilter(text) {
+    await this.getGridColumnContractDate();
+    await this.page
+      .getByRole("columnheader", { name: text })
+      .locator("div span")
+      .click();
+    await this.page.waitForLoadState("networkidle");
+    await this.page.getByText("Filter").click();
+    await this.page.getByRole("textbox").click();
+    await this.page.getByRole("textbox").fill("01/01/2001");
+    await this.page
+      .getByRole("button", { name: "Filter", exact: true })
+      .click();
+  }
+
+  // filter
+  async inputColumnFilter(text) {
+    await this.page
+      .getByRole("columnheader", { name: text })
+      .locator("div span")
+      .click();
+    await this.page.waitForLoadState("networkidle");
+    await this.page.getByText("Filter").click();
+    await this.page.getByRole("textbox").first().click();
+    await this.page.getByRole("textbox").first().fill("test");
+    await this.page
+      .getByRole("button", { name: "Filter", exact: true })
+      .click();
+    await this.page
+      .getByRole("columnheader", { name: text })
+      .locator("div")
+      .click();
+    await this.page.getByText("Filter").click();
+    await this.page.getByRole("button", { name: "Clear" }).click();
+  }
+}
+module.exports = { PlanDetailsView };
