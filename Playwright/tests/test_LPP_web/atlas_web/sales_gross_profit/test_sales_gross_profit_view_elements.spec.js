@@ -1,0 +1,151 @@
+// Atlas Web
+
+// dependancies
+const { test, expect } = require("@playwright/test");
+const { SalesGrossProfitView } = require("./sales_gross_profit_view.js");
+
+//test
+test.describe.serial("Atlas Web - Page Elements @smoke", () => {
+  test("Navigate to Atlas Web, Dealership Listing and validate card Header and other basic elements have loaded as expected", async ({
+    browser,
+    page,
+  }) => {
+    const salesGrossProfitView = new SalesGrossProfitView(page);
+    await salesGrossProfitView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SGPV
+    await page.getByLabel('Plan Details (0)').locator('path').click();
+    await page.getByRole('button', { name: 'View', exact: true }).click();
+
+    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+
+    const locatorNames = [
+      "newRetailUnitsHeader",
+      "frontEndAverageHeader",
+      "fiAverageHeader",
+      "usedRetailUnitsHeader",
+      "frontEndAverageUsed",
+      "fiAverageUsedHeader",
+      "fleetGrossHeader",
+      "wholesaleGrossHeader",
+      "docFeeHeader",
+      "fiCancelsHeader",
+      "allOtherGrossHeader",
+      "memoDrivewayUnitsHeader",
+      "totalSalesGross",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await salesGrossProfitView.checkElementVisibility(locatorName);
+    }
+  });
+
+
+  test("Navigate to Atlas Web, Dealership Listing and validate New Retail Units specific card elements have loaded as expected", async ({
+    browser,
+    page,
+  }) => {
+    const salesGrossProfitView = new SalesGrossProfitView(page);
+    await salesGrossProfitView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SGPV
+    await page.getByLabel('Plan Details (0)').locator('path').click();
+    await page.getByRole('button', { name: 'View', exact: true }).click();
+
+    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+
+    const locatorNames = [
+      "nru2024AOPinput",
+      "nruPotentialInput",
+      "nruYoYcounter",
+      "nruPerformanceChart",
+      "nruSalesEfficiencyChart",
+      "nruUpdateButton",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await salesGrossProfitView.checkElementVisibility(locatorName);
+    }
+  });
+
+  test("Navigate to Atlas Web, Dealership Listing and validate 'Front End Average - NEW' specific card elements have loaded as expected", async ({
+    browser,
+    page,
+  }) => {
+    const salesGrossProfitView = new SalesGrossProfitView(page);
+    await salesGrossProfitView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SGPV
+    await page.getByLabel('Plan Details (0)').locator('path').click();
+    await page.getByRole('button', { name: 'View', exact: true }).click();
+
+    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+
+    const locatorNames = [
+      "fraN2024AOPinput",
+      "fraNPotentialInput",
+      "fraNYoYcounter",
+      "fraNPerformanceChart",
+      "fraNUpdateButton",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await salesGrossProfitView.checkElementVisibility(locatorName);
+    }
+  });
+
+  test("Navigate to Atlas Web, Dealership Listing and validate F&I Average NEW specific card elements have loaded as expected", async ({
+    browser,
+    page,
+  }) => {
+    const salesGrossProfitView = new SalesGrossProfitView(page);
+    await salesGrossProfitView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SGPV
+    await page.getByLabel('Plan Details (0)').locator('path').click();
+    await page.getByRole('button', { name: 'View', exact: true }).click();
+
+    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+
+    const locatorNames = [
+      "fiaN2024AOPinput",
+      "fiaNPotentialInput",
+      "fiaNYoYcounter",
+      "fiaNPerformanceChart",
+      "fiaNUsedToNewChart",
+      "fiaNUpdateButton",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await salesGrossProfitView.checkElementVisibility(locatorName);
+    }
+  });
+
+  test("Navigate to Atlas Web, Dealership Listing and validate Used Retail Units (Including Driveway) specific card elements have loaded as expected", async ({
+    browser,
+    page,
+  }) => {
+    const salesGrossProfitView = new SalesGrossProfitView(page);
+    await salesGrossProfitView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SGPV
+    await page.getByLabel('Plan Details (0)').locator('path').click();
+    await page.getByRole('button', { name: 'View', exact: true }).click();
+
+    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+
+    const locatorNames = [
+      "uru2024AOPinput",
+      "uruPotentialInput",
+      "uruYoYcounter",
+      "uruPerformanceChart",
+      "uruUsedToNewChart",
+      "uru2024Ratio",
+      "uruUpdateButton",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await salesGrossProfitView.checkElementVisibility(locatorName);
+    }
+  });
+});

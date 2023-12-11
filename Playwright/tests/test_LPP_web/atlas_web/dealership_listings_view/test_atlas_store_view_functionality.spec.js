@@ -88,8 +88,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       // Exit the process with a non-zero code to indicate test failure
       process.exit(1);
     } finally {
-      // Close the browser in case of success -> this isn't working for some reason?
-      // await browser.close();
     }
   });
 });

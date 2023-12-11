@@ -156,43 +156,5 @@ class AdminStoreView {
       }
     }
   }
-
-  /// columns have specific filter options
-
-  async inputContractDateColumnFilter(text) {
-    await this.getGridColumnContractDate();
-    await this.page
-      .getByRole("columnheader", { name: text })
-      .locator("div span")
-      .click();
-    await this.page.waitForLoadState("networkidle");
-    await this.page.getByText("Filter").click();
-    await this.page.getByRole("textbox").click();
-    await this.page.getByRole("textbox").fill("01/01/2001");
-    await this.page
-      .getByRole("button", { name: "Filter", exact: true })
-      .click();
-  }
-
-  // filter
-  async inputColumnFilter(text) {
-    await this.page
-      .getByRole("columnheader", { name: text })
-      .locator("div span")
-      .click();
-    await this.page.waitForLoadState("networkidle");
-    await this.page.getByText("Filter").click();
-    await this.page.getByRole("textbox").first().click();
-    await this.page.getByRole("textbox").first().fill("test");
-    await this.page
-      .getByRole("button", { name: "Filter", exact: true })
-      .click();
-    await this.page
-      .getByRole("columnheader", { name: text })
-      .locator("div")
-      .click();
-    await this.page.getByText("Filter").click();
-    await this.page.getByRole("button", { name: "Clear" }).click();
-  }
 }
 module.exports = { AdminStoreView };
