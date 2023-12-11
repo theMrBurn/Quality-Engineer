@@ -58,6 +58,14 @@ class SalesGrossProfitView {
       uruUsedToNewChart: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[2]/div[2]/div'),
       uru2024Ratio: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div[2]/div/div/div/div/h5'),
       uruUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[1]/div/div[2]/div/button'),
+      
+      //Front-End Average - Used)
+      feauAOPinput: () => this.page.locator('#LOPS15155').first(),
+      feauPotentialInput: () => this.page.locator('//*[@id="LOPS15155"]'),
+      feauYoYcounter: () => this.page.locator('div:nth-child(6) > div:nth-child(2) > div > div > div > div:nth-child(2) > div > div:nth-child(2)'),
+      feauPerformanceChart: () => this.page.locator('div:nth-child(6) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas'),
+      feauInfoBox: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[2]/div[1]/div[2]/div/div/div/div'),
+      feauUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[1]/div/div[2]/div/button'),
     };
   }
 

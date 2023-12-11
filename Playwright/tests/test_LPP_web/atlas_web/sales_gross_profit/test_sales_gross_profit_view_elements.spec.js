@@ -148,4 +148,31 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       await salesGrossProfitView.checkElementVisibility(locatorName);
     }
   });
+
+  test("Navigate to Atlas Web, Dealership Listing and validate Front-End Average - Used specific card elements have loaded as expected", async ({
+    browser,
+    page,
+  }) => {
+    const salesGrossProfitView = new SalesGrossProfitView(page);
+    await salesGrossProfitView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SGPV
+    await page.getByLabel('Plan Details (0)').locator('path').click();
+    await page.getByRole('button', { name: 'View', exact: true }).click();
+
+    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+
+    const locatorNames = [
+      "feauAOPinput",
+      "feauPotentialInput",
+      "feauYoYcounter",
+      "feauPerformanceChart",
+      "feauInfoBox",
+      "feauUpdateButton",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await salesGrossProfitView.checkElementVisibility(locatorName);
+    }
+  });
 });
