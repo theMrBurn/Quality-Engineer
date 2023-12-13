@@ -59,13 +59,66 @@ class SalesGrossProfitView {
       uru2024Ratio: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div[2]/div/div/div/div/h5'),
       uruUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[1]/div/div[2]/div/button'),
       
-      //Front-End Average - Used)
-      feauAOPinput: () => this.page.locator('#LOPS15155').first(),
-      feauPotentialInput: () => this.page.locator('//*[@id="LOPS15155"]'),
-      feauYoYcounter: () => this.page.locator('div:nth-child(6) > div:nth-child(2) > div > div > div > div:nth-child(2) > div > div:nth-child(2)'),
-      feauPerformanceChart: () => this.page.locator('div:nth-child(6) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas'),
-      feauInfoBox: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[2]/div[1]/div[2]/div/div/div/div'),
-      feauUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[1]/div/div[2]/div/button'),
+      //Front-End Average - Used
+      feauAOPinput: () => this.page.locator('#LOPS15395').first(),
+      feauPotentialInput: () => this.page.locator('//*[@id="LOPS15395"]'),
+      feauYoYcounter: () => this.page.locator('div:nth-child(7) > div:nth-child(2) > div > div > div > div:nth-child(2) > div > div:nth-child(2)'),
+      feauPerformanceChart: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[2]'),
+      feauInfoBox: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[1]/div[2]/div/div/div/div/div[2]'),
+      feauUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[1]/div/div[2]/div/button'),
+
+      //Fleet Gross
+      fGrossAOPinput: () => this.page.locator('#LOPS10875').first(),
+      fGrossPotentialInput: () => this.page.locator('//*[@id="LOPS10875"]'),
+      fGrossYoYcounter: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div'),
+      fGrossPerformanceChart: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[2]/div[1]/div/canvas'),
+      fGrossInfoBox: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[1]/div[2]/div/div/div/div/div[2]'),
+      fGrossPerfTrendGraph: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[2]/div[2]/div'),
+      fGrossUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[1]/div/div[2]/div/button'),
+
+      //Wholesale Gross
+      wGrossAOPinput: () => this.page.locator('#LOPS15165').first(),
+      wGrossPotentialInput: () => this.page.locator('//*[@id="LOPS15165"]'),
+      wGrossYoYcounter: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[9]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]'),
+      wGrossPerformanceChart: () => this.page.locator('div:nth-child(9) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas'),
+      wGrossInfoBox: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[9]/div[2]/div[1]/div[2]/div/div/div/div/div[2]'),
+      wGrossPerfTrendGraph: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[9]/div[2]/div[2]/div[2]/div'),
+      wGrossUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[9]/div[1]/div/div[2]/div/button'),
+
+      //Doc Fee & EVR Income (Per Unit)
+      dFeeAOPinput: () => this.page.locator('#LOPS15570').first(),
+      dFeePotentialInput: () => this.page.locator('//*[@id="LOPS15570"]'),
+      dFeeYoYcounter: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]'),
+      dFeePerformanceChart: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[2]'),
+      dFeeInfoBox: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[1]/div[2]/div/div/div/div/div[2]'),
+      dFeePerfTrendGraph: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[2]/div[2]/div'),
+      dFeeUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[1]/div/div[2]/div/button'),
+
+      //Doc Fee & EVR Income (Per Unit)
+      dFeeAOPinput: () => this.page.locator('#LOPS15570').first(),
+      dFeePotentialInput: () => this.page.locator('//*[@id="LOPS15570"]'),
+      dFeeYoYcounter: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]'),
+      dFeePerformanceChart: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[2]'),
+      dFeeInfoBox: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[1]/div[2]/div/div/div/div/div[2]'),
+      dFeePerfTrendGraph: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[2]/div[2]/div'),
+      dFeeUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[1]/div/div[2]/div/button'),
+
+      //F&I Cancels (Under and Over 180)
+      fiCanAOPinput: () => this.page.locator('#FICancels').first(),
+      fiCanPotentialInput: () => this.page.locator('//*[@id="FICancels"]'),
+      fiCanYoYcounter: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[11]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]'),
+      fiCanPerformanceChart: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[11]/div[2]/div[2]/div[1]/div/canvas'),
+      fiCanInfoBox: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[11]/div[2]/div[1]/div[2]/div/div/div/div/div[2]'),
+      dfiCanPerfTrendGraph: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[11]/div[2]/div[2]/div[2]/div'),
+      fiCanUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[11]/div[1]/div/div[2]/div/button'),
+
+      //All Other Gross
+      aogAOPinput: () => this.page.locator('#SalesMultiple').first(),
+      aogPotentialInput: () => this.page.locator('//*[@id="SalesMultiple"]'),
+      aogYoYcounter: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[12]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]'),
+      aogPerformanceChart: () => this.page.locator('div:nth-child(12) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas'),
+      aogInfoBox: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[12]/div[2]/div[1]/div[2]/div/div/div/div/div[2]'),
+      aogUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[12]/div[1]/div/div[2]/div/button'),
     };
   }
 
