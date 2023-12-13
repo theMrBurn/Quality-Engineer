@@ -119,6 +119,24 @@ class SalesGrossProfitView {
       aogPerformanceChart: () => this.page.locator('div:nth-child(12) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas'),
       aogInfoBox: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[12]/div[2]/div[1]/div[2]/div/div/div/div/div[2]'),
       aogUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[12]/div[1]/div/div[2]/div/button'),
+
+      //Memo: Driveway Units (New and Used)
+      mduAOPinput: () => this.page.locator('#DrivewayUnits').first(),
+      mduPotentialInput: () => this.page.locator('//*[@id="DrivewayUnits"]'),
+      mduYoYcounter: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[13]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]'),
+      mduPerformanceChart: () => this.page.locator('div:nth-child(13) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas'),
+      mduInfoBox: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[13]/div[2]/div[1]/div[2]/div/div/div/div/div[2]'),
+      mduUpdateButton: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[13]/div[1]/div/div[2]/div/button'),
+
+      //Total Sales Gross
+      mduAOP: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[14]/div[2]/div[1]/div/div/div/div[1]/div'),
+      mduPotential: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[14]/div[2]/div[1]/div/div/div/div[2]/div'),
+      mduYoYcounter: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[14]/div[2]/div[1]/div/div/div/div[2]/div'),
+      mduPerformanceChart: () => this.page.locator('div:nth-child(14) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas'),
+      mduPerfTrendChart: () => this.page.locator('//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[14]/div[2]/div[2]/div[2]/div'),
+
+      //next
+      bottomNextButton: () => this.page.getByRole('button', { name: 'Next' }).nth(1),
     };
   }
 
