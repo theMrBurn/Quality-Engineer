@@ -14,8 +14,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -40,7 +40,6 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     }
   });
 
-
   test("Navigate to Atlas Web, Dealership Listing and validate New Retail Units specific card elements have loaded as expected", async ({
     browser,
     page,
@@ -49,8 +48,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -76,8 +75,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -102,8 +101,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -129,8 +128,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -157,8 +156,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -184,8 +183,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -211,8 +210,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -238,8 +237,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -265,8 +264,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -293,8 +292,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -321,8 +320,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -349,8 +348,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel('Plan Details (0)').locator('path').click();
-    await page.getByRole('button', { name: 'View', exact: true }).click();
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -361,6 +360,34 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       "mduPerformanceChart",
       "mduInfoBox",
       "mduUpdateButton",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await salesGrossProfitView.checkElementVisibility(locatorName);
+    }
+  });
+
+  test("Navigate to Atlas Web, Dealership Listing and validate Total Sales Gross specific card elements have loaded as expected", async ({
+    browser,
+    page,
+  }) => {
+    const salesGrossProfitView = new SalesGrossProfitView(page);
+    await salesGrossProfitView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SGPV
+    await page.getByLabel("Plan Details (0)").locator("path").click();
+    await page.getByRole("button", { name: "View", exact: true }).click();
+
+    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+
+    const locatorNames = [
+      "tsgAOP",
+      "tsgPotential",
+      "tsgYoYcounter",
+      "tsgPerformanceChart",
+      "mduInfoBox",
+      "tsgPerfTrendChart",
+      "bottomNextButton",
     ];
 
     for (const locatorName of locatorNames) {
