@@ -50,7 +50,7 @@ class SalesGrossProfitView {
         ),
 
       //front-end-average NEW card locators
-      fraN2024AOPinput: () => this.page.locator('//*[@id="LOPS10865"]'),
+      fraN2024AOPinput: () => this.page.locator('//*[@id="LOPS10865"]').first(),
       fraNPotentialInput: () => this.page.locator("#LOPS10865").nth(1),
       fraNYoYcounter: () =>
         this.page.locator(
@@ -87,7 +87,7 @@ class SalesGrossProfitView {
 
       //Used Retail Units (Including Driveway)
       uru2024AOPinput: () => this.page.locator("#LOPS15150").first(),
-      uruPotentialInput: () => this.page.locator('//*[@id="LOPS15150"]'),
+      uruPotentialInput: () => this.page.locator('//*[@id="LOPS15150"]').nth(1),
       uruYoYcounter: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div',
@@ -111,7 +111,8 @@ class SalesGrossProfitView {
 
       //Front-End Average - Used
       feauAOPinput: () => this.page.locator("#LOPS15395").first(),
-      feauPotentialInput: () => this.page.locator('//*[@id="LOPS15395"]'),
+      feauPotentialInput: () =>
+        this.page.locator('//*[@id="LOPS15395"]').nth(1),
       feauYoYcounter: () =>
         this.page.locator(
           "div:nth-child(7) > div:nth-child(2) > div > div > div > div:nth-child(2) > div > div:nth-child(2)",
@@ -129,9 +130,30 @@ class SalesGrossProfitView {
           '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[1]/div/div[2]/div/button',
         ),
 
+      //F&I Average Used card locators
+      fiau2024AOPinput: () => this.page.locator("#LOPS15395").first(),
+      fiauPotentialInput: () => this.page.locator("#LOPS15395").nth(1),
+      fiauYoYcounter: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+        ),
+      fiauPerformanceChart: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[2]/div[1]/div/canvas',
+        ),
+      fiauUsedToNewChart: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[2]/div[2]/div/div',
+        ),
+      fiauUpdateButton: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[1]/div/div[2]/div/button',
+        ),
+
       //Fleet Gross
       fGrossAOPinput: () => this.page.locator("#LOPS10875").first(),
-      fGrossPotentialInput: () => this.page.locator('//*[@id="LOPS10875"]'),
+      fGrossPotentialInput: () =>
+        this.page.locator('//*[@id="LOPS10875"]').nth(1),
       fGrossYoYcounter: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div',
@@ -155,7 +177,8 @@ class SalesGrossProfitView {
 
       //Wholesale Gross
       wGrossAOPinput: () => this.page.locator("#LOPS15165").first(),
-      wGrossPotentialInput: () => this.page.locator('//*[@id="LOPS15165"]'),
+      wGrossPotentialInput: () =>
+        this.page.locator('//*[@id="LOPS15165"]').nth(1),
       wGrossYoYcounter: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[9]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
@@ -179,31 +202,7 @@ class SalesGrossProfitView {
 
       //Doc Fee & EVR Income (Per Unit)
       dFeeAOPinput: () => this.page.locator("#LOPS15570").first(),
-      dFeePotentialInput: () => this.page.locator('//*[@id="LOPS15570"]'),
-      dFeeYoYcounter: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
-        ),
-      dFeePerformanceChart: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[2]',
-        ),
-      dFeeInfoBox: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
-        ),
-      dFeePerfTrendGraph: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[2]/div[2]/div',
-        ),
-      dFeeUpdateButton: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[1]/div/div[2]/div/button',
-        ),
-
-      //Doc Fee & EVR Income (Per Unit)
-      dFeeAOPinput: () => this.page.locator("#LOPS15570").first(),
-      dFeePotentialInput: () => this.page.locator('//*[@id="LOPS15570"]'),
+      dFeePotentialInput: () => this.page.locator("#LOPS15570").nth(1),
       dFeeYoYcounter: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
@@ -227,7 +226,8 @@ class SalesGrossProfitView {
 
       //F&I Cancels (Under and Over 180)
       fiCanAOPinput: () => this.page.locator("#FICancels").first(),
-      fiCanPotentialInput: () => this.page.locator('//*[@id="FICancels"]'),
+      fiCanPotentialInput: () =>
+        this.page.locator('//*[@id="FICancels"]').nth(1),
       fiCanYoYcounter: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[11]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
@@ -251,7 +251,8 @@ class SalesGrossProfitView {
 
       //All Other Gross
       aogAOPinput: () => this.page.locator("#SalesMultiple").first(),
-      aogPotentialInput: () => this.page.locator('//*[@id="SalesMultiple"]'),
+      aogPotentialInput: () =>
+        this.page.locator('//*[@id="SalesMultiple"]').nth(1),
       aogYoYcounter: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[12]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
@@ -271,7 +272,8 @@ class SalesGrossProfitView {
 
       //Memo: Driveway Units (New and Used)
       mduAOPinput: () => this.page.locator("#DrivewayUnits").first(),
-      mduPotentialInput: () => this.page.locator('//*[@id="DrivewayUnits"]'),
+      mduPotentialInput: () =>
+        this.page.locator('//*[@id="DrivewayUnits"]').nth(1),
       mduYoYcounter: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[13]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
