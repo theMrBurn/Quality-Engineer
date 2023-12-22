@@ -107,7 +107,7 @@ const config = {
 
     {
       name: "AtlasSalesGrossView",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web/plan_details_view",
+      testDir: "Playwright/tests/test_LPP_web/atlas_web/sales_gross_profit",
       retries: 3,
       use: {
         storageState: "Playwright/helpers/atlas_test_env_auth.json",
