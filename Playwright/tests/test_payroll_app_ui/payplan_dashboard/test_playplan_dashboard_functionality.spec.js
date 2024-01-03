@@ -20,7 +20,7 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
 
     // input Expiration Date 1
     await payplansDashboard.clickExpirationDate1();
-    await page.getByRole("gridcell", { name: "2023" }).click();
+    await page.getByRole("gridcell", { name: "2024" }).click();
     await payplansDashboard.clickExpirationDate1();
     await page
       .getByRole("gridcell", { name: "Jan" })
@@ -149,7 +149,7 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     // input Expiration Date 2
 
     await payplansDashboard.clickExpirationDate2();
-    await page.getByRole("gridcell", { name: "2023" }).click();
+    await page.getByRole("gridcell", { name: "2024" }).click();
     await payplansDashboard.clickExpirationDate2();
     await page
       .getByRole("gridcell", { name: "Jan" })
