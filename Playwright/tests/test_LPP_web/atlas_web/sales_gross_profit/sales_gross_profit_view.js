@@ -313,9 +313,20 @@ class SalesGrossProfitView {
           '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[14]/div[2]/div[2]/div[2]/div',
         ),
 
-      //next
+      //nav buttons previous | next
       bottomNextButton: () =>
         this.page.getByRole("button", { name: "Next" }).nth(1),
+      bottomPreviousButton: () =>
+        this.page.getByRole("button", { name: "Previous" }).nth(1),
+
+      topNextButton: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[1]/div[3]/button',
+        ),
+      topPreviousButton: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[1]/div[1]/button',
+        ),
     };
   }
 
