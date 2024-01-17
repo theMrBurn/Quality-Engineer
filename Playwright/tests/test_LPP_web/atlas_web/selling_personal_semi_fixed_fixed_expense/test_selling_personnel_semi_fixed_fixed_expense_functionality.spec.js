@@ -76,7 +76,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .click();
 
     try {
-      await NetworkInterceptor.interceptRequests(page);
 
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.seAOPinput().fill("1701");
@@ -159,7 +158,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .click();
 
     try {
-      await NetworkInterceptor.interceptRequests(page);
 
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.peAOPinput().fill("1701");
@@ -242,7 +240,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .click();
 
     try {
-      await NetworkInterceptor.interceptRequests(page);
 
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.sfeAOPinput().fill("1701");
@@ -325,7 +322,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .click();
 
     try {
-      await NetworkInterceptor.interceptRequests(page);
 
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.feAOPinput().fill("1701");

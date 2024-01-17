@@ -117,7 +117,17 @@ const config = {
 
     {
       name: "AtlasSPFSSEView",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web/sales_gross_profit",
+      testDir: "Playwright/tests/test_LPP_web/atlas_web/selling_personal_semi_fixed_fixed_expense",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
+      name: "AtlasWebTSEV",
+      testDir: "Playwright/tests/test_LPP_web/atlas_web/sov_total_sales",
       retries: 3,
       use: {
         storageState: "Playwright/helpers/atlas_test_env_auth.json",
