@@ -1,0 +1,526 @@
+// Atlas Web
+
+// dependancies
+const { test, expect } = require("@playwright/test");
+const { ServiceDetailstView } = require("./service_detail_views");
+const NetworkInterceptor = require("../../../../helpers/network_interceptor.js");
+
+//test
+test.describe
+  .serial("Atlas Web - Service Detail Operations 'Service/Detail Gross Profit View' Page Elements @func", () => {
+  test("Navigate to Service/Detail Gross Profit View and validate Flat Rate Hours, no-input renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //press Update to trigger Error Alert
+      await serviceDetailstView.locators.frh2024AOPinput().clear();
+      await serviceDetailstView.locators.frhPotentialInput().clear();
+      await serviceDetailstView.locators.frhUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Flat Rate Hours renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //input invalid symbols to trigger Error Alert
+      await serviceDetailstView.locators.frh2024AOPinput().clear("1701");
+      await serviceDetailstView.locators.frhPotentialInput().clear("2000");
+      await serviceDetailstView.locators.frh2024AOPinput().fill(",./");
+      await serviceDetailstView.locators.frhPotentialInput().fill(",./");
+      await serviceDetailstView.locators.frhUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Flat Rate Hours input AOP UPDATE works as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    await NetworkInterceptor.interceptRequests(page);
+
+    try {
+      //input valid amount and click Update - vaidate Update Success
+      await serviceDetailstView.locators.frh2024AOPinput().fill("1701");
+      await serviceDetailstView.locators.frhPotentialInput().fill("2000");
+      await serviceDetailstView.locators.frhUpdateButton().click();
+      await expect(page.getByText("Plan step updated!")).toBeVisible();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed. Unable to update card");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Customer Pay Gross, no-input renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //press Update to trigger Error Alert
+      await serviceDetailstView.locators.cpg2024AOPinput().clear();
+      await serviceDetailstView.locators.cpgPotentialInput().clear();
+      await serviceDetailstView.locators.cpgUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Customer Pay Gross renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //input invalid symbols to trigger Error Alert
+      await serviceDetailstView.locators.cpg2024AOPinput().clear("1701");
+      await serviceDetailstView.locators.cpgPotentialInput().clear("2000");
+      await serviceDetailstView.locators.cpg2024AOPinput().fill(",./");
+      await serviceDetailstView.locators.cpgPotentialInput().fill(",./");
+      await serviceDetailstView.locators.cpgUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Customer Pay Gross input AOP UPDATE works as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    await NetworkInterceptor.interceptRequests(page);
+
+    try {
+      //input valid amount and click Update - vaidate Update Success
+      await serviceDetailstView.locators.cpg2024AOPinput().fill("1701");
+      await serviceDetailstView.locators.cpgPotentialInput().fill("2000");
+      await serviceDetailstView.locators.cpgUpdateButton().click();
+      await expect(page.getByText("Plan step updated!")).toBeVisible();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed. Unable to update card");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Warrenty Gross, no-input renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //press Update to trigger Error Alert
+      await serviceDetailstView.locators.warg2024AOPinput().clear();
+      await serviceDetailstView.locators.wargPotentialInput().clear();
+      await serviceDetailstView.locators.wargUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Warrenty Gross renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //input invalid symbols to trigger Error Alert
+      await serviceDetailstView.locators.warg2024AOPinput().clear("1701");
+      await serviceDetailstView.locators.wargPotentialInput().clear("2000");
+      await serviceDetailstView.locators.warg2024AOPinput().fill(",./");
+      await serviceDetailstView.locators.wargPotentialInput().fill(",./");
+      await serviceDetailstView.locators.wargUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Warrenty Gross input AOP UPDATE works as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    await NetworkInterceptor.interceptRequests(page);
+
+    try {
+      //input valid amount and click Update - vaidate Update Success
+      await serviceDetailstView.locators.warg2024AOPinput().fill("1701");
+      await serviceDetailstView.locators.wargPotentialInput().fill("2000");
+      await serviceDetailstView.locators.wargUpdateButton().click();
+      await expect(page.getByText("Plan step updated!")).toBeVisible();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed. Unable to update card");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Internal Gross, no-input renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //press Update to trigger Error Alert
+      await serviceDetailstView.locators.ig2024AOPinput().clear();
+      await serviceDetailstView.locators.igPotentialInput().clear();
+      await serviceDetailstView.locators.igUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Internal Gross renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //input invalid symbols to trigger Error Alert
+      await serviceDetailstView.locators.ig2024AOPinput().clear("1701");
+      await serviceDetailstView.locators.igPotentialInput().clear("2000");
+      await serviceDetailstView.locators.ig2024AOPinput().fill(",./");
+      await serviceDetailstView.locators.igPotentialInput().fill(",./");
+      await serviceDetailstView.locators.igUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Internal Gross input AOP UPDATE works as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    await NetworkInterceptor.interceptRequests(page);
+
+    try {
+      //input valid amount and click Update - vaidate Update Success
+      await serviceDetailstView.locators.ig2024AOPinput().fill("1701");
+      await serviceDetailstView.locators.igPotentialInput().fill("2000");
+      await serviceDetailstView.locators.igUpdateButton().click();
+      await expect(page.getByText("Plan step updated!")).toBeVisible();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed. Unable to update card");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate All Other Gross, no-input renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //press Update to trigger Error Alert
+      await serviceDetailstView.locators.aog2024AOPinput().clear();
+      await serviceDetailstView.locators.aogPotentialInput().clear();
+      await serviceDetailstView.locators.aogUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate All Other Gross renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //input invalid symbols to trigger Error Alert
+      await serviceDetailstView.locators.aog2024AOPinput().clear("1701");
+      await serviceDetailstView.locators.aogPotentialInput().clear("2000");
+      await serviceDetailstView.locators.aog2024AOPinput().fill(",./");
+      await serviceDetailstView.locators.aogPotentialInput().fill(",./");
+      await serviceDetailstView.locators.aogUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate All Other Gross input AOP UPDATE works as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    await NetworkInterceptor.interceptRequests(page);
+
+    try {
+      //input valid amount and click Update - vaidate Update Success
+      await serviceDetailstView.locators.aog2024AOPinput().fill("1701");
+      await serviceDetailstView.locators.aogPotentialInput().fill("2000");
+      await serviceDetailstView.locators.aogUpdateButton().click();
+      await expect(page.getByText("Plan step updated!")).toBeVisible();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed. Unable to update card");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Total Detail Gross, no-input renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //press Update to trigger Error Alert
+      await serviceDetailstView.locators.tdg2024AOPinput().clear();
+      await serviceDetailstView.locators.tdgPotentialInput().clear();
+      await serviceDetailstView.locators.tdgUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Total Detail Gross renders Update Button Disabled as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    try {
+      //input invalid symbols to trigger Error Alert
+      await serviceDetailstView.locators.tdg2024AOPinput().clear("1701");
+      await serviceDetailstView.locators.tdgPotentialInput().clear("2000");
+      await serviceDetailstView.locators.tdg2024AOPinput().fill(",./");
+      await serviceDetailstView.locators.tdgPotentialInput().fill(",./");
+      await serviceDetailstView.locators.tdgUpdateButton().isDisabled();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
+  });
+
+  test("Navigate to Service/Detail Gross Profit View and validate Total Detail Gross input AOP UPDATE works as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    await NetworkInterceptor.interceptRequests(page);
+
+    try {
+      //input valid amount and click Update - vaidate Update Success
+      await serviceDetailstView.locators.tdg2024AOPinput().fill("1701");
+      await serviceDetailstView.locators.tdgPotentialInput().fill("2000");
+      await serviceDetailstView.locators.tdgUpdateButton().click();
+      await expect(page.getByText("Plan step updated!")).toBeVisible();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed. Unable to update card");
+    }
+  });
+});

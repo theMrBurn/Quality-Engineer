@@ -82,12 +82,14 @@ class TotalSalesExpenseView {
   async checkElementVisibility(locatorName) {
     await this.page.waitForLoadState("load");
     const locatorFunction = this.locators[locatorName];
-    const element = await locatorFunction().first();
+
     try {
+      const element = await locatorFunction().first();
       await expect(element).toBeVisible();
       await this.page.waitForLoadState("networkidle");
-    } catch (error) {
-      throw new Error(`Locator '${locatorName}' failed: ${error.message}`);
+    } catch (originalError) {
+      const errorMessage = `Locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
     }
   }
 
