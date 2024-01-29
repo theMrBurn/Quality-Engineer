@@ -3,7 +3,6 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { SellingPersonalExpense } = require("./spsffee.js");
-const NetworkInterceptor = require("../../../../helpers/network_interceptor.js");
 
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
@@ -76,7 +75,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .click();
 
     try {
-
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.seAOPinput().fill("1701");
       await sellingPersonalExpense.locators.sePotentialInput().fill("2000");
@@ -158,7 +156,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .click();
 
     try {
-
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.peAOPinput().fill("1701");
       await sellingPersonalExpense.locators.pePotentialInput().fill("2000");
@@ -240,7 +237,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .click();
 
     try {
-
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.sfeAOPinput().fill("1701");
       await sellingPersonalExpense.locators.sfePotentialInput().fill("2000");
@@ -322,7 +318,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .click();
 
     try {
-
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.feAOPinput().fill("1701");
       await sellingPersonalExpense.locators.fePotentialInput().fill("2000");

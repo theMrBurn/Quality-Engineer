@@ -405,3 +405,4 @@ ASALocalRun/
 
 .Playwright/test_results/test-xray-report.xml
 ./Playwright/test_results
+/Playwright/test_results

@@ -7,7 +7,7 @@ class NetworkInterceptor {
         url: route.request().url(),
         method: route.request().method(),
         postData: route.request().postData(),
-        headers: route.request().headers(),
+        //headers: route.request().headers(),
       };
 
       NetworkInterceptor.logRequestData(requestData);
@@ -37,7 +37,7 @@ class NetworkInterceptor {
     console.log("URL:", requestData.url);
     console.log("Method:", requestData.method);
     console.log("Post Data:", requestData.postData);
-    console.log("Headers:", requestData.headers);
+    //console.log("Headers:", requestData.headers);
     console.log("Formatted Request Data:", JSON.stringify(requestData, null, 2));
   }
 

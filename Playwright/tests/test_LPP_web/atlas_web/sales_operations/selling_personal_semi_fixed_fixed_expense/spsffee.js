@@ -78,7 +78,7 @@ class SellingPersonalExpense {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[1]/div/div[2]/div/button',
         ),
-      
+
       //Fixed Expense
       feAOPinput: () => this.page.locator('//*[@id="LOPS16300"]').first(),
       fePotentialInput: () => this.page.locator('//*[@id="LOPS16300"]').nth(1),

@@ -3,7 +3,7 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { SalesGrossProfitView } = require("./sales_gross_profit_view.js");
-const NetworkInterceptor = require("../../../../helpers/network_interceptor.js");
+// const NetworkInterceptor = require("../../../../../helpers/network_interceptor.js");
 
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
@@ -66,7 +66,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -140,7 +140,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // ** leave in place for debugging ** await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -214,7 +214,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -288,7 +288,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -362,7 +362,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -436,7 +436,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -510,7 +510,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -584,7 +584,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -659,7 +659,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -734,7 +734,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -809,7 +809,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -884,7 +884,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -910,7 +910,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     const partialURL = "/atlas/plan/0/section/7/step/14";
 

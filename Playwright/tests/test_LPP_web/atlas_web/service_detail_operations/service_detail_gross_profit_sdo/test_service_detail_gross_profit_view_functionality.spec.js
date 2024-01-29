@@ -3,7 +3,7 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { ServiceDetailstView } = require("./service_detail_views");
-const NetworkInterceptor = require("../../../../helpers/network_interceptor.js");
+const NetworkInterceptor = require("../../../../../helpers/network_interceptor.js");
 
 //test
 test.describe
@@ -79,7 +79,7 @@ test.describe
     await page.getByText("Service/Detail Gross Profit").click();
     await page.waitForLoadState("networkidle");
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -165,7 +165,7 @@ test.describe
     await page.getByText("Service/Detail Gross Profit").click();
     await page.waitForLoadState("networkidle");
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -251,7 +251,7 @@ test.describe
     await page.getByText("Service/Detail Gross Profit").click();
     await page.waitForLoadState("networkidle");
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -337,7 +337,7 @@ test.describe
     await page.getByText("Service/Detail Gross Profit").click();
     await page.waitForLoadState("networkidle");
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -423,7 +423,7 @@ test.describe
     await page.getByText("Service/Detail Gross Profit").click();
     await page.waitForLoadState("networkidle");
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -509,7 +509,7 @@ test.describe
     await page.getByText("Service/Detail Gross Profit").click();
     await page.waitForLoadState("networkidle");
 
-    await NetworkInterceptor.interceptRequests(page);
+    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
