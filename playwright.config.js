@@ -87,7 +87,7 @@ const config = {
     {
       name: "AtlasDealershipListings",
       testDir:
-        "Playwright/tests/test_LPP_web/atlas_web/dealership_listings_view",
+        "Playwright/tests/test_LPP_web/atlas_web/dealership_listings",
       retries: 3,
       use: {
         storageState: "Playwright/helpers/atlas_test_env_auth.json",
