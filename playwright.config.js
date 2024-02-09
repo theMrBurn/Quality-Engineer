@@ -127,6 +127,16 @@ const config = {
     },
 
     {
+      name: "AtlasPartsOps",
+      testDir: "Playwright/tests/test_LPP_web/atlas_web/parts_operations",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
       name: "AtlasAPI",
       testDir: "Playwright/tests/test_LPP_api/atlas_api",
       retries: 3,
