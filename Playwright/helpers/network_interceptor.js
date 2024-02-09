@@ -1,8 +1,18 @@
 class NetworkInterceptor {
   static interceptedRequests = [];
+  static pageClosed = false;
 
   static async interceptRequests(page) {
+    // Handle page close event
+    page.on('close', () => {
+      NetworkInterceptor.pageClosed = true;
+    });
+
     await page.route("**/*", (route) => {
+      if (NetworkInterceptor.pageClosed) {
+        return; // Skip further processing if the page is closed
+      }
+
       const requestData = {
         url: route.request().url(),
         method: route.request().method(),
@@ -33,45 +43,12 @@ class NetworkInterceptor {
     });
   }
 
-  static logRequestData(requestData) {
-    console.log("URL:", requestData.url);
-    console.log("Method:", requestData.method);
-    console.log("Post Data:", requestData.postData);
-    //console.log("Headers:", requestData.headers);
-    console.log("Formatted Request Data:", JSON.stringify(requestData, null, 2));
+  static async closeBrowser(page) {
+    await page.close();
+    // You can add additional logic to handle browser closure if needed
   }
 
-  static logResponseData(responseDetails) {
-    console.log("Response Status:", responseDetails.status);
-    console.log("Response Headers:", responseDetails.headers);
-
-    if (responseDetails.status >= 300 && responseDetails.status <= 399) {
-      console.log("Response is a redirect. Body not available.");
-    } else {
-      NetworkInterceptor.logFormattedResponseBody(responseDetails.body);
-    }
-  }
-
-  static logFormattedResponseBody(body) {
-    try {
-      const responseBodyJSON = JSON.stringify(JSON.parse(body), null, 2);
-      console.log("Response Body (Formatted JSON):", responseBodyJSON);
-    } catch (error) {
-      console.log("Error parsing response body as JSON:", error.message);
-      console.log("Raw Response Body:", body);
-    }
-  }
-
-  static storeRequestResponsePair(requestData, responseDetails) {
-    const requestResponsePair = { request: requestData, response: responseDetails };
-    NetworkInterceptor.interceptedRequests.push(requestResponsePair);
-  }
-
-  static checkResponseStatus(statusCode) {
-    if ((statusCode >= 400 && statusCode <= 404) || (statusCode >= 500 && statusCode <= 504)) {
-      console.error(`Error: ${statusCode} status code present`);
-    }
-  }
+  // Rest of your class methods...
 }
 
 module.exports = NetworkInterceptor;
