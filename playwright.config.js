@@ -3,6 +3,8 @@ const { devices } = require("@playwright/test");
 
 // JUnit reporter config for Xray
 const xrayOptions = {
+
+  setupFilesAfterEnv: ['./jest.setup.js'],
   // Whether to add <properties> with all annotations; default is false
   embedAnnotationsAsProperties: true,
 
@@ -86,8 +88,7 @@ const config = {
 
     {
       name: "AtlasDealershipListings",
-      testDir:
-        "Playwright/tests/test_LPP_web/atlas_web/dealership_listings",
+      testDir: "Playwright/tests/test_LPP_web/atlas_web/dealership_listings",
       retries: 3,
       use: {
         storageState: "Playwright/helpers/atlas_test_env_auth.json",
@@ -129,6 +130,16 @@ const config = {
     {
       name: "AtlasPartsOps",
       testDir: "Playwright/tests/test_LPP_web/atlas_web/parts_operations",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
+      name: "AtlasBodyShopOps",
+      testDir: "Playwright/tests/test_LPP_web/atlas_web/body_shop_operations",
       retries: 3,
       use: {
         storageState: "Playwright/helpers/atlas_test_env_auth.json",
