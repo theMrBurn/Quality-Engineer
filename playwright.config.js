@@ -3,8 +3,7 @@ const { devices } = require("@playwright/test");
 
 // JUnit reporter config for Xray
 const xrayOptions = {
-
-  setupFilesAfterEnv: ['./jest.setup.js'],
+  setupFilesAfterEnv: ["./Playwright/helpers/afterEach.js"],
   // Whether to add <properties> with all annotations; default is false
   embedAnnotationsAsProperties: true,
 

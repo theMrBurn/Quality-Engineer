@@ -25,7 +25,7 @@ test.describe
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Body Shop Operations" }).click();
     await page.getByText("Body Shop Gross Profit", { exact: true }).click();
-    await page.waitForLoadState("domcontentloaded");
+    await page.waitForLoadState("networkidle");
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
