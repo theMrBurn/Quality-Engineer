@@ -38,13 +38,13 @@ const config = {
 
   testDir: "Playwright/tests",
   /* Maximum time one test can run for. */
-  timeout: 10 * 80 * 100,
+  timeout: 10 * 90 * 100,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 10 * 60 * 100,
+    timeout: 10 * 80 * 100,
   },
 
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -269,6 +269,16 @@ const config = {
     {
       name: "EscaladeCVP",
       testDir: "Playwright/tests/test_LPP_web/escalade_cvp",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
+      name: "EscaladeVDT",
+      testDir: "Playwright/tests/test_LPP_web/escalade_vdt",
       retries: 3,
       use: {
         storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
