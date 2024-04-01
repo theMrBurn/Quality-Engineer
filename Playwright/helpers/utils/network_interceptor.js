@@ -4,7 +4,7 @@ class NetworkInterceptor {
 
   static async interceptRequests(page) {
     // Handle page close event
-    page.on('close', () => {
+    page.on("close", () => {
       NetworkInterceptor.pageClosed = true;
     });
 
@@ -33,7 +33,10 @@ class NetworkInterceptor {
 
           NetworkInterceptor.logResponseData(responseDetails);
 
-          NetworkInterceptor.storeRequestResponsePair(requestData, responseDetails);
+          NetworkInterceptor.storeRequestResponsePair(
+            requestData,
+            responseDetails,
+          );
 
           NetworkInterceptor.checkResponseStatus(responseDetails.status);
         } else {
