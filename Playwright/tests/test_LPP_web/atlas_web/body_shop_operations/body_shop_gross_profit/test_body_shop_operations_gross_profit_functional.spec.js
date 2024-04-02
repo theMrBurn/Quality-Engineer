@@ -3,7 +3,7 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { BodyShopGrossProfitView } = require("./bodyShopOps_view");
-const AtlasLogin = require("../../../../../helpers/atlas_login");
+const AtlasLogin = require("../../../../../helpers/login/atlas_login");
 
 // Instantiate your AtlasLogin class
 const atlasLogin = new AtlasLogin();

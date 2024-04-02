@@ -2,8 +2,8 @@
 
 // dependancies
 const { test, expect } = require("@playwright/test");
-const { BodyShopTotalParts } = require("./body_shop_total_parts");
-const AtlasLogin = require("../../../../../helpers/login/atlas_login");
+const { TotalStoreView } = require("./total_store_view");
+const AtlasLogin = require("../../../../helpers/login/atlas_login");
 
 // Instantiate your AtlasLogin class
 const atlasLogin = new AtlasLogin();
@@ -14,35 +14,48 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     browser,
     page,
   }) => {
-    const bodyShopTotalParts = new BodyShopTotalParts(page);
-    await bodyShopTotalParts.goto();
+    const totalStoreView = new TotalStoreView(page);
+    await totalStoreView.goto();
 
     // call your signInHelper method on your atlasLogin instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Total Body Shop").click();
+    await page.getByRole("button", { name: "Total Store Operations" }).click();
+    await page.getByText("Total Store", { exact: true }).click();
 
     //landed on the body shop total parts view, validate basic elements have loaded
 
     const locatorNames = [
-      "totalBodyShopExpense",
-      "totalBodyShopOperatingProfit",
+      "totalStoreHeader",
+      "totalStoreGross",
+      "totalStoreExpense",
+      "additionalIncome",
+      "netProfitBeforeTax",
       "aop2024",
       "potential2024",
       "aopYoYcounter",
       "aop2024PerformanceChart",
-      "tbsopAOP2024",
-      "tbsopPotential2024",
-      "tbsopYoYcounter",
-      "tbsop2024PerformanceChart",
-      "completeButton",
+      "tseAOP2024",
+      "tsePotential2024",
+      "tseYoYcounter",
+      "tse2024PerformanceChart",
+      "ai2024AOPinput",
+      "aiPotentialInput",
+      "aiYoYcounter",
+      "aiPerformanceChart",
+      "aiUpdateButton",
+      "npbtAOP2024",
+      "npbtPotential2024",
+      "npbtYoYcounter",
+      "npbt2024PerformanceChart",
+      "topCompleteButton",
+      "bottomCompleteButton",
     ];
 
     for (const locatorName of locatorNames) {
-      await bodyShopTotalParts.checkElementVisibility(locatorName);
+      await totalStoreView.checkElementVisibility(locatorName);
     }
   });
 });

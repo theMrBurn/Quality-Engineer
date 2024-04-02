@@ -80,7 +80,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -90,7 +90,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/dealership_listings",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -100,7 +100,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/plan_details_view",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -110,7 +110,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/sales_operations/",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -121,7 +121,7 @@ const config = {
         "Playwright/tests/test_LPP_web/atlas_web/service_detail_operations",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -131,7 +131,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/parts_operations",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -141,7 +141,17 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/body_shop_operations",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
+      name: "AtlasTotalStoreOps",
+      testDir: "Playwright/tests/test_LPP_web/atlas_web/total_store/",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -151,7 +161,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_api/atlas_api",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/atlas_test_env_auth.json",
+        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -161,7 +171,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_api/tahoe_api",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "http://localhost:5000/api",
       },
     },
@@ -171,7 +181,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_api/tahoe_api",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://azwu2loftest-apim.azure-api.net/api/",
       },
     },
@@ -181,7 +191,7 @@ const config = {
       testDir: "Playwright/tests/test_payroll_app_ui",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_allpay_superUser.json",
+        storageState: "Playwright/helpers/login/test_allpay_superUser.json",
         baseURL: "https://azwu2apweb-test.azurewebsites.net/",
       },
     },
@@ -191,7 +201,7 @@ const config = {
       testDir: "Playwright/tests/test_payroll_app_ui",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/dev_allPay_superuser_auth.json",
+        storageState: "Playwright/helpers/login/dev_allPay_superuser_auth.json",
         baseURL: "https://azwu2aptest-dev.azurewebsites.net/",
       },
     },
@@ -201,7 +211,7 @@ const config = {
       testDir: "Playwright/tests/test_payroll_app_ui",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/uat_allPay_superuser_auth.json",
+        storageState: "Playwright/helpers/login/uat_allPay_superuser_auth.json",
         baseURL: "https://azwu2apweb-uat.azurewebsites.net/",
       },
     },
@@ -211,7 +221,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/denali_portal",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -221,7 +231,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/sahara_LPO",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -231,7 +241,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/sahara_new_lien",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -241,7 +251,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/sahara_flooring_payoffs",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -252,7 +262,7 @@ const config = {
       timeout: 100 * 1000 * 10000,
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -261,7 +271,7 @@ const config = {
       name: "SaharaLHM",
       testDir: "Playwright/tests/test_LPP_web/sahara_leinholder_management_web",
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -271,7 +281,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/escalade_cvp",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -281,7 +291,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/escalade_vdt",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -291,7 +301,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/camero_DMM",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -307,7 +317,7 @@ const config = {
       testDir: "Playwright/tests/test_impact_builder_web",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/impact_builder_TEST.json",
+        storageState: "Playwright/helpers/login/impact_builder_TEST.json",
         baseURL: "https://app-allpaytest-wu2-web.azurewebsites.net/",
       },
     },
