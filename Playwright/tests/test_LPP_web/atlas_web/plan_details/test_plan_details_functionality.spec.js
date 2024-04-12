@@ -3,7 +3,7 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { PlanDetailsView } = require("./atlas_plan_details.js");
-const NetworkInterceptor = require("../../../../helpers/network_interceptor.js");
+const NetworkInterceptor = require("../../../../helpers/utils/network_interceptor.js");
 
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {

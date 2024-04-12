@@ -18,7 +18,7 @@ test.describe
     const bodyShopPersonnelExpense = new BodyShopPersonnelExpense(page);
     await bodyShopPersonnelExpense.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
@@ -48,7 +48,7 @@ test.describe
     const bodyShopPersonnelExpense = new BodyShopPersonnelExpense(page);
     await bodyShopPersonnelExpense.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
@@ -80,7 +80,7 @@ test.describe
     const bodyShopPersonnelExpense = new BodyShopPersonnelExpense(page);
     await bodyShopPersonnelExpense.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
@@ -111,7 +111,7 @@ test.describe
     const bodyShopPersonnelExpense = new BodyShopPersonnelExpense(page);
     await bodyShopPersonnelExpense.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
@@ -141,7 +141,7 @@ test.describe
     const bodyShopPersonnelExpense = new BodyShopPersonnelExpense(page);
     await bodyShopPersonnelExpense.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
@@ -173,7 +173,7 @@ test.describe
     const bodyShopPersonnelExpense = new BodyShopPersonnelExpense(page);
     await bodyShopPersonnelExpense.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
@@ -204,7 +204,7 @@ test.describe
     const bodyShopPersonnelExpense = new BodyShopPersonnelExpense(page);
     await bodyShopPersonnelExpense.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
@@ -234,7 +234,7 @@ test.describe
     const bodyShopPersonnelExpense = new BodyShopPersonnelExpense(page);
     await bodyShopPersonnelExpense.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
@@ -266,7 +266,7 @@ test.describe
     const bodyShopPersonnelExpense = new BodyShopPersonnelExpense(page);
     await bodyShopPersonnelExpense.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE

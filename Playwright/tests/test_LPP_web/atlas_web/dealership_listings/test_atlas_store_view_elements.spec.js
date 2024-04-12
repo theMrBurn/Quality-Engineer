@@ -19,7 +19,6 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       "searchBar",
       "submitButton",
       "resetFiltersButton",
-      //"newButton",
     ];
 
     for (const locatorName of locatorNames) {

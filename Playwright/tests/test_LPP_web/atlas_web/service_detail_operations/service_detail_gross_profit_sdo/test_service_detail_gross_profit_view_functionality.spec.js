@@ -3,7 +3,7 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { ServiceDetailstView } = require("./service_detail_views");
-const NetworkInterceptor = require("../../../../../helpers/network_interceptor.js");
+const NetworkInterceptor = require("../../../../../helpers/utils/network_interceptor.js");
 
 //test
 test.describe

@@ -3,7 +3,6 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { AdminStoreView } = require("./atlas_web.js");
-const NetworkInterceptor = require("../../../../helpers/network_interceptor.js");
 
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
@@ -64,30 +63,36 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
       // Wait for the element to be visible
       const items = await page.getByRole("link", { name: "" });
+
       await expect(items).toBeVisible();
 
       // Validate the element text
-      const textContent1 = await page.locator(
-        "#root > div > div.MuiContainer-root.MuiContainer-maxWidthLg.css-1a6buty > div > div > div > div > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.css-kc4ax5 > div > div > div.k-pager-wrap.k-pager.k-widget.k-grid-pager > div.k-pager-info.k-label",
+      const textContent1Element = await page.locator(
+        '//*[@id="root"]/div/div[3]/div/div/div/div/div[2]/div/div/div[4]/div[2]',
       );
-      await expect(textContent1).tocon("21 - 40 of 327 items");
+      const textContent1 = await textContent1Element.textContent();
+
+      const expectedTextPattern1 = /21 - 40 of 327 items/;
+      await expect(textContent1).toMatch(expectedTextPattern1);
 
       // find BACK pagination button and click
       await page.getByRole("link", { name: "1", exact: true }).click();
       await page.waitForLoadState("networkidle");
 
       // Validate the pagination has returned to the first page as expected
-      const textContent2 = await page.locator(
+      const textContent2Element = await page.locator(
         '//*[@id="root"]/div/div[3]/div/div/div/div/div[2]/div/div/div[4]/div[2]',
       );
-      await expect(textContent2).toContainText("- of items");
+      const textContent2 = await textContent2Element.textContent();
+
+      const expectedTextPattern2 = /-\s*\d+\s*of\s*\d+\s*items/;
+      await expect(textContent2).toMatch(expectedTextPattern2);
+
+      //await expect(textContent2).toHaveText("- of items");
     } catch (error) {
-      console.error("Test failed:", error.message);
-      // Close the browser in case of failure
-      await browser.close();
-      // Exit the process with a non-zero code to indicate test failure
-      process.exit(1);
-    } finally {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
     }
   });
 });

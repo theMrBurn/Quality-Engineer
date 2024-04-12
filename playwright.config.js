@@ -86,6 +86,16 @@ const config = {
     },
 
     {
+      name: "AtlasWebUAT",
+      testDir: "Playwright/tests/test_LPP_web/atlas_web",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        baseURL: "https://uat.lpp.lithia.com/",
+      },
+    },
+
+    {
       name: "AtlasDealershipListings",
       testDir: "Playwright/tests/test_LPP_web/atlas_web/dealership_listings",
       retries: 3,

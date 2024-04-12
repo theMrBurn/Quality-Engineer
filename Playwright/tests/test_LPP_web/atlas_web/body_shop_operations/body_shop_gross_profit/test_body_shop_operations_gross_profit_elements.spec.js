@@ -3,7 +3,7 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { BodyShopGrossProfitView } = require("./bodyShopOps_view");
-const AtlasLogin = require("../../../../../helpers/atlas_login");
+const AtlasLogin = require("../../../../../helpers/login/atlas_login");
 
 // Instantiate your AtlasLogin class
 const atlasLogin = new AtlasLogin();
@@ -18,7 +18,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations

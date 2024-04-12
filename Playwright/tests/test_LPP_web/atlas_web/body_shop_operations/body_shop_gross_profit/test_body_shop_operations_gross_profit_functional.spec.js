@@ -18,7 +18,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -46,7 +46,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -76,7 +76,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -105,7 +105,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -133,7 +133,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -163,7 +163,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -192,7 +192,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -220,7 +220,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -250,7 +250,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -279,7 +279,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -307,7 +307,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -337,7 +337,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -366,7 +366,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -394,7 +394,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -424,7 +424,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -453,7 +453,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -481,7 +481,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
@@ -511,7 +511,7 @@ test.describe
     const bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
     await bodyShopGrossProfitView.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations

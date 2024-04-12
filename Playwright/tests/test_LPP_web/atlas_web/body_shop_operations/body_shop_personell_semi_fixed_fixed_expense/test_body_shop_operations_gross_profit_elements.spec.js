@@ -3,7 +3,7 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { BodyShopPersonnelExpense } = require("./bodyShopPSFFE_view");
-const AtlasLogin = require("../../../../../helpers/atlas_login");
+const AtlasLogin = require("../../../../../helpers/login/atlas_login");
 
 // Instantiate your AtlasLogin class
 const atlasLogin = new AtlasLogin();
@@ -18,7 +18,7 @@ test.describe
     const bodyShopPersonnelExpense = new BodyShopPersonnelExpense(page);
     await bodyShopPersonnelExpense.goto();
 
-    // call your signInHelper method on your atlasLogin instance
+    // call your signInHelper method on your atlas Login instance
     await atlasLogin.signInHelper();
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
@@ -29,7 +29,7 @@ test.describe
       .getByRole("paragraph")
       .click();
 
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    //land on the Body Shop Personell Semi Fixed, Fixed Expense view, validate basic elements have loaded (big list)
 
     const locatorNames = [
       "personnelExpenseHeader",
