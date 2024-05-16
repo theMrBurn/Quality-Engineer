@@ -76,6 +76,16 @@ const config = {
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "InnovationPOC",
+      testDir: "Playwright/tests/innovation_sprint_poc",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
+        baseURL: "https://test.lpp.lithia.com/atlas",
+      },
+    },
+
+    {
       name: "AtlasWeb",
       testDir: "Playwright/tests/test_LPP_web/atlas_web",
       retries: 3,
