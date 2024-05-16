@@ -3,24 +3,18 @@ class NetworkInterceptor {
   static pageClosed = false;
 
   static async interceptRequests(page) {
-    // Handle page close event
     page.on("close", () => {
       NetworkInterceptor.pageClosed = true;
     });
 
     await page.route("**/*", (route) => {
-      if (NetworkInterceptor.pageClosed) {
-        return; // Skip further processing if the page is closed
-      }
+      if (NetworkInterceptor.pageClosed) return;
 
       const requestData = {
         url: route.request().url(),
         method: route.request().method(),
         postData: route.request().postData(),
-        //headers: route.request().headers(),
       };
-
-      NetworkInterceptor.logRequestData(requestData);
 
       route.continue().then(async () => {
         const response = await route.request().response();
@@ -28,19 +22,15 @@ class NetworkInterceptor {
           const responseDetails = {
             status: response.status(),
             headers: response.headers(),
-            body: await response.text(),
           };
 
-          NetworkInterceptor.logResponseData(responseDetails);
-
-          NetworkInterceptor.storeRequestResponsePair(
-            requestData,
-            responseDetails,
-          );
-
-          NetworkInterceptor.checkResponseStatus(responseDetails.status);
-        } else {
-          console.log("Response not received yet.");
+          if (![301, 302, 303, 307, 308].includes(response.status())) {
+            responseDetails.body = await response.text();
+          }
+          NetworkInterceptor.interceptedRequests.push({
+            request: requestData,
+            response: responseDetails,
+          });
         }
       });
     });
@@ -48,10 +38,7 @@ class NetworkInterceptor {
 
   static async closeBrowser(page) {
     await page.close();
-    // You can add additional logic to handle browser closure if needed
   }
-
-  // Rest of your class methods...
 }
 
 module.exports = NetworkInterceptor;

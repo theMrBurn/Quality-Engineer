@@ -70,65 +70,6 @@ class EscaladeCVP {
 
   // interact with elements
 
-  async clickResetFiltersButton() {
-    await this.locators.resetFiltersButton().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickSalesTab() {
-    await this.locators.salesTab().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickInvintoryTab() {
-    await this.locators.inventoryTab().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickVDTTab() {
-    await this.locators.vdtTab().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickStockNumColumn() {
-    await this.locators.stockNumColumn().click();
-    await this.page.waitForLoadState("load");
-  }
-
-  async clickStockNumFilter() {
-    await this.locators.stockColumnFilter().click();
-    await this.page.waitForLoadState("load");
-    await this.locators.stockColumnInnerFilter().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickEditButton() {
-    await this.locators.editButton().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickCancelButton() {
-    await this.locators.cancelButton().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickClosePanel() {
-    await this.locators.closeEditPanelIcon().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickInventoryHubFilter() {
-    await this.locators.inventoryHubColunmn().click();
-    await this.page.waitForLoadState("load");
-    await this.locators.inventoryInnerColumnFilter().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickHubNameDropdown() {
-    await this.locators.hubNameDropdown().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
   // upload
 
   async uploadSalesData(salesDataFile) {
@@ -174,6 +115,10 @@ class EscaladeCVP {
         }
       }, firstGridRow);
 
+      // Make sure the element is visible and stable before clicking
+      await firstGridRow.waitForElementState("visible");
+      await new Promise((r) => setTimeout(r, 10000)); // Wait for 10 seconds
+
       // Click on the first grid row
       await firstGridRow.click();
       console.log("Clicked on the first grid row.");
@@ -182,14 +127,53 @@ class EscaladeCVP {
     }
   }
 
+  // get page elements
+
   async checkElementVisibility(locatorName) {
+    await this.page.waitForLoadState("load");
     const locatorFunction = this.locators[locatorName];
-    const element = await locatorFunction().first();
+
     try {
+      const element = await locatorFunction().first();
       await expect(element).toBeVisible();
       await this.page.waitForLoadState("networkidle");
-    } catch (error) {
-      throw new Error(`Locator '${locatorName}' failed: ${error.message}`);
+    } catch (originalError) {
+      const errorMessage = `Locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
+    }
+  }
+
+  /// interact with elements
+
+  async fillForm(testData) {
+    for (const [key, value] of Object.entries(testData)) {
+      const locatorFunction = this.locators[key];
+      if (locatorFunction) {
+        try {
+          await this.page.waitForLoadState("networkidle");
+          const inputElement = await locatorFunction();
+          await inputElement.fill(value);
+        } catch (originalError) {
+          const errorMessage = `Filling the form field with locator '${key}' failed: ${originalError.message}`;
+          throw new Error(errorMessage);
+        }
+      } else {
+        console.warn(`Locator not found for key: ${key}`);
+      }
+    }
+  }
+
+  async clickElement(locatorName) {
+    await this.page.waitForLoadState("load");
+    const locatorFunction = this.locators[locatorName];
+
+    try {
+      const element = await locatorFunction().first();
+      await element.click();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      const errorMessage = `Clicking on locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
     }
   }
 

@@ -1,13 +1,13 @@
 {
   "devDependencies": {
     "@playwright/test": "^1.44.0",
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.12.7",
     "lolex": "^6.0.0",
-    "playwright": "^1.42.1"
+    "playwright": "^1.44.0"
   },
   "scripts": {},
   "dependencies": {
-    "npm": "^9.6.7",
+    "npm": "^10.5.2",
     "punycode2": "^1.0.1"
   }
 }
