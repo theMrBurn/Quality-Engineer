@@ -338,7 +338,7 @@ const config = {
       retries: 3,
       use: {
         storageState:
-          "Application%20QA%20Test%20Automation/Playwright/helpers/login/test_allpay_superUser.json",
+          "Playwright/helpers/login/test_allpay_superUser.json",
         baseURL: "https://app-allpaytest-wu2-web.azurewebsites.net/",
       },
     },
