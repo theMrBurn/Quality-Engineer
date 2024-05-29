@@ -113,19 +113,22 @@ class ImpactAssignments {
       weight: () => this.page.getByText("Weight"),
 
       // add producitvity measures locators
-      sourceSystemDropdown: () => this.page.getByLabel('Source System:'),
-      sourceFieldDropdown: () => this.page.getByLabel('Source Field:'),
-      employeeListDropdown: () => this.page.getByRole('dialog').locator('#prodMeasureEmployeeList'),
-      companyOptionalDropdown: () => this.page.getByLabel('Company: (optional)'),
-      fieldDescriptionRequiredInput: () => this.page.getByLabel('Field Description (required'),
-      selectButton: () => this.page.getByRole('button', { name: 'Select' }),
-      closeButton: () => this.page.getByRole('button', { name: 'Close' }),
+      sourceSystemDropdown: () => this.page.getByLabel("Source System:"),
+      sourceFieldDropdown: () => this.page.getByLabel("Source Field:"),
+      employeeListDropdown: () =>
+        this.page.getByRole("dialog").locator("#prodMeasureEmployeeList"),
+      companyOptionalDropdown: () =>
+        this.page.getByLabel("Company: (optional)"),
+      fieldDescriptionRequiredInput: () =>
+        this.page.getByLabel("Field Description (required"),
+      selectButton: () => this.page.getByRole("button", { name: "Select" }),
+      closeButton: () => this.page.getByRole("button", { name: "Close" }),
     };
   }
 
   // Navigate to endpoint
   async goto() {
-    await this.page.goto("/Reports/28");
+    await this.page.goto("/");
     await this.page.waitForLoadState("load");
   }
 
@@ -207,28 +210,39 @@ class ImpactAssignments {
     await this.page.click(`[aria-label=${label}]`);
     await this.page.click(`[role=option][name=${optionName}]`);
   }
-  
+
   async clearField(page, textLabel) {
     await this.page.click(`div:has-text("${textLabel}") >> aria-label=Clear`);
-    await this.page.click('[role=button][name=Select]');
+    await this.page.click("[role=button][name=Select]");
   }
-  
+
   async fillField(page, label, fieldValue) {
     await this.page.click(`[aria-label="${label}"]`);
     await this.page.fill(`[aria-label="${label}"]`, fieldValue);
-    await this.page.click('[role=button][name=Select]');
+    await this.page.click("[role=button][name=Select]");
   }
-  
+
   async editMeasure(page, oldName, newName, testName, testValue) {
-    await this.page.click(`[role=row][name="${oldName} 0.00 0.00"] [data-testid=editOverride]`);
+    await this.page.click(
+      `[role=row][name="${oldName} 0.00 0.00"] [data-testid=editOverride]`,
+    );
     await this.page.click(`[role=cell][name="${oldName}"] [role=textbox]`);
-    await this.page.fill(`[role=cell][name="${oldName}"] [role=textbox]`, newName);
-    await this.page.press(`[role=cell][name="${testName}"] [role=textbox]`, 'Tab');
-    await this.page.fill(`[role=row][name="${testName}   0"] [role=textbox]:nth-child(2)`, testValue);
+    await this.page.fill(
+      `[role=cell][name="${oldName}"] [role=textbox]`,
+      newName,
+    );
+    await this.page.press(
+      `[role=cell][name="${testName}"] [role=textbox]`,
+      "Tab",
+    );
+    await this.page.fill(
+      `[role=row][name="${testName}   0"] [role=textbox]:nth-child(2)`,
+      testValue,
+    );
     await this.page.fill(`[role=cell][name="0"][role=textbox]`, testValue);
-    await this.page.click('[data-testid=saveMeasure]');
+    await this.page.click("[data-testid=saveMeasure]");
   }
-  
+
   async deleteMeasure(page, rowName) {
     await this.page.click(`[role=row][name="${rowName}"] [aria-label=Delete]`);
   }
@@ -238,7 +252,5 @@ class ImpactAssignments {
     const gridRowHandles = await this.page.$$(gridSelector); // Get handles for all grid rows
     return gridRowHandles;
   }
-
-  
 }
 module.exports = { ImpactAssignments };

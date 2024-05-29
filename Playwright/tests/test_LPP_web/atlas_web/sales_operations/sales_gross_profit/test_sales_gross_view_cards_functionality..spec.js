@@ -785,11 +785,11 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input invalid symbols to trigger Error Alert
-      await salesGrossProfitView.locators.fiCanAOPinput().clear();
-      await salesGrossProfitView.locators.fiCanPotentialInput().clear();
-      await salesGrossProfitView.locators.fiCanAOPinput().fill(",./");
-      await salesGrossProfitView.locators.fiCanPotentialInput().fill(",./");
-      await salesGrossProfitView.locators.fiCanUpdateButton().isDisabled();
+      await salesGrossProfitView.locators.aogAOPinput().clear();
+      await salesGrossProfitView.locators.aogPotentialInput().clear();
+      await salesGrossProfitView.locators.aogAOPinput().fill(",./");
+      await salesGrossProfitView.locators.aogPotentialInput().fill(",./");
+      await salesGrossProfitView.locators.aogUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
@@ -812,9 +812,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.fiCanAOPinput().fill("1701");
-      await salesGrossProfitView.locators.fiCanPotentialInput().fill("2000");
-      await salesGrossProfitView.locators.fiCanUpdateButton().click();
+      await salesGrossProfitView.locators.aogAOPinput().fill("1701");
+      await salesGrossProfitView.locators.aogPotentialInput().fill("2000");
+      await salesGrossProfitView.locators.aogUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
       console.error("Error during test:", error.message);

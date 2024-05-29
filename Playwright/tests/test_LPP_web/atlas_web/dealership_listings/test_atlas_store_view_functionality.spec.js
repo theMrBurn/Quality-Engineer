@@ -13,14 +13,22 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
 
-    await page.getByRole("gridcell", { name: "1", exact: true }).click();
-    await page.waitForLoadState();
-    await page.waitForURL("/atlas/plan/1/history?history=2024");
+    try {
+      // Your existing test steps
 
-    await page.goto("https://test.lpp.lithia.com/atlas/");
-    await page
-      .getByRole("row", { name: "0 L0000 Aop Test Store 2024 In Progress" })
-      .getByTestId("ArrowCircleRightIcon");
+      await page.getByRole("gridcell", { name: "1", exact: true }).click();
+      await page.waitForLoadState();
+      await page.waitForURL("/atlas/plan/1/history?history=2024");
+
+      await page.goto("https://test.lpp.lithia.com/atlas/");
+      await page
+        .getByRole("row", { name: "0 L0000 Aop Test Store 2024 In Progress" })
+        .getByTestId("ArrowCircleRightIcon");
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
   });
 
   test("Navigate to Atlas Web, search for L0023 and validate search option has loaded, as expected", async ({
@@ -30,10 +38,16 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
 
-    // Your existing test steps
-    await page.getByPlaceholder("SEARCH").click();
-    await page.getByPlaceholder("SEARCH").fill("L0023");
-    await page.getByRole("button", { name: "Submit" }).click();
+    try {
+      // Your existing test steps
+      await page.getByPlaceholder("SEARCH").click();
+      await page.getByPlaceholder("SEARCH").fill("L0023");
+      await page.getByRole("button", { name: "Submit" }).click();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
   });
 
   test("Navigate to Atlas Web, search for L0023 and validate search option Reset Filters works as expected", async ({
@@ -43,11 +57,17 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
 
-    // Your existing test steps
-    await page.getByPlaceholder("SEARCH").click();
-    await page.getByPlaceholder("SEARCH").fill("L0023");
-    await page.getByRole("button", { name: "Submit" }).click();
-    await page.getByRole("button", { name: "Reset Filters" }).click();
+    try {
+      // Your existing test steps
+      await page.getByPlaceholder("SEARCH").click();
+      await page.getByPlaceholder("SEARCH").fill("L0023");
+      await page.getByRole("button", { name: "Submit" }).click();
+      await page.getByRole("button", { name: "Reset Filters" }).click();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.");
+    }
   });
 
   test("Navigate to Atlas Web, scroll to bottom, click to validate pagination options", async ({
