@@ -19,22 +19,7 @@ test.describe
     await atlasLogin.signInHelper(page);
 
     try {
-      // Assign Shawn Backstrom
-      await atlase2e.clickElement("salesOpsAssignEmployee");
-      await page.getByLabel("Open").click();
-      await page.getByRole("option", { name: "Shawn Backstrom" }).click();
-      await atlase2e.clickElement("cancelButton");
-
-      // Refresh the page
-      await page.reload();
-      await page.waitForLoadState("load");
-
-      await atlase2e.clickElement("salesOpsAssignEmployee");
-      await page.getByLabel("Open").click();
-      await page.getByRole("option", { name: "Shawn Backstrom" }).click();
-      await atlase2e.clickElement("salesOpsAssignButton");
-      await page.getByText("Employee has been assigned").click();
-      // -- set step to check if Plan Progress matches assignment state
+      await atlase2e.assignBackstrom();
 
       // Notify Shawn Backstrom and cancel
       await atlase2e.clickElement("salesOpsNotifyButton");
