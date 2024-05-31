@@ -177,7 +177,7 @@ test.describe.serial("Escalade VDT - Page Functionality @func", () => {
     await escaladeVDT.goto();
 
     try {
-      await page.locator("td").first().click();
+      await page.locator('[data-testid="AssignmentIcon"]').first().click();
 
       const vinText = page
         .locator('[data-test="sale-expanded-form-toolbar"] div')
