@@ -129,7 +129,7 @@ class PlanDetailsView {
 
   // Navigate to endpoint
   async goto() {
-    await this.page.goto("atlas/plan/0");
+    await this.page.goto("/atlas/plan/0");
     await this.page.waitForLoadState("networkidle");
   }
 

@@ -3,7 +3,7 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { PlanDetailsView } = require("./atlas_plan_details.js");
-const NetworkInterceptor = require("../../../../helpers/utils/network_interceptor.js");
+const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
@@ -13,6 +13,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
     await page.waitForLoadState("load");
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       await planDetailsView.locators.assignEmployeeSalesOps().click();
@@ -32,6 +36,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
     await page.waitForLoadState("load");
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // Perform the steps
@@ -58,7 +66,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
-    await NetworkInterceptor.interceptRequests(page);
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // check to see if Plan Progress column shows Employee we assigned prior to Notify step
@@ -90,7 +100,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
-    await NetworkInterceptor.interceptRequests(page);
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // Perform the steps
@@ -121,6 +133,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     try {
       // Perform the steps
       await planDetailsView.locators.usedSalesOperations().click();
@@ -141,6 +157,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
     await page.waitForLoadState("load");
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // Perform the steps
@@ -167,7 +187,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
-    await NetworkInterceptor.interceptRequests(page);
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // validate modal content before canceling
@@ -195,6 +217,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
     await page.waitForLoadState("load");
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // Perform the steps
@@ -225,6 +251,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     try {
       // Perform the steps
       await planDetailsView.locators.assignButton2().click();
@@ -246,6 +276,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     try {
       // Perform the steps
       await planDetailsView.locators.assignButton2().click();
@@ -266,6 +300,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
     await page.waitForLoadState("load");
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // check to see if Plan Progress column shows Employee we assigned prior to Notify step
@@ -297,6 +335,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     try {
       // Perform the steps
       await page.waitForLoadState("networkidle");
@@ -326,6 +368,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     try {
       // Perform the steps
       await planDetailsView.locators.assignButton3().click();
@@ -347,6 +393,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     try {
       // Perform the steps
       await planDetailsView.locators.assignButton3().click();
@@ -367,6 +417,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
     await page.waitForLoadState("load");
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // check to see if Plan Progress column shows Employee we assigned prior to Notify step
@@ -397,6 +451,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     try {
       // Perform the steps
       await page.waitForLoadState("networkidle");
@@ -426,6 +484,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     try {
       // Perform the steps
       await page.waitForLoadState("networkidle");
@@ -447,6 +509,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
     await page.waitForLoadState("load");
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // Perform the steps
@@ -472,6 +538,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
     await page.waitForLoadState("load");
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // check to see if Plan Progress column shows Employee we assigned prior to Notify step
@@ -502,6 +572,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
     await page.waitForLoadState("load");
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // Perform the steps
