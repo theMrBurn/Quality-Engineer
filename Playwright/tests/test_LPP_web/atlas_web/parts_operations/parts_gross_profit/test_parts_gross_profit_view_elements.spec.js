@@ -3,6 +3,7 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { PartsGrossProfitView } = require("./parts_gross_profit_view.js");
+const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 
 //test
 test.describe
@@ -13,6 +14,10 @@ test.describe
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -32,8 +37,14 @@ test.describe
       "totalPartsGrossHeader",
     ];
 
-    for (const locatorName of locatorNames) {
-      await partsGrossProfitView.checkElementVisibility(locatorName);
+    try {
+      for (const locatorName of locatorNames) {
+        await partsGrossProfitView.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.", error.message);
     }
   });
 
@@ -43,6 +54,10 @@ test.describe
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -59,8 +74,14 @@ test.describe
       "cpgUpdateButton",
     ];
 
-    for (const locatorName of locatorNames) {
-      await partsGrossProfitView.checkElementVisibility(locatorName);
+    try {
+      for (const locatorName of locatorNames) {
+        await partsGrossProfitView.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.", error.message);
     }
   });
 
@@ -70,6 +91,10 @@ test.describe
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -86,8 +111,14 @@ test.describe
       "wgUpdateButton",
     ];
 
-    for (const locatorName of locatorNames) {
-      await partsGrossProfitView.checkElementVisibility(locatorName);
+    try {
+      for (const locatorName of locatorNames) {
+        await partsGrossProfitView.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.", error.message);
     }
   });
 
@@ -97,6 +128,10 @@ test.describe
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -112,9 +147,14 @@ test.describe
       "igInfoBox",
       "igUpdateButton",
     ];
-
-    for (const locatorName of locatorNames) {
-      await partsGrossProfitView.checkElementVisibility(locatorName);
+    try {
+      for (const locatorName of locatorNames) {
+        await partsGrossProfitView.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.", error.message);
     }
   });
 
@@ -124,6 +164,10 @@ test.describe
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -140,8 +184,14 @@ test.describe
       "wsgUpdateButton",
     ];
 
-    for (const locatorName of locatorNames) {
-      await partsGrossProfitView.checkElementVisibility(locatorName);
+    try {
+      for (const locatorName of locatorNames) {
+        await partsGrossProfitView.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.", error.message);
     }
   });
 
@@ -151,6 +201,10 @@ test.describe
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -166,9 +220,14 @@ test.describe
       "aogInfoBox",
       "aogUpdateButton",
     ];
-
-    for (const locatorName of locatorNames) {
-      await partsGrossProfitView.checkElementVisibility(locatorName);
+    try {
+      for (const locatorName of locatorNames) {
+        await partsGrossProfitView.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error("Test failed.", error.message);
     }
   });
 });

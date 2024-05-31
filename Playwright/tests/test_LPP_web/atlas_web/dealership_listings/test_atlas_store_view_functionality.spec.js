@@ -5,7 +5,6 @@ const { test, expect } = require("@playwright/test");
 const { AdminStoreView } = require("./atlas_web.js");
 const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 
-
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
   test("Navigate to Atlas Web, click on first Dealership Listing and validate Seasonality Page elements have loaded as expected", async ({

@@ -182,28 +182,25 @@ class AtlasE2E {
 
   async assignBackstrom(atlase2e) {
     try {
+      // Assign Shawn Backstrom
+      await atlase2e.clickElement("salesOpsAssignEmployee");
+      await this.page.getByLabel("Open").click();
+      await this.page.getByRole("option", { name: "Shawn Backstrom" }).click();
+      await atlase2e.clickElement("cancelButton");
 
-    // Assign Shawn Backstrom
-    await atlase2e.clickElement("salesOpsAssignEmployee");
-    await this.page.getByLabel("Open").click();
-    await this.page.getByRole("option", { name: "Shawn Backstrom" }).click();
-    await atlase2e.clickElement("cancelButton");
+      // Refresh the page
+      await this.page.reload();
+      await this.page.waitForLoadState("load");
 
-    // Refresh the page
-    await this.page.reload();
-    await this.page.waitForLoadState("load");
-
-    await atlase2e.clickElement("salesOpsAssignEmployee");
-    await this.page.getByLabel("Open").click();
-    await this.page.getByRole("option", { name: "Shawn Backstrom" }).click();
-    await atlase2e.clickElement("salesOpsAssignButton");
-    await this.page.getByText("Employee has been assigned").click();
-
+      await atlase2e.clickElement("salesOpsAssignEmployee");
+      await this.page.getByLabel("Open").click();
+      await this.page.getByRole("option", { name: "Shawn Backstrom" }).click();
+      await atlase2e.clickElement("salesOpsAssignButton");
+      await this.page.getByText("Employee has been assigned").click();
     } catch (error) {
       console.error(error.message);
       throw error;
     }
   }
-
 }
 module.exports = { AtlasE2E };
