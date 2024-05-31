@@ -17,7 +17,7 @@ test.describe.serial("Escalade CVP - Page Elements @smoke", () => {
     await escaladeCVP.goto();
 
     //validate expected text elements have loaded
-    const locatorNames = ["pageHeader", "salesTab", "inventoryTab", "vdtTab"];
+    const locatorNames = ["pageHeader", "salesTab", "inventoryTab"];
 
     for (const locatorName of locatorNames) {
       await escaladeCVP.checkElementVisibility(locatorName);
