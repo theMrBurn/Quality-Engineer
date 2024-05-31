@@ -10,7 +10,7 @@ const {
 
 test.describe
   .serial("Atlas E2E - Assign Employee -> Notify Employee -> Input Sales Data -> Submit for Review -> Submit For Approval -> Unlock Approval -> Unassign Employee @e2e", () => {
-  test("Assign functionality", async ({ browser, page }) => {
+test("Assign functionality", async ({ browser, page }) => {
     const atlase2e = new AtlasE2E(page);
     await atlase2e.goto();
 
