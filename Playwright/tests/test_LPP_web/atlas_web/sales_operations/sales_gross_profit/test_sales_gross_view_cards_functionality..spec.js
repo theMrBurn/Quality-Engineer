@@ -3,6 +3,8 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { SalesGrossProfitView } = require("./sales_gross_profit_view.js");
+const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
+
 
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
@@ -12,6 +14,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -35,6 +41,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -60,6 +70,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -87,6 +101,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -109,6 +127,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -134,6 +156,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -161,6 +187,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -183,6 +213,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -208,6 +242,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -235,6 +273,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -257,6 +299,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -282,6 +328,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -309,6 +359,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -331,6 +385,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -356,6 +414,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -383,6 +445,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -405,6 +471,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -430,6 +500,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -457,6 +531,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -479,6 +557,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -504,6 +586,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -531,6 +617,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -553,6 +643,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -578,6 +672,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -605,6 +703,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -628,6 +730,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -653,6 +759,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -680,6 +790,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -703,6 +817,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -728,6 +846,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -755,6 +877,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -778,6 +904,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -803,6 +933,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -830,6 +964,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -853,6 +991,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
@@ -879,6 +1021,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();
     await page.getByRole("button", { name: "View", exact: true }).click();
@@ -904,6 +1050,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const salesGrossProfitView = new SalesGrossProfitView(page);
     await salesGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page.getByLabel("Plan Details (0)").locator("path").click();

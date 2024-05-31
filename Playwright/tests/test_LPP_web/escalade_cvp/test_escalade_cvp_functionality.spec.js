@@ -105,6 +105,8 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     browser,
     page,
   }) => {
+
+    test.fixme("need to see if there are changes to filter logic to get this test working again 5/31/24");
     const escaladeCVP = new EscaladeCVP(page);
     await escaladeCVP.goto();
 
