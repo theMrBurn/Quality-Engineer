@@ -98,7 +98,7 @@ const config = {
     {
       name: "AtlasWebE2E",
       testDir: "Playwright/tests/test_LPP_web/atlas_web/atlas_e2e",
-      retries: 3,
+      retries: 0,
       use: {
         storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
