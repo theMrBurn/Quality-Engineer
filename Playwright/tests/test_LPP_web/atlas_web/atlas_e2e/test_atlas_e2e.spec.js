@@ -19,7 +19,7 @@ test("Assign functionality", async ({ browser, page }) => {
     await atlasLogin.signInHelper(page);
 
     try {
-      await atlase2e.assignBackstrom();
+      await atlase2e.assignBackstrom(atlase2e);
 
       // Notify Shawn Backstrom and cancel
       await atlase2e.clickElement("salesOpsNotifyButton");
