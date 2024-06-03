@@ -3,6 +3,8 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { PersonalSFFE } = require("./spsffe_sdo");
+const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
+
 
 //test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {
@@ -12,6 +14,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
   }) => {
     const personalSFFE = new PersonalSFFE(page);
     await personalSFFE.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -43,6 +49,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
   }) => {
     const personalSFFE = new PersonalSFFE(page);
     await personalSFFE.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();

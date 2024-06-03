@@ -3,7 +3,7 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { ServiceDetailstView } = require("./service_detail_views");
-const NetworkInterceptor = require("../../../../../helpers/utils/network_interceptor.js");
+const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 
 //test
 test.describe
@@ -14,6 +14,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -41,6 +45,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -70,6 +78,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -101,6 +113,10 @@ test.describe
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page
@@ -127,6 +143,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -156,6 +176,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -187,6 +211,10 @@ test.describe
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page
@@ -213,6 +241,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -242,6 +274,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -273,6 +309,10 @@ test.describe
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page
@@ -299,6 +339,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -328,6 +372,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -359,6 +407,10 @@ test.describe
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page
@@ -385,6 +437,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -414,6 +470,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -445,6 +505,10 @@ test.describe
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page
@@ -471,6 +535,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -500,6 +568,10 @@ test.describe
   }) => {
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
