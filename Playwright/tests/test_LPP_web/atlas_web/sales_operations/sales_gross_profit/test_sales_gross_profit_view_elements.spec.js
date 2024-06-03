@@ -3,6 +3,8 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { SalesGrossProfitView } = require("./sales_gross_profit_view.js");
+const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
+
 
 //test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {

@@ -3,6 +3,8 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { SellingPersonalExpense } = require("./spsffee.js");
+const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
+
 
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
@@ -12,6 +14,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -38,6 +44,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -67,6 +77,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Sales Operations" }).click();
@@ -94,6 +108,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Sales Operations" }).click();
@@ -119,6 +137,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -148,6 +170,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Sales Operations" }).click();
@@ -175,6 +201,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Sales Operations" }).click();
@@ -200,6 +230,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -229,6 +263,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Sales Operations" }).click();
@@ -256,6 +294,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Sales Operations" }).click();
@@ -281,6 +323,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -309,6 +355,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const sellingPersonalExpense = new SellingPersonalExpense(page);
     await sellingPersonalExpense.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();

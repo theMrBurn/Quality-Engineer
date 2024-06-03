@@ -3,6 +3,8 @@
 // dependancies
 const { test, expect } = require("@playwright/test");
 const { PartsGrossProfitView } = require("./parts_gross_profit_view.js");
+const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
+
 
 //test
 test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
@@ -12,6 +14,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -37,6 +43,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -64,6 +74,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -93,6 +107,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Parts Operations" }).click();
@@ -117,6 +135,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -144,6 +166,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -173,6 +199,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Parts Operations" }).click();
@@ -197,6 +227,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -224,6 +258,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -253,6 +291,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Parts Operations" }).click();
@@ -277,6 +319,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -304,6 +350,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -333,6 +383,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Parts Operations" }).click();
@@ -357,6 +411,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -384,6 +442,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -413,6 +475,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
     await page.getByRole("button", { name: "Parts Operations" }).click();
@@ -437,6 +503,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -464,6 +534,10 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
   }) => {
     const partsGrossProfitView = new PartsGrossProfitView(page);
     await partsGrossProfitView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
