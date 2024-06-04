@@ -7,6 +7,7 @@ const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
+  test.skip("we can skip these as the E2E does it better now");
   test("Navigate to Plan Details and cancel before Assigning Employee", async ({
     page,
   }) => {
@@ -19,10 +20,23 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await atlasLogin.signInHelper(page);
 
     try {
-      await planDetailsView.locators.assignEmployeeSalesOps().click();
-      await page.getByLabel("Search Employee").click();
+
+      // Assign Shawn Backstrom
+      await planDetailsView.clickElement("assignEmployeeSalesOps");
+      await page.getByLabel("Open").click();
       await page.getByRole("option", { name: "Shawn Backstrom" }).click();
+      await planDetailsView.clickElement("cancelButton");
+
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
+      await planDetailsView.clickElement("assignEmployeeSalesOps");
+      await page.getByLabel("Open").click();
+      await page.getByRole("option", { name: "Shawn Backstrom" }).click();
+
       await page.getByRole("button", { name: "Cancel" }).click();
+
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error("Test failed.");

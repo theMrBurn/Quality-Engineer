@@ -57,6 +57,7 @@ class PlanDetailsView {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div[5]/div/div[2]/button',
         ),
+      cancelButton: () => this.page.getByRole("button", { name: "Cancel" }),
 
       // Plan Progress
       planProgress: () => this.page.getByText("Plan Progress"),
@@ -149,6 +150,20 @@ class PlanDetailsView {
   }
 
   /// interact with elements
+
+  async clickElement(locatorName) {
+    const locatorFunction = this.locators[locatorName];
+
+    try {
+      await this.page.waitForLoadState("load");
+      const element = await locatorFunction().first();
+      await element.click();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      const errorMessage = `Clicking on locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
+    }
+  }
 
   async fillForm(testData) {
     for (const [key, value] of Object.entries(testData)) {
