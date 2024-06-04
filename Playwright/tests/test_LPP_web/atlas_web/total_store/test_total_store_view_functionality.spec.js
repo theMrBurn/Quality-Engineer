@@ -18,8 +18,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // call your signInHelper method on your atlas Login instance
-    await atlasLogin.signInHelper();
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -46,8 +47,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // call your signInHelper method on your atlas Login instance
-    await atlasLogin.signInHelper();
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -76,8 +78,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // call your signInHelper method on your atlas Login instance
-    await atlasLogin.signInHelper();
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -105,8 +108,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // call your signInHelper method on your atlas Login instance
-    await atlasLogin.signInHelper();
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -137,8 +141,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // call your signInHelper method on your atlas Login instance
-    await atlasLogin.signInHelper();
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
@@ -169,8 +174,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // call your signInHelper method on your atlas Login instance
-    await atlasLogin.signInHelper();
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //click complete - vaidate complete confirmation modal
     await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();

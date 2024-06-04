@@ -51,6 +51,11 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
       const assigned = page.locator('//*[@id="notistack-snackbar"]');
       await expect(assigned).toHaveText("Employee has been assigned");
+
+      await expect(assigned.toBeVisible(
+        await page.waitForLoadState("load"))
+      );
+
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
