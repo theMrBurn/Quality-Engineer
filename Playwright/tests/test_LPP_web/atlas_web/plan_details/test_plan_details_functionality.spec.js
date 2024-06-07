@@ -20,7 +20,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await atlasLogin.signInHelper(page);
 
     try {
-
       // Assign Shawn Backstrom
       await planDetailsView.clickElement("assignEmployeeSalesOps");
       await page.getByLabel("Open").click();
@@ -36,7 +35,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       await page.getByRole("option", { name: "Shawn Backstrom" }).click();
 
       await page.getByRole("button", { name: "Cancel" }).click();
-
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error("Test failed.");
@@ -66,10 +64,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       const assigned = page.locator('//*[@id="notistack-snackbar"]');
       await expect(assigned).toHaveText("Employee has been assigned");
 
-      await expect(assigned.toBeVisible(
-        await page.waitForLoadState("load"))
-      );
-
+      await expect(assigned.toBeVisible(await page.waitForLoadState("load")));
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
