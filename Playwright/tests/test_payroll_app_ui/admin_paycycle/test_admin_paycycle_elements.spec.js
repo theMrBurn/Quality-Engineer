@@ -6,25 +6,38 @@ const { AdminPayCycle } = require("./admin_paycycle.js");
 
 //test
 test.describe.serial("/Admin/PayCycle", () => {
+  //test
   test("Navigate to /Admin/PayCycle and validate Page elements have loaded as expected @smoke", async ({
     browser,
     page,
   }) => {
-    const adminPayCyclePage = new AdminPayCycle(page);
-    await adminPayCyclePage.goto();
+    const adminPayCycle = new AdminPayCycle(page);
+    await adminPayCycle.goto();
 
-    //validate expected text elements have loaded
-    await adminPayCyclePage.getPayCyclePageHeader();
-    await adminPayCyclePage.getCompanyText();
-    await adminPayCyclePage.getCompanyNumberText();
-    await adminPayCyclePage.getCompanyGridColumnText();
-    await adminPayCyclePage.getCompanyNumberGridColumnText();
-    await adminPayCyclePage.getCalendarGridColumnText();
-    await adminPayCyclePage.getPayGroupGridColumnText();
-    await adminPayCyclePage.getActiveGridColumnText();
-    await adminPayCyclePage.getCompanyInputBox();
-    await adminPayCyclePage.getCompanyInputDropdown();
-    await adminPayCyclePage.getPayGroupInputBox();
-    await adminPayCyclePage.getAssignPayCycleButton();
+    const locatorNames = [
+      "payCyclePageHeader",
+      "companyText",
+      "companyNumberText",
+      "companyGridColumnText",
+      "companyNumberGridColumnText",
+      "calendarGridText",
+      "payGroupGridText",
+      "activeGridText",
+      "companyInputBox",
+      "companyInputDropdown",
+      "payGroupInputBox",
+      "payGroupInputDropdown",
+      "assignPayCycleButton",
+      //"cancelButton",
+    ];
+
+    try {
+      for (const locatorName of locatorNames) {
+        await adminPayCycle.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 });

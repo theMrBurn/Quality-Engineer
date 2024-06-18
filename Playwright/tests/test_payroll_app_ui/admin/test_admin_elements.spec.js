@@ -19,21 +19,29 @@ test.describe.serial("/Admin", () => {
     const adminPage = new Admin(page);
     await adminPage.goto();
 
-    //validate expected text elements have loaded
-    await adminPage.getAdminPageHeader();
-    await adminPage.getCategotyText();
-    await adminPage.getLegalExplanationText();
-    await adminPage.getStartDateText();
-    await adminPage.getEndDateText();
-    await adminPage.getLegalExplanationGridColumn();
-    await adminPage.getNameGridColumn();
-    await adminPage.getCategoryGridColumn();
-    await adminPage.getStartDateGridColumn();
-    await adminPage.getEndDateGridColumn();
+    const locatorNames = [
+      "adminPageHeader",
+      "categoryText",
+      "legalExplanationText",
+      "startDateText",
+      "endDateText",
+      "legalExplanationGridColumn",
+      "nameGridColumn",
+      "categoryGridColumn",
+      "startDateGridColumn",
+      "endDateGridColumn",
+      "newLegalButton",
+      "categoryDropdownTriangle",
+      "legalExplanationInput",
+    ];
 
-    //validate expected interactive elements have loaded
-    await adminPage.getNewLegalButton();
-    await adminPage.getCategoryDropdown();
-    await adminPage.getLegalExplanationInput();
+    try {
+      for (const locatorName of locatorNames) {
+        await adminPage.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 });

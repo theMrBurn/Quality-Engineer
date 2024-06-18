@@ -8,53 +8,56 @@ class AdminPayCycle {
   constructor(page) {
     this.page = page;
 
-    //// locators
-    // headers
-    this.payCyclePageHeader = page.getByRole("heading", { name: "Pay Cycle" });
-
-    // unique page text
-    this.companyText = page.locator("text=Company >> nth=0");
-    this.companyNumberText = page.locator('label:has-text("Company Number")');
-    this.companyGridColumnText = page.locator("text=Company >> nth=2");
-    this.companyNumberGridColumnText = page.locator(
-      'a:has-text("Company Number")'
-    );
-    this.calendarGridText = page.locator(
-      'thead[role="rowgroup"] >> text=Calendar'
-    );
-    this.payGroupGridText = page.locator('a:has-text("Pay Group")');
-    this.activeGridText = page.locator('a:has-text("Active")');
-
-    // buttons, dropdowns and input boxes
-    this.companyInputBox = page.locator('input[name="OrganizationList_input"]');
-    this.companyInputDropdown = page.locator('[aria-label="select"] >> nth=0');
-    this.payGroupInputBox = page.locator('input[name="PayGroupList_input"]');
-    this.payGroupInputDropdown = page.locator('[aria-label="select"] >> nth=1');
-    this.assignPayCycleButton = page.locator("text=Assign Pay Cycle");
-    this.cancelButton = page.locator(
-      '//*[@id="PayGroupGrid"]/table/tbody/tr[1]/td[7]/a[2]'
-    );
-
-    // forms and grids
-    this.nameGridColumn = page.locator("text=Name");
-    this.legalExplanationGridColumn = page.locator(
-      '#LegalExplanationGrid div:has-text("New Legal Explanation")'
-    );
-    this.endDateGridColumn = page.locator('a:has-text("End Date")');
-    this.startDateGridInput = page.locator('//*[@id="StartDate"]');
-    this.companyGridInput = page.locator(
-      'tbody[role="rowgroup"] span[role="listbox"] [aria-label="select"] span'
-    );
-    this.companyNumberGridInput = page.locator(
-      '//*[@id="PayGroupGrid"]/table/tbody/tr[1]/td[3]/span[1]/span/span[2]'
-    );
-    this.calendarGridInput = page.locator(
-      '//*[@id="PayGroupGrid"]/table/tbody/tr[1]/td[4]/span[1]/span/span[2]'
-    );
-
-    this.payGroupGridInput = page.locator(
-      '//*[@id="PayGroupGrid"]/table/tbody/tr[1]/td[5]/span[1]/span/span[2]'
-    );
+    this.locators = {
+      payCyclePageHeader: () =>
+        this.page.getByRole("heading", { name: "Pay Cycle" }),
+      companyText: () => this.page.locator("text=Company >> nth=0"),
+      companyNumberText: () =>
+        this.page.locator('label:has-text("Company Number")'),
+      companyGridColumnText: () => this.page.locator("text=Company >> nth=2"),
+      companyNumberGridColumnText: () =>
+        this.page.locator('a:has-text("Company Number")'),
+      calendarGridText: () =>
+        this.page.locator('thead[role="rowgroup"] >> text=Calendar'),
+      payGroupGridText: () => this.page.locator('a:has-text("Pay Group")'),
+      activeGridText: () => this.page.locator('a:has-text("Active")'),
+      companyInputBox: () =>
+        this.page.locator('input[name="OrganizationList_input"]'),
+      companyInputDropdown: () =>
+        this.page.locator('[aria-label="select"] >> nth=0'),
+      payGroupInputBox: () =>
+        this.page.locator('input[name="PayGroupList_input"]'),
+      payGroupInputDropdown: () =>
+        this.page.locator('[aria-label="select"] >> nth=1'),
+      assignPayCycleButton: () => this.page.locator("text=Assign Pay Cycle"),
+      cancelButton: () =>
+        this.page.locator(
+          '//*[@id="PayGroupGrid"]/table/tbody/tr[1]/td[7]/a[2]',
+        ),
+      nameGridColumn: () => this.page.locator("text=Name"),
+      legalExplanationGridColumn: () =>
+        this.page.locator(
+          '#LegalExplanationGrid div:has-text("New Legal Explanation")',
+        ),
+      endDateGridColumn: () => this.page.locator('a:has-text("End Date")'),
+      startDateGridInput: () => this.page.locator('//*[@id="StartDate"]'),
+      companyGridInput: () =>
+        this.page.locator(
+          'tbody[role="rowgroup"] span[role="listbox"] [aria-label="select"] span',
+        ),
+      companyNumberGridInput: () =>
+        this.page.locator(
+          '//*[@id="PayGroupGrid"]/table/tbody/tr[1]/td[3]/span[1]/span/span[2]',
+        ),
+      calendarGridInput: () =>
+        this.page.locator(
+          '//*[@id="PayGroupGrid"]/table/tbody/tr[1]/td[4]/span[1]/span/span[2]',
+        ),
+      payGroupGridInput: () =>
+        this.page.locator(
+          '//*[@id="PayGroupGrid"]/table/tbody/tr[1]/td[5]/span[1]/span/span[2]',
+        ),
+    };
   }
 
   // Navigate to /Admin/Paycycle endpoint
@@ -64,178 +67,50 @@ class AdminPayCycle {
   }
 
   // get page elements
+  /// new interactive methods
 
-  async getPayCyclePageHeader() {
-    await expect(
-      this.payCyclePageHeader,
-      "Admin PayCycle Page header not found"
-    ).toBeVisible();
+  // get page elements
+  async checkElementVisibility(locatorName) {
+    await this.page.waitForLoadState("load");
+    const locatorFunction = this.locators[locatorName];
+
+    try {
+      const element = await locatorFunction().first();
+      await expect(element).toBeVisible();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      const errorMessage = `Locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
+    }
   }
 
-  async getCompanyText() {
-    await expect(
-      this.companyText,
-      "Company input label not found"
-    ).toBeVisible();
+  /// interact with elements
+
+  async clickElement(locatorName) {
+    const locatorFunction = this.locators[locatorName];
+
+    try {
+      await this.page.waitForLoadState("load");
+      const element = await locatorFunction().first();
+      await element.click();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      const errorMessage = `Clicking on locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
+    }
   }
 
-  async getCompanyNumberText() {
-    await expect(
-      this.companyNumberText,
-      "Company Number input label not found"
-    ).toBeVisible();
-  }
-
-  async getCompanyGridColumnText() {
-    await expect(
-      this.companyGridColumnText,
-      "Company Grid text label not found"
-    ).toBeVisible();
-  }
-
-  async getCompanyNumberGridColumnText() {
-    await expect(
-      this.companyNumberGridColumnText,
-      "Company Number Grid text label not found"
-    ).toBeVisible();
-  }
-
-  async getCalendarGridColumnText() {
-    await expect(
-      this.calendarGridText,
-      "Calendar Grid text label not found"
-    ).toBeVisible();
-  }
-
-  async getPayGroupGridColumnText() {
-    await expect(
-      this.payGroupGridText,
-      "PayGroup Grid text label not found"
-    ).toBeVisible();
-  }
-
-  async getActiveGridColumnText() {
-    await expect(
-      this.activeGridText,
-      "Active Grid text label not found"
-    ).toBeVisible();
-  }
-
-  async getCompanyInputBox() {
-    await expect(
-      this.companyInputBox,
-      "Company input box not found"
-    ).toBeVisible();
-  }
-
-  async getCompanyInputDropdown() {
-    await expect(
-      this.companyInputDropdown,
-      "Company input dropdown not found"
-    ).toBeVisible();
-  }
-
-  async getPayGroupInputBox() {
-    await expect(
-      this.payGroupInputBox,
-      "PayGroup input box not found"
-    ).toBeVisible();
-  }
-
-  async getPayGroupInputDropdown() {
-    await expect(
-      this.payGroupInputDropdown,
-      "PayGroup input dropdown not found"
-    ).toBeVisible();
-  }
-
-  async getAssignPayCycleButton() {
-    await expect(
-      this.assignPayCycleButton,
-      "Assign Paycycle button not found"
-    ).toBeVisible();
-  }
-
-  async getCompanyGridInput() {
-    await expect(
-      this.companyGridInput,
-      "Company grid input box not found"
-    ).toBeVisible();
-  }
-
-  async getCompanyNumberGridInput() {
-    await expect(
-      this.companyNumberGridInput,
-      "Company Number grid input box not found"
-    ).toBeVisible();
-  }
-
-  async getCalendarGridInput() {
-    await expect(
-      this.calendarGridInput,
-      "Calendar grid input box not found"
-    ).toBeVisible();
-  }
-
-  async getPayGroupGridInput() {
-    await expect(
-      this.payGroupGridInput,
-      "Paygroup grid input box not found"
-    ).toBeVisible();
-  }
-
-  async getCancelButton() {
-    await expect(this.cancelButton, "Cancel button not found").toBeVisible();
-  }
-
-  // interact with elements
-
-  async clickCompanyDropdown() {
-    await this.getCompanyInputDropdown();
-    await this.companyInputDropdown.click();
-  }
-
-  async clickCompanyNumberDropdown() {
-    await this.getPayGroupInputDropdown();
-    await this.payGroupInputDropdown.click();
-  }
-
-  async clickAssignPayCycleButton() {
-    await this.getAssignPayCycleButton();
-    await this.assignPayCycleButton.click();
-  }
-
-  async clickCancelButton() {
-    await this.getCancelButton();
-    await this.cancelButton.click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  // input elements and forms
-
-  async inputCompany(text) {
-    await this.getCompanyInputBox();
-    await this.companyInputBox.fill(text);
-  }
-
-  async inputCompanyGridFromDropdown() {
-    await this.getCompanyGridInput();
-    await this.companyGridInput.click();
-  }
-
-  async inputCompanyNumberGridFromDropdown() {
-    await this.getCompanyNumberGridInput();
-    await this.companyNumberGridInput.click();
-  }
-
-  async inputCalendarGridFromDropdown() {
-    await this.getCalendarGridInput();
-    await this.calendarGridInput.click();
-  }
-
-  async inputPayGroupInputFromDropdown() {
-    await this.getPayGroupGridInput();
-    await this.payGroupGridInput.click();
+  async fillForm(testData) {
+    for (const [key, value] of Object.entries(testData)) {
+      const locatorFunction = this.locators[key];
+      if (locatorFunction) {
+        await this.page.waitForLoadState("networkidle");
+        const inputElement = await locatorFunction();
+        await inputElement.fill(value);
+      } else {
+        console.warn(`Locator not found for key: ${key}`);
+      }
+    }
   }
 }
 module.exports = { AdminPayCycle };

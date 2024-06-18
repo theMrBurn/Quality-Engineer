@@ -8,280 +8,112 @@ class Admin {
   constructor(page) {
     this.page = page;
 
-    //// locators
-    // headers
-    this.adminPageHeader = page.getByRole("heading", {
-      name: "Legal Explanation",
-    });
+    ///Locators
+    this.locators = {
+      // headers
+      adminPageHeader: () =>
+        this.page.getByRole("heading", { name: "Legal Explanation" }),
 
-    // unique page text
-    this.gridNameText = page.locator("text=Grid Name");
-    this.categotyText = page.locator('label:has-text("Category")');
-    this.legalExplanationText = page.locator("text=Legal Explanation Text");
-    this.startDateText = page.locator('label:has-text("Start Date")');
-    this.endDateText = page.locator('label:has-text("End Date")');
+      // unique page text
+      gridNameText: () => this.page.locator("text=Grid Name"),
+      categoryText: () => this.page.locator('label:has-text("Category")'),
+      legalExplanationText: () =>
+        this.page.locator("text=Legal Explanation Text"),
+      startDateText: () => this.page.locator('label:has-text("Start Date")'),
+      endDateText: () => this.page.locator('label:has-text("End Date")'),
 
-    // buttons, dropdowns and input boxes
-    this.newLegalButton = page.locator("text=New Legal Explanation");
-    this.categoryDropdownTriangle = page.locator(
-      '[aria-label="select"] >> nth=0'
-    );
-    this.legalExplanationInput = page.locator('input[name="SearchTextBox"]');
+      // buttons, dropdowns and input boxes
+      newLegalButton: () => this.page.locator("text=New Legal Explanation"),
+      categoryDropdownTriangle: () =>
+        this.page.locator('[aria-label="select"] >> nth=0'),
+      legalExplanationInput: () =>
+        this.page.locator('input[name="SearchTextBox"]'),
 
-    this.positionTypeDefinitions = page.locator(
-      'li[role="option"]:has-text("Position Type Definitions")'
-    );
+      positionTypeDefinitions: () =>
+        this.page.locator(
+          'li[role="option"]:has-text("Position Type Definitions")',
+        ),
 
-    this.dataTypeDefinitions = page.locator(
-      'li[role="option"]:has-text("Data Type Definitions")'
-    );
+      dataTypeDefinitions: () =>
+        this.page.locator(
+          'li[role="option"]:has-text("Data Type Definitions")',
+        ),
 
-    this.startDatePicker = page.locator('input[name="StartDatePicker"]');
-    this.endDatePicker = page.locator('input[name="EndDatePicker"]');
+      startDatePicker: () => this.page.locator('input[name="StartDatePicker"]'),
+      endDatePicker: () => this.page.locator('input[name="EndDatePicker"]'),
 
-    this.cancelButton = page.locator("text=Cancel");
+      cancelButton: () => this.page.locator("text=Cancel"),
 
-    // forms and grids
-    this.nameGridColumn = page.locator("text=Name");
-    this.categoryGridColumn = page.locator('a:has-text("Category")');
-    this.legalExplanationGridColumn = page.locator(
-      '#LegalExplanationGrid div:has-text("New Legal Explanation")'
-    );
-    this.startDateGridColumn = page.locator('a:has-text("Start Date")');
-    this.endDateGridColumn = page.locator('a:has-text("End Date")');
-    this.startDateGridInput = page.locator('//*[@id="StartDate"]');
-    this.endDateGridInput = page.locator('//*[@id="EndDate"]');
-    this.gridNameInput = page.locator('input[name="Name"]');
-    this.gridCategoryInput = page.locator('input[name="Category"]');
+      // forms and grids
+      nameGridColumn: () => this.page.locator("text=Name"),
+      categoryGridColumn: () => this.page.locator('a:has-text("Category")'),
+      legalExplanationGridColumn: () =>
+        this.page.locator(
+          '#LegalExplanationGrid div:has-text("New Legal Explanation")',
+        ),
+      startDateGridColumn: () => this.page.locator('a:has-text("Start Date")'),
+      endDateGridColumn: () => this.page.locator('a:has-text("End Date")'),
+      startDateGridInput: () => this.page.locator('//*[@id="StartDate"]'),
+      endDateGridInput: () => this.page.locator('//*[@id="EndDate"]'),
+      gridNameInput: () => this.page.locator('input[name="Name"]'),
+      gridCategoryInput: () => this.page.locator('input[name="Category"]'),
 
-    // calendar elements
-    this.startDateCalendar = this.expirationDateCalendar1 = page.locator(
-      '[aria-label="select"] >> nth=1'
-    );
+      // calendar elements
+      startDateCalendar: () =>
+        this.page.locator('[aria-label="select"] >> nth=1'),
+    };
   }
 
   // Navigate to /Payroll/Regular endpoint
   async goto() {
     await this.page.goto("/Admin");
+    await this.page.waitForLoadState("load");
   }
+
+  /// new interactive methods
 
   // get page elements
+  async checkElementVisibility(locatorName) {
+    await this.page.waitForLoadState("load");
+    const locatorFunction = this.locators[locatorName];
 
-  async getAdminPageHeader() {
-    await expect(
-      this.adminPageHeader,
-      "Admin Page header not found"
-    ).toBeVisible();
+    try {
+      const element = await locatorFunction().first();
+      await expect(element).toBeVisible();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      const errorMessage = `Locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
+    }
   }
 
-  async getCategotyText() {
-    await expect(this.categotyText, "Category Text not found").toBeVisible();
+  /// interact with elements
+
+  async clickElement(locatorName) {
+    const locatorFunction = this.locators[locatorName];
+
+    try {
+      await this.page.waitForLoadState("load");
+      const element = await locatorFunction().first();
+      await element.click();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      const errorMessage = `Clicking on locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
+    }
   }
 
-  async getLegalExplanationText() {
-    await expect(
-      this.legalExplanationText,
-      "Legal Explanation Text not found"
-    ).toBeVisible();
-  }
-
-  async getStartDateText() {
-    await expect(this.startDateText, "Start Date Text not found").toBeVisible();
-  }
-
-  async getEndDateText() {
-    await expect(this.endDateText, "End Date Text not found").toBeVisible();
-  }
-
-  async getNewLegalButton() {
-    await expect(
-      this.newLegalButton,
-      "New Legal Explanation Button not found "
-    ).toBeVisible();
-  }
-
-  async getCategoryDropdown() {
-    await expect(
-      this.categoryDropdownTriangle,
-      "Category Dropdown not found"
-    ).toBeVisible();
-  }
-
-  async getLegalExplanationInput() {
-    await expect(
-      this.legalExplanationInput,
-      "Legal Explanation Input not found"
-    ).toBeVisible();
-  }
-
-  async getLegalExplanationGridColumn() {
-    await expect(
-      this.legalExplanationGridColumn,
-      "Legal Explanation Grid Column not found"
-    ).toBeVisible();
-  }
-
-  async getNameGridColumn() {
-    await expect(
-      this.nameGridColumn,
-      "Name grid column not found"
-    ).toBeVisible();
-  }
-
-  async getCategoryGridColumn() {
-    await expect(
-      this.categoryGridColumn,
-      "Category Grid Column not found"
-    ).toBeVisible();
-  }
-
-  async getStartDateGridColumn() {
-    await expect(
-      this.startDateGridColumn,
-      "Start Date Grid column not found"
-    ).toBeVisible();
-  }
-
-  async getEndDateGridColumn() {
-    await expect(
-      this.endDateGridColumn,
-      "End Date Grid Column not found"
-    ).toBeVisible();
-  }
-
-  async getPositionTypeDefinitionsOption() {
-    await expect(
-      this.positionTypeDefinitions,
-      "Position Type Definitions drop down option not found"
-    ).toBeVisible();
-  }
-
-  async getDataTypeDefinitionsOption() {
-    await expect(
-      this.dataTypeDefinitions,
-      "Data Type Definitions drop down option not found"
-    ).toBeVisible();
-  }
-
-  async getLegalExplanationInputBox() {
-    await expect(
-      this.legalExplanationInput,
-      "Legal Explanation Input box not found"
-    ).toBeVisible();
-  }
-
-  async getStartDateCalendar() {
-    await expect(
-      this.startDateCalendar,
-      "Start Date Calendar not found"
-    ).toBeVisible();
-  }
-
-  async getNameInputGrid() {
-    await expect(
-      this.gridNameInput,
-      "Input Name on new Legal Explanation, not found"
-    ).toBeVisible();
-  }
-
-  async getCategoryInputGrid() {
-    await expect(
-      this.gridCategoryInput,
-      "Input Category on new Legal Explanation, not found"
-    ).toBeVisible();
-  }
-
-  async getCancelButton() {
-    await expect(this.cancelButton, "Cancel Button not found").toBeVisible();
-  }
-
-  async getStartDateGridInput() {
-    await expect(
-      this.startDateGridInput,
-      "Start Date input on Grid, not found"
-    ).toBeVisible();
-  }
-
-  async getEndDateGridInput() {
-    await expect(
-      this.endDateGridInput,
-      "End Date input on Grid, not found"
-    ).toBeVisible();
-  }
-
-  // interact with elements
-
-  async clickCategoryDropdown() {
-    await this.getCategoryDropdown();
-    await this.categoryDropdownTriangle.click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickPositionTypeDefinitions() {
-    await this.getPositionTypeDefinitionsOption();
-    await this.positionTypeDefinitions.click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickDataTypeDefinitions() {
-    await this.getDataTypeDefinitionsOption();
-    await this.dataTypeDefinitions.click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickStartDate() {
-    await this.getStartDateCalendar();
-    await this.startDateCalendar.click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickNewLegalButton() {
-    await this.getNewLegalButton();
-    await this.newLegalButton.click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickCancelButton() {
-    await this.getCancelButton();
-    await this.cancelButton.click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  // input elements and forms
-
-  async inputLegalExplanation(text) {
-    await this.getLegalExplanationInputBox();
-    await this.legalExplanationInput.fill(text);
-  }
-
-  async inputStartDatePicker(text) {
-    await this.getStartDateCalendar();
-    await this.startDatePicker.fill(text);
-  }
-
-  async inputEndDatePicker(text) {
-    await this.getStartDateCalendar();
-    await this.endDatePicker.fill(text);
-  }
-
-  async inputNewName(text) {
-    await this.getNameInputGrid();
-    await this.gridNameInput.fill(text);
-  }
-
-  async inputNewCategory(text) {
-    await this.getCategoryInputGrid();
-    await this.gridCategoryInput.fill(text);
-  }
-
-  async inputStartDateGrid(text) {
-    await this.getStartDateGridInput();
-    await this.startDateGridInput.fill(text);
-  }
-
-  async inputEndDateGrid(text) {
-    await this.getEndDateGridInput();
-    await this.endDateGridInput.fill(text);
+  async fillForm(testData) {
+    for (const [key, value] of Object.entries(testData)) {
+      const locatorFunction = this.locators[key];
+      if (locatorFunction) {
+        await this.page.waitForLoadState("networkidle");
+        const inputElement = await locatorFunction();
+        await inputElement.fill(value);
+      } else {
+        console.warn(`Locator not found for key: ${key}`);
+      }
+    }
   }
 }
 module.exports = { Admin };

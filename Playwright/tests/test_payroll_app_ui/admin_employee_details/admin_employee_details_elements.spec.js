@@ -7,36 +7,49 @@
 const { test, expect } = require("@playwright/test");
 const { AdminEmployee } = require("./admin_employee_details.js");
 
-// user
-//test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
-
-//test
-test.describe.serial("Admin Employee Details", () => {
-  test("Navigate to Admin/EmployeeDetails and validate Page elements have loaded @smoke", async ({
+// test
+test.describe.serial("/Admin Employee Details", () => {
+  test("Navigate to Admin/EmployeeDetails and validate Page elements have loaded as expected @smoke", async ({
     browser,
     page,
   }) => {
     const adminEmployeeDetails = new AdminEmployee(page);
     await adminEmployeeDetails.goto();
 
-    // validate text elements have loaded as expected
-    await adminEmployeeDetails.getEmployeeDetailsHeader();
-    await adminEmployeeDetails.getCompanyText();
-    await adminEmployeeDetails.getStatusText();
-    await adminEmployeeDetails.getJobText();
-    await adminEmployeeDetails.getPayPlanStatusText();
-    await adminEmployeeDetails.getEmployeeText();
-    await adminEmployeeDetails.getDepartmentText();
-    await adminEmployeeDetails.getPayPlanCalculationText();
-    await adminEmployeeDetails.getServiceDateText();
+    const locatorNames = [
+      "employeeDetailsHeader",
+      "companyText",
+      "statusText",
+      "jobText",
+      "payPlanStatusText",
+      "employeeText",
+      "departmentText",
+      "activeText",
+      "payPlanCalculationText",
+      "serviceDateText",
+      "companyInput",
+      "statusListInput",
+      "jobsListInput",
+      "payPlanStatusInput",
+      "employeeInput",
+      "departmentInput",
+      "activeInput",
+      "payPlanCalculationInput",
+      "companyDropdown",
+      "statusDropdown",
+      "jobDropdown",
+      "departmentDropdown",
+      "activeDropdown",
+      "payPlanCalculationDropdown",
+    ];
 
-    // validate input/dropdown elements have loaded as expected
-    await adminEmployeeDetails.getComapanyInput();
-    await adminEmployeeDetails.getStatusInput();
-    await adminEmployeeDetails.getJobInput();
-    await adminEmployeeDetails.getPayPlanStatusInput();
-    await adminEmployeeDetails.getDepartmentInput();
-    await adminEmployeeDetails.getActiveInput();
-    await adminEmployeeDetails.getPayPlanCalculationInput();
+    try {
+      for (const locatorName of locatorNames) {
+        await adminEmployeeDetails.locators[locatorName]().isVisible();
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 });

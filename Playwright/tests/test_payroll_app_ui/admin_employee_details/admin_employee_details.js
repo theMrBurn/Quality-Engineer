@@ -8,59 +8,61 @@ class AdminEmployee {
   constructor(page) {
     this.page = page;
 
-    //// locators
-    // headers
-    this.employeeDetailsHeader = page.locator(
-      'h2:has-text("Employee Details")'
-    );
+    this.locators = {
+      // headers
+      employeeDetailsHeader: () =>
+        page.locator('h2:has-text("Employee Details")'),
 
-    // text and lables
-    this.employeeText = page.locator('label:has-text("Employee")');
-    this.companyText = page.locator('label:has-text("Company")');
-    this.statusText = page.locator("text=Status >> nth=0");
-    this.jobText = page.locator('label:has-text("Job")');
-    this.payPlanStatusText = page.locator('label:has-text("Pay Plan Status")');
-    this.departmentText = page.locator('label:has-text("Department")');
-    this.activeText = page.locator('label:has-text("Active")');
-    this.payPlanCalculationText = page.locator("text=Pay Plan Calculation");
-    this.serviceDateText = page.locator('label:has-text("Service Date")');
+      // text and labels
+      employeeText: () => page.locator('label:has-text("Employee")'),
+      companyText: () => page.locator('label:has-text("Company")'),
+      statusText: () => page.locator("text=Status >> nth=0"),
+      jobText: () => page.locator('label:has-text("Job")'),
+      payPlanStatusText: () =>
+        page.locator('label:has-text("Pay Plan Status")'),
+      departmentText: () => page.locator('label:has-text("Department")'),
+      activeText: () => page.locator('label:has-text("Active")'),
+      payPlanCalculationText: () => page.locator("text=Pay Plan Calculation"),
+      serviceDateText: () => page.locator('label:has-text("Service Date")'),
 
-    /// page elements
-    // inputs
-    this.companyInput = page.locator('input[name="PayGroupList_input"]');
-    this.statusListInput = page.locator('input[name="StatusList_input"]');
-    this.jobsListInput = page.locator('input[name="JobList_input"]');
-    this.payPlanStatusInput = page.locator('input[role="listbox"]');
-    this.employeeInput = page.locator(
-      'text=Company Employee Service Date to >> [aria-label="select"] >> nth=1'
-    );
-    this.departmentInput = page.locator('input[name="DepartmentList_input"]');
-    this.activeInput = page.locator(
-      'input[name="PayPlanCalculationList_input"]'
-    );
-    this.payPlanCalculationInput = page.locator(
-      'input[name="PayPlanCalculationList_input"]'
-    );
+      // page elements
+      // inputs
+      companyInput: () => page.locator('input[name="PayGroupList_input"]'),
+      statusListInput: () => page.locator('input[name="StatusList_input"]'),
+      jobsListInput: () => page.locator('input[name="JobList_input"]'),
+      payPlanStatusInput: () => page.locator('input[role="listbox"]'),
+      employeeInput: () =>
+        page.locator(
+          'text=Company Employee Service Date to >> [aria-label="select"] >> nth=1',
+        ),
+      departmentInput: () => page.locator('input[name="DepartmentList_input"]'),
+      activeInput: () =>
+        page.locator('input[name="PayPlanCalculationList_input"]'),
+      payPlanCalculationInput: () =>
+        page.locator('input[name="PayPlanCalculationList_input"]'),
 
-    // dropdowns
-    this.companyDropdown = page.locator(
-      'text=Company Employee Service Date to >> [aria-label="select"] >> nth=0'
-    );
-    this.statusDropdown = page.locator(
-      'text=Status Department >> [aria-label="select"] >> nth=0'
-    );
-    this.jobDropdown = page.locator(
-      'text=Job Active >> [aria-label="select"] >> nth=0'
-    );
-    this.departmentDropdown = page.locator(
-      'text=Status Department >> [aria-label="select"] >> nth=1'
-    );
-    this.activeDropdown = page.locator(
-      'text=Job Active >> [aria-label="select"] >> nth=1'
-    );
-    this.payPlanCalculationDropdown = page.locator(
-      "div:nth-child(4) > div:nth-child(2) > div > .k-widget > .k-dropdown-wrap > .k-select"
-    );
+      // dropdowns
+      companyDropdown: () =>
+        page.locator(
+          'text=Company Employee Service Date to >> [aria-label="select"] >> nth=0',
+        ),
+      statusDropdown: () =>
+        page.locator(
+          'text=Status Department >> [aria-label="select"] >> nth=0',
+        ),
+      jobDropdown: () =>
+        page.locator('text=Job Active >> [aria-label="select"] >> nth=0'),
+      departmentDropdown: () =>
+        page.locator(
+          'text=Status Department >> [aria-label="select"] >> nth=1',
+        ),
+      activeDropdown: () =>
+        page.locator('text=Job Active >> [aria-label="select"] >> nth=1'),
+      payPlanCalculationDropdown: () =>
+        page.locator(
+          "div:nth-child(4) > div:nth-child(2) > div > .k-widget > .k-dropdown-wrap > .k-select",
+        ),
+    };
   }
 
   // Navigation
@@ -68,173 +70,48 @@ class AdminEmployee {
     await this.page.goto("/Admin/EmployeeDetails");
   }
 
-  /// get elements
-  async getEmployeeDetailsHeader() {
-    await expect(this.employeeDetailsHeader, "Header Not found").toBeVisible();
+  // get page elements
+  async checkElementVisibility(locatorName) {
+    await this.page.waitForLoadState("load");
+    const locatorFunction = this.locators[locatorName];
+
+    try {
+      const element = await locatorFunction().first();
+      await expect(element).toBeVisible();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      const errorMessage = `Locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
+    }
   }
 
-  async getCompanyText() {
-    await expect(this.companyText, "Company text not found").toBeVisible();
+  /// interact with elements
+
+  async clickElement(locatorName) {
+    const locatorFunction = this.locators[locatorName];
+
+    try {
+      await this.page.waitForLoadState("load");
+      const element = await locatorFunction().first();
+      await element.click();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      const errorMessage = `Clicking on locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
+    }
   }
 
-  async getStatusText() {
-    await expect(this.statusText, "Status text not found").toBeVisible();
-  }
-
-  async getJobText() {
-    await expect(this.jobText, "Job text not found").toBeVisible();
-  }
-
-  async getPayPlanStatusText() {
-    await expect(
-      this.payPlanStatusText,
-      "Pay Plan Status text not found"
-    ).toBeVisible();
-  }
-
-  async getEmployeeText() {
-    await expect(this.employeeText, "Employee text not found").toBeVisible();
-  }
-
-  async getDepartmentText() {
-    await expect(
-      this.departmentText,
-      "Department text not found"
-    ).toBeVisible();
-  }
-
-  async getPayPlanCalculationText() {
-    await expect(
-      this.payPlanCalculationText,
-      "Pay Plan Calculation Text not found"
-    ).toBeVisible();
-  }
-
-  async getServiceDateText() {
-    await expect(
-      this.serviceDateText,
-      "Service Date  Text not found"
-    ).toBeVisible();
-  }
-
-  async getComapanyInput() {
-    await expect(this.companyInput, "Company input not found").toBeVisible();
-  }
-
-  async getStatusInput() {
-    await expect(this.statusListInput, "Status input not found").toBeVisible();
-  }
-
-  async getJobInput() {
-    await expect(this.jobsListInput, "Job input not found").toBeVisible();
-  }
-
-  async getPayPlanStatusInput() {
-    await expect(
-      this.payPlanStatusInput,
-      "PayPlan Status input not found"
-    ).toBeVisible();
-  }
-
-  async getEmployeeInputHidden() {
-    await expect(
-      this.employeeInput,
-      "This should be hidden, but isn't"
-    ).toBeHidden();
-  }
-
-  async getEmployeeInput() {
-    await expect(
-      this.employeeInput,
-      "This should be visible, but isn't"
-    ).toBeVisible();
-  }
-
-  async getDepartmentInput() {
-    await expect(
-      this.departmentInput,
-      "Department input not found"
-    ).toBeVisible();
-  }
-
-  async getActiveInput() {
-    await expect(this.activeInput, "Active input not found").toBeVisible();
-  }
-
-  async getPayPlanCalculationInput() {
-    await expect(
-      this.payPlanCalculationInput,
-      "PayPlan Calculation input not found"
-    ).toBeVisible();
-  }
-
-  async getCompanyDropdown() {
-    await expect(
-      this.companyDropdown,
-      "Company dropdown not found"
-    ).toBeVisible();
-  }
-
-  async getStatusDropdown() {
-    await expect(
-      this.statusDropdown,
-      "Status dropdown not found"
-    ).toBeVisible();
-  }
-
-  async getJobDropdown() {
-    await expect(this.jobDropdown, "Job dropdown Not found").toBeVisible();
-  }
-
-  async getDepartmentDropdown() {
-    await expect(
-      this.departmentDropdown,
-      "Department dropdown not found"
-    ).toBeVisible();
-  }
-
-  async getActiveDropdown() {
-    await expect(
-      this.activeDropdown,
-      "Active yes/no dropdown not found"
-    ).toBeVisible();
-  }
-
-  // input elements
-
-  async clickCompanyDropdown() {
-    await this.getCompanyDropdown();
-    await this.companyDropdown.click();
-  }
-
-  async clickStatusDropdown() {
-    await this.getStatusDropdown();
-    await this.statusDropdown.click();
-  }
-
-  async clickJobDropdown() {
-    await this.getJobDropdown();
-    await this.jobDropdown.click();
-  }
-
-  async clickDepartmentDropdown() {
-    await this.getDepartmentDropdown();
-    await this.departmentDropdown.click();
-  }
-
-  async inputCompany(text) {
-    await this.getEmployeeDropdown();
-    await this.employeeDropdown.click();
-    await this.employeeDropdown.fill(text);
-  }
-
-  // click elements
-  async clickEmployeesLink() {
-    await this.employeesLink.click();
-    await expect(this.page).toHaveURL(
-      "https://azwu2apweb-test.azurewebsites.net/PayPlan/PayPlanEmployee"
-    );
-    await this.page.waitForLoadState("networkidle");
+  async fillForm(testData) {
+    for (const [key, value] of Object.entries(testData)) {
+      const locatorFunction = this.locators[key];
+      if (locatorFunction) {
+        await this.page.waitForLoadState("networkidle");
+        const inputElement = await locatorFunction();
+        await inputElement.fill(value);
+      } else {
+        console.warn(`Locator not found for key: ${key}`);
+      }
+    }
   }
 }
 

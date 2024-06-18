@@ -7,9 +7,6 @@
 const { test, expect } = require("@playwright/test");
 const { AdminPayCalendar } = require("./admin_paycalendar.js");
 
-// user
-//test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
-
 //test
 test.describe.serial("/Admin/PayCalendar", () => {
   test("Navigate to /Admin/PayCalendar and validate if Semi-Monthly is chosen from the Dropdown, grid results show Semi-Monthly, and does not display the other options @func", async ({
@@ -20,7 +17,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await adminPayCalendarPage.goto();
 
     // Click dropdown
-    await adminPayCalendarPage.clickCalendarInputDropdown();
+    await adminPayCalendarPage.clickElement("calendarInputDropdown");
 
     // choose text=Semi-monthly from Dropdown
     await page.locator('li[role="option"]:has-text("Semi-monthly")').click();
@@ -48,7 +45,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await adminPayCalendarPage.goto();
 
     // Click dropdown
-    await adminPayCalendarPage.clickCalendarInputDropdown();
+    await adminPayCalendarPage.clickElement("calendarInputDropdown");
 
     // choose text=Weekly from Dropdown
     await page.locator('li[role="option"]:has-text("Weekly") >> nth=0').click();
@@ -76,7 +73,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await adminPayCalendarPage.goto();
 
     // Click dropdown
-    await adminPayCalendarPage.clickCalendarInputDropdown();
+    await adminPayCalendarPage.clickElement("calendarInputDropdown");
 
     // choose text=Weekly from Dropdown
     await page.locator('li[role="option"]:has-text("Bi-Weekly")').click();
@@ -104,7 +101,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await adminPayCalendarPage.goto();
 
     // Click dropdown
-    await adminPayCalendarPage.clickCalendarInputDropdown();
+    await adminPayCalendarPage.clickElement("calendarInputDropdown");
 
     // choose text=Weekly from Dropdown
     await page.locator('li[role="option"]:has-text("BiWeekly Wk1")').click();
@@ -132,7 +129,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await adminPayCalendarPage.goto();
 
     // Click dropdown
-    await adminPayCalendarPage.clickCalendarInputDropdown();
+    await adminPayCalendarPage.clickElement("calendarInputDropdown");
 
     // choose text=Weekly from Dropdown
     await page.locator('li[role="option"]:has-text("BiWeekly Wk2")').click();
@@ -160,7 +157,8 @@ test.describe.serial("/Admin/PayCalendar", () => {
     await adminPayCalendarPage.goto();
 
     // attempt "bad input" as an option in the dropdown
-    await adminPayCalendarPage.inputCalendar("Bad Input");
+    await adminPayCalendarPage.fillForm({ calendarInputBox: "Bad Input" });
+    await page.keyboard.press("Enter");
 
     const error = page.locator("#divErrorHolder");
     await expect(error).toBeVisible();
@@ -173,7 +171,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     const adminPayCalendarPage = new AdminPayCalendar(page);
     await adminPayCalendarPage.goto();
 
-    await adminPayCalendarPage.clickNewCalendarButton();
+    await adminPayCalendarPage.clickElement("newCalendarButton");
 
     // inpuy New Pay Calendar
     await page
@@ -201,7 +199,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
       .click();
 
     // click Cancel to back out
-    await adminPayCalendarPage.clickGridCancelButton();
+    await adminPayCalendarPage.clickElement("gridCancelButton");
 
     const error = page.locator("#divErrorHolder");
     await expect(error).not.toBeVisible();
@@ -212,7 +210,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     page,
   }) => {
     test.fixme(
-      "In order to Full CRUD this, we will need data test tags for edit, and delete buttons, instead of how they currently funciton."
+      "In order to Full CRUD this, we will need data test tags for edit, and delete buttons, instead of how they currently funciton.",
     );
     const adminPayCalendarPage = new AdminPayCalendar(page);
     await adminPayCalendarPage.goto();
@@ -253,7 +251,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     // click edit to make sure edit function works
     await page
       .locator(
-        'text=3360Semi-monthly08/01/202708/15/202708/15/202707/202708/01/202708/01/209908/01/2 >> a[role="button"]'
+        'text=3360Semi-monthly08/01/202708/15/202708/15/202707/202708/01/202708/01/209908/01/2 >> a[role="button"]',
       )
       .first()
       .click();
@@ -268,7 +266,7 @@ test.describe.serial("/Admin/PayCalendar", () => {
     });
     await page
       .locator(
-        'text=3360Semi-monthly08/01/202708/15/202708/15/202707/202708/01/202708/01/209908/01/2 >> a[role="button"]'
+        'text=3360Semi-monthly08/01/202708/15/202708/15/202707/202708/01/202708/01/209908/01/2 >> a[role="button"]',
       )
       .nth(1)
       .click();
