@@ -13,6 +13,11 @@ variables:
   PathtoPublish: '$(Build.ArtifactStagingDirectory)'
   ArtifactType: 'Container'
   ArtifactName: $[format('{0}-{1}', 'screenshots', variables['Build.BuildNumber'])]
+  workingDir: '.' # Define the 'workingDir' variable
+  workingDirectory: '.' # Define the 'workingDirectory' variable
+  platform: '' # Define the 'platform' variable
+  configuration: '' # Define the 'configuration' variable
+
 
 steps:
   - task: NodeTool@0
