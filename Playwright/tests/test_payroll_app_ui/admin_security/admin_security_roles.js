@@ -9,23 +9,24 @@ class AdminSecurity {
     this.page = page;
 
     //// locators
-    // headers
 
     // text and lables
-    this.securityRoleText = page.getByRole("link", { name: "Security Roles" });
-    this.displayNameText = page.locator("text=Display Name");
-    this.principalNameText = page.locator("text=User Principal Name");
-    this.departmentText = page.locator("text=Department");
-    this.jobTitleText = page.locator("text=Job Title");
+    this.locators = {
+      securityRoleText: () =>
+        page.getByRole("link", { name: "Security Roles" }),
+      displayNameText: () => page.locator("text=Display Name"),
+      principalNameText: () => page.locator("text=User Principal Name"),
+      departmentText: () => page.locator("text=Department"),
+      jobTitleText: () => page.locator("text=Job Title"),
 
-    /// page elements
-    // inputs
-    this.securityRoleInput = page.locator(
-      'input[name="SecurityRoleList_listbox"]'
-    );
+      // inputs
+      securityRoleInput: () =>
+        page.locator('input[name="SecurityRoleList_listbox"]'),
 
-    // dropdowns
-    this.securityRoleDropdown = page.locator('[aria-label="select"] >> nth=0');
+      // dropdowns
+      securityRoleDropdown: () =>
+        page.locator('[aria-label="select"] >> nth=0'),
+    };
   }
 
   // Navigation
@@ -33,65 +34,50 @@ class AdminSecurity {
     await this.page.goto("/Admin/SecurityRoles");
   }
 
-  /// get elements
-  async getSecurityRoleText() {
-    await expect(
-      this.securityRoleText,
-      "Security Role text not found"
-    ).toBeVisible();
+  /// new interactive methods
+
+  // get page elements
+  async checkElementVisibility(locatorName) {
+    await this.page.waitForLoadState("load");
+    const locatorFunction = this.locators[locatorName];
+
+    try {
+      const element = await locatorFunction().first();
+      await expect(element).toBeVisible();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      const errorMessage = `Locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
+    }
   }
 
-  async getSecurityRoleInput() {
-    await expect(
-      this.securityRoleInput,
-      "Security Role input not found"
-    ).toBeVisible();
+  /// interact with elements
+
+  async clickElement(locatorName) {
+    const locatorFunction = this.locators[locatorName];
+
+    try {
+      await this.page.waitForLoadState("networkidle");
+      const element = await locatorFunction().first();
+      await element.click();
+      await this.page.waitForLoadState("load");
+    } catch (originalError) {
+      const errorMessage = `Clicking on locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
+    }
   }
 
-  async getSecurityRoleDropdown() {
-    await expect(
-      this.securityRoleDropdown,
-      "Security Role dropdown not found"
-    ).toBeVisible();
-  }
-
-  async getDisplayNameText() {
-    await expect(
-      this.displayNameText,
-      "Display Name column not found"
-    ).toBeVisible();
-  }
-
-  async getPrincipalText() {
-    await expect(
-      this.principalNameText,
-      "Principal column not found"
-    ).toBeVisible();
-  }
-
-  async getDepartmentText() {
-    await expect(
-      this.departmentText,
-      "Department column not found"
-    ).toBeVisible();
-  }
-
-  async getJobTitle() {
-    await expect(this.jobTitleText, "Job Title column not found").toBeVisible();
-  }
-
-  // input elements
-
-  async clickSecurityRoleDropdown() {
-    await this.getSecurityRoleDropdown();
-    await this.securityRoleDropdown.click();
-  }
-
-  async inputSecurityRole(text) {
-    await this.getSecurityRoleInput();
-    await this.securityRoleInput.click();
-    await this.securityRoleInput.fill(text);
-    await this.securityRoleInput.press("Enter");
+  async fillForm(testData) {
+    for (const [key, value] of Object.entries(testData)) {
+      const locatorFunction = this.locators[key];
+      if (locatorFunction) {
+        await this.page.waitForLoadState("networkidle");
+        const inputElement = await locatorFunction();
+        await inputElement.fill(value);
+      } else {
+        console.warn(`Locator not found for key: ${key}`);
+      }
+    }
   }
 }
 

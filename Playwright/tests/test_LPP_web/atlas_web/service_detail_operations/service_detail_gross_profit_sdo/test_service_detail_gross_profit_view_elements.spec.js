@@ -16,11 +16,16 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -52,11 +57,16 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -86,11 +96,16 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -121,11 +136,16 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -156,11 +176,16 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -191,11 +216,16 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -209,6 +239,86 @@ test.describe
       "aogPotentialInput",
       "aogYoYcounter",
       "aogPerformanceChart",
+      "aogInfoBox",
+      "aogUpdateButton",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await serviceDetailstView.checkElementVisibility(locatorName);
+    }
+  });
+
+  test("Navigate to Atlas Web, Service Detals / Total Detail Gross view and validate Flat Rate Hours card elements have loaded as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
+
+    //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    //landed on the service details gross profit view, validate basic elements have loaded
+
+    const locatorNames = [
+      "tdg2024AOPinput",
+      "tdgPotentialInput",
+      "tdgYoYcounter",
+      "tdgPerformanceChart",
+      "tdgInfoBox",
+      "tdgUpdateButton",
+    ];
+
+    for (const locatorName of locatorNames) {
+      await serviceDetailstView.checkElementVisibility(locatorName);
+    }
+  });
+
+  test("Navigate to Atlas Web, Service Detals / Total Service Gross view and validate Flat Rate Hours card elements have loaded as expected", async ({
+    browser,
+    page,
+  }) => {
+    const serviceDetailstView = new ServiceDetailstView(page);
+    await serviceDetailstView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
+
+    //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page
+      .getByRole("button", { name: "Service / Detail Operations" })
+      .click();
+    await page.getByText("Service/Detail Gross Profit").click();
+    await page.waitForLoadState("networkidle");
+
+    //landed on the service details gross profit view, validate basic elements have loaded
+
+    const locatorNames = [
+      "tsgAOP",
+      "tsgYoYcounter",
+      "tsgPotential",
+      "tsgPerformanceChart",
       "aogInfoBox",
       "aogUpdateButton",
     ];

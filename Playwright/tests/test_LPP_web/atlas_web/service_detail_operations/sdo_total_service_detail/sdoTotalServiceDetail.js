@@ -25,37 +25,37 @@ class SDOTotalServiceDetail {
       //Total Service Espense
       tseAOP2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
       tsePotential2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
       tseAOPYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
       tseAOP2024PerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
         ),
 
       //Total Service Operating Profit
       tsopAOP2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div[1]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
       tsopPotential2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div[3]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
       tsopYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
       tsop2024PerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[1]/div/canvas',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[2]',
         ),
 
       //Total Detail Expense
@@ -64,40 +64,40 @@ class SDOTotalServiceDetail {
         this.page.locator('//*[@id="LOPS36400"]').nth(1),
       tdeYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[1]/div[1]/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       tde2024PerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[2]',
         ),
 
       tdeUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Total Detail Operating Profit
       topAOP2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div/div/div/div[1]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
       topPotential2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div/div/div/div[3]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[3]',
         ),
       topYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
       top2024PerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[2]',
         ),
 
       // complete
       completeButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[2]/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[4]/div/button',
         ),
     };
   }

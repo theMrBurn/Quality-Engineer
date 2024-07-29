@@ -18,15 +18,27 @@ test.describe.serial("Payplan Footer", () => {
   }) => {
     const payplansFooter = new PayplanFooter(page);
     await payplansFooter.goto();
-    await payplansFooter.getPayPlanFooterHeader();
-    await payplansFooter.getFooterNameText1();
-    await payplansFooter.getFooterNameColumnText();
-    await payplansFooter.getExperationDateText();
-    await payplansFooter.getEffectiveDateText();
-    await payplansFooter.getPayRateTypeColumnText();
-    await payplansFooter.getUpdatedByColumnText();
-    await payplansFooter.getUpdatedOnColumnText();
-    await payplansFooter.getAddFooterButton();
-    await payplansFooter.getClearFiltersButton();
+
+    const locatorNames = [
+      "payplanHeader",
+      "footerNameText",
+      "experationDateText",
+      "footerNameColumnText",
+      "effectiveDateText",
+      "payRateTypeColumnText",
+      "updatedByColumnText",
+      "updatedOnColumnText",
+      "addFooterButton",
+      "clearFiltersButton",
+    ];
+
+    try {
+      for (const locatorName of locatorNames) {
+        await payplansFooter.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 });

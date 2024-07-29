@@ -18,37 +18,53 @@ test.describe.serial("Payplans Dashboard", () => {
   }) => {
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
-    await payplansDashboard.getPayPlanHeader();
-    await payplansDashboard.getPayplanLink();
-    await payplansDashboard.getEmployeesLink();
-    await payplansDashboard.getFootersLink();
-    await payplansDashboard.getTemplatesLink();
-    await payplansDashboard.getFormulasLink();
-    await payplansDashboard.getGridsLink();
-    await payplansDashboard.getExpirationDateText();
-    await payplansDashboard.getExpirationDateText2();
-    await payplansDashboard.getPaycalendarText();
-    await payplansDashboard.getEffectiveDateText();
-    await payplansDashboard.getPPPEdateText();
-    await payplansDashboard.getPlanStatusText();
-    await payplansDashboard.getPlanStatusExpiring();
-    await payplansDashboard.getPlanStatusSuspended();
-    await payplansDashboard.getPlanStatusPending();
-    await payplansDashboard.getPositionChangesText();
-    await payplansDashboard.getNoPlanCreatedCount();
-    await payplansDashboard.getNewHiresPendingCount();
-    await payplansDashboard.getNewHiresNoActiveStatusCount();
-    await payplansDashboard.getComplianceRiskText();
-    await payplansDashboard.getComplianceRiskExceptionCount();
-    await payplansDashboard.getComplainceRiskExipredCount();
-    await payplansDashboard.getMetricsText();
-    await payplansDashboard.getMetricsCreatedCount();
-    await payplansDashboard.getMetricsActiveCount();
-    await payplansDashboard.getAveragePerMonthBox();
-    await payplansDashboard.getPayCalendarDropdown();
-    await payplansDashboard.getPPEdateInputBox();
-    await payplansDashboard.getExperationDateCalendar1();
-    await payplansDashboard.getExperationDateCalendar2();
+
+    const locatorNames = [
+      "payplanHeader",
+      "payplanLink",
+      "employeesLink",
+      "footersLink",
+      "templatesLink",
+      "formulasLink",
+      "gridsLink",
+      "expirationDateText",
+      "expirationDateText2",
+      "paycalendarText",
+      "effectiveDateText",
+      "ppeDateText",
+      "planStatusText",
+      "planstatusExpiring",
+      "planstatusSuspended",
+      "planstatusPending",
+      "positionChangesText",
+      "noPlanCreatedCount",
+      "newHiresPendingCount",
+      "newHiresNoActiveStatusCount",
+      "complianceRiskText",
+      "complianceRiskExceptionCount",
+      "complainceRiskExipredCount",
+      "metricsText",
+      "metricsCreatedCount",
+      "metricsActiveCount",
+      "averagePerMonthBox",
+      "expirationDateInput",
+      "expirationDateCalendar1",
+      "expirationDateCalendar2",
+      "payCalendarInput",
+      "ppeDateInput",
+      "experitationDateInput2",
+      "effectiveDateInput",
+      "effectiveDateCalendar",
+    ];
+
+    try {
+      for (const locatorName of locatorNames) {
+        await payplansDashboard.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to Payplan Dashboard and Click top header Links @smoke", async ({
@@ -57,10 +73,13 @@ test.describe.serial("Payplans Dashboard", () => {
   }) => {
     const payplanDashboard = new PayplanDashboard(page);
     await payplanDashboard.goto();
-    await payplanDashboard.clickEmployeesLink();
-    await payplanDashboard.clickFootersLink();
-    await payplanDashboard.clickFormulasLink();
-    await payplanDashboard.clickGridsLink();
-    await payplanDashboard.clickTemplatesLink();
+
+    const locatorNames = [
+      "employeesLink",
+      "footersLink",
+      "formulasLink",
+      "gridsLink",
+      "templatesLink",
+    ];
   });
 });

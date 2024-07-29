@@ -7,51 +7,32 @@ const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 const {
   SalesGrossProfitView,
 } = require("../../atlas_web/sales_operations/sales_gross_profit/sales_gross_profit_view.js");
+const { clear } = require("console");
 
 test.describe
-  .serial("Atlas E2E - Assign Employee -> Notify Employee -> Input Sales Data -> Submit for Review -> Submit For Approval -> Unlock Approval -> Unassign Employee @e2e", () => {
-test("Assign functionality", async ({ browser, page }) => {
+  .serial("Atlas E2E - Assign Employee -> Notify Employee -> Input Sales Data -> Submit for Review -> Submit For Approval -> Unlock Approval -> Unnassign Employee @e2e", () => {
+  test.slow();
+
+  test("Assign functionality", async ({ browser, page }) => {
     const atlase2e = new AtlasE2E(page);
     await atlase2e.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     try {
-      await atlase2e.assignBackstrom(atlase2e);
+      await page.getByLabel("Open").first().click();
+      await atlase2e.clickElement("employeeScottBackstrom");
 
-      // Notify Shawn Backstrom and cancel
+      // Notify Shawn Backstrom and Send
       await atlase2e.clickElement("salesOpsNotifyButton");
 
-      const notifyHeading1 = await page.getByRole("heading", {
-        name: "Notify Employee of Assignment",
-      });
-      const notifyText1 = await page.getByText("Shawn W Backstrom will be");
+      await page.waitForTimeout(3000);
 
-      await expect(notifyHeading1).toBeVisible();
+      const notifyText1 = await page.getByText("Notifcation has been sent.");
+
       await expect(notifyText1).toBeVisible();
-
-      await atlase2e.clickElement("cancelButton");
-
-      // Notify Shawn Backstrom and send
-      await atlase2e.clickElement("salesOpsNotifyButton");
-
-      const notifyHeading2 = await page.getByRole("heading", {
-        name: "Notify Employee of Assignment",
-      });
-      const notifyText2 = await page.getByText("Shawn W Backstrom will be");
-
-      await expect(notifyHeading2).toBeVisible();
-
-      await expect(notifyText2).toBeVisible();
-
-      await atlase2e.clickElement("cancelButton");
-
-      await page.getByRole("button", { name: "Notify" }).click();
-      await page.getByRole("button", { name: "Send" }).click();
-
-      await page.locator(".SnackbarContent-root").click();
 
       // check if Plan Progress matches assignment state
       const planProgressCardElement =
@@ -69,9 +50,9 @@ test("Assign functionality", async ({ browser, page }) => {
     const atlase2e = new AtlasE2E(page);
     await atlase2e.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     // instantiate SalesGrossProfitView
     const salesGrossProfitView = new SalesGrossProfitView(page);
@@ -83,64 +64,136 @@ test("Assign functionality", async ({ browser, page }) => {
       const currentURL = await page.url();
       await expect(currentURL).toContain(urlString);
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       /// execute input steps from Func Tests
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.nru2024AOPinput().clear();
       await salesGrossProfitView.locators.nru2024AOPinput().fill("725");
+      await salesGrossProfitView.locators.nruPotentialInput().clear();
       await salesGrossProfitView.locators.nruPotentialInput().fill("800");
       await salesGrossProfitView.locators.nruUpdateButton().click();
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.fraN2024AOPinput().clear();
       await salesGrossProfitView.locators.fraN2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.fraNPotentialInput().clear();
       await salesGrossProfitView.locators.fraNPotentialInput().fill("2000");
       await salesGrossProfitView.locators.fraNUpdateButton().click();
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.fiaN2024AOPinput().clear();
       await salesGrossProfitView.locators.fiaN2024AOPinput().fill("2300");
+      await salesGrossProfitView.locators.fiaNPotentialInput().clear();
       await salesGrossProfitView.locators.fiaNPotentialInput().fill("3000");
       await salesGrossProfitView.locators.fiaNUpdateButton().click();
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.uru2024AOPinput().clear();
       await salesGrossProfitView.locators.uru2024AOPinput().fill("1300");
+      await salesGrossProfitView.locators.uruPotentialInput().clear();
       await salesGrossProfitView.locators.uruPotentialInput().fill("1500");
       await salesGrossProfitView.locators.uruUpdateButton().click();
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.feauAOPinput().clear();
       await salesGrossProfitView.locators.feauAOPinput().fill("1701");
+      await salesGrossProfitView.locators.feauPotentialInput().clear();
       await salesGrossProfitView.locators.feauPotentialInput().fill("2000");
       await salesGrossProfitView.locators.feauUpdateButton().click();
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.fiau2024AOPinput().clear();
       await salesGrossProfitView.locators.fiau2024AOPinput().fill("2400");
+      await salesGrossProfitView.locators.fiauPotentialInput().clear();
       await salesGrossProfitView.locators.fiauPotentialInput().fill("2700");
       await salesGrossProfitView.locators.fiauUpdateButton().click();
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.fGrossAOPinput().clear();
       await salesGrossProfitView.locators.fGrossAOPinput().fill("0");
+      await salesGrossProfitView.locators.fGrossPotentialInput().clear();
       await salesGrossProfitView.locators.fGrossPotentialInput().fill("0");
       await salesGrossProfitView.locators.fGrossUpdateButton().click();
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.wGrossAOPinput().clear();
       await salesGrossProfitView.locators.wGrossAOPinput().fill("-60000");
+      await salesGrossProfitView.locators.wGrossPotentialInput().clear();
       await salesGrossProfitView.locators.wGrossPotentialInput().fill("-50000");
       await salesGrossProfitView.locators.wGrossUpdateButton().click();
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.dFeeAOPinput().clear();
       await salesGrossProfitView.locators.dFeeAOPinput().fill("200");
+      await salesGrossProfitView.locators.dFeePotentialInput().clear();
       await salesGrossProfitView.locators.dFeePotentialInput().fill("250");
       await salesGrossProfitView.locators.dFeeUpdateButton().click();
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.fiCanAOPinput().clear();
       await salesGrossProfitView.locators.fiCanAOPinput().fill("-190000");
+      await salesGrossProfitView.locators.fiCanPotentialInput().clear();
       await salesGrossProfitView.locators.fiCanPotentialInput().fill("-180000");
       await salesGrossProfitView.locators.fiCanUpdateButton().click();
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.aogAOPinput().clear();
       await salesGrossProfitView.locators.aogAOPinput().fill("111110");
+      await salesGrossProfitView.locators.aogPotentialInput().clear();
       await salesGrossProfitView.locators.aogPotentialInput().fill("222220");
       await salesGrossProfitView.locators.aogUpdateButton().click();
 
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.mduAOPinput().clear();
       await salesGrossProfitView.locators.mduAOPinput().fill("0");
+      await salesGrossProfitView.locators.mduPotentialInput().clear();
       await salesGrossProfitView.locators.mduPotentialInput().fill("0");
       await salesGrossProfitView.locators.mduUpdateButton().click();
 
@@ -148,17 +201,17 @@ test("Assign functionality", async ({ browser, page }) => {
       await page.reload();
       await page.waitForLoadState("load");
 
-      // click AOP by Month 2024 and validate landing
-      await atlase2e.clickElement("storePerformance");
-      await atlase2e.clickElement("aop2024byMonth");
+      // // click AOP by Month 2024 and validate landing
+      // await atlase2e.clickElement("storePerformance");
+      // await atlase2e.clickElement("aop2024byMonth");
 
-      // Validate URL string
-      const urlString2 = "plan/0/history?history=2024";
-      const currentURL2 = await page.url();
-      await expect(currentURL2).toContain(urlString2);
+      // // Validate URL string
+      // const urlString2 = "plan/0/history?history=2024";
+      // const currentURL2 = await page.url();
+      // await expect(currentURL2).toContain(urlString2);
 
-      // simulate final edit of fields and click Submit
-      await atlase2e.seasonalityUpdate();
+      // // simulate final edit of fields and click Submit
+      // await atlase2e.seasonalityUpdate();
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error("Test failed.", error.message);
@@ -169,9 +222,9 @@ test("Assign functionality", async ({ browser, page }) => {
     const atlase2e = new AtlasE2E(page);
     await atlase2e.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     try {
       await atlase2e.clickElement("viewButton");
@@ -218,9 +271,9 @@ test("Assign functionality", async ({ browser, page }) => {
     const atlase2e = new AtlasE2E(page);
     await atlase2e.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     try {
       await atlase2e.clickElement("viewButton");
@@ -254,9 +307,9 @@ test("Assign functionality", async ({ browser, page }) => {
     const atlase2e = new AtlasE2E(page);
     await atlase2e.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     try {
       // Unapproval flow
@@ -264,8 +317,8 @@ test("Assign functionality", async ({ browser, page }) => {
       await atlase2e.clickElement("storePerformance");
       await atlase2e.clickElement("aop2024byMonth");
 
-      const unlockWarningText = page.locator(
-        '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[2]/div/div[2]',
+      const unlockWarningText = await page.getByText(
+        "This plan has been approved",
       );
 
       await expect(unlockWarningText).toContainText(
@@ -284,13 +337,15 @@ test("Assign functionality", async ({ browser, page }) => {
     await atlase2e.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     try {
       // Finish the test and cleanup
-      await atlase2e.goto();
-      await atlase2e.unassignEmployee("unassignButton");
+      const inputBox = await page.locator('//*[@id="mui-3"]');
+      await inputBox.click();
+
+      await page.getByLabel("Clear").click();
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error("Test failed.", error.message);

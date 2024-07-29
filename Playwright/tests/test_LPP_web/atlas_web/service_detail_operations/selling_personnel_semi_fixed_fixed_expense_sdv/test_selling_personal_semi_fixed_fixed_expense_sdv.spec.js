@@ -8,6 +8,7 @@ const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 //test
 test.describe
   .serial("Atlas Web - Service Detail Operations 'Service/Detail Operations View' Page Elements @func", () => {
+  test.slow();
   test("Navigate to Atlas Web, Service/Detail Operations View and validate Personell Expense no-input renders Update Button Disabled as expected", async ({
     browser,
     page,
@@ -16,11 +17,16 @@ test.describe
     await personalSFFE.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -47,11 +53,16 @@ test.describe
     await personalSFFE.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -80,11 +91,16 @@ test.describe
     await personalSFFE.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -93,7 +109,9 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await personalSFFE.locators.peAOPinput().clear("1701");
       await personalSFFE.locators.peAOPinput().fill("1701");
+      await personalSFFE.locators.pePotentialInput().clear("2000");
       await personalSFFE.locators.pePotentialInput().fill("2000");
       await personalSFFE.locators.peUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -112,11 +130,16 @@ test.describe
     await personalSFFE.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -143,11 +166,16 @@ test.describe
     await personalSFFE.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -176,11 +204,16 @@ test.describe
     await personalSFFE.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -189,7 +222,9 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await personalSFFE.locators.sfeAOPinput().clear("1701");
       await personalSFFE.locators.sfeAOPinput().fill("1701");
+      await personalSFFE.locators.sfePotentialInput().clear("2000");
       await personalSFFE.locators.sfePotentialInput().fill("2000");
       await personalSFFE.locators.sfeUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -208,11 +243,16 @@ test.describe
     await personalSFFE.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -239,11 +279,16 @@ test.describe
     await personalSFFE.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -272,11 +317,16 @@ test.describe
     await personalSFFE.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -285,7 +335,9 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await personalSFFE.locators.feAOPinput().clear("1701");
       await personalSFFE.locators.feAOPinput().fill("1701");
+      await personalSFFE.locators.fePotentialInput().clear("2000");
       await personalSFFE.locators.fePotentialInput().fill("2000");
       await personalSFFE.locators.feUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();

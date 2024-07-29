@@ -19,54 +19,46 @@ class TotalSalesExpenseView {
       aop2024: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div[1]/div/div/p',
+            '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
           )
           .first(),
       potential2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
       aopYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
       aop2024PerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[1]',
-        ),
-      aop2024PerfTrendChart: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
         ),
 
       //Total Sales Operating Profit
       tsopAOP2024: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[1]/div/div/div/div[1]/div',
+            '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[1]/div',
           )
           .first(),
       tsopPotential2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[1]/div/div/div/div[3]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
       tsopYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
       tsop2024PerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[2]/div[1]/div/canvas',
-        ),
-      tsop2024PerfTrendChart: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[2]/div[2]/div/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[2]',
         ),
 
       // complete
       completeButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[4]/div/button',
         ),
     };
   }
@@ -79,6 +71,7 @@ class TotalSalesExpenseView {
 
   // get page elements
 
+  // get page elements
   async checkElementVisibility(locatorName) {
     await this.page.waitForLoadState("load");
     const locatorFunction = this.locators[locatorName];

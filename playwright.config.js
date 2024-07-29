@@ -71,6 +71,7 @@ const config = {
     launchOptions: {
       slowMo: 120,
     },
+    screenshot: "only-on-failure",
   },
 
   /* Configure projects for major browsers */
@@ -130,7 +131,7 @@ const config = {
 
     {
       name: "AtlasPlanDetailsView",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web/plan_details_view",
+      testDir: "Playwright/tests/test_LPP_web/atlas_web/plan_details",
       retries: 3,
       use: {
         storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
@@ -350,8 +351,7 @@ const config = {
       testDir: "Playwright/tests/test_impact_builder_web",
       retries: 3,
       use: {
-        storageState:
-          "Playwright/helpers/login/test_allpay_superUser.json",
+        storageState: "Playwright/helpers/login/test_allpay_superUser.json",
         baseURL: "https://app-allpaytest-wu2-web.azurewebsites.net/",
       },
     },

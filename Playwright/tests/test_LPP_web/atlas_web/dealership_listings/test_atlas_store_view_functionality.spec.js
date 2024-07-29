@@ -7,6 +7,7 @@ const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
+  test.slow();
   test("Navigate to Atlas Web, click on first Dealership Listing and validate Seasonality Page elements have loaded as expected", async ({
     browser,
     page,
@@ -15,15 +16,16 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await adminStoreView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     try {
       // Your existing test steps
 
-      await page.getByRole("gridcell", { name: "1", exact: true }).click();
+      await page.getByText("STORE", { exact: true }).click();
+      await page.getByText("L0000 Aop Test Store").click();
       await page.waitForLoadState();
-      await page.waitForURL("/atlas/plan/1/history?history=2024");
+      await page.waitForURL("/atlas/plan/0/history?history=2024");
 
       await page.goto("https://test.lpp.lithia.com/atlas/");
       await page
@@ -44,8 +46,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await adminStoreView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     try {
       // Your existing test steps
@@ -67,8 +69,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await adminStoreView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     try {
       // Your existing test steps
@@ -87,12 +89,15 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     browser,
     page,
   }) => {
+    test.fixme(
+      "new rules show only Active Stores will show on Dealership Listings, skip this for now",
+    );
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     try {
       // find NEXT pagination button and click

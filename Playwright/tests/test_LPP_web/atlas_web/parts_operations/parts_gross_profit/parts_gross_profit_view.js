@@ -24,22 +24,22 @@ class PartsGrossProfitView {
       cpgPotentialInput: () => this.page.locator("#LOPS40205").nth(1),
       cpgYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       cpgPerformanceChart: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]',
+            '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
           )
           .first(),
       cpgInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
         ),
 
       cpgUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //warrenty gross card locators
@@ -47,22 +47,22 @@ class PartsGrossProfitView {
       wgPotentialInput: () => this.page.locator("#LOPS40305").nth(1),
       wgYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       wgPerformanceChart: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[2]',
+            '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[2]',
           )
           .first(),
       wgInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[2]/div/div/div/div',
         ),
 
       wgUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //warrenty gross card locators
@@ -70,22 +70,22 @@ class PartsGrossProfitView {
       igPotentialInput: () => this.page.locator("#LOPS40405").nth(1),
       igYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       igPerformanceChart: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[2]',
+            '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[2]',
           )
           .first(),
       igInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
         ),
 
       igUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //wholesale gross card locators
@@ -93,19 +93,19 @@ class PartsGrossProfitView {
       wsgPotentialInput: () => this.page.locator("#LOPS40505").nth(1),
       wsgYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       wsgPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[2]',
         ),
       wsgInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
         ),
       wsgUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //all other gross card locators
@@ -113,19 +113,19 @@ class PartsGrossProfitView {
       aogPotentialInput: () => this.page.locator("#PartsMultiple").nth(1),
       aogYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       aogPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[2]/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[2]/div/div/canvas',
         ),
       aogInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[2]/div[1]/div[2]/div/div/div/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[1]/div[2]/div/div/div/div',
         ),
       aogUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Total Revenue card locators
@@ -133,19 +133,19 @@ class PartsGrossProfitView {
       trPotentialInput: () => this.page.locator("#LOPS45600").nth(1),
       trYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[7]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       trPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[7]/div[2]/div[2]/div/div/canvas',
         ),
       trInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[7]/div[2]/div[1]/div[2]/div/div/div/div',
         ),
       trUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[7]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Total Revenue card locators
@@ -163,26 +163,11 @@ class PartsGrossProfitView {
           .nth(1),
       tpgYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[8]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
       tpgPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[2]',
-        ),
-
-      //nav buttons previous | next
-      bottomNextButton: () =>
-        this.page.getByRole("button", { name: "Next" }).nth(1),
-      bottomPreviousButton: () =>
-        this.page.getByRole("button", { name: "Previous" }).nth(1),
-
-      topNextButton: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[1]/div[3]/button',
-        ),
-      topPreviousButton: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[1]/div[1]/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[8]/div[2]/div[2]',
         ),
 
       //nav buttons previous | next

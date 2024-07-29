@@ -19,14 +19,19 @@ test.describe.serial("Payplan Footer", () => {
     const payplansFooter = new PayplanFooter(page);
     await payplansFooter.goto();
 
-    // Payplan Footer Type
-    await payplansFooter.inputFooterClickDropdown();
+    try {
+      // Payplan Footer Type
+      await payplansFooter.clickElement("dropdownTriangle");
 
-    // should click the triangle and then display options to then also click
-    await page.locator("text=Technician").nth(1).click();
+      // should click the triangle and then display options to then also click
+      await page.locator("text=Technician").nth(1).click();
 
-    // confirm on Grid that item above was chosen
-    await page.locator('td[role="gridcell"]:has-text("Technician")');
+      // confirm on Grid that item above was chosen
+      await page.locator('td[role="gridcell"]:has-text("Technician")');
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to Payplan Footer, pick dropdown option and then click Edit button @func", async ({
@@ -37,7 +42,7 @@ test.describe.serial("Payplan Footer", () => {
     await payplansFooter.goto();
 
     // Payplan Footer Type
-    await payplansFooter.inputFooterClickDropdown();
+    await payplansFooter.clickElement("dropdownTriangle");
 
     // should click the triangle and then display options to then also click
     await page.locator("text=Technician >> nth=1").click();
@@ -46,13 +51,24 @@ test.describe.serial("Payplan Footer", () => {
     await page.locator('td[role="gridcell"]:has-text("Technician")');
 
     // click Edit and confirm navigation to Edit Footer page
-    await payplansFooter.clickEditButton();
+    await payplansFooter.clickElement("dropdownTriangle");
 
     // validate Edit Payplans Page has loaded as expected by validating certain elements are present
-    await payplansFooter.getEditPayPlanFooterHeader();
-    await payplansFooter.clickSaveButton();
-    await payplansFooter.getSaveConfirmationAlert();
-    await payplansFooter.clickBackButton();
+    await payplansFooter.clickElement("editButton");
+
+    const editPayPlanHeader = await page.getByRole("heading", {
+      name: "Edit Pay Plan Footer",
+    });
+
+    await expect(editPayPlanHeader).toBeVisible();
+
+    await payplansFooter.clickElement("saveButton");
+
+    const successAlert = await page.locator("#divSuccessHolder");
+
+    await expect(successAlert).toBeVisible();
+
+    await payplansFooter.clickElement("backButton");
 
     // saved and back button clicked, should return to Footer Page
     await expect(page).toHaveURL("/PayPlan/PayPlanFooter");

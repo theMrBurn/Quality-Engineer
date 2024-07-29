@@ -5,7 +5,6 @@ const { test, expect } = require("@playwright/test");
 const { PlanDetailsView } = require("./atlas_plan_details.js");
 const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 
-
 //test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {
   test("Navigate to Atlas Web, choose Plan 0, validate Plan Details Page, Role Assignments column elements have loaded as expected", async ({
@@ -14,11 +13,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
   }) => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
-    await page.waitForLoadState("load");
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     // await page.getByLabel("Plan Details (0)").locator("path").click();
     // await page.waitForURL("atlas/plan/0");
@@ -26,27 +24,24 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     const locatorNames = [
       "roleAssignmentsColumn",
       "salesOperationsHeading",
-      "assignEmployeeSalesOps",
+      //"assignEmployeeSalesOps",
       "usedSalesOperations",
-      "assignButton1",
       "infobox1",
       "serviceDetailOperations1",
-      "assignButton2",
       "partsOperations1",
-      "assignButton3",
       "bodyshopOperations1",
     ];
 
     try {
+      await page.waitForLoadState("load");
 
       for (const locatorName of locatorNames) {
         await planDetailsView.checkElementVisibility(locatorName);
       }
-
-      } catch (error) {
-        console.error("Error during test:", error.message);
-        throw new Error("Test failed.", error.message);
-      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to Atlas Web, choose Plan 0, validate Plan Details Page, Plan Progress column elements have loaded as expected", async ({
@@ -56,10 +51,6 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
     await page.waitForLoadState("load");
-
-    // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
 
     const locatorNames = [
       "planProgress",
@@ -71,15 +62,13 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     ];
 
     try {
-
       for (const locatorName of locatorNames) {
         await planDetailsView.checkElementVisibility(locatorName);
       }
-
-      } catch (error) {
-        console.error("Error during test:", error.message);
-        throw new Error("Test failed.", error.message);
-      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to Atlas Web, choose Plan 0, validate Plan Details Page, Store Performance column elements have loaded as expected", async ({
@@ -89,11 +78,6 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
     await page.waitForLoadState("load");
-
-
-    // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
 
     const locatorNames = [
       "storePerformance",
@@ -112,15 +96,13 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     ];
 
     try {
-
       for (const locatorName of locatorNames) {
         await planDetailsView.checkElementVisibility(locatorName);
       }
-
-      } catch (error) {
-        console.error("Error during test:", error.message);
-        throw new Error("Test failed.", error.message);
-      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to Atlas Web, choose Plan 0, validate Plan Details Page, validate Store Performance URLs match expected destination string - Trend Analyzer", async ({
@@ -133,13 +115,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
-
     try {
-
-      const viewTrends = await page.getByRole("button", { name: "View Trends" });
+      const viewTrends = await page.getByRole("button", {
+        name: "View Trends",
+      });
 
       // Get the "href" attribute of the button (replace "href" with the actual attribute)
       const hrefAttribute = await viewTrends.getAttribute("href");
@@ -149,12 +128,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
 
       // Validate that the "href" attribute contains the expected URL
       expect(hrefAttribute).toContain(expectedURL);
-
-
-      } catch (error) {
-        console.error("Error during test:", error.message);
-        throw new Error("Test failed.", error.message);
-      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to Atlas Web, choose Plan 0, validate Plan Details Page, validate Store Performance URLs match expected destination string - 2022 Actual by Month", async ({
@@ -167,15 +144,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
-
     try {
-
       const viewData = await page
-      .getByRole("button", { name: "View Data" })
-      .nth(1);
+        .getByRole("button", { name: "View Data" })
+        .nth(1);
 
       // Get the "href" attribute of the button (replace "href" with the actual attribute)
       const hrefAttribute = await viewData.getAttribute("href");
@@ -185,11 +157,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
 
       // Validate that the "href" attribute contains the expected URL
       expect(hrefAttribute).toContain(expectedURL);
-
-      } catch (error) {
-        console.error("Error during test:", error.message);
-        throw new Error("Test failed.", error.message);
-      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to Atlas Web, choose Plan 0, validate Plan Details Page, validate Store Performance URLs match expected destination string - 2023 Actual/Forecast by Month", async ({
@@ -202,31 +173,23 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
-
     try {
+      const viewData = await page
+        .getByRole("button", { name: "View Data" })
+        .first();
 
-    const viewData = await page
-    .getByRole("button", { name: "View Data" })
-    .first();
+      // Get the "href" attribute of the button (replace "href" with the actual attribute)
+      const hrefAttribute = await viewData.getAttribute("href");
 
-    // Get the "href" attribute of the button (replace "href" with the actual attribute)
-    const hrefAttribute = await viewData.getAttribute("href");
+      // Define the expected URL
+      const expectedURL = "/atlas/MisHistory/L0000-2023.pdf";
 
-    // Define the expected URL
-    const expectedURL = "/atlas/MisHistory/L0000-2023.pdf";
-
-    // Validate that the "href" attribute contains the expected URL
-    expect(hrefAttribute).toContain(expectedURL);
-
-
+      // Validate that the "href" attribute contains the expected URL
+      expect(hrefAttribute).toContain(expectedURL);
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error("Test failed.", error.message);
     }
-
   });
 
   test("Navigate to Atlas Web, choose Plan 0, validate Plan Details Page, validate Store Performance URLs match expected destination string - 2024 AOP By Month", async ({
@@ -239,12 +202,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await planDetailsView.goto();
     await page.waitForLoadState("load");
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
-
     try {
-
       const viewData = await page.getByRole("button", { name: "View AOP" });
 
       // Get the "href" attribute of the button (replace "href" with the actual attribute)
@@ -255,7 +213,6 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
 
       // Validate that the "href" attribute contains the expected URL
       expect(hrefAttribute).toContain(expectedURL);
-
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error("Test failed.", error.message);

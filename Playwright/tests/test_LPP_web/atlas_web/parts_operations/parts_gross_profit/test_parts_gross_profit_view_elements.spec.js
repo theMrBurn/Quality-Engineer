@@ -8,6 +8,7 @@ const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 //test
 test.describe
   .serial("Atlas Web - Parts Operations Page Elements @smoke", () => {
+  test.slow();
   test("Navigate to Atlas Web, Dealership Listing and validate card Header and other basic elements have loaded as expected", async ({
     browser,
     page,
@@ -16,11 +17,16 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate to Parts Gross Profit
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Parts Operations" }).click();
     await page.getByText("Parts Gross Profit", { exact: true }).click();
     await page.waitForLoadState("networkidle");
@@ -56,11 +62,16 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate to Parts Gross Profit
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Parts Operations" }).click();
     await page.getByText("Parts Gross Profit", { exact: true }).click();
     await page.waitForLoadState("networkidle");
@@ -93,11 +104,16 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Parts Operations" }).click();
     await page.getByText("Parts Gross Profit", { exact: true }).click();
     await page.waitForLoadState("networkidle");
@@ -130,11 +146,16 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Parts Operations" }).click();
     await page.getByText("Parts Gross Profit", { exact: true }).click();
     await page.waitForLoadState("networkidle");
@@ -166,11 +187,16 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Parts Operations" }).click();
     await page.getByText("Parts Gross Profit", { exact: true }).click();
     await page.waitForLoadState("networkidle");
@@ -203,11 +229,16 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Parts Operations" }).click();
     await page.getByText("Parts Gross Profit", { exact: true }).click();
     await page.waitForLoadState("networkidle");

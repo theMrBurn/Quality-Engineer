@@ -5,9 +5,9 @@ const { test, expect } = require("@playwright/test");
 const { SalesGrossProfitView } = require("./sales_gross_profit_view.js");
 const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 
-
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
+  test.slow();
   test("Navigate to Atlas Web, Dealership Listing and validate New Retail Units no-input renders Update Button Disabled as expected", async ({
     browser,
     page,
@@ -16,12 +16,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -43,12 +49,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -72,18 +84,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.nru2024AOPinput().clear("1701");
       await salesGrossProfitView.locators.nru2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.nruPotentialInput().clear("2000");
       await salesGrossProfitView.locators.nruPotentialInput().fill("2000");
       await salesGrossProfitView.locators.nruUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -102,12 +122,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -129,12 +155,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -158,18 +190,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // ** leave in place for debugging ** await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.fraN2024AOPinput().clear("1701");
       await salesGrossProfitView.locators.fraN2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.fraNPotentialInput().clear("2000");
       await salesGrossProfitView.locators.fraNPotentialInput().fill("2000");
       await salesGrossProfitView.locators.fraNUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -188,12 +228,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -215,12 +261,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -244,18 +296,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.fiaN2024AOPinput().clear("1701");
       await salesGrossProfitView.locators.fiaN2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.fiaNPotentialInput().clear("2000");
       await salesGrossProfitView.locators.fiaNPotentialInput().fill("2000");
       await salesGrossProfitView.locators.fiaNUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -274,12 +334,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -301,12 +367,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -330,18 +402,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.uru2024AOPinput().clear("1701");
       await salesGrossProfitView.locators.uru2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.uruPotentialInput().clear("2000");
       await salesGrossProfitView.locators.uruPotentialInput().fill("2000");
       await salesGrossProfitView.locators.uruUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -360,12 +440,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -387,12 +473,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -416,18 +508,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.feauAOPinput().clear("1701");
       await salesGrossProfitView.locators.feauAOPinput().fill("1701");
+      await salesGrossProfitView.locators.feauPotentialInput().clear("2000");
       await salesGrossProfitView.locators.feauPotentialInput().fill("2000");
       await salesGrossProfitView.locators.feauUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -446,12 +546,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -473,12 +579,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -502,18 +614,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.fiau2024AOPinput().clear("1701");
       await salesGrossProfitView.locators.fiau2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.fiauPotentialInput().clear("2000");
       await salesGrossProfitView.locators.fiauPotentialInput().fill("2000");
       await salesGrossProfitView.locators.fiauUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -532,12 +652,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -559,12 +685,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -588,18 +720,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.fGrossAOPinput().clear("1701");
       await salesGrossProfitView.locators.fGrossAOPinput().fill("1701");
+      await salesGrossProfitView.locators.fGrossPotentialInput().clear("2000");
       await salesGrossProfitView.locators.fGrossPotentialInput().fill("2000");
       await salesGrossProfitView.locators.fGrossUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -618,12 +758,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -645,12 +791,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -674,18 +826,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.wGrossAOPinput().clear("1701");
       await salesGrossProfitView.locators.wGrossAOPinput().fill("1701");
+      await salesGrossProfitView.locators.wGrossPotentialInput().clear("2000");
       await salesGrossProfitView.locators.wGrossPotentialInput().fill("2000");
       await salesGrossProfitView.locators.wGrossUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -704,12 +864,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -732,12 +898,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -761,18 +933,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.dFeeAOPinput().clear("1701");
       await salesGrossProfitView.locators.dFeeAOPinput().fill("1701");
+      await salesGrossProfitView.locators.dFeePotentialInput().clear("2000");
       await salesGrossProfitView.locators.dFeePotentialInput().fill("2000");
       await salesGrossProfitView.locators.dFeeUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -791,12 +971,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -819,12 +1005,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -848,18 +1040,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.fiCanAOPinput().clear("1701");
       await salesGrossProfitView.locators.fiCanAOPinput().fill("1701");
+      await salesGrossProfitView.locators.fiCanPotentialInput().clear("2000");
       await salesGrossProfitView.locators.fiCanPotentialInput().fill("2000");
       await salesGrossProfitView.locators.fiCanUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -878,12 +1078,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -906,12 +1112,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -935,18 +1147,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.aogAOPinput().clear("1701");
       await salesGrossProfitView.locators.aogAOPinput().fill("1701");
+      await salesGrossProfitView.locators.aogPotentialInput().clear("2000");
       await salesGrossProfitView.locators.aogPotentialInput().fill("2000");
       await salesGrossProfitView.locators.aogUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -965,12 +1185,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //press Update to trigger Error Alert
@@ -993,12 +1219,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -1022,18 +1254,26 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await salesGrossProfitView.locators.mduAOPinput().clear("1701");
       await salesGrossProfitView.locators.mduAOPinput().fill("1701");
+      await salesGrossProfitView.locators.mduPotentialInput().clear("2000");
       await salesGrossProfitView.locators.mduPotentialInput().fill("2000");
       await salesGrossProfitView.locators.mduUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -1052,12 +1292,18 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     // await NetworkInterceptor.interceptRequests(page);
 

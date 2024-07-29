@@ -16,11 +16,22 @@ test.describe.serial("Admin Employee Details Page load", () => {
     const adminSecurityRoles = new AdminSecurity(page);
     await adminSecurityRoles.goto();
 
-    await adminSecurityRoles.getSecurityRoleText();
-    await adminSecurityRoles.getSecurityRoleDropdown(); // using this because the Input box is hidden until interacted with
-    await adminSecurityRoles.getPrincipalText();
-    await adminSecurityRoles.getPrincipalText();
-    await adminSecurityRoles.getDepartmentText();
-    await adminSecurityRoles.getJobTitle();
+    const locatorNames = [
+      "securityRoleText",
+      "displayNameText",
+      "principalNameText",
+      "departmentText",
+      "jobTitleText",
+      "securityRoleDropdown",
+    ];
+
+    try {
+      for (const locatorName of locatorNames) {
+        await adminSecurityRoles.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 });

@@ -18,60 +18,72 @@ test.describe.serial("/Admin/PayCycle", () => {
   }) => {
     const adminPayCyclePage = new AdminPayCycle(page);
     await adminPayCyclePage.goto();
+    await page.waitForLoadState("networkidle");
 
-    await adminPayCyclePage.clickCompanyDropdown();
-
-    await page.locator("text=Fairbanks Chev Buick GMC (L0143)").click();
-    const companyResult = page.locator(
-      'td[role="gridcell"]:has-text("Fairbanks Chev Buick GMC")'
+    const companyNumber = await page.locator(
+      'td[role="gridcell"]:has-text("L0143")',
     );
-    expect(companyResult).toHaveText("Fairbanks Chev Buick GMC");
+    const paygroupResult = await page.locator("text=West Pay Group");
+    const companyResult = await page.locator(
+      'td[role="gridcell"]:has-text("Fairbanks Chev Buick GMC")',
+    );
+    const calendarResult = await page.getByRole("gridcell", {
+      name: "Semi-monthly",
+    });
+    const error = await page.locator("#divErrorHolder");
 
-    const companyNumber = page.locator('td[role="gridcell"]:has-text("L0143")');
-    expect(companyNumber).toHaveText("L0143");
+    await adminPayCyclePage.clickElement("companyInputDropdown");
 
-    const calendarResult = page.getByRole('gridcell', { name: 'Semi-monthly' });
-    expect(calendarResult).toHaveText("Semi-monthly");
+    try {
+      await page.locator("text=Fairbanks Chev Buick GMC (L0143)").click();
+      await page.waitForLoadState("networkidle");
 
-    const paygroupResult = page.locator("text=West Pay Group");
-    expect(paygroupResult).toHaveText("West Pay Group");
-
-    const error = page.locator("#divErrorHolder");
-    await expect(error).not.toBeVisible();
+      expect(companyResult).toHaveText("Fairbanks Chev Buick GMC");
+      expect(companyNumber).toHaveText("L0143");
+      expect(calendarResult).toContainText("Semi-monthly");
+      expect(paygroupResult).toHaveText("West Pay Group");
+      await expect(error).not.toBeVisible();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to /Admin/PayCycle and validate when Company Number is chosen, is displayed as expected @func", async ({
     browser,
     page,
   }) => {
-    test.fixme(
-      "Too many elements resolve when attempting to validate causing failure, may need to rethink this test"
-    );
-
     const adminPayCyclePage = new AdminPayCycle(page);
     await adminPayCyclePage.goto();
 
-    await adminPayCyclePage.clickCompanyNumberDropdown();
+    await adminPayCyclePage.clickElement("payGroupInputDropdown");
+    await page.getByRole("option", { name: "L0152" }).click();
 
-    await page.getByRole("button", { name: "select" }).first().click();
-    const companyResult = page.getByRole("option", {
-      name: "Great Falls CJD (L0152)",
-    });
-    expect(companyResult).toHaveText("Great Falls CJD");
+    try {
+      const companyResult = page.getByRole("gridcell", {
+        name: "Great Falls CJD",
+      });
+      await expect(companyResult).toHaveText("Great Falls CJD");
 
-    const companyNumber = page.getByRole("gridcell", { name: "L0152" });
-    expect(companyNumber).toHaveText("L0152");
+      const companyNumber = page.getByRole("gridcell", { name: "L0152" });
+      await expect(companyNumber).toHaveText("L0152");
 
-    const calendarResult = page.getByRole("gridcell", { name: "Semi-monthly" });
-    expect(calendarResult).toHaveText("Semi-monthly");
+      const calendarResult = page.getByRole("gridcell", {
+        name: "Semi-monthly",
+      });
+      await expect(calendarResult).toContainText("Semi-monthly");
 
-    const paygroupResult = page.getByRole("gridcell", {
-      name: "Midwest Pay Group",
-    });
-    expect(paygroupResult).toHaveText("Midwest Pay Group");
+      const paygroupResult = page.getByRole("gridcell", {
+        name: "Midwest Pay Group",
+      });
+      expect(paygroupResult).toHaveText("Midwest Pay Group");
 
-    const error = page.locator("#divErrorHolder");
-    await expect(error).not.toBeVisible();
+      const error = page.locator("#divErrorHolder");
+      await expect(error).not.toBeVisible();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to /Admin/PayCycle and validate Assign PayCycle basic functionality - cancel before Update (cant CRUD) @func", async ({
@@ -81,27 +93,36 @@ test.describe.serial("/Admin/PayCycle", () => {
     const adminPayCyclePage = new AdminPayCycle(page);
     await adminPayCyclePage.goto();
 
-    await adminPayCyclePage.clickAssignPayCycleButton();
+    await adminPayCyclePage.clickElement("assignPayCycleButton");
 
-    await adminPayCyclePage.inputCompanyGridFromDropdown();
-    await page.locator("text=Knoxville CJDR >> nth=2").click();
+    try {
+      await adminPayCyclePage.clickElement("companyGridInput");
+      await page.locator("text=Knoxville CJDR >> nth=2").click();
 
-    await adminPayCyclePage.inputCompanyNumberGridFromDropdown();
-    await page.locator("#Code_listbox >> text=L0365").click();
+      //await adminPayCyclePage.inputCompanyNumberGridFromDropdown();
+      await adminPayCyclePage.clickElement("companyNumberGridInput");
+      await page.locator("#Code_listbox >> text=L0365").click();
 
-    await adminPayCyclePage.inputCalendarGridFromDropdown();
-    await page.locator("#PayCalendarId_listbox >> text=Semi-monthly").click();
+      //await adminPayCyclePage.inputCalendarGridFromDropdown();
+      await adminPayCyclePage.clickElement("calendarGridInput");
+      await page.locator("#PayCalendarId_listbox >> text=Semi-monthly").click();
 
-    await adminPayCyclePage.inputPayGroupInputFromDropdown();
-    await page.locator("text=East Semi-Monthly Pay Group").click();
+      //await adminPayCyclePage.inputPayGroupInputFromDropdown();
+      await adminPayCyclePage.clickElement("payGroupGridInput");
+      await page.locator("text=East Semi-Monthly Pay Group").click();
 
-    await page.locator('input[type="checkbox"]').uncheck();
+      await page.locator('input[type="checkbox"]').uncheck();
 
-    await page.locator('input[type="checkbox"]').check();
+      await page.locator('input[type="checkbox"]').check();
 
-    await adminPayCyclePage.clickCancelButton();
+      //await adminPayCyclePage.clickCancelButton();
+      await adminPayCyclePage.clickElement("cancelButton");
 
-    const error = page.locator("#divErrorHolder");
-    await expect(error).not.toBeVisible();
+      const error = page.locator("#divErrorHolder");
+      await expect(error).not.toBeVisible();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 });

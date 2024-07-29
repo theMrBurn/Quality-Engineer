@@ -28,23 +28,17 @@ class BodyShopGrossProfitView {
       cpg2024AOPinput: () => this.page.locator("#LOPS50205").first(),
       cpgPotentialInput: () => this.page.locator("#LOPS50205").nth(1),
       cpgYoYcounter: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
-        ),
-      cpgPerformanceChart: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div/canvas',
+            ".MuiGrid-root > div > div > div > div > div:nth-child(2) > div",
           )
           .first(),
-      cpgInfoBox: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
-        ),
+      cpgPerformanceChart: () => this.page.locator("canvas").first(),
+      cpgInfoBox: () => this.page.locator(".MuiAlert-message").first(),
 
       cpgUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //internal gross card locators
@@ -52,22 +46,22 @@ class BodyShopGrossProfitView {
       igPotentialInput: () => this.page.locator("#LOPS50305").nth(1),
       igYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       igPerformanceChart: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[2]',
+            "div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas",
           )
           .first(),
       igInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          "div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root > .MuiAlert-message",
         ),
 
       igUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Assured Dealer Service Locators card locators
@@ -75,22 +69,20 @@ class BodyShopGrossProfitView {
       adsPotentialInput: () => this.page.locator("#LOPS50405").nth(1),
       adsYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          "div:nth-child(4) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div",
         ),
       adsPerformanceChart: () =>
         this.page
-          .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[2]/div/div/canvas',
-          )
+          .locator("div:nth-child(4) > div:nth-child(2) > div:nth-child(2)")
           .first(),
       adsInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[1]/div[2]/div/div/div/div',
+          "div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root",
         ),
 
       adsUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Parts Gross card locators
@@ -98,22 +90,22 @@ class BodyShopGrossProfitView {
       pgPotentialInput: () => this.page.locator("#LOPS50805").nth(1),
       pgYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          "div:nth-child(5) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div",
         ),
       pgPerformanceChart: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[2]/div/div/canvas',
+            "div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas",
           )
           .first(),
       pgInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          "div:nth-child(5) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root",
         ),
 
       pgUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //All Other Gross card locators
@@ -121,22 +113,22 @@ class BodyShopGrossProfitView {
       aogPotentialInput: () => this.page.locator("#BodyShopMultiple").nth(1),
       aogYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          "div:nth-child(5) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root",
         ),
       aogPerformanceChart: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[2]/div[2]',
+            "div:nth-child(6) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div",
           )
           .first(),
       aogInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[2]/div[1]/div[2]/div/div/div/div',
+          "div:nth-child(6) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root > .MuiAlert-message",
         ),
 
       aogUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Total Revenue card locators
@@ -144,45 +136,39 @@ class BodyShopGrossProfitView {
       trPotentialInput: () => this.page.locator("#LOPS55600").nth(1),
       trYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          "div:nth-child(7) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div",
         ),
       trPerformanceChart: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[2]',
+            "div:nth-child(7) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas",
           )
           .first(),
       trInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[1]/div[2]/div/div/div/div',
+          "div:nth-child(7) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root > .MuiAlert-message",
         ),
 
       trUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[1]/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[7]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Total Body Shop Gross card locators
-      tbs2024AOP: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[1]/div/div/div/div[1]/div',
-        ),
-      tbsPotential: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[1]/div/div/div/div[3]/div',
-        ),
+      tbs2024AOP: () => this.page.locator("#LOPS55600").first(),
+      tbsPotential: () => this.page.locator("#LOPS55600").nth(1),
       tbsYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[1]/div/div/div/div[2]/div',
+          "div:nth-child(7) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div",
         ),
       tbsPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[2]/div/div/canvas',
+          "div:nth-child(7) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas",
         ),
 
       tbsUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[1]/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[7]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //nav buttons previous | next

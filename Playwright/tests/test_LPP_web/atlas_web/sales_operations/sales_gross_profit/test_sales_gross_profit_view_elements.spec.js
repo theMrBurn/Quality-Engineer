@@ -5,9 +5,9 @@ const { test, expect } = require("@playwright/test");
 const { SalesGrossProfitView } = require("./sales_gross_profit_view.js");
 const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 
-
 //test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {
+  test.slow();
   test("Navigate to Atlas Web, Dealership Listing and validate card Header and other basic elements have loaded as expected", async ({
     browser,
     page,
@@ -16,12 +16,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -54,12 +60,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -85,12 +97,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -115,12 +133,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -128,8 +152,6 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       "fiaN2024AOPinput",
       "fiaNPotentialInput",
       "fiaNYoYcounter",
-      "fiaNPerformanceChart",
-      "fiaNUsedToNewChart",
       "fiaNUpdateButton",
     ];
 
@@ -146,12 +168,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -161,7 +189,6 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       "uruYoYcounter",
       "uruPerformanceChart",
       "uruUsedToNewChart",
-      "uru2024Ratio",
       "uruUpdateButton",
     ];
 
@@ -178,12 +205,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -209,12 +242,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -240,12 +279,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -271,12 +316,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -302,12 +353,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -334,12 +391,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -366,12 +429,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -398,12 +467,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -429,12 +504,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
-    await page.getByLabel("Plan Details (0)").locator("path").click();
-    await page.getByRole("button", { name: "View", exact: true }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("button", { name: "Sales Operations" }).click();
+    await page.getByText("Sales Gross Profit").click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 

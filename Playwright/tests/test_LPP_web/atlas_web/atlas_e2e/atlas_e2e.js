@@ -11,28 +11,26 @@ class AtlasE2E {
       //plan details Role Assignment locators
 
       //sales ops
-      salesOpsAssignEmployee: () =>
-        this.page
-          .getByRole("button", { name: "Assign employee to department" })
-          .first(),
+      salesOpsAssignEmployee: () => this.page.locator("#mui-157"),
       salesOpsAssignButton: () =>
         this.page.getByRole("button", { name: "Assign" }),
       salesOpsNotifyButton: () =>
         this.page.getByRole("button", { name: "Notify" }),
       employeeScottBackstrom: () =>
-        this.page.locator("option").withText("Shawn Backstrom"),
+        this.page.getByRole("option", { name: "Shawn Backstrom" }),
 
       //plan progress
       planProgressCard: () =>
         this.page
-          .locator("div")
-          .filter({ hasText: /^Not StartedNo data entry has begun$/ })
-          .nth(1),
+          .locator(
+            ".MuiCardContent-root > div > div > div > div:nth-child(2) > .MuiPaper-root",
+          )
+          .first(),
 
       //buttons
       cancelButton: () => this.page.getByRole("button", { name: "Cancel" }),
       viewButton: () => this.page.getByRole("button", { name: "View" }),
-      unassignButton: () => this.page.getByRole("button", { name: "Unassign" }),
+      unassignButton: () => this.page.getByLabel("Clear"),
       aop2024byMonth: () =>
         this.page.locator('//*[@id="demo-popup-menu"]/div[3]/ul/li[1]/p'),
       storePerformance: () =>
@@ -48,13 +46,13 @@ class AtlasE2E {
 
   // get page elements
   async checkElementVisibility(locatorName) {
-    await this.page.waitForLoadState("load");
+    await this.page.waitForLoadState("networkidle");
     const locatorFunction = this.locators[locatorName];
 
     try {
       const element = await locatorFunction().first();
       await expect(element).toBeVisible();
-      await this.page.waitForLoadState("networkidle");
+      //await this.page.waitForLoadState("networkidle");
     } catch (originalError) {
       const errorMessage = `Locator '${locatorName}' failed: ${originalError.message}`;
       throw new Error(errorMessage);
@@ -67,10 +65,10 @@ class AtlasE2E {
     const locatorFunction = this.locators[locatorName];
 
     try {
-      await this.page.waitForLoadState("load");
+      //await this.page.waitForLoadState("load");
       const element = await locatorFunction().first();
       await element.click();
-      await this.page.waitForLoadState("networkidle");
+      //await this.page.waitForLoadState("networkidle");
     } catch (originalError) {
       const errorMessage = `Clicking on locator '${locatorName}' failed: ${originalError.message}`;
       throw new Error(errorMessage);
@@ -81,23 +79,13 @@ class AtlasE2E {
     for (const [key, value] of Object.entries(testData)) {
       const locatorFunction = this.locators[key];
       if (locatorFunction) {
-        await this.page.waitForLoadState("networkidle");
+        //await this.page.waitForLoadState("networkidle");
         const inputElement = await locatorFunction();
         await inputElement.fill(value);
       } else {
         console.warn(`Locator not found for key: ${key}`);
       }
     }
-  }
-
-  async unassignEmployee(text) {
-    await this.page.reload();
-    await this.page.waitForLoadState("load");
-    await this.clickElement(text);
-    await this.page
-      .getByRole("heading", { name: "Are you sure you want to" })
-      .click();
-    await this.page.getByRole("button", { name: "Confirm" }).click();
   }
 
   async seasonalityUpdate() {
@@ -119,9 +107,6 @@ class AtlasE2E {
 
   async submitForReviewCancel() {
     try {
-      await this.page.waitForSelector(
-        "#root > div > div.MuiContainer-root.MuiContainer-maxWidthLg.css-xn2pdd > div > div > div.MuiBox-root.css-o6igo7 > div > div:nth-child(2) > div > div.MuiBox-root.css-si3g8p > div > div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-5.css-1m54h5u > div > button",
-      );
       await this.page
         .getByRole("button", { name: "Submit for Review" })
         .click();
@@ -190,7 +175,7 @@ class AtlasE2E {
 
       // Refresh the page
       await this.page.reload();
-      await this.page.waitForLoadState("load");
+      //await this.page.waitForLoadState("load");
 
       await atlase2e.clickElement("salesOpsAssignEmployee");
       await this.page.getByLabel("Open").click();

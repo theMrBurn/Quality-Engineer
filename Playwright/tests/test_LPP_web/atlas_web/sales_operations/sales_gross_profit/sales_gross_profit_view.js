@@ -37,16 +37,19 @@ class SalesGrossProfitView {
         this.page.getByRole("textbox", { name: "Retail Units" }).first(),
       nruYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div/h4',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
-      nruPerformanceChart: () => this.page.locator("canvas").first(),
+      nruPerformanceChart: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
+        ),
       nruSalesEfficiencyChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]',
         ),
       nruUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //front-end-average NEW card locators
@@ -54,15 +57,15 @@ class SalesGrossProfitView {
       fraNPotentialInput: () => this.page.locator("#LOPS10865").nth(1),
       fraNYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       fraNPerformanceChart: () =>
         this.page.locator(
-          "div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[2]',
         ),
       fraNUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //F&I Average NEW card locators
@@ -70,19 +73,15 @@ class SalesGrossProfitView {
       fiaNPotentialInput: () => this.page.locator("#LOPS15295").nth(1),
       fiaNYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       fiaNPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[2]/div[1]/div/canvas',
-        ),
-      fiaNUsedToNewChart: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[2]',
         ),
       fiaNUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Used Retail Units (Including Driveway)
@@ -90,44 +89,39 @@ class SalesGrossProfitView {
       uruPotentialInput: () => this.page.locator('//*[@id="LOPS15150"]').nth(1),
       uruYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       uruPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[2]/div[1]/div/canvas',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[2]',
         ),
       uruUsedToNewChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[2]/div[2]/div',
-        ),
-      uru2024Ratio: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div[2]/div/div/div/div/h5',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[2]/div[2]',
         ),
       uruUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Front-End Average - Used
-      feauAOPinput: () => this.page.locator("#LOPS15395").first(),
-      feauPotentialInput: () =>
-        this.page.locator('//*[@id="LOPS15395"]').nth(1),
+      feauAOPinput: () => this.page.locator("#LOPS15155").first(),
+      feauPotentialInput: () => this.page.locator("#LOPS15155").nth(1),
       feauYoYcounter: () =>
         this.page.locator(
-          "div:nth-child(7) > div:nth-child(2) > div > div > div > div:nth-child(2) > div > div:nth-child(2)",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       feauPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[2]',
         ),
       feauInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
         ),
       feauUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //F&I Average Used card locators
@@ -135,19 +129,15 @@ class SalesGrossProfitView {
       fiauPotentialInput: () => this.page.locator("#LOPS15395").nth(1),
       fiauYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[7]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       fiauPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[2]/div[1]/div/canvas',
-        ),
-      fiauUsedToNewChart: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[2]/div[2]/div/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[7]/div[2]/div[2]',
         ),
       fiauUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[7]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Fleet Gross
@@ -156,23 +146,20 @@ class SalesGrossProfitView {
         this.page.locator('//*[@id="LOPS10875"]').nth(1),
       fGrossYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[8]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       fGrossPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[2]/div[1]/div/canvas',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[8]/div[2]/div[2]',
         ),
       fGrossInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[8]/div[2]/div[1]/div[2]/div/div/div/div',
         ),
-      fGrossPerfTrendGraph: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[2]/div[2]/div',
-        ),
+
       fGrossUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[8]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Wholesale Gross
@@ -181,23 +168,23 @@ class SalesGrossProfitView {
         this.page.locator('//*[@id="LOPS15165"]').nth(1),
       wGrossYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[9]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[9]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       wGrossPerformanceChart: () =>
         this.page.locator(
-          "div:nth-child(9) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[9]/div[2]/div[2]',
         ),
       wGrossInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[9]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[9]/div[2]/div[1]/div[2]/div/div/div/div',
         ),
       wGrossPerfTrendGraph: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[9]/div[2]/div[2]/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[9]/div[2]/div[2]/div[2]',
         ),
       wGrossUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[9]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[9]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Doc Fee & EVR Income (Per Unit)
@@ -205,23 +192,23 @@ class SalesGrossProfitView {
       dFeePotentialInput: () => this.page.locator("#LOPS15570").nth(1),
       dFeeYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[10]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       dFeePerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[10]/div[2]/div[2]',
         ),
       dFeeInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[10]/div[2]/div[1]/div[2]/div/div/div/div',
         ),
       dFeePerfTrendGraph: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[2]/div[2]/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[10]/div[2]/div[2]/div[2]/div',
         ),
       dFeeUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[10]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[10]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //F&I Cancels (Under and Over 180)
@@ -230,23 +217,23 @@ class SalesGrossProfitView {
         this.page.locator('//*[@id="FICancels"]').nth(1),
       fiCanYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[11]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[11]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       fiCanPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[11]/div[2]/div[2]/div[1]/div/canvas',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[11]/div[2]/div[2]',
         ),
       fiCanInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[11]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[11]/div[2]/div[1]/div[2]/div/div/div/div',
         ),
       dfiCanPerfTrendGraph: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[11]/div[2]/div[2]/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[11]/div[2]/div[2]/div[2]/div',
         ),
       fiCanUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[11]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[11]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //All Other Gross
@@ -255,19 +242,19 @@ class SalesGrossProfitView {
         this.page.locator('//*[@id="SalesMultiple"]').nth(1),
       aogYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[12]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[12]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       aogPerformanceChart: () =>
         this.page.locator(
-          "div:nth-child(12) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[12]/div[2]/div[2]',
         ),
       aogInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[12]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[12]/div[2]/div[1]/div[2]/div/div/div/div',
         ),
       aogUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[12]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[12]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Memo: Driveway Units (New and Used)
@@ -276,41 +263,41 @@ class SalesGrossProfitView {
         this.page.locator('//*[@id="DrivewayUnits"]').nth(1),
       mduYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[13]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       mduPerformanceChart: () =>
         this.page.locator(
-          "div:nth-child(13) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[2]/div/div/canvas',
         ),
       mduInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[13]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[1]/div[2]/div/div/div/div',
         ),
       mduUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[13]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Total Sales Gross
       tsgAOP: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[14]/div[2]/div[1]/div/div/div/div[1]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[14]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
       tsgPotential: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[14]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[14]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
       tsgYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[14]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[14]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
       tsgPerformanceChart: () =>
         this.page.locator(
-          "div:nth-child(14) > div:nth-child(2) > div:nth-child(2) > div > .MuiBox-root > canvas",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[14]/div[2]/div[2]',
         ),
       tsgPerfTrendChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[14]/div[2]/div[2]/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[14]/div[2]/div[2]/div[2]/div',
         ),
 
       //nav buttons previous | next
@@ -321,7 +308,7 @@ class SalesGrossProfitView {
 
       topNextButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[1]/div[3]/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[1]/div[4]/div/button',
         ),
       topPreviousButton: () =>
         this.page.locator(

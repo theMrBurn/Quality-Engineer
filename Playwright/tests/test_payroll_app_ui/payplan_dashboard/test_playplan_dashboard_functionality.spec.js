@@ -7,9 +7,6 @@
 const { test, expect, devices } = require("@playwright/test");
 const { PayplanDashboard } = require("./payplan_dashboard.js");
 
-// user
-//test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
-
 //test
 test.describe.serial("Payplan /dashboard interactive tests", () => {
   test("Navigate to /Payplan/Dashboard Validate Expiration Date can be input @func", async ({
@@ -18,14 +15,22 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
-    // input Expiration Date 1
-    await payplansDashboard.clickExpirationDate1();
-    await page.getByRole("gridcell", { name: "2024" }).click();
-    await payplansDashboard.clickExpirationDate1();
-    await page
-      .getByRole("gridcell", { name: "Jan" })
-      .getByRole("link", { name: "Jan" })
-      .click();
+    try {
+      // input Expiration Date 1
+      await payplansDashboard.clickElement("expirationDateCalendar1");
+
+      await page.getByRole("gridcell", { name: "2024" }).click();
+
+      await payplansDashboard.clickElement("expirationDateCalendar1");
+
+      await page
+        .getByRole("gridcell", { name: "Jan" })
+        .getByRole("link", { name: "Jan" })
+        .click();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to /Payplan/Dashboard Validate Pay Calendar Date can be input @func", async ({
@@ -34,30 +39,52 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
-    // semi monthly
-    await payplansDashboard.inputPayCalendarDropdown("Semi");
-    const semiMonthly = await page.innerText("text=Semi-monthly");
-    expect(semiMonthly).toBe("Semi-monthly");
+    try {
+      // semi monthly
+      await payplansDashboard.clickElement("payCallendarDropTriangle");
+      await page.getByRole("option", { name: "Semi-monthly" }).click();
 
-    // // weekly
-    await payplansDashboard.inputPayCalendarDropdown("Wee");
-    const weekly = await page.innerText("text=Weekly");
-    expect(weekly).toBe("Weekly");
+      const semiMonthly = await page.innerText("text=Semi-monthly");
+      expect(semiMonthly).toBe("Semi-monthly");
 
-    // // bi weeky
-    await payplansDashboard.inputPayCalendarDropdown("Bi-wee");
-    const biWeekly = await page.innerText("text=Bi-Weekly");
-    expect(biWeekly).toBe("Bi-Weekly");
+      // // weekly
+      await payplansDashboard.clickElement("payCallendarDropTriangle");
+      await page.getByRole("option", { name: "Weekly", exact: true }).click();
 
-    // // bi weekly week 1
-    await payplansDashboard.inputPayCalendarDropdown("Biwee");
-    const biWeekly1 = await page.innerText("text=BiWeekly Wk1");
-    expect(biWeekly1).toBe("BiWeekly Wk1");
+      const weekly = await page.innerText("text=Weekly");
+      expect(weekly).toBe("Weekly");
 
-    // // bi weekly week 2
-    await payplansDashboard.inputPayCalendarDropdown("2");
-    const biWeekly2 = await page.innerText("text=BiWeekly Wk2");
-    expect(biWeekly2).toBe("BiWeekly Wk2");
+      // // bi weeky
+      await payplansDashboard.clickElement("payCallendarDropTriangle");
+      await page.getByRole("option", { name: "Bi-Weekly" }).click();
+
+      const biWeekly = await page.innerText("text=Bi-Weekly");
+      expect(biWeekly).toBe("Bi-Weekly");
+
+      // // calendar monthly
+      await payplansDashboard.clickElement("payCallendarDropTriangle");
+      await page.getByRole("option", { name: "Calendar Monthly" }).click();
+
+      const calMonthly = await page.innerText("text=Calendar Monthly");
+      expect(calMonthly).toBe("Calendar Monthly");
+
+      // // bi weekly week 1
+      await payplansDashboard.clickElement("payCallendarDropTriangle");
+      await page.getByRole("option", { name: "BiWeekly Wk1" }).click();
+
+      const biWeekly1 = await page.innerText("text=BiWeekly Wk1");
+      expect(biWeekly1).toBe("BiWeekly Wk1");
+
+      // // bi weekly week 2
+      await payplansDashboard.clickElement("payCallendarDropTriangle");
+      await page.getByRole("option", { name: "BiWeekly Wk2" }).click();
+
+      const biWeekly2 = await page.innerText("text=BiWeekly Wk2");
+      expect(biWeekly2).toBe("BiWeekly Wk2");
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Semi Monthly @func", async ({
@@ -67,13 +94,25 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
-    // a pay cycle needs to be input
-    await payplansDashboard.inputPayCalendarDropdown("Semi");
-    const semiMonthly = await page.innerText("text=Semi-monthly");
-    expect(semiMonthly).toBe("Semi-monthly");
+    try {
+      // a pay cycle needs to be input
+      await payplansDashboard.clickElement("payCallendarDropTriangle");
+      await page.getByRole("option", { name: "Semi-monthly" }).click();
 
-    // ppe date input
-    await payplansDashboard.inputPPEdateDropdown("07/15/2021");
+      // Simulate pressing the "Enter" key
+      const keyboard = page.keyboard;
+      await keyboard.press("Enter");
+
+      // ppe date input
+      await payplansDashboard.clickElement("ppeDateDropdownTriangle");
+      await page.getByRole("option", { name: "7/31/2024" }).click();
+
+      const semiMonthly = await page.innerText("text=Semi-monthly");
+      expect(semiMonthly).toBe("Semi-monthly");
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Weekly @func", async ({
@@ -83,13 +122,21 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
-    // a pay cycle needs to be input
-    await payplansDashboard.inputPayCalendarDropdown("Wee");
-    const weekly = await page.innerText("text=Weekly");
-    expect(weekly).toBe("Weekly");
+    try {
+      // a pay cycle needs to be input
+      await payplansDashboard.clickElement("payCallendarDropTriangle");
+      await page.getByRole("option", { name: "Weekly", exact: true }).click();
 
-    // ppe date input
-    await payplansDashboard.inputPPEdateDropdown("05/21/2021");
+      const weekly = await page.innerText("text=Weekly");
+      expect(weekly).toBe("Weekly");
+
+      // ppe date input
+      await payplansDashboard.clickElement("ppeDateDropdownTriangle");
+      await page.getByRole("option", { name: "/25/2024" }).click();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Bi-Weekly @func", async ({
@@ -99,13 +146,23 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
-    // a pay cycle needs to be input
-    await payplansDashboard.inputPayCalendarDropdown("Bi-wee");
-    const biWeekly = await page.innerText("text=Bi-Weekly");
-    expect(biWeekly).toBe("Bi-Weekly");
+    try {
+      // a pay cycle needs to be input
+      await payplansDashboard.clickElement("payCallendarDropTriangle");
+      await page
+        .getByRole("option", { name: "Bi-Weekly", exact: true })
+        .click();
 
-    // ppe date input
-    await payplansDashboard.inputPPEdateDropdown("01/22/2021");
+      const biWeekly = await page.innerText("text=Bi-Weekly");
+      expect(biWeekly).toBe("Bi-Weekly");
+
+      // ppe date input
+      await payplansDashboard.clickElement("ppeDateDropdownTriangle");
+      await page.getByRole("option", { name: "1/20/" }).click();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Bi-Weekly Wk1 @func", async ({
@@ -115,13 +172,23 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
-    // a pay cycle needs to be input
-    await payplansDashboard.inputPayCalendarDropdown("Biwee");
-    const biWeekly1 = await page.innerText("text=BiWeekly Wk1");
-    expect(biWeekly1).toBe("BiWeekly Wk1");
+    try {
+      // a pay cycle needs to be input
+      await payplansDashboard.clickElement("payCallendarDropTriangle");
+      await page
+        .getByRole("option", { name: "BiWeekly Wk1", exact: true })
+        .click();
 
-    // ppe date input
-    await payplansDashboard.inputPPEdateDropdown("12/04/2021");
+      const biWeekly1 = await page.innerText("text=BiWeekly Wk1");
+      expect(biWeekly1).toBe("BiWeekly Wk1");
+
+      // ppe date input
+      await payplansDashboard.clickElement("ppeDateDropdownTriangle");
+      await page.getByRole("option", { name: "1/27/" }).click();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to /Payplan/Dashboard validate PPE Date dropdown functionality, Bi-Weekly Wk2 @func", async ({
@@ -131,13 +198,23 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
-    // a pay cycle needs to be input
-    await payplansDashboard.inputPayCalendarDropdown("Biwee");
-    const biWeekly1 = await page.innerText("text=BiWeekly Wk2");
-    expect(biWeekly1).toBe("BiWeekly Wk2");
+    try {
+      // a pay cycle needs to be input
+      await payplansDashboard.clickElement("payCallendarDropTriangle");
+      await page
+        .getByRole("option", { name: "BiWeekly Wk2", exact: true })
+        .click();
 
-    // ppe date input
-    await payplansDashboard.inputPPEdateDropdown("12/10/2021");
+      const biWeekly2 = await page.innerText("text=BiWeekly Wk2");
+      expect(biWeekly2).toBe("BiWeekly Wk2");
+
+      // ppe date input
+      await payplansDashboard.clickElement("ppeDateDropdownTriangle");
+      await page.getByRole("option", { name: "1/20/" }).click();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to /Payplan/Dashboard Validate Expiration Date2 can be input @func", async ({
@@ -146,15 +223,22 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
-    // input Expiration Date 2
+    try {
+      // input Expiration Date 2
 
-    await payplansDashboard.clickExpirationDate2();
-    await page.getByRole("gridcell", { name: "2024" }).click();
-    await payplansDashboard.clickExpirationDate2();
-    await page
-      .getByRole("gridcell", { name: "Jan" })
-      .getByRole("link", { name: "Jan" })
-      .click();
+      await payplansDashboard.clickElement("expirationDateCalendar1");
+      await page.getByRole("gridcell", { name: "2024" }).click();
+
+      await payplansDashboard.clickElement("expirationDateCalendar2");
+
+      await page
+        .getByRole("gridcell", { name: "Jan" })
+        .getByRole("link", { name: "Jan" })
+        .click();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 
   test("Navigate to /Payplan/Dashboard Validate Effective Date can be input @func", async ({
@@ -163,9 +247,14 @@ test.describe.serial("Payplan /dashboard interactive tests", () => {
     const payplansDashboard = new PayplanDashboard(page);
     await payplansDashboard.goto();
 
-    // input Effective Date
-    await payplansDashboard.clickEffectiveDate();
-    await page.getByRole("button", { name: "Previous" }).click();
-    await page.getByRole("link", { name: "Feb" }).click();
+    try {
+      // input Effective Date
+      await payplansDashboard.clickElement("effectiveDateCalendar");
+      await page.getByRole("button", { name: "Previous" }).click();
+      await page.getByRole("link", { name: "Feb" }).click();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error("Test failed.", error.message);
+    }
   });
 });

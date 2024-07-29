@@ -11,9 +11,7 @@ class AdminStoreView {
     /// Atlas landing page elements
     this.locators = {
       heading1: () =>
-        this.page.getByRole("heading", {
-          name: "2024 Store Potential and Annual Operating Plan",
-        }),
+        this.page.getByRole("heading", { name: "2024 Store Potential and" }),
       heading2: () =>
         this.page.getByRole("heading", { name: "Dealership Listings" }),
       searchBar: () => this.page.getByPlaceholder("SEARCH"),
@@ -25,6 +23,17 @@ class AdminStoreView {
           .getByRole("columnheader", { name: "CODE " })
           .locator("span")
           .nth(1)),
+
+      // new columns July '24 update
+      newUnitsColumn: () =>
+        this.page.getByText("NEW RETAIL UNITS", { exact: true }),
+      usedUnitsColumn: () =>
+        this.page.getByText("USED RETAIL UNITS", { exact: true }),
+      salesGrossColumn: () =>
+        this.page.getByText("SALES GROSS", { exact: true }),
+      afterSalesGrossColumn: () =>
+        this.page.getByText("AFTER SALES GROSS", { exact: true }),
+      storeNetColumn: () => this.page.getByText("STORE NET", { exact: true }),
 
       /// Plan Details page elements
       // Role Assignments

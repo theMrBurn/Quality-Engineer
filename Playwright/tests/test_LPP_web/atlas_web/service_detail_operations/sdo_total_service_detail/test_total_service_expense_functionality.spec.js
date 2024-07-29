@@ -5,7 +5,6 @@ const { test, expect } = require("@playwright/test");
 const { SDOTotalServiceDetail } = require("./sdoTotalServiceDetail");
 const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 
-
 //test
 test.describe
   .serial("Atlas Web - Page Elements Total Service Detail view @func", () => {
@@ -18,11 +17,16 @@ test.describe
     await page.waitForLoadState("networkidle");
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -50,11 +54,16 @@ test.describe
     await page.waitForLoadState("networkidle");
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -86,11 +95,16 @@ test.describe
     await page.waitForLoadState("networkidle");
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page
       .getByRole("button", { name: "Service / Detail Operations" })
       .click();
@@ -99,7 +113,11 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await sdoTotalServiceDetail.locators.tdeAOP2024input().clear("1701");
       await sdoTotalServiceDetail.locators.tdeAOP2024input().fill("1701");
+      await sdoTotalServiceDetail.locators
+        .tdePotential2024input()
+        .clear("2000");
       await sdoTotalServiceDetail.locators.tdePotential2024input().fill("2000");
       await sdoTotalServiceDetail.locators.tdeUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();

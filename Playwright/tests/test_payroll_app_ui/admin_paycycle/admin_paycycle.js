@@ -90,10 +90,10 @@ class AdminPayCycle {
     const locatorFunction = this.locators[locatorName];
 
     try {
-      await this.page.waitForLoadState("load");
+      await this.page.waitForLoadState("networkidle");
       const element = await locatorFunction().first();
       await element.click();
-      await this.page.waitForLoadState("networkidle");
+      await this.page.waitForLoadState("load");
     } catch (originalError) {
       const errorMessage = `Clicking on locator '${locatorName}' failed: ${originalError.message}`;
       throw new Error(errorMessage);

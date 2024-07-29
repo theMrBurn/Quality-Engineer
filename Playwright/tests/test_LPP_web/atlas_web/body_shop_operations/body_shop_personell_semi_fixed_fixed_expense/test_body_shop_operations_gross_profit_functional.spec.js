@@ -11,6 +11,7 @@ const atlasLogin = new AtlasLogin();
 //test
 test.describe
   .serial("Atlas Web - Body Shop Personell Semi Fixed, Fixed Expense Page Elements @func", () => {
+  test.slow();
   test("Navigate to Atlas Web, Body Shop PSFFE and validate Personell Expense no-input renders Update Button Disabled as expected", async ({
     browser,
     page,
@@ -19,11 +20,16 @@ test.describe
     await bodyShopPersonnelExpense.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Body Shop Operations" }).click();
     await page
       .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
@@ -50,11 +56,16 @@ test.describe
     await bodyShopPersonnelExpense.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Body Shop Operations" }).click();
     await page
       .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
@@ -83,11 +94,16 @@ test.describe
     await bodyShopPersonnelExpense.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Body Shop Operations" }).click();
     await page
       .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
@@ -96,7 +112,9 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
+      await bodyShopPersonnelExpense.locators.peAOPinput().clear("1701");
       await bodyShopPersonnelExpense.locators.peAOPinput().fill("1701");
+      await bodyShopPersonnelExpense.locators.pePotentialInput().clear("2000");
       await bodyShopPersonnelExpense.locators.pePotentialInput().fill("2000");
       await bodyShopPersonnelExpense.locators.peUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
@@ -115,11 +133,16 @@ test.describe
     await bodyShopPersonnelExpense.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Body Shop Operations" }).click();
     await page
       .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
@@ -146,11 +169,16 @@ test.describe
     await bodyShopPersonnelExpense.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Body Shop Operations" }).click();
     await page
       .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
@@ -179,11 +207,16 @@ test.describe
     await bodyShopPersonnelExpense.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Body Shop Operations" }).click();
     await page
       .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
@@ -211,11 +244,16 @@ test.describe
     await bodyShopPersonnelExpense.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Body Shop Operations" }).click();
     await page
       .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
@@ -242,11 +280,16 @@ test.describe
     await bodyShopPersonnelExpense.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Body Shop Operations" }).click();
     await page
       .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
@@ -275,11 +318,16 @@ test.describe
     await bodyShopPersonnelExpense.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    const atlasLogin = new AtlasLogin();
-    await atlasLogin.signInHelper(page);
+    //const atlasLogin = new AtlasLogin();
+    //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("button", { name: "Body Shop Operations" }).click();
     await page
       .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })

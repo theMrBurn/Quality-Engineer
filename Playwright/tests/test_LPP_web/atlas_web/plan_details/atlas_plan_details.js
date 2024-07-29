@@ -1,4 +1,3 @@
-// this POM is for /lienpayoff
 const { expect } = require("@playwright/test");
 
 class PlanDetailsView {
@@ -11,6 +10,7 @@ class PlanDetailsView {
     /// Atlas landing page elements
     this.locators = {
       /// Plan Details page elements
+
       // Role Assignments
       roleAssignmentsColumn: () =>
         this.page
@@ -19,18 +19,9 @@ class PlanDetailsView {
           .first(),
       salesOperationsHeading: () =>
         this.page.getByRole("heading", { name: "Sales Operations" }).first(),
-      assignEmployeeSalesOps: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div[1]/div/div[2]/button',
-        ),
-      usedSalesOperations: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div/div[2]/div/div[2]/div/div[1]/div/div/div[2]/div/div[2]/div/div[2]/button',
-        ),
-      assignButton1: () =>
-        this.page
-          .getByRole("button", { name: "Assign employee to department" })
-          .nth(1),
+      assignEmployeeSalesOps: () => this.page.locator("#mui-3"),
+      usedSalesOperations: () => this.page.locator("#mui-5"),
+      assignButton1: () => this.page.locator("#mui-7"),
       infobox1: () =>
         this.page.getByText(
           "This is an optional assignment. If no user is assigned, it will fall under Sales",
