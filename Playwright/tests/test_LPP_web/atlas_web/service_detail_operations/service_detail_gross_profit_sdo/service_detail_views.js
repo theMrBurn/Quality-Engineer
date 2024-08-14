@@ -153,10 +153,9 @@ class ServiceDetailstView {
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[8]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
       tsgPerformanceChart: () =>
-        this.page
-          .locator(
-            '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[8]/div[2]/div[2]/div/div/canvas',
-          ),
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[8]/div[2]/div[2]/div/div/canvas',
+        ),
 
       //nav buttons previous | next
       bottomNextButton: () =>

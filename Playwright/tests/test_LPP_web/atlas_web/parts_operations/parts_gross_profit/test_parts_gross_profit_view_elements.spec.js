@@ -28,7 +28,7 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
@@ -73,7 +73,7 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
@@ -115,7 +115,7 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
@@ -157,7 +157,7 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
@@ -198,7 +198,7 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
@@ -240,7 +240,7 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [

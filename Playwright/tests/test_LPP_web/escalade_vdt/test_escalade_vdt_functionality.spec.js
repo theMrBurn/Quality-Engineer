@@ -164,7 +164,6 @@ test.describe.serial("Escalade VDT - Page Functionality @func", () => {
     }
   });
 
-
   test("Navigate to Escalade VDT and validate Export Grid Data is functioning as expected", async ({
     browser,
     page,
@@ -173,10 +172,11 @@ test.describe.serial("Escalade VDT - Page Functionality @func", () => {
     await escaladeVDT.goto();
 
     try {
-
       await page.reload();
 
-      const gridLoaded = page.locator('//*[@id="root"]/div/div[1]/div[3]/span/div/div/div/div/div/div/div[3]');
+      const gridLoaded = page.locator(
+        '//*[@id="root"]/div/div[1]/div[3]/span/div/div/div/div/div/div/div[3]',
+      );
 
       await expect(gridLoaded).toBeVisible();
 
@@ -188,7 +188,6 @@ test.describe.serial("Escalade VDT - Page Functionality @func", () => {
 
       await expect(page.locator(".MuiBackdrop-root").first()).toBeHidden();
       await page.getByText("Successfully Downloaded VDT").click();
-
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed

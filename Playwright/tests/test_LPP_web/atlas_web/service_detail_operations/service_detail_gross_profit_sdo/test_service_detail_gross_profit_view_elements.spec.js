@@ -29,8 +29,10 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
-      await page.waitForLoadState("networkidle");
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
+    await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -70,8 +72,10 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
-      await page.waitForLoadState("networkidle");
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
+    await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -109,8 +113,10 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
-      await page.waitForLoadState("networkidle");
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
+    await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -149,8 +155,10 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
-      await page.waitForLoadState("networkidle");
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
+    await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -189,8 +197,10 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
-      await page.waitForLoadState("networkidle");
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
+    await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -229,8 +239,10 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
-      await page.waitForLoadState("networkidle");
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
+    await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -269,8 +281,10 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
-      await page.waitForLoadState("networkidle");
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
+    await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -309,8 +323,10 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
-      await page.waitForLoadState("networkidle");
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
+    await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 

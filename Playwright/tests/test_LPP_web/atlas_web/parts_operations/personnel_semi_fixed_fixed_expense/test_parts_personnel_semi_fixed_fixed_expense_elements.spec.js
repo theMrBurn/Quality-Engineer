@@ -25,8 +25,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Parts Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 

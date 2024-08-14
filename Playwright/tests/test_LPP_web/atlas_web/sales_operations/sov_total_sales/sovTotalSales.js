@@ -11,7 +11,8 @@ class TotalSalesExpenseView {
     /// Selling Personal Semi Fixed Expense Elements
     this.locators = {
       //card headers
-      totalSalesHeader: () => this.page.getByRole('heading', { name: 'Total Sales' }),
+      totalSalesHeader: () =>
+        this.page.getByRole("heading", { name: "Total Sales" }),
       totalSalesOpProfHeader: () =>
         this.page.getByText("Total Sales Operating Profit"),
 

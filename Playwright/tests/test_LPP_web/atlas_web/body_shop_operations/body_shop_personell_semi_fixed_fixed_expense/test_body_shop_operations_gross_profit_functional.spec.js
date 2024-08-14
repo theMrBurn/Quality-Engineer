@@ -30,8 +30,10 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -64,8 +66,10 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -100,8 +104,10 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -137,8 +143,10 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -171,8 +179,10 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -207,8 +217,10 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -242,8 +254,10 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -276,8 +290,10 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -312,8 +328,10 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {

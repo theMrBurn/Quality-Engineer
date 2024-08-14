@@ -12,8 +12,7 @@ class PlanDetailsView {
       /// Plan Details page elements
 
       // Role Assignments
-      assignEmployeesColumn: () =>
-        this.page.getByText('Assign Employees'),
+      assignEmployeesColumn: () => this.page.getByText("Assign Employees"),
       salesOperationsHeading: () =>
         this.page.getByRole("heading", { name: "Sales Operations" }).first(),
       assignEmployeeSalesOps: () => this.page.locator("#mui-3"),

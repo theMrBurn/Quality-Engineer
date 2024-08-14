@@ -27,7 +27,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -61,7 +61,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -97,7 +97,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     // await NetworkInterceptor.interceptRequests(page);
@@ -136,7 +136,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -170,7 +170,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -206,7 +206,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     // await NetworkInterceptor.interceptRequests(page);
@@ -245,7 +245,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -279,7 +279,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -315,7 +315,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -352,7 +352,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -386,7 +386,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -422,7 +422,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -459,7 +459,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -493,7 +493,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -529,7 +529,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -566,7 +566,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -600,7 +600,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -636,7 +636,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Parts Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
+    await page.getByRole("menuitem", { name: "Parts Gross Profit" }).click();
     await page.waitForLoadState("networkidle");
 
     try {

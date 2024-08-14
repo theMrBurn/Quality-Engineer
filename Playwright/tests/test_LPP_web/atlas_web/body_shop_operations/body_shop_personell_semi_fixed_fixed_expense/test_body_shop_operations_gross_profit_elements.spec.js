@@ -29,8 +29,10 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     //land on the Body Shop Personell Semi Fixed, Fixed Expense view, validate basic elements have loaded (big list)

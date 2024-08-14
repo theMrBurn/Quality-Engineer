@@ -62,7 +62,7 @@ class EscaladeVDT {
 
       // export
       exportGridDataButton: () =>
-        this.page.getByRole('button', { name: 'EXPORT GRID DATA' }),
+        this.page.getByRole("button", { name: "EXPORT GRID DATA" }),
 
       // Edit panel
       infoIcon: () => this.page.getByTestId("InfoIcon"),

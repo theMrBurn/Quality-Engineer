@@ -18,6 +18,7 @@ const salesDataBAD = "Playwright/helpers/misc_test_helper_files/TIMECARD.csv";
 
 //test
 test.describe.serial("Escalade CVP - Page Functionality @func", () => {
+  test.slow();
   test("Navigate to Escalade CVP and validate Stock Number Column sort functioning as expected", async ({
     browser,
     page,
@@ -105,8 +106,9 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     browser,
     page,
   }) => {
-
-    test.fixme("need to see if there are changes to filter logic to get this test working again 5/31/24");
+    test.fixme(
+      "need to see if there are changes to filter logic to get this test working again 5/31/24",
+    );
     const escaladeCVP = new EscaladeCVP(page);
     await escaladeCVP.goto();
 

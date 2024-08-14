@@ -29,8 +29,10 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Body Shop Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)

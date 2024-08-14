@@ -8,7 +8,7 @@ const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 //test
 test.describe
   .serial("Atlas Web - Service Detail Operations 'Service/Detail Gross Profit View' Page Elements @func", () => {
-    test.slow();
+  test.slow();
   test("Navigate to Service/Detail Gross Profit View and validate Flat Rate Hours, no-input renders Update Button Disabled as expected", async ({
     browser,
     page,
@@ -30,7 +30,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -66,7 +68,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -104,7 +108,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     // await NetworkInterceptor.interceptRequests(page);
@@ -145,7 +151,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -181,7 +189,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -219,7 +229,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -258,7 +270,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -294,7 +308,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -332,7 +348,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -371,7 +389,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -407,7 +427,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -445,7 +467,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -484,7 +508,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -520,7 +546,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -558,7 +586,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -597,7 +627,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -633,7 +665,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -671,7 +705,9 @@ test.describe
     await page
       .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+    await page
+      .getByRole("menuitem", { name: "Service/Detail Gross Profit" })
+      .click();
     await page.waitForLoadState("networkidle");
 
     try {

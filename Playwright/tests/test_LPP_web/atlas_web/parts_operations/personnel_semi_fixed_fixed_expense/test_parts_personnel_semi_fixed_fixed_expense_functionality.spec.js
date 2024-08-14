@@ -25,8 +25,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Parts Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
 
     try {
       //press Update to trigger Error Alert
@@ -58,8 +60,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Parts Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -93,8 +97,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Parts Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -129,8 +135,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Parts Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
 
     try {
       //press Update to trigger Error Alert
@@ -162,8 +170,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Parts Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -197,8 +207,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Parts Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -231,8 +243,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Parts Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
 
     try {
       //press Update to trigger Error Alert
@@ -264,8 +278,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Parts Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -299,8 +315,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole('tab', { name: 'Parts Operations' }).click();
-    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page
+      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
+      .click();
 
     try {
       //input valid amount and click Update - vaidate Update Success

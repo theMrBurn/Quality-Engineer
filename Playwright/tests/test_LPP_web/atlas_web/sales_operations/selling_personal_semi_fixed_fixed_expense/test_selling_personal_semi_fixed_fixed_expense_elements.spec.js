@@ -26,7 +26,11 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Sales Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
+    await page
+      .getByRole("menuitem", {
+        name: "Selling, Personnel, Semi-Fixed, & Fixed Expense",
+      })
+      .click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -65,7 +69,11 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Sales Operations" }).click();
-    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
+    await page
+      .getByRole("menuitem", {
+        name: "Selling, Personnel, Semi-Fixed, & Fixed Expense",
+      })
+      .click();
 
     //landed on the sales gross profit view, validate basic elements have loaded
 
