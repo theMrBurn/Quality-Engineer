@@ -146,7 +146,7 @@ class ServiceDetailstView {
         ),
       tsgYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[7]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[8]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
       tsgPotential: () =>
         this.page.locator(
@@ -155,9 +155,8 @@ class ServiceDetailstView {
       tsgPerformanceChart: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[2]/div/div/canvas',
-          )
-          .first(),
+            '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[8]/div[2]/div[2]/div/div/canvas',
+          ),
 
       //nav buttons previous | next
       bottomNextButton: () =>

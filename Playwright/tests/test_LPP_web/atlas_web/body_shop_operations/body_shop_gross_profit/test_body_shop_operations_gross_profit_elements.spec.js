@@ -22,15 +22,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)

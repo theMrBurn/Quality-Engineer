@@ -27,9 +27,9 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Personnel, Semi-Fixed, & Fixed Expense").click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, & Fixed Expense' }).click();
     await page.waitForLoadState("networkidle");
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
@@ -68,9 +68,9 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Personnel, Semi-Fixed, & Fixed Expense").click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, & Fixed Expense' }).click();
     await page.waitForLoadState("networkidle");
 
     //landed on the sales gross profit view, validate basic elements have loaded

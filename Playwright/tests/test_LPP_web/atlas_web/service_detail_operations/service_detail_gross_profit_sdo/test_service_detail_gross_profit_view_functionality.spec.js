@@ -28,9 +28,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -41,7 +41,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -64,9 +64,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -79,7 +79,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -102,9 +102,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     // await NetworkInterceptor.interceptRequests(page);
@@ -120,7 +120,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -143,9 +143,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -156,7 +156,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -179,9 +179,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -194,7 +194,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -217,12 +217,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
-
-    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -235,7 +233,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -258,9 +256,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -271,7 +269,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -294,9 +292,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -309,7 +307,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -332,12 +330,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
-
-    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -350,7 +346,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -373,9 +369,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -386,7 +382,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -409,9 +405,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -424,7 +420,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -447,12 +443,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
-
-    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -465,7 +459,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -488,9 +482,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -501,7 +495,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -524,9 +518,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -539,7 +533,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -562,12 +556,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
-
-    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -580,7 +572,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -603,9 +595,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -616,7 +608,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -639,9 +631,9 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -654,7 +646,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -677,12 +669,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
+    await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
-
-    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -695,7 +685,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

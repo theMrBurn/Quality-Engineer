@@ -26,8 +26,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -38,7 +38,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -60,8 +60,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -74,7 +74,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -96,8 +96,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     // await NetworkInterceptor.interceptRequests(page);
@@ -113,7 +113,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -135,8 +135,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -147,7 +147,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -169,8 +169,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -183,7 +183,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -205,8 +205,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     // await NetworkInterceptor.interceptRequests(page);
@@ -222,7 +222,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -244,8 +244,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -256,7 +256,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -278,8 +278,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -292,7 +292,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -314,11 +314,9 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
-
-    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -331,7 +329,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -353,8 +351,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -365,7 +363,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -387,8 +385,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -401,7 +399,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -423,11 +421,9 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
-
-    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -440,7 +436,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -462,8 +458,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -474,7 +470,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -496,8 +492,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -510,7 +506,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -532,11 +528,9 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
-
-    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -549,7 +543,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -571,8 +565,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -583,7 +577,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -605,8 +599,8 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -619,7 +613,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -641,11 +635,9 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
-
-    // await NetworkInterceptor.interceptRequests(page);
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -658,7 +650,7 @@ test.describe.serial("Atlas Web - Parts Operations Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

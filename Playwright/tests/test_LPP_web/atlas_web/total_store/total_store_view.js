@@ -12,12 +12,10 @@ class TotalStoreView {
     this.locators = {
       //page header
       totalStoreHeader: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[1]/div[2]/h4',
-        ),
+        this.page.getByRole("heading", { name: "Total Store" }),
 
       //card headers
-      totalStoreGross: () => this.page.getByText("Total Store Gross"),
+      totalStoreGross: () => page.getByText("Total Store Gross"),
       totalStoreExpense: () => this.page.getByText("Total Store Expense"),
       additionalIncome: () => this.page.getByText("Additional Income"),
       netProfitBeforeTax: () => this.page.getByText("Net Profit Before Tax"),
@@ -25,37 +23,37 @@ class TotalStoreView {
       //Total Store Gross
       aop2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
       potential2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div[3]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
       aopYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
       aop2024PerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]/div[2]/div/div/canvas',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
         ),
 
       //Total Store Expense
       tseAOP2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[1]/div/div/div/div[1]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
       tsePotential2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[1]/div/div/div/div[3]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
       tseYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
       tse2024PerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[3]/div[2]/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[2]/div/div/canvas',
         ),
 
       //Additional Income
@@ -63,45 +61,45 @@ class TotalStoreView {
       aiPotentialInput: () => this.page.locator("#LOPS86410").nth(1),
       aiYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[1]/div[1]/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
       aiPerformanceChart: () =>
         this.page
           .locator(
-            '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[2]/div[2]',
+            '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[2]',
           )
           .first(),
       aiUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[4]/div[1]/div/div[2]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Net Profit Before Tax
       npbtAOP2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div/div/div/div[1]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
       npbtPotential2024: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div/div/div/div[3]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
       npbtYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
       npbt2024PerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[5]/div[2]/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[2]',
         ),
 
       // complete buttons
       topCompleteButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[1]/div[3]/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[1]/div[4]/div/button',
         ),
       bottomCompleteButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[6]/div[2]/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[4]/div/button',
         ),
       completeSectionModal: () =>
         this.page.getByRole("heading", { name: "Complete Section" }),

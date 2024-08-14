@@ -26,10 +26,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "newRetailUnitsHeader",
@@ -70,10 +68,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "nru2024AOPinput",
@@ -107,10 +103,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "fraN2024AOPinput",
@@ -143,10 +137,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "fiaN2024AOPinput",
@@ -178,10 +170,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "uru2024AOPinput",
@@ -215,10 +205,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "feauAOPinput",
@@ -252,10 +240,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "feauAOPinput",
@@ -289,10 +275,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "fGrossAOPinput",
@@ -326,10 +310,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "wGrossAOPinput",
@@ -363,10 +345,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "dFeeAOPinput",
@@ -401,10 +381,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "dFeeAOPinput",
@@ -439,10 +417,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "aogAOPinput",
@@ -477,10 +453,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "mduAOPinput",
@@ -514,10 +488,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Sales Gross Profit").click();
-
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Sales Gross Profit' }).click();
 
     const locatorNames = [
       "tsgAOP",

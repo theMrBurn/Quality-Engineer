@@ -20,15 +20,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Gross Profit
+    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
@@ -50,7 +50,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -65,15 +65,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Gross Profit
+    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
@@ -92,7 +92,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -114,8 +114,8 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
@@ -134,7 +134,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -156,8 +156,8 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
@@ -175,7 +175,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -197,8 +197,8 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
@@ -217,7 +217,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -239,8 +239,8 @@ test.describe
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Parts Gross Profit", { exact: true }).click();
+    await page.getByRole("tab", { name: "Parts Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Parts Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
@@ -258,7 +258,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

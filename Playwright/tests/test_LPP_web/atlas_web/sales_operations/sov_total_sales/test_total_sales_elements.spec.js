@@ -19,19 +19,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to total service detail ops
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page.getByText("Total Sales").click();
-    await page.waitForLoadState("networkidle");
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Total Sales' }).click();
 
     const locatorNames = [
-      "totalSalesExpenseHeader",
+      "totalSalesHeader",
       "totalSalesOpProfHeader",
       "aop2024",
       "potential2024",

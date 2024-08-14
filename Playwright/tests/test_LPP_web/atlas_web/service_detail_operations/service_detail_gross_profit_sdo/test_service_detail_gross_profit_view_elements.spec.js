@@ -27,10 +27,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
-    await page.waitForLoadState("networkidle");
+      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+      await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -68,10 +68,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
-    await page.waitForLoadState("networkidle");
+      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+      await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -107,10 +107,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
-    await page.waitForLoadState("networkidle");
+      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+      await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -147,10 +147,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
-    await page.waitForLoadState("networkidle");
+      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+      await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -187,10 +187,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
-    await page.waitForLoadState("networkidle");
+      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+      await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -227,10 +227,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
-    await page.waitForLoadState("networkidle");
+      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+      await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -267,10 +267,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
-    await page.waitForLoadState("networkidle");
+      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+      await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 
@@ -307,10 +307,10 @@ test.describe
       .click();
     await page.getByText("L0000 Aop Test Store").click();
     await page
-      .getByRole("button", { name: "Service / Detail Operations" })
+      .getByRole("tab", { name: "Service / Detail Operations" })
       .click();
-    await page.getByText("Service/Detail Gross Profit").click();
-    await page.waitForLoadState("networkidle");
+      await page.getByRole('menuitem', { name: 'Service/Detail Gross Profit' }).click();
+      await page.waitForLoadState("networkidle");
 
     //landed on the service details gross profit view, validate basic elements have loaded
 

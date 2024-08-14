@@ -25,8 +25,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Total Parts").click();
+    await page.getByRole('tab', { name: 'Parts Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Total Parts' }).click();
 
     //landed on the sales gross profit view, validate basic elements have loaded (big list)
 
@@ -51,7 +51,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       }
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

@@ -37,7 +37,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       }
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

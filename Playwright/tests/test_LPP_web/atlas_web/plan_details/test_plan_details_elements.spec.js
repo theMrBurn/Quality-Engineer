@@ -7,6 +7,7 @@ const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 
 //test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {
+  test.slow();
   test("Navigate to Atlas Web, choose Plan 0, validate Plan Details Page, Role Assignments column elements have loaded as expected", async ({
     browser,
     page,
@@ -22,7 +23,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     // await page.waitForURL("atlas/plan/0");
 
     const locatorNames = [
-      "roleAssignmentsColumn",
+      "assignEmployeesColumn",
       "salesOperationsHeading",
       //"assignEmployeeSalesOps",
       "usedSalesOperations",
@@ -40,7 +41,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       }
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -67,7 +68,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       }
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -101,7 +102,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       }
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -130,7 +131,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       expect(hrefAttribute).toContain(expectedURL);
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -159,7 +160,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       expect(hrefAttribute).toContain(expectedURL);
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -188,7 +189,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       expect(hrefAttribute).toContain(expectedURL);
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -215,7 +216,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       expect(hrefAttribute).toContain(expectedURL);
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

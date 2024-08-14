@@ -23,15 +23,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -42,7 +42,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -57,15 +57,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -78,7 +78,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -93,15 +93,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -115,8 +115,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate Internal Gross, no-input renders Update Button Disabled as expected", async ({
@@ -130,15 +129,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -149,8 +148,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate Internal Gross renders Update Button Disabled as expected", async ({
@@ -164,15 +162,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -185,8 +183,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate Internal Gross input AOP UPDATE works as expected", async ({
@@ -200,15 +197,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -222,8 +219,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate Adjusted Dealer Services, no-input renders Update Button Disabled as expected", async ({
@@ -237,15 +233,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -256,8 +252,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View View and validate Adjusted Dealer Services renders Update Button Disabled as expected", async ({
@@ -271,15 +266,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -292,8 +287,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate Adjusted Dealer Services input AOP UPDATE works as expected", async ({
@@ -307,15 +301,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -329,8 +323,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate Parts Gross, no-input renders Update Button Disabled as expected", async ({
@@ -344,15 +337,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -363,8 +356,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate Parts Gross renders Update Button Disabled as expected", async ({
@@ -378,15 +370,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -399,8 +391,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate Parts Gross input AOP UPDATE works as expected", async ({
@@ -414,15 +405,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -436,8 +427,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate All Other Gross, no-input renders Update Button Disabled as expected", async ({
@@ -451,15 +441,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -470,8 +460,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate All Other Gross renders Update Button Disabled as expected", async ({
@@ -485,15 +474,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -506,8 +495,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate All Other Gross input AOP UPDATE works as expected", async ({
@@ -521,15 +509,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -543,8 +531,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate Total Revenue, no-input renders Update Button Disabled as expected", async ({
@@ -558,15 +545,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -577,8 +564,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body Shop Gross Profit View and validate Total Revenue renders Update Button Disabled as expected", async ({
@@ -592,15 +578,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -613,8 +599,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 
   test("Navigate to Body SHop Gross Profit View and validate Total Revenue input AOP UPDATE works as expected", async ({
@@ -628,15 +613,15 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page.getByText("Body Shop Gross Profit", { exact: true }).click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Body Shop Gross Profit' }).click();
     await page.waitForLoadState("networkidle");
 
     try {
@@ -654,7 +639,6 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
-    }
+      throw new Error(`Test failed with error: ${error.message}`);    }
   });
 });

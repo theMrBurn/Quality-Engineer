@@ -18,15 +18,15 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to PSFFE
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Personnel, Semi-Fixed, &").click();
+    await page.getByRole('tab', { name: 'Parts Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
 
     try {
       //press Update to trigger Error Alert
@@ -36,7 +36,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -51,15 +51,15 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to PSFFE
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Personnel, Semi-Fixed, &").click();
+    await page.getByRole('tab', { name: 'Parts Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -71,7 +71,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -86,15 +86,15 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to PSFFE
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Personnel, Semi-Fixed, &").click();
+    await page.getByRole('tab', { name: 'Parts Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -107,7 +107,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -122,15 +122,15 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to PSFFE
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Personnel, Semi-Fixed, &").click();
+    await page.getByRole('tab', { name: 'Parts Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
 
     try {
       //press Update to trigger Error Alert
@@ -140,7 +140,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -155,15 +155,15 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to PSFFE
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Personnel, Semi-Fixed, &").click();
+    await page.getByRole('tab', { name: 'Parts Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -175,7 +175,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -190,15 +190,15 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to PSFFE
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Personnel, Semi-Fixed, &").click();
+    await page.getByRole('tab', { name: 'Parts Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -209,7 +209,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -224,15 +224,15 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to PSFFE
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Personnel, Semi-Fixed, &").click();
+    await page.getByRole('tab', { name: 'Parts Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
 
     try {
       //press Update to trigger Error Alert
@@ -242,7 +242,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -257,15 +257,15 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to PSFFE
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Personnel, Semi-Fixed, &").click();
+    await page.getByRole('tab', { name: 'Parts Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -277,7 +277,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -292,15 +292,15 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to PSFFE
+    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Parts Operations" }).click();
-    await page.getByText("Personnel, Semi-Fixed, &").click();
+    await page.getByRole('tab', { name: 'Parts Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -311,7 +311,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

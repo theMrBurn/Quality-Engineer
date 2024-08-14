@@ -42,7 +42,7 @@ test.describe
       expect(planProgressCardText).toContain("Not Started");
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -199,7 +199,7 @@ test.describe
 
       // Refresh the page
       await page.reload();
-      await page.waitForLoadState("load");
+      await page.waitForLoadState("networkidle");
 
       // // click AOP by Month 2024 and validate landing
       // await atlase2e.clickElement("storePerformance");
@@ -214,7 +214,7 @@ test.describe
       // await atlase2e.seasonalityUpdate();
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -263,7 +263,46 @@ test.describe
       await expect(currentURL2).toContain(urlString2);
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
+    }
+  });
+
+  test("Flagged for Review functionality", async ({ browser, page }) => {
+    const atlase2e = new AtlasE2E(page);
+    await atlase2e.goto();
+
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
+
+    // instantiate SalesGrossProfitView
+    const salesGrossProfitView = new SalesGrossProfitView(page);
+    await atlase2e.clickElement("viewButton");
+
+    const urlString = "/atlas/plan/0/section/7/step/11";
+    const currentURL = await page.url();
+    await expect(currentURL).toContain(urlString);
+
+    try {
+      await atlase2e.clickElement("seApprovalFlagOn");
+      const flaggedForReview = page.getByText("Card Flagged Succesfully!");
+
+      await expect(flaggedForReview).toBeVisible();
+
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+
+      await atlase2e.clickElement("seApprovalFlagOff");
+      const unFlaggedForReview = page.getByText("Card UnFlagged Succesfully!");
+      await expect(unFlaggedForReview).toBeVisible();
+
+      // Refresh the page
+      await page.reload();
+      await page.waitForLoadState("load");
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -299,7 +338,7 @@ test.describe
       await expect(checkCircle1, "Green Check Confirmation Icon").toBeVisible();
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -328,7 +367,7 @@ test.describe
       await atlase2e.unlockAOPplan();
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -348,7 +387,7 @@ test.describe
       await page.getByLabel("Clear").click();
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

@@ -28,7 +28,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
+    await page.getByRole("tab", { name: "Body Shop Operations" }).click();
     await page.getByText("Total Body Shop").click();
 
     //landed on the body shop total parts view, validate basic elements have loaded

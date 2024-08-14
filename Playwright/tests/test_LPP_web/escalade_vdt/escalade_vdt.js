@@ -62,9 +62,7 @@ class EscaladeVDT {
 
       // export
       exportGridDataButton: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[1]/div[3]/span/div/div/div/div/div/div/div[1]/div/div/span/button',
-        ),
+        this.page.getByRole('button', { name: 'EXPORT GRID DATA' }),
 
       // Edit panel
       infoIcon: () => this.page.getByTestId("InfoIcon"),
@@ -82,7 +80,7 @@ class EscaladeVDT {
   // Navigate to /Payroll/Regular endpoint
   async goto() {
     await this.page.goto("/vdt");
-    await this.page.waitForLoadState("load");
+    await this.page.waitForLoadState("networkidle");
   }
 
   // interact with elements

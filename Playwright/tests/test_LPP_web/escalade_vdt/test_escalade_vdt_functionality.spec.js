@@ -9,6 +9,7 @@ const { EscaladeVDT } = require("./escalade_vdt.js");
 
 //test
 test.describe.serial("Escalade VDT - Page Functionality @func", () => {
+  test.slow();
   test("Navigate to Escalade VDT and validate Stock Number Column sort functioning as expected", async ({
     browser,
     page,
@@ -76,14 +77,11 @@ test.describe.serial("Escalade VDT - Page Functionality @func", () => {
         '//*[@id="root"]/div/div[1]/div[3]/span/div/div/div/div/div/div/div[3]/div',
       );
 
-      // Wait for 5 seconds
-      //await new Promise((resolve) => setTimeout(resolve, 10000)); // Assert that there is exactly one row
       await page.waitForLoadState("domcontentloaded");
       expect(rows.length).toBe(1);
 
       // clear filter
       await escaladeVDT.clickElement("vdtClearFilterButton");
-      //await page.getByRole("button", { name: "Clear" }).click();
     } catch (error) {
       throw new Error(`Test failed with error: ${error.message}`);
     }
@@ -145,30 +143,6 @@ test.describe.serial("Escalade VDT - Page Functionality @func", () => {
     }
   });
 
-  test("Navigate to Escalade VDT and validate Export Grid Data is functioning as expected", async ({
-    browser,
-    page,
-  }) => {
-    const escaladeVDT = new EscaladeVDT(page);
-    await escaladeVDT.goto();
-
-    try {
-      // click Stock # column to re-order grid view
-      await escaladeVDT.clickElement("exportGridDataButton");
-
-      //click through workflow steps to validate SAVE worked as intended
-      await page.getByRole("button", { name: "Confirm" }).click();
-      const downloadPromise = page.waitForEvent("download");
-      const download = await downloadPromise;
-      await expect(page.locator(".MuiBackdrop-root").first()).toBeHidden();
-      await page.getByText("Successfully Downloaded VDT").click();
-    } catch (error) {
-      console.error("Error during test:", error.message);
-      // Mark the test as failed
-      throw new Error(`Test failed with error: ${error.message}`);
-    }
-  });
-
   test("Navigate to Escalade VDT, click 'View Notes' on first grid item and validate Page elements have loaded as expected", async ({
     browser,
     page,
@@ -183,6 +157,38 @@ test.describe.serial("Escalade VDT - Page Functionality @func", () => {
         .locator('[data-test="sale-expanded-form-toolbar"] div')
         .first();
       await expect(vinText).toBeVisible();
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error(`Test failed with error: ${error.message}`);
+    }
+  });
+
+
+  test("Navigate to Escalade VDT and validate Export Grid Data is functioning as expected", async ({
+    browser,
+    page,
+  }) => {
+    const escaladeVDT = new EscaladeVDT(page);
+    await escaladeVDT.goto();
+
+    try {
+
+      await page.reload();
+
+      const gridLoaded = page.locator('//*[@id="root"]/div/div[1]/div[3]/span/div/div/div/div/div/div/div[3]');
+
+      await expect(gridLoaded).toBeVisible();
+
+      // click Stock # column to re-order grid view
+      await escaladeVDT.clickElement("exportGridDataButton");
+
+      //click through workflow steps to validate SAVE worked as intended
+      await page.getByRole("button", { name: "Confirm" }).click();
+
+      await expect(page.locator(".MuiBackdrop-root").first()).toBeHidden();
+      await page.getByText("Successfully Downloaded VDT").click();
+
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed

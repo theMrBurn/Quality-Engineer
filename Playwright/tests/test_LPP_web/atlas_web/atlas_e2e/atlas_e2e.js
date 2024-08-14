@@ -32,9 +32,16 @@ class AtlasE2E {
       viewButton: () => this.page.getByRole("button", { name: "View" }),
       unassignButton: () => this.page.getByLabel("Clear"),
       aop2024byMonth: () =>
-        this.page.locator('//*[@id="demo-popup-menu"]/div[3]/ul/li[1]/p'),
+        this.page.getByRole("menuitem", { name: "AOP by Month" }),
       storePerformance: () =>
-        this.page.getByRole("button", { name: "Store Performance" }),
+        this.page.getByRole("tab", { name: "Store Performance" }),
+
+      //card flags
+      seApprovalFlagOn: () =>
+        this.page
+          .locator(".MuiStack-root > div > .MuiBox-root > .MuiButtonBase-root")
+          .first(),
+      seApprovalFlagOff: () => this.page.getByLabel("selected-icon").first(),
     };
   }
 

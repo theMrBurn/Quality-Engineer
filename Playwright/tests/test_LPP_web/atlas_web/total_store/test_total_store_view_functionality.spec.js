@@ -11,6 +11,7 @@ const atlasLogin = new AtlasLogin();
 //test
 test.describe
   .serial("Atlas Web - Total Store Page Functional Tests @func", () => {
+  test.slow();
   test("Navigate to Total Store View and validate Additional Income, no-input renders Update Button Disabled as expected", async ({
     browser,
     page,
@@ -22,9 +23,14 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
-    await page.getByRole("button", { name: "Total Store Operations" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate to Total Store Ops
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("tab", { name: "Total Store Operations" }).click();
     await page.getByText("Total Store", { exact: true }).click();
     await page.waitForLoadState("networkidle");
 
@@ -36,7 +42,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -51,9 +57,14 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
-    await page.getByRole("button", { name: "Total Store Operations" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate to Total Store Ops
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("tab", { name: "Total Store Operations" }).click();
     await page.getByText("Total Store", { exact: true }).click();
     await page.waitForLoadState("networkidle");
 
@@ -67,7 +78,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -82,22 +93,29 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
-    await page.getByRole("button", { name: "Total Store Operations" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate to Total Store Ops
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("tab", { name: "Total Store Operations" }).click();
     await page.getByText("Total Store", { exact: true }).click();
     await page.waitForLoadState("networkidle");
 
     try {
       //input invalid amount and click Update - vaidate Update Success
+      await totalStoreView.locators.ai2024AOPinput().clear("1701");
       await totalStoreView.locators.ai2024AOPinput().fill("1701");
+      await totalStoreView.locators.aiPotentialInput().clear("2000");
       await totalStoreView.locators.aiPotentialInput().fill("2000");
       await totalStoreView.locators.aiUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -112,9 +130,14 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
-    await page.getByRole("button", { name: "Total Store Operations" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate Total Store Ops
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("tab", { name: "Total Store Operations" }).click();
     await page.getByText("Total Store", { exact: true }).click();
     await page.waitForLoadState("networkidle");
 
@@ -130,7 +153,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -145,9 +168,14 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
-    await page.getByRole("button", { name: "Total Store Operations" }).click();
+    //start at dealership listing and navagate to plan details, then to navigate Total Store Ops
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("tab", { name: "Total Store Operations" }).click();
     await page.getByText("Total Store", { exact: true }).click();
     await page.waitForLoadState("networkidle");
 
@@ -163,7 +191,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -179,8 +207,13 @@ test.describe
     //await atlasLogin.signInHelper(page);
 
     //click complete - vaidate complete confirmation modal
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
-    await page.getByRole("button", { name: "Total Store Operations" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("tab", { name: "Total Store Operations" }).click();
     await page.getByText("Total Store", { exact: true }).click();
     await page.waitForLoadState("networkidle");
 
@@ -196,7 +229,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

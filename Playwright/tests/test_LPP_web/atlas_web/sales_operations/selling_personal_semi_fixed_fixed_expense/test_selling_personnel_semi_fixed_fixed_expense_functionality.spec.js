@@ -25,10 +25,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
+
 
     try {
       //press Update to trigger Error Alert
@@ -38,7 +37,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -60,10 +59,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -75,7 +72,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -97,10 +94,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -111,7 +106,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -133,10 +128,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
 
     try {
       //press Update to trigger Error Alert
@@ -146,7 +139,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -168,10 +161,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -183,7 +174,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -205,10 +196,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -219,7 +208,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -241,10 +230,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
 
     try {
       //press Update to trigger Error Alert
@@ -254,7 +241,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -276,10 +263,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -291,7 +276,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -313,10 +298,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -327,7 +310,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -349,10 +332,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
 
     try {
       //press Update to trigger Error Alert
@@ -362,7 +343,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -384,10 +365,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -399,7 +378,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -421,10 +400,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Sales Operations" }).click();
-    await page
-      .getByText("Selling, Personnel, Semi-Fixed, & Fixed Expense")
-      .click();
+    await page.getByRole("tab", { name: "Sales Operations" }).click();
+    await page.getByRole('menuitem', { name: 'Selling, Personnel, Semi-Fixed, & Fixed Expense' }).click();
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -435,7 +412,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

@@ -19,8 +19,13 @@ test.describe.serial("Escalade CVP - Page Elements @smoke", () => {
     //validate expected text elements have loaded
     const locatorNames = ["pageHeader", "salesTab", "inventoryTab"];
 
-    for (const locatorName of locatorNames) {
-      await escaladeCVP.checkElementVisibility(locatorName);
+    try {
+      for (const locatorName of locatorNames) {
+        await escaladeCVP.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

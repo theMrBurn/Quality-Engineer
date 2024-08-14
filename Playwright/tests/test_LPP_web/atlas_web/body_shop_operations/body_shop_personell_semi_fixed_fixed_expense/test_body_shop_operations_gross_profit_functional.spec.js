@@ -23,18 +23,16 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page
-      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
-      .getByRole("paragraph")
-      .click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.waitForLoadState("networkidle");
 
     try {
       //press Update to trigger Error Alert
@@ -44,7 +42,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -59,18 +57,16 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page
-      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
-      .getByRole("paragraph")
-      .click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.waitForLoadState("networkidle");
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -82,7 +78,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -97,18 +93,16 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page
-      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
-      .getByRole("paragraph")
-      .click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.waitForLoadState("networkidle");
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -121,7 +115,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -136,18 +130,16 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page
-      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
-      .getByRole("paragraph")
-      .click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.waitForLoadState("networkidle");
 
     try {
       //press Update to trigger Error Alert
@@ -157,7 +149,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -172,18 +164,16 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page
-      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
-      .getByRole("paragraph")
-      .click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.waitForLoadState("networkidle");
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -195,7 +185,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -210,18 +200,16 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page
-      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
-      .getByRole("paragraph")
-      .click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.waitForLoadState("networkidle");
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -232,7 +220,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -247,18 +235,16 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page
-      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
-      .getByRole("paragraph")
-      .click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.waitForLoadState("networkidle");
 
     try {
       //press Update to trigger Error Alert
@@ -268,7 +254,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -283,18 +269,16 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page
-      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
-      .getByRole("paragraph")
-      .click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.waitForLoadState("networkidle");
 
     try {
       //input invalid symbols to trigger Error Alert
@@ -306,7 +290,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed.");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -321,18 +305,16 @@ test.describe
     //const atlasLogin = new AtlasLogin();
     //await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
       .nth(1)
       .click();
     await page.getByText("L0000 Aop Test Store").click();
-    await page.getByRole("button", { name: "Body Shop Operations" }).click();
-    await page
-      .getByRole("menuitem", { name: "Personnel, Semi-Fixed, &" })
-      .getByRole("paragraph")
-      .click();
+    await page.getByRole('tab', { name: 'Body Shop Operations' }).click();
+    await page.getByRole('menuitem', { name: 'Personnel, Semi-Fixed, &' }).click();
+    await page.waitForLoadState("networkidle");
 
     try {
       //input valid amount and click Update - vaidate Update Success
@@ -343,7 +325,7 @@ test.describe
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
-      throw new Error("Test failed. Unable to update card");
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

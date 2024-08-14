@@ -22,9 +22,15 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     //await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
-    await page.getByRole("gridcell", { name: "L0000 Aop Test Store" }).click();
-    await page.getByRole("button", { name: "Total Store Operations" }).click();
+    await page
+      .getByRole("columnheader", { name: "STORE " })
+      .locator("span")
+      .nth(1)
+      .click();
+    await page.getByText("L0000 Aop Test Store").click();
+    await page.getByRole("tab", { name: "Total Store Operations" }).click();
     await page.getByText("Total Store", { exact: true }).click();
+    await page.waitForLoadState("networkidle");
 
     //landed on the body shop total parts view, validate basic elements have loaded
 
