@@ -9,11 +9,11 @@ const { EscaladeCVP } = require("./escalade_CVP.js");
 
 //for upload tests
 const salesData1 =
-  "Playwright/helpers/misc_test_helper_files/Manheim_2023-05-25.csv";
+  "/Playwright/helpers/misc_test_helper_files/Manheim_2023-05-25.csv";
 const salesData2 =
-  "Playwright/helpers/misc_test_helper_files/Manheim_2023-05-29.csv";
+  "/Playwright/helpers/misc_test_helper_files/Manheim_2023-05-29.csv";
 const salesData3 =
-  "Playwright/helpers/misc_test_helper_files/Manheim_2023-05-31.csv";
+  "/Playwright/helpers/misc_test_helper_files/Manheim_2023-05-31.csv";
 const salesDataBAD = "Playwright/helpers/misc_test_helper_files/TIMECARD.csv";
 
 //test

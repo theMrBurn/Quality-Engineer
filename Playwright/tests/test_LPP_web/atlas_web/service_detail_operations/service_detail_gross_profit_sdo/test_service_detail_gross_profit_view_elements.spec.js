@@ -15,9 +15,9 @@ test.describe
     const serviceDetailstView = new ServiceDetailstView(page);
     await serviceDetailstView.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    //Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -59,8 +59,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -100,8 +100,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -142,8 +142,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -184,8 +184,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -226,8 +226,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -268,8 +268,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -310,8 +310,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page

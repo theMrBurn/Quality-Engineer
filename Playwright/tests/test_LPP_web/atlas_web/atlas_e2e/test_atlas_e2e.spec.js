@@ -18,8 +18,8 @@ test.describe
     await atlase2e.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       await page.getByLabel("Open").first().click();
@@ -51,8 +51,8 @@ test.describe
     await atlase2e.goto();
 
     // // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // instantiate SalesGrossProfitView
     const salesGrossProfitView = new SalesGrossProfitView(page);
@@ -222,9 +222,9 @@ test.describe
     const atlase2e = new AtlasE2E(page);
     await atlase2e.goto();
 
-    // // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       await atlase2e.clickElement("viewButton");
@@ -272,8 +272,8 @@ test.describe
     await atlase2e.goto();
 
     // // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // instantiate SalesGrossProfitView
     const salesGrossProfitView = new SalesGrossProfitView(page);
@@ -311,8 +311,8 @@ test.describe
     await atlase2e.goto();
 
     // // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       await atlase2e.clickElement("viewButton");
@@ -347,8 +347,8 @@ test.describe
     await atlase2e.goto();
 
     // // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // Unapproval flow
@@ -376,8 +376,8 @@ test.describe
     await atlase2e.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // Finish the test and cleanup

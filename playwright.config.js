@@ -91,7 +91,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -101,7 +101,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/atlas_e2e",
       retries: 0,
       use: {
-        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
         launchOptions: {
           slowMo: 500, // Add the slowMo option here
@@ -124,7 +124,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/dealership_listings",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -134,7 +134,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/plan_details",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -144,7 +144,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/sales_operations/",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -155,7 +155,7 @@ const config = {
         "Playwright/tests/test_LPP_web/atlas_web/service_detail_operations",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -165,7 +165,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/parts_operations",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -175,7 +175,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/body_shop_operations",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -185,7 +185,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web/total_store/",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -195,7 +195,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_api/atlas_api",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -315,7 +315,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/escalade_cvp",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
@@ -325,7 +325,7 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/escalade_vdt",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
+        storageState: "Application%20QA%20Test%20Automation/Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
