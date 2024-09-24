@@ -20,13 +20,9 @@ test.describe.serial("/Admin/PayCycle", () => {
     await adminPayCyclePage.goto();
     await page.waitForLoadState("networkidle");
 
-    const companyNumber = await page.locator(
-      'td[role="gridcell"]:has-text("L0143")',
-    );
-    const paygroupResult = await page.locator("text=West Pay Group");
-    const companyResult = await page.locator(
-      'td[role="gridcell"]:has-text("Fairbanks Chev Buick GMC")',
-    );
+    const companyNumber = await page.getByRole('gridcell', { name: 'L0143' });
+    const paygroupResult =   await page.getByRole('gridcell', { name: 'West Pay Group' });
+    const companyResult = await page.getByRole('gridcell', { name: 'Fairbanks Chev GMC' });
     const calendarResult = await page.getByRole("gridcell", {
       name: "Semi-monthly",
     });
@@ -35,10 +31,10 @@ test.describe.serial("/Admin/PayCycle", () => {
     await adminPayCyclePage.clickElement("companyInputDropdown");
 
     try {
-      await page.locator("text=Fairbanks Chev Buick GMC (L0143)").click();
+      await page.locator("text=Fairbanks Chev GMC (L0143)").click();
       await page.waitForLoadState("networkidle");
 
-      expect(companyResult).toHaveText("Fairbanks Chev Buick GMC");
+      expect(companyResult).toHaveText("Fairbanks Chev GMC");
       expect(companyNumber).toHaveText("L0143");
       expect(calendarResult).toContainText("Semi-monthly");
       expect(paygroupResult).toHaveText("West Pay Group");

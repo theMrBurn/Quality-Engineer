@@ -15,22 +15,27 @@ test.describe.serial("Payroll /Upload elements", () => {
     const payrollUpload = new PayrollUpload(page);
     await payrollUpload.goto();
 
-    //payroll file uploads
-    await payrollUpload.getPayCalendarText();
-    await payrollUpload.getPPEdateUploadText();
-    await payrollUpload.getAccountingMonthDateText();
-    await payrollUpload.getPayrollUploadText();
-    await payrollUpload.getpayCalendarDropdown();
-    await payrollUpload.getPPEDateDropdown();
-    await payrollUpload.getAccountingMonthDateDropdown();
-    await payrollUpload.getUploadButtonText();
-    await payrollUpload.getUploadButton();
+    const locatorNames = [
+      "payrollUploadText",
+      "payCalendarText",
+      "ppeDateUploadText",
+      "accountingMonthDate",
+      "uploadTimecardText",
+      "uploadButtonText",
+      "payrollProcessingTasksText",
+      "taskText",
+      "paycalendarListDropdown",
+      "ppeDateDropdown",
+      "accountingMonthCalendar",
+      "accountingMonthDateDropdown",
+      "payGroupRegionDropdown",
+      "ppeDateProcessingDropdown",
+      "tasksDropdown",
+      "uploadButton"
+    ];
 
-    //payroll processing tasks
-    await payrollUpload.getPayrollProcText();
-    await payrollUpload.getPayGroupRegionDropdown();
-    await payrollUpload.getPPEDateProcessingDropdown();
-    await payrollUpload.getTasksText();
-    await payrollUpload.getTasksDropdown();
+    for (const locatorName of locatorNames) {
+      await payrollUpload.checkElementVisibility(locatorName);
+    }
   });
 });
