@@ -117,7 +117,7 @@ class SalesGrossProfitView {
         ),
       feauInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[1]/div[2]/div/div/div/div/div',
         ),
       feauUpdateButton: () =>
         this.page.locator(

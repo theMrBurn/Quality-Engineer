@@ -11,9 +11,13 @@ class AdminStoreView {
     /// Atlas landing page elements
     this.locators = {
       heading1: () =>
-        this.page.getByRole("heading", { name: "2024 Store Potential and" }),
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div/div/div/div[1]/div/div/div/div/div[1]/span',
+        ),
       heading2: () =>
-        this.page.getByRole("heading", { name: "Dealership Listings" }),
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div/div/div/div[1]/div/div/div/div/div[2]/h1',
+        ),
       searchBar: () => this.page.getByPlaceholder("SEARCH"),
       submitButton: () => this.page.getByRole("button", { name: "Submit" }),
       resetFiltersButton: () =>

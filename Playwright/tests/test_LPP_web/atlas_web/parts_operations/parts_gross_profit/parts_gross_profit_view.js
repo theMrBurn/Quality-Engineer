@@ -34,7 +34,7 @@ class PartsGrossProfitView {
           .first(),
       cpgInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div[2]/div/div/div/div/div',
         ),
 
       cpgUpdateButton: () =>
@@ -80,7 +80,7 @@ class PartsGrossProfitView {
           .first(),
       igInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[2]/div/div/div/div/div',
         ),
 
       igUpdateButton: () =>
@@ -101,7 +101,7 @@ class PartsGrossProfitView {
         ),
       wsgInfoBox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[2]/div/div/div/div/div',
         ),
       wsgUpdateButton: () =>
         this.page.locator(

@@ -23,7 +23,7 @@ class AtlasE2E {
       planProgressCard: () =>
         this.page
           .locator(
-            ".MuiCardContent-root > div > div > div > div:nth-child(2) > .MuiPaper-root",
+            '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/div[2]/div/div',
           )
           .first(),
 

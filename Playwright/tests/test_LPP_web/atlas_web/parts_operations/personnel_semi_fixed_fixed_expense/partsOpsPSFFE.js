@@ -48,7 +48,7 @@ class PartsPersonnelExpense {
         ),
       sfeInfobox: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/div',
         ),
       sfeUpdateButton: () =>
         this.page.locator(
