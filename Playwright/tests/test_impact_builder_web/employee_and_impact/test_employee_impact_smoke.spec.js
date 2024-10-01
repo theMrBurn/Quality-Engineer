@@ -5,7 +5,7 @@
 
 // dependancies
 const { test, expect } = require("@playwright/test");
-const { ImpactAssignments } = require("./impact_builder_emp_and_impact");
+const { EmployeeImpact } = require("./impact_builder_emp_and_impact");
 
 //test
 test.describe
@@ -14,7 +14,7 @@ test.describe
     browser,
     page,
   }) => {
-    const impactAssignments = new ImpactAssignments(page);
+    const impactAssignments = new EmployeeImpact(page);
     await impactAssignments.goto();
 
     //validate expected text elements have loaded
@@ -22,7 +22,6 @@ test.describe
       "impactBuilderAnalysisHeader",
       "addPayPlanBtn",
       "assignEmployeeBtn",
-      "addPayPlansAndAssignBtn",
       "configureBtn",
       "removeBtn",
     ];
@@ -32,11 +31,11 @@ test.describe
     }
   });
 
-  test("Navigate to Impact Builder Analysis config, and validate Pay Plan Assignments, Assign Employee elements have loaded as expected", async ({
+  test("Navigate to Impact Builder Analysis config, and validate Pay Plan Assignments, Add a Payplan elements have loaded as expected", async ({
     browser,
     page,
   }) => {
-    const impactAssignments = new ImpactAssignments(page);
+    const impactAssignments = new EmployeeImpact(page);
     await impactAssignments.goto();
 
     await impactAssignments.clickElement("addPayPlanBtn");
@@ -44,7 +43,6 @@ test.describe
     //validate expected text elements have loaded
     const locatorNames = [
       "payPlanSearchBox",
-      "payPlanLookup",
       "searchBtn",
       "applyBtn",
       "payPlanIdColumn",
@@ -55,7 +53,7 @@ test.describe
       "companyColumn",
       "departmentColumn",
       "cancelBtn",
-      "payPlanDiv",
+      "payPlanGrid",
     ];
 
     for (const locatorName of locatorNames) {
@@ -63,11 +61,11 @@ test.describe
     }
   });
 
-  test("Navigate to Impact Builder Analysis config, and validate Pay Plan Assignments, Add Pay Plan elements have loaded as expected", async ({
+  test("Navigate to Impact Builder Analysis config, and validate Assign Employee elements have loaded as expected", async ({
     browser,
     page,
   }) => {
-    const impactAssignments = new ImpactAssignments(page);
+    const impactAssignments = new EmployeeImpact(page);
     await impactAssignments.goto();
 
     await impactAssignments.clickElement("assignEmployeeBtn");
@@ -78,6 +76,15 @@ test.describe
       "substituteEmployeeFilter",
       "prospectiveEmployeeFilter",
       "selectBtn",
+      "empSearchBtn",
+      "empSearchIcon",
+      "empApplyBtn",
+      "employeeColumn",
+      "employeeIdColumn",
+      "jobColumn",
+      "companyColumn",
+      "departmentColumn",
+      "cancelBtn",
       // will remove from here, as this can be triggered during functional tests and not necessary for smoke tests
       // "pleaseSelectEmployeeNotification",
     ];

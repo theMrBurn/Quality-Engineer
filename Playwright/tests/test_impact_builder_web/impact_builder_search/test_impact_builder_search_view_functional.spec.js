@@ -38,7 +38,7 @@ test.describe.serial("Impact Builder - Search Page Elements @func", () => {
         .click();
 
       // Verify that the URL includes "/Reports/16"
-      expect(page.url()).toContain("/Reports/16");
+      expect(page.url()).toContain("/Reports/27");
 
       // Fetch the text content of the element
       const searchResult = await page.textContent(
