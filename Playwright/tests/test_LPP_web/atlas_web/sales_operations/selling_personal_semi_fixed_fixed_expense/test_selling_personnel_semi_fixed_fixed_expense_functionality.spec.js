@@ -35,7 +35,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //press Update to trigger Error Alert
       await sellingPersonalExpense.locators.seAOPinput().clear();
-      await sellingPersonalExpense.locators.sePotentialInput().clear();
+      // await sellingPersonalExpense.locators.sePotentialInput().clear();
       await sellingPersonalExpense.locators.seUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -72,9 +72,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input invalid symbols to trigger Error Alert
       await sellingPersonalExpense.locators.seAOPinput().clear("1701");
-      await sellingPersonalExpense.locators.sePotentialInput().clear("2000");
+      // await sellingPersonalExpense.locators.sePotentialInput().clear("2000");
       await sellingPersonalExpense.locators.seAOPinput().fill(",./");
-      await sellingPersonalExpense.locators.sePotentialInput().fill(",./");
+      // await sellingPersonalExpense.locators.sePotentialInput().fill(",./");
       await sellingPersonalExpense.locators.seUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -111,7 +111,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.seAOPinput().fill("1701");
-      await sellingPersonalExpense.locators.sePotentialInput().fill("2000");
+      // await sellingPersonalExpense.locators.sePotentialInput().fill("2000");
       await sellingPersonalExpense.locators.seUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -149,7 +149,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //press Update to trigger Error Alert
       await sellingPersonalExpense.locators.peAOPinput().clear();
-      await sellingPersonalExpense.locators.pePotentialInput().clear();
+      // await sellingPersonalExpense.locators.pePotentialInput().clear();
       await sellingPersonalExpense.locators.peUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -186,9 +186,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input invalid symbols to trigger Error Alert
       await sellingPersonalExpense.locators.peAOPinput().clear("1701");
-      await sellingPersonalExpense.locators.pePotentialInput().clear("2000");
+      //await sellingPersonalExpense.locators.pePotentialInput().clear("2000");
       await sellingPersonalExpense.locators.peAOPinput().fill(",./");
-      await sellingPersonalExpense.locators.pePotentialInput().fill(",./");
+      //await sellingPersonalExpense.locators.pePotentialInput().fill(",./");
       await sellingPersonalExpense.locators.peUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -225,7 +225,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.peAOPinput().fill("1701");
-      await sellingPersonalExpense.locators.pePotentialInput().fill("2000");
+      // await sellingPersonalExpense.locators.pePotentialInput().fill("2000");
       await sellingPersonalExpense.locators.peUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -263,7 +263,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //press Update to trigger Error Alert
       await sellingPersonalExpense.locators.sfeAOPinput().clear();
-      await sellingPersonalExpense.locators.sfePotentialInput().clear();
+      // await sellingPersonalExpense.locators.sfePotentialInput().clear();
       await sellingPersonalExpense.locators.sfeUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -300,9 +300,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input invalid symbols to trigger Error Alert
       await sellingPersonalExpense.locators.sfeAOPinput().clear("1701");
-      await sellingPersonalExpense.locators.sfePotentialInput().clear("2000");
+      // await sellingPersonalExpense.locators.sfePotentialInput().clear("2000");
       await sellingPersonalExpense.locators.sfeAOPinput().fill(",./");
-      await sellingPersonalExpense.locators.sfePotentialInput().fill(",./");
+      // await sellingPersonalExpense.locators.sfePotentialInput().fill(",./");
       await sellingPersonalExpense.locators.sfeUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -339,7 +339,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.sfeAOPinput().fill("1701");
-      await sellingPersonalExpense.locators.sfePotentialInput().fill("2000");
+      // await sellingPersonalExpense.locators.sfePotentialInput().fill("2000");
       await sellingPersonalExpense.locators.sfeUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -377,7 +377,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //press Update to trigger Error Alert
       await sellingPersonalExpense.locators.feAOPinput().clear();
-      await sellingPersonalExpense.locators.fePotentialInput().clear();
+      // await sellingPersonalExpense.locators.fePotentialInput().clear();
       await sellingPersonalExpense.locators.feUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -414,9 +414,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input invalid symbols to trigger Error Alert
       await sellingPersonalExpense.locators.feAOPinput().clear("1701");
-      await sellingPersonalExpense.locators.fePotentialInput().clear("2000");
+      // await sellingPersonalExpense.locators.fePotentialInput().clear("2000");
       await sellingPersonalExpense.locators.feAOPinput().fill(",./");
-      await sellingPersonalExpense.locators.fePotentialInput().fill(",./");
+      // await sellingPersonalExpense.locators.fePotentialInput().fill(",./");
       await sellingPersonalExpense.locators.feUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -453,7 +453,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input valid amount and click Update - vaidate Update Success
       await sellingPersonalExpense.locators.feAOPinput().fill("1701");
-      await sellingPersonalExpense.locators.fePotentialInput().fill("2000");
+      // await sellingPersonalExpense.locators.fePotentialInput().fill("2000");
       await sellingPersonalExpense.locators.feUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {

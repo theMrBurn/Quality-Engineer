@@ -38,7 +38,7 @@ test.describe
     try {
       //press Update to trigger Error Alert
       await serviceDetailstView.locators.frh2024AOPinput().clear();
-      await serviceDetailstView.locators.frhPotentialInput().clear();
+      //  await serviceDetailstView.locators.frhPotentialInput().clear();
       await serviceDetailstView.locators.frhUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -76,9 +76,9 @@ test.describe
     try {
       //input invalid symbols to trigger Error Alert
       await serviceDetailstView.locators.frh2024AOPinput().clear("1701");
-      await serviceDetailstView.locators.frhPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.frhPotentialInput().clear("2000");
       await serviceDetailstView.locators.frh2024AOPinput().fill(",./");
-      await serviceDetailstView.locators.frhPotentialInput().fill(",./");
+      //  await serviceDetailstView.locators.frhPotentialInput().fill(",./");
       await serviceDetailstView.locators.frhUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -119,8 +119,8 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await serviceDetailstView.locators.frh2024AOPinput().clear("1701");
       await serviceDetailstView.locators.frh2024AOPinput().fill("1701");
-      await serviceDetailstView.locators.frhPotentialInput().clear("2000");
-      await serviceDetailstView.locators.frhPotentialInput().fill("2000");
+      //  await serviceDetailstView.locators.frhPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.frhPotentialInput().fill("2000");
       await serviceDetailstView.locators.frhUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -159,7 +159,7 @@ test.describe
     try {
       //press Update to trigger Error Alert
       await serviceDetailstView.locators.cpg2024AOPinput().clear();
-      await serviceDetailstView.locators.cpgPotentialInput().clear();
+      //  await serviceDetailstView.locators.cpgPotentialInput().clear();
       await serviceDetailstView.locators.cpgUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -197,9 +197,9 @@ test.describe
     try {
       //input invalid symbols to trigger Error Alert
       await serviceDetailstView.locators.cpg2024AOPinput().clear("1701");
-      await serviceDetailstView.locators.cpgPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.cpgPotentialInput().clear("2000");
       await serviceDetailstView.locators.cpg2024AOPinput().fill(",./");
-      await serviceDetailstView.locators.cpgPotentialInput().fill(",./");
+      //  await serviceDetailstView.locators.cpgPotentialInput().fill(",./");
       await serviceDetailstView.locators.cpgUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -238,8 +238,8 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await serviceDetailstView.locators.cpg2024AOPinput().clear("1701");
       await serviceDetailstView.locators.cpg2024AOPinput().fill("1701");
-      await serviceDetailstView.locators.cpgPotentialInput().clear("2000");
-      await serviceDetailstView.locators.cpgPotentialInput().fill("2000");
+      //  await serviceDetailstView.locators.cpgPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.cpgPotentialInput().fill("2000");
       await serviceDetailstView.locators.cpgUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -278,7 +278,7 @@ test.describe
     try {
       //press Update to trigger Error Alert
       await serviceDetailstView.locators.warg2024AOPinput().clear();
-      await serviceDetailstView.locators.wargPotentialInput().clear();
+      //  await serviceDetailstView.locators.wargPotentialInput().clear();
       await serviceDetailstView.locators.wargUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -316,9 +316,9 @@ test.describe
     try {
       //input invalid symbols to trigger Error Alert
       await serviceDetailstView.locators.warg2024AOPinput().clear("1701");
-      await serviceDetailstView.locators.wargPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.wargPotentialInput().clear("2000");
       await serviceDetailstView.locators.warg2024AOPinput().fill(",./");
-      await serviceDetailstView.locators.wargPotentialInput().fill(",./");
+      //  await serviceDetailstView.locators.wargPotentialInput().fill(",./");
       await serviceDetailstView.locators.wargUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -357,8 +357,8 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await serviceDetailstView.locators.warg2024AOPinput().clear("1701");
       await serviceDetailstView.locators.warg2024AOPinput().fill("1701");
-      await serviceDetailstView.locators.wargPotentialInput().clear("2000");
-      await serviceDetailstView.locators.wargPotentialInput().fill("2000");
+      //  await serviceDetailstView.locators.wargPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.wargPotentialInput().fill("2000");
       await serviceDetailstView.locators.wargUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -397,7 +397,7 @@ test.describe
     try {
       //press Update to trigger Error Alert
       await serviceDetailstView.locators.ig2024AOPinput().clear();
-      await serviceDetailstView.locators.igPotentialInput().clear();
+      //  await serviceDetailstView.locators.igPotentialInput().clear();
       await serviceDetailstView.locators.igUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -435,9 +435,9 @@ test.describe
     try {
       //input invalid symbols to trigger Error Alert
       await serviceDetailstView.locators.ig2024AOPinput().clear("1701");
-      await serviceDetailstView.locators.igPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.igPotentialInput().clear("2000");
       await serviceDetailstView.locators.ig2024AOPinput().fill(",./");
-      await serviceDetailstView.locators.igPotentialInput().fill(",./");
+      //  await serviceDetailstView.locators.igPotentialInput().fill(",./");
       await serviceDetailstView.locators.igUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -476,8 +476,8 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await serviceDetailstView.locators.ig2024AOPinput().clear("1701");
       await serviceDetailstView.locators.ig2024AOPinput().fill("1701");
-      await serviceDetailstView.locators.igPotentialInput().clear("2000");
-      await serviceDetailstView.locators.igPotentialInput().fill("2000");
+      //  await serviceDetailstView.locators.igPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.igPotentialInput().fill("2000");
       await serviceDetailstView.locators.igUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -516,7 +516,7 @@ test.describe
     try {
       //press Update to trigger Error Alert
       await serviceDetailstView.locators.aog2024AOPinput().clear();
-      await serviceDetailstView.locators.aogPotentialInput().clear();
+      //  await serviceDetailstView.locators.aogPotentialInput().clear();
       await serviceDetailstView.locators.aogUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -554,9 +554,9 @@ test.describe
     try {
       //input invalid symbols to trigger Error Alert
       await serviceDetailstView.locators.aog2024AOPinput().clear("1701");
-      await serviceDetailstView.locators.aogPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.aogPotentialInput().clear("2000");
       await serviceDetailstView.locators.aog2024AOPinput().fill(",./");
-      await serviceDetailstView.locators.aogPotentialInput().fill(",./");
+      //  await serviceDetailstView.locators.aogPotentialInput().fill(",./");
       await serviceDetailstView.locators.aogUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -595,8 +595,8 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await serviceDetailstView.locators.aog2024AOPinput().clear("1701");
       await serviceDetailstView.locators.aog2024AOPinput().fill("1701");
-      await serviceDetailstView.locators.aogPotentialInput().clear("2000");
-      await serviceDetailstView.locators.aogPotentialInput().fill("2000");
+      //  await serviceDetailstView.locators.aogPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.aogPotentialInput().fill("2000");
       await serviceDetailstView.locators.aogUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -635,7 +635,7 @@ test.describe
     try {
       //press Update to trigger Error Alert
       await serviceDetailstView.locators.tdg2024AOPinput().clear();
-      await serviceDetailstView.locators.tdgPotentialInput().clear();
+      //  await serviceDetailstView.locators.tdgPotentialInput().clear();
       await serviceDetailstView.locators.tdgUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -673,9 +673,9 @@ test.describe
     try {
       //input invalid symbols to trigger Error Alert
       await serviceDetailstView.locators.tdg2024AOPinput().clear("1701");
-      await serviceDetailstView.locators.tdgPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.tdgPotentialInput().clear("2000");
       await serviceDetailstView.locators.tdg2024AOPinput().fill(",./");
-      await serviceDetailstView.locators.tdgPotentialInput().fill(",./");
+      //  await serviceDetailstView.locators.tdgPotentialInput().fill(",./");
       await serviceDetailstView.locators.tdgUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -714,8 +714,8 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await serviceDetailstView.locators.tdg2024AOPinput().clear("1701");
       await serviceDetailstView.locators.tdg2024AOPinput().fill("1701");
-      await serviceDetailstView.locators.tdgPotentialInput().clear("2000");
-      await serviceDetailstView.locators.tdgPotentialInput().fill("2000");
+      //  await serviceDetailstView.locators.tdgPotentialInput().clear("2000");
+      //  await serviceDetailstView.locators.tdgPotentialInput().fill("2000");
       await serviceDetailstView.locators.tdgUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {

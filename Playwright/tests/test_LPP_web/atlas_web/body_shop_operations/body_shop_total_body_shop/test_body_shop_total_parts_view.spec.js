@@ -8,8 +8,21 @@ const AtlasLogin = require("../../../../../helpers/login/atlas_login");
 // Instantiate your AtlasLogin class
 const atlasLogin = new AtlasLogin();
 
-//test
+// Test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {
+  let page;
+  let bodyShopTotalParts;
+
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    bodyShopTotalParts = new BodyShopTotalParts(page);
+    await bodyShopTotalParts.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
+
   test("Navigate to Atlas Web, Body Shop Operations, and validate Total Parts basic elements have loaded as expected", async ({
     browser,
     page,
@@ -47,8 +60,14 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       "completeButton",
     ];
 
-    for (const locatorName of locatorNames) {
-      await bodyShopTotalParts.checkElementVisibility(locatorName);
+    try {
+      for (const locatorName of locatorNames) {
+        await bodyShopTotalParts.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

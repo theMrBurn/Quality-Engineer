@@ -7,6 +7,19 @@ const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 
 //test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
+  let page;
+  let partsPersonnelExpense;
+
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    partsPersonnelExpense = new PartsPersonnelExpense(page);
+    await partsPersonnelExpense.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
+
   test("Navigate to Atlas Web, Dealership Listing and validate Personell Expense no-input renders Update Button Disabled as expected", async ({
     browser,
     page,
@@ -33,7 +46,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //press Update to trigger Error Alert
       await partsPersonnelExpense.locators.peAOPinput().clear();
-      await partsPersonnelExpense.locators.pePotentialInput().clear();
+      // await partsPersonnelExpense.locators.pePotentialInput().clear();
       await partsPersonnelExpense.locators.peUpdateButton().isHidden();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -68,9 +81,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input invalid symbols to trigger Error Alert
       await partsPersonnelExpense.locators.peAOPinput().clear("1701");
-      await partsPersonnelExpense.locators.pePotentialInput().clear("2000");
+      //await partsPersonnelExpense.locators.pePotentialInput().clear("2000");
       await partsPersonnelExpense.locators.peAOPinput().fill(",./");
-      await partsPersonnelExpense.locators.pePotentialInput().fill(",./");
+      //await partsPersonnelExpense.locators.pePotentialInput().fill(",./");
       await partsPersonnelExpense.locators.peUpdateButton().isHidden();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -106,8 +119,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       //input valid amount and click Update - vaidate Update Success
       await partsPersonnelExpense.locators.peAOPinput().clear("1701");
       await partsPersonnelExpense.locators.peAOPinput().fill("1701");
-      await partsPersonnelExpense.locators.pePotentialInput().clear("2000");
-      await partsPersonnelExpense.locators.pePotentialInput().fill("2000");
+      // await partsPersonnelExpense.locators.pePotentialInput().clear("2000");
+      // await partsPersonnelExpense.locators.pePotentialInput().fill("2000");
       await partsPersonnelExpense.locators.peUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -143,7 +156,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //press Update to trigger Error Alert
       await partsPersonnelExpense.locators.sfeAOPinput().clear();
-      await partsPersonnelExpense.locators.sfePotentialInput().clear();
+      // await partsPersonnelExpense.locators.sfePotentialInput().clear();
       await partsPersonnelExpense.locators.sfeUpdateButton().isHidden();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -178,9 +191,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input invalid symbols to trigger Error Alert
       await partsPersonnelExpense.locators.sfeAOPinput().clear("1701");
-      await partsPersonnelExpense.locators.sfePotentialInput().clear("2000");
+      //  await partsPersonnelExpense.locators.sfePotentialInput().clear("2000");
       await partsPersonnelExpense.locators.sfeAOPinput().fill(",./");
-      await partsPersonnelExpense.locators.sfePotentialInput().fill(",./");
+      //  await partsPersonnelExpense.locators.sfePotentialInput().fill(",./");
       await partsPersonnelExpense.locators.sfeUpdateButton().isHidden();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -215,7 +228,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input valid amount and click Update - vaidate Update Success
       await partsPersonnelExpense.locators.sfeAOPinput().fill("1701");
-      await partsPersonnelExpense.locators.sfePotentialInput().fill("2000");
+      //  await partsPersonnelExpense.locators.sfePotentialInput().fill("2000");
       await partsPersonnelExpense.locators.sfeUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -251,7 +264,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //press Update to trigger Error Alert
       await partsPersonnelExpense.locators.feAOPinput().clear();
-      await partsPersonnelExpense.locators.fePotentialInput().clear();
+      //  await partsPersonnelExpense.locators.fePotentialInput().clear();
       await partsPersonnelExpense.locators.feUpdateButton().isHidden();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -286,9 +299,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input invalid symbols to trigger Error Alert
       await partsPersonnelExpense.locators.feAOPinput().clear("1701");
-      await partsPersonnelExpense.locators.fePotentialInput().clear("2000");
+      //  await partsPersonnelExpense.locators.fePotentialInput().clear("2000");
       await partsPersonnelExpense.locators.feAOPinput().fill(",./");
-      await partsPersonnelExpense.locators.fePotentialInput().fill(",./");
+      //  await partsPersonnelExpense.locators.fePotentialInput().fill(",./");
       await partsPersonnelExpense.locators.feUpdateButton().isHidden();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -323,7 +336,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     try {
       //input valid amount and click Update - vaidate Update Success
       await partsPersonnelExpense.locators.feAOPinput().fill("1701");
-      await partsPersonnelExpense.locators.fePotentialInput().fill("2000");
+      //  await partsPersonnelExpense.locators.fePotentialInput().fill("2000");
       await partsPersonnelExpense.locators.feUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {

@@ -38,9 +38,9 @@ class PartsGrossProfitView {
         ),
 
       cpgUpdateButton: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/button',
-        ),
+        this.page
+          .locator(".MuiGrid-root > div > div > div > .MuiButtonBase-root")
+          .first(),
 
       //warrenty gross card locators
       wg2024AOPinput: () => this.page.locator("#LOPS40305").first(),

@@ -37,7 +37,7 @@ test.describe
     try {
       //press Update to trigger Error Alert
       await totalStoreView.locators.ai2024AOPinput().clear();
-      await totalStoreView.locators.aiPotentialInput().clear();
+      //await totalStoreView.locators.aiPotentialInput().clear();
       await totalStoreView.locators.aiUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -71,9 +71,9 @@ test.describe
     try {
       //input invalid symbols to trigger Error Alert
       await totalStoreView.locators.ai2024AOPinput().clear("1701");
-      await totalStoreView.locators.aiPotentialInput().clear("2000");
+      // await totalStoreView.locators.aiPotentialInput().clear("2000");
       await totalStoreView.locators.ai2024AOPinput().fill(",./");
-      await totalStoreView.locators.aiPotentialInput().fill(",./");
+      // await totalStoreView.locators.aiPotentialInput().fill(",./");
       await totalStoreView.locators.aiUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -108,8 +108,8 @@ test.describe
       //input invalid amount and click Update - vaidate Update Success
       await totalStoreView.locators.ai2024AOPinput().clear("1701");
       await totalStoreView.locators.ai2024AOPinput().fill("1701");
-      await totalStoreView.locators.aiPotentialInput().clear("2000");
-      await totalStoreView.locators.aiPotentialInput().fill("2000");
+      // await totalStoreView.locators.aiPotentialInput().clear("2000");
+      // await totalStoreView.locators.aiPotentialInput().fill("2000");
       await totalStoreView.locators.aiUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {

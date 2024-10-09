@@ -5,19 +5,27 @@ const { test, expect } = require("@playwright/test");
 const { AdminStoreView } = require("./atlas_web.js");
 const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 
-//test
+// test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
+  let adminStoreView;
+
+  test.beforeEach(async ({ browser, page }) => {
+    adminStoreView = new AdminStoreView(page);
+    await adminStoreView.goto();
+  });
+
+  test.afterEach(async ({ page }) => {
+    await page.close();
+  });
+
   test.slow();
+
   test("Navigate to Atlas Web, click on first Dealership Listing and validate Seasonality Page elements have loaded as expected", async ({
     browser,
     page,
   }) => {
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
-
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
 
     try {
       // Your existing test steps
@@ -45,10 +53,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
-
     try {
       // Your existing test steps
       await page.getByPlaceholder("SEARCH").click();
@@ -67,10 +71,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
   }) => {
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
-
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
 
     try {
       // Your existing test steps
@@ -94,10 +94,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     );
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
-
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
 
     try {
       // find NEXT pagination button and click

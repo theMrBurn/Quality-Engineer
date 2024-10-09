@@ -1,23 +1,29 @@
 // Impact Builder Analysis Portal
 
 // POMs have to live in the same directory as the test, for now
-// we will paramaterize the storageState with other .json for each userLogin, if necessary
+// we will parameterize the storageState with other .json for each userLogin, if necessary
 
-// dependancies
+// Dependencies
 const { test, expect } = require("@playwright/test");
-const { EmployeeImpact } = require("./impact_builder_emp_and_impact");
+const { EmployeeImpact } = require("./impact_builder_emp_and_impact.js");
 
-//test
+// Test
 test.describe
   .serial("Impact Builder Assignments - Page Elements @smoke", () => {
-  test("Navigate to Impact Builder Analysis config, and validate Pay Plan Assignments elements have loaded as expected", async ({
-    browser,
-    page,
-  }) => {
-    const impactAssignments = new EmployeeImpact(page);
-    await impactAssignments.goto();
+  let page;
+  let impactAssignments;
 
-    //validate expected text elements have loaded
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    impactAssignments = new EmployeeImpact(page);
+    await impactAssignments.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
+
+  test("Navigate to Impact Builder Analysis config, and validate Pay Plan Assignments elements have loaded as expected", async () => {
     const locatorNames = [
       "impactBuilderAnalysisHeader",
       "addPayPlanBtn",
@@ -31,16 +37,9 @@ test.describe
     }
   });
 
-  test("Navigate to Impact Builder Analysis config, and validate Pay Plan Assignments, Add a Payplan elements have loaded as expected", async ({
-    browser,
-    page,
-  }) => {
-    const impactAssignments = new EmployeeImpact(page);
-    await impactAssignments.goto();
-
+  test("Navigate to Impact Builder Analysis config, and validate Pay Plan Assignments, Add a Payplan elements have loaded as expected", async () => {
     await impactAssignments.clickElement("addPayPlanBtn");
 
-    //validate expected text elements have loaded
     const locatorNames = [
       "payPlanSearchBox",
       "searchBtn",
@@ -61,16 +60,9 @@ test.describe
     }
   });
 
-  test("Navigate to Impact Builder Analysis config, and validate Assign Employee elements have loaded as expected", async ({
-    browser,
-    page,
-  }) => {
-    const impactAssignments = new EmployeeImpact(page);
-    await impactAssignments.goto();
-
+  test("Navigate to Impact Builder Analysis config, and validate Assign Employee elements have loaded as expected", async () => {
     await impactAssignments.clickElement("assignEmployeeBtn");
 
-    //validate expected text elements have loaded
     const locatorNames = [
       "employeeLookup",
       "substituteEmployeeFilter",

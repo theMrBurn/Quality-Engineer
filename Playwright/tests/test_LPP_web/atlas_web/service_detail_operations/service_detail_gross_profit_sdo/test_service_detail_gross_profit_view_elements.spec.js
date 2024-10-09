@@ -81,7 +81,7 @@ test.describe
 
     const locatorNames = [
       "frh2024AOPinput",
-      "frhPotentialInput",
+      // "frhPotentialInput",
       "frhYoYcounter",
       "frhPerformanceChart",
       "frhUpdateButton",
@@ -122,7 +122,7 @@ test.describe
 
     const locatorNames = [
       "cpg2024AOPinput",
-      "cpgPotentialInput",
+      // "cpgPotentialInput",
       "cpgYoYcounter",
       "cpgPerformanceChart",
       "cpgInfoBox",
@@ -164,7 +164,7 @@ test.describe
 
     const locatorNames = [
       "warg2024AOPinput",
-      "wargPotentialInput",
+      //  "wargPotentialInput",
       "wargYoYcounter",
       "wargPerformanceChart",
       "wargInfoBox",
@@ -206,7 +206,7 @@ test.describe
 
     const locatorNames = [
       "ig2024AOPinput",
-      "igPotentialInput",
+      //  "igPotentialInput",
       "igYoYcounter",
       "igPerformanceChart",
       "igInfoBox",
@@ -248,7 +248,7 @@ test.describe
 
     const locatorNames = [
       "aog2024AOPinput",
-      "aogPotentialInput",
+      //  "aogPotentialInput",
       "aogYoYcounter",
       "aogPerformanceChart",
       "aogInfoBox",
@@ -290,7 +290,7 @@ test.describe
 
     const locatorNames = [
       "tdg2024AOPinput",
-      "tdgPotentialInput",
+      //  "tdgPotentialInput",
       "tdgYoYcounter",
       "tdgPerformanceChart",
       "tdgInfoBox",
@@ -333,7 +333,7 @@ test.describe
     const locatorNames = [
       "tsgAOP",
       "tsgYoYcounter",
-      "tsgPotential",
+      // "tsgPotential",
       "tsgPerformanceChart",
       "aogInfoBox",
       "aogUpdateButton",

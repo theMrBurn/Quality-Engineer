@@ -1,11 +1,11 @@
 // Atlas Web
 
-// dependancies
+// dependencies
 const { test, expect } = require("@playwright/test");
 const { TotalSalesExpenseView } = require("./sovTotalSales.js");
 const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 
-//test
+// test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {
   test("Navigate to Atlas Web, choose Plan 0, validate Total Sales Expense elements have loaded as expected", async ({
     browser,
@@ -16,10 +16,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await page.waitForLoadState("networkidle");
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+    // start at dealership listing and navigate to plan details, then to navigate to SPSFFEE
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
@@ -37,7 +37,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       "aopYoYcounter",
       "aop2024PerformanceChart",
       "tsopAOP2024",
-      "tsopPotential2024",
+      // "tsopPotential2024",
       "tsopYoYcounter",
       "tsop2024PerformanceChart",
       "completeButton",

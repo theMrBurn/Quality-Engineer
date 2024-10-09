@@ -1,22 +1,29 @@
 // Impact Builder Analysis Config Module
 
 // POMs have to live in the same directory as the test, for now
-// we will paramaterize the storageState with other .json for each userLogin, if necessary
+// we will parameterize the storageState with other .json for each userLogin, if necessary
 
-// dependancies
+// Dependencies
 const { test, expect } = require("@playwright/test");
 const { ImpactAnalysisPage } = require("./impact_builder_analysis.js");
 
-//test
+// Test
 test.describe
   .serial("Impact Builder - Analysis Page Functional Tests @func", () => {
-  test("Navigate to Impact Builder - Analysis Configuration, Company Drodown works as expected", async ({
-    browser,
-    page,
-  }) => {
-    const impactAnalysisPage = new ImpactAnalysisPage(page);
-    await impactAnalysisPage.goto();
+  let page;
+  let impactAnalysisPage;
 
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    impactAnalysisPage = new ImpactAnalysisPage(page);
+    await impactAnalysisPage.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
+
+  test("Navigate to Impact Builder - Analysis Configuration, Company Drodown works as expected", async () => {
     try {
       await page
         .locator("div")
@@ -38,15 +45,10 @@ test.describe
     }
   });
 
-  test("Navigate to Impact Builder - Analysis Configuration, Expense Type Dropdown works as expected", async ({
-    browser,
-    page,
-  }) => {
+  test("Navigate to Impact Builder - Analysis Configuration, Expense Type Dropdown works as expected", async () => {
     test.skip(
       "when this is ran, it works but the dropdown returns an empty element, even though manually its clearly got the list",
     );
-    const impactAnalysisPage = new ImpactAnalysisPage(page);
-    await impactAnalysisPage.goto();
 
     try {
       // click Expense Type
@@ -94,13 +96,7 @@ test.describe
     }
   });
 
-  test("Navigate to Impact Builder - Analysis Configuration, Closing Month choice, and Apply button work as expected", async ({
-    browser,
-    page,
-  }) => {
-    const impactAnalysisPage = new ImpactAnalysisPage(page);
-    await impactAnalysisPage.goto();
-
+  test("Navigate to Impact Builder - Analysis Configuration, Closing Month choice, and Apply button work as expected", async () => {
     try {
       // Click on the Calendar
       await page.getByLabel("Choose date, selected date is").click();

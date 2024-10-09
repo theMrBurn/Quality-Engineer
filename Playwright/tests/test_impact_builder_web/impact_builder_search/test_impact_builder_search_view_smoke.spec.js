@@ -1,22 +1,23 @@
-// Impact Builder Analysis Portal
-
-// POMs have to live in the same directory as the test, for now
-// we will paramaterize the storageState with other .json for each userLogin, if necessary
-
-// dependancies
-const { test, expect } = require("@playwright/test");
+// Dependencies
+const { test } = require("@playwright/test");
 const { ImpactSearchPage } = require("./impact_builder_search.js");
 
-//test
+// Test
 test.describe.serial("Impact Builder Search - Page Elements @smoke", () => {
-  test("Navigate to Impact Builder Search and validate Page elements have loaded as expected", async ({
-    browser,
-    page,
-  }) => {
-    const impactSearchPage = new ImpactSearchPage(page);
-    await impactSearchPage.goto();
+  let page;
+  let impactSearchPage;
 
-    //validate expected text elements have loaded
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    impactSearchPage = new ImpactSearchPage(page);
+    await impactSearchPage.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
+
+  test("Navigate to Impact Builder Search and validate Page elements have loaded as expected", async () => {
     const locatorNames = [
       "impactBuilderAnalysisHeader",
       "searchInput",

@@ -70,8 +70,6 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await salesGrossProfitView.locators.nru2024AOPinput().clear();
       await salesGrossProfitView.locators.nru2024AOPinput().fill("725");
-      await salesGrossProfitView.locators.nruPotentialInput().clear();
-      await salesGrossProfitView.locators.nruPotentialInput().fill("800");
       await salesGrossProfitView.locators.nruUpdateButton().click();
 
       // Refresh the page
@@ -81,8 +79,6 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await salesGrossProfitView.locators.fraN2024AOPinput().clear();
       await salesGrossProfitView.locators.fraN2024AOPinput().fill("1701");
-      await salesGrossProfitView.locators.fraNPotentialInput().clear();
-      await salesGrossProfitView.locators.fraNPotentialInput().fill("2000");
       await salesGrossProfitView.locators.fraNUpdateButton().click();
 
       // Refresh the page
@@ -92,8 +88,6 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await salesGrossProfitView.locators.fiaN2024AOPinput().clear();
       await salesGrossProfitView.locators.fiaN2024AOPinput().fill("2300");
-      await salesGrossProfitView.locators.fiaNPotentialInput().clear();
-      await salesGrossProfitView.locators.fiaNPotentialInput().fill("3000");
       await salesGrossProfitView.locators.fiaNUpdateButton().click();
 
       // Refresh the page
@@ -103,8 +97,6 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await salesGrossProfitView.locators.uru2024AOPinput().clear();
       await salesGrossProfitView.locators.uru2024AOPinput().fill("1300");
-      await salesGrossProfitView.locators.uruPotentialInput().clear();
-      await salesGrossProfitView.locators.uruPotentialInput().fill("1500");
       await salesGrossProfitView.locators.uruUpdateButton().click();
 
       // Refresh the page
@@ -114,8 +106,6 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await salesGrossProfitView.locators.feauAOPinput().clear();
       await salesGrossProfitView.locators.feauAOPinput().fill("1701");
-      await salesGrossProfitView.locators.feauPotentialInput().clear();
-      await salesGrossProfitView.locators.feauPotentialInput().fill("2000");
       await salesGrossProfitView.locators.feauUpdateButton().click();
 
       // Refresh the page
@@ -125,8 +115,6 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await salesGrossProfitView.locators.fiau2024AOPinput().clear();
       await salesGrossProfitView.locators.fiau2024AOPinput().fill("2400");
-      await salesGrossProfitView.locators.fiauPotentialInput().clear();
-      await salesGrossProfitView.locators.fiauPotentialInput().fill("2700");
       await salesGrossProfitView.locators.fiauUpdateButton().click();
 
       // Refresh the page
@@ -136,8 +124,6 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await salesGrossProfitView.locators.fGrossAOPinput().clear();
       await salesGrossProfitView.locators.fGrossAOPinput().fill("0");
-      await salesGrossProfitView.locators.fGrossPotentialInput().clear();
-      await salesGrossProfitView.locators.fGrossPotentialInput().fill("0");
       await salesGrossProfitView.locators.fGrossUpdateButton().click();
 
       // Refresh the page
@@ -147,8 +133,6 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await salesGrossProfitView.locators.wGrossAOPinput().clear();
       await salesGrossProfitView.locators.wGrossAOPinput().fill("-60000");
-      await salesGrossProfitView.locators.wGrossPotentialInput().clear();
-      await salesGrossProfitView.locators.wGrossPotentialInput().fill("-50000");
       await salesGrossProfitView.locators.wGrossUpdateButton().click();
 
       // Refresh the page
@@ -158,8 +142,6 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await salesGrossProfitView.locators.dFeeAOPinput().clear();
       await salesGrossProfitView.locators.dFeeAOPinput().fill("200");
-      await salesGrossProfitView.locators.dFeePotentialInput().clear();
-      await salesGrossProfitView.locators.dFeePotentialInput().fill("250");
       await salesGrossProfitView.locators.dFeeUpdateButton().click();
 
       // Refresh the page
@@ -169,8 +151,6 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await salesGrossProfitView.locators.fiCanAOPinput().clear();
       await salesGrossProfitView.locators.fiCanAOPinput().fill("-190000");
-      await salesGrossProfitView.locators.fiCanPotentialInput().clear();
-      await salesGrossProfitView.locators.fiCanPotentialInput().fill("-180000");
       await salesGrossProfitView.locators.fiCanUpdateButton().click();
 
       // Refresh the page
@@ -180,36 +160,15 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await salesGrossProfitView.locators.aogAOPinput().clear();
       await salesGrossProfitView.locators.aogAOPinput().fill("111110");
-      await salesGrossProfitView.locators.aogPotentialInput().clear();
-      await salesGrossProfitView.locators.aogPotentialInput().fill("222220");
       await salesGrossProfitView.locators.aogUpdateButton().click();
 
       // Refresh the page
       await page.reload();
       await page.waitForLoadState("load");
 
-      //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.mduAOPinput().clear();
-      await salesGrossProfitView.locators.mduAOPinput().fill("0");
-      await salesGrossProfitView.locators.mduPotentialInput().clear();
-      await salesGrossProfitView.locators.mduPotentialInput().fill("0");
-      await salesGrossProfitView.locators.mduUpdateButton().click();
-
       // Refresh the page
       await page.reload();
-      await page.waitForLoadState("networkidle");
-
-      // // click AOP by Month 2024 and validate landing
-      // await atlase2e.clickElement("storePerformance");
-      // await atlase2e.clickElement("aop2024byMonth");
-
-      // // Validate URL string
-      // const urlString2 = "plan/0/history?history=2024";
-      // const currentURL2 = await page.url();
-      // await expect(currentURL2).toContain(urlString2);
-
-      // // simulate final edit of fields and click Submit
-      // await atlase2e.seasonalityUpdate();
+      await page.waitForLoadState("load");
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);

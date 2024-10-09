@@ -1,21 +1,29 @@
 // Impact Builder Assignments Module
 
 // POMs have to live in the same directory as the test, for now
-// we will paramaterize the storageState with other .json for each userLogin, if necessary
+// we will parameterize the storageState with other .json for each userLogin, if necessary
 
-// dependancies
+// Dependencies
 const { test, expect } = require("@playwright/test");
 const { EmployeeImpact } = require("./impact_builder_emp_and_impact.js");
 
-//test
+// Test
 test.describe
   .serial("Impact Builder - Analysis Page, Employee And Impact Functional Tests @func", () => {
-  test("Navigate to Impact Builder - Employee And Impact Reason Type dropdown works as expected", async ({
-    page,
-  }) => {
-    const employeeImpact = new EmployeeImpact(page);
-    await employeeImpact.goto();
+  let page;
+  let employeeImpact;
 
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    employeeImpact = new EmployeeImpact(page);
+    await employeeImpact.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
+
+  test("Navigate to Impact Builder - Employee And Impact Reason Type dropdown works as expected", async () => {
     try {
       // click Dropdown
       await page.getByLabel("Reason Type").click();
@@ -53,12 +61,7 @@ test.describe
     }
   });
 
-  test("Navigate to Impact Builder - Employee And Impact, input Current average, New Average, and clear Replacement Average ", async ({
-    page,
-  }) => {
-    const employeeImpact = new EmployeeImpact(page);
-    await employeeImpact.goto();
-
+  test("Navigate to Impact Builder - Employee And Impact, input Current average, New Average, and clear Replacement Average ", async () => {
     try {
       await page
         .locator("div")

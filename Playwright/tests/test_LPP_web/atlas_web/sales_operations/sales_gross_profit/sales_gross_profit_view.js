@@ -257,47 +257,22 @@ class SalesGrossProfitView {
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[12]/div[2]/div[1]/div[1]/div/button',
         ),
 
-      //Memo: Driveway Units (New and Used)
-      mduAOPinput: () => this.page.locator("#DrivewayUnits").first(),
-      mduPotentialInput: () =>
-        this.page.locator('//*[@id="DrivewayUnits"]').nth(1),
-      mduYoYcounter: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[1]/div[1]/div/div/div[2]/div',
-        ),
-      mduPerformanceChart: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[2]/div/div/canvas',
-        ),
-      mduInfoBox: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[1]/div[2]/div/div/div/div',
-        ),
-      mduUpdateButton: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[1]/div[1]/div/button',
-        ),
-
       //Total Sales Gross
       tsgAOP: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[14]/div[2]/div[1]/div/div/div/div[1]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[1]/div/div/div/div[1]',
         ),
       tsgPotential: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[14]/div[2]/div[1]/div/div/div/div[3]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[1]/div/div/div/div[3]',
         ),
       tsgYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[14]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[1]/div/div/div/div[2]',
         ),
       tsgPerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[14]/div[2]/div[2]',
-        ),
-      tsgPerfTrendChart: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[14]/div[2]/div[2]/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[13]/div[2]/div[2]',
         ),
 
       //nav buttons previous | next

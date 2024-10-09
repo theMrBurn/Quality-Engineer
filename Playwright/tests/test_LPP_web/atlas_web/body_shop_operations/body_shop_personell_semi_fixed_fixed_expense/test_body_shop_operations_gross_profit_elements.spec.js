@@ -1,4 +1,4 @@
-// Atlas Web
+/// Atlas Web
 
 // dependancies
 const { test, expect } = require("@playwright/test");
@@ -11,6 +11,19 @@ const atlasLogin = new AtlasLogin();
 //test
 test.describe
   .serial("Atlas Web - Body Shop Personell Semi Fixed, Fixed Expense Page Elements @smoke", () => {
+  let page;
+  let bodyShopPersonnelExpense;
+
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    bodyShopPersonnelExpense = new BodyShopPersonnelExpense(page);
+    await bodyShopPersonnelExpense.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
+
   test("Navigate to Atlas Web, Body Shop PSFFE and validate basic elements have loaded as expected", async ({
     browser,
     page,
@@ -65,8 +78,14 @@ test.describe
       "topPreviousButton",
     ];
 
-    for (const locatorName of locatorNames) {
-      await bodyShopPersonnelExpense.checkElementVisibility(locatorName);
+    try {
+      for (const locatorName of locatorNames) {
+        await bodyShopPersonnelExpense.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

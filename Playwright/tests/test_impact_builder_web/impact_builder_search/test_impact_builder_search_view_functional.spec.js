@@ -1,21 +1,28 @@
 // Impact Builder Analysis Portal
 
 // POMs have to live in the same directory as the test, for now
-// we will paramaterize the storageState with other .json for each userLogin, if necessary
+// we will parameterize the storageState with other .json for each userLogin, if necessary
 
-// dependancies
+// Dependencies
 const { test, expect } = require("@playwright/test");
 const { ImpactSearchPage } = require("./impact_builder_search.js");
 
-//test
+// Test
 test.describe.serial("Impact Builder - Search Page Elements @func", () => {
-  test("Navigate to Impact Builder - Search, enter text, click Apply, validate Page elements have loaded as expected", async ({
-    browser,
-    page,
-  }) => {
-    const impactSearchPage = new ImpactSearchPage(page);
-    await impactSearchPage.goto();
+  let page;
+  let impactSearchPage;
 
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    impactSearchPage = new ImpactSearchPage(page);
+    await impactSearchPage.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
+
+  test("Navigate to Impact Builder - Search, enter text, click Apply, validate Page elements have loaded as expected", async () => {
     try {
       // Perform the search
       await impactSearchPage.fillForm({ searchInput: "Medford Body Shop" });
@@ -52,11 +59,7 @@ test.describe.serial("Impact Builder - Search Page Elements @func", () => {
     }
   });
 
-  test("Navigate to Impact Builder - Search, search for L0023 and validate search option Remove Filters works as expected", async ({
-    browser,
-    page,
-  }) => {
-    const impactSearchPage = new ImpactSearchPage(page);
+  test("Navigate to Impact Builder - Search, search for L0023 and validate search option Remove Filters works as expected", async () => {
     await impactSearchPage.goto();
 
     // Your existing test steps
@@ -66,14 +69,10 @@ test.describe.serial("Impact Builder - Search Page Elements @func", () => {
     await page.getByRole("button", { name: "Remove Filters" }).click();
   });
 
-  test("Navigate to Impact Builder - Search, scroll to bottom, click to validate pagination options", async ({
-    browser,
-    page,
-  }) => {
-    const impactSearchPage = new ImpactSearchPage(page);
-    await impactSearchPage.goto();
-
+  test("Navigate to Impact Builder - Search, scroll to bottom, click to validate pagination options", async () => {
     try {
+      await impactSearchPage.goto();
+
       // find NEXT pagination button and click
       await page.getByRole("link", { name: "" }).click();
 
@@ -103,8 +102,6 @@ test.describe.serial("Impact Builder - Search Page Elements @func", () => {
 
       const expectedTextPattern2 = /-\s*\d+\s*of\s*\d+\s*items/;
       await expect(textContent2).toMatch(expectedTextPattern2);
-
-      //await expect(textContent2).toHaveText("- of items");
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed

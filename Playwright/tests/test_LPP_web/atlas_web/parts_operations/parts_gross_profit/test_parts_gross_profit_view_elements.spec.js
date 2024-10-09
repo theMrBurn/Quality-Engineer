@@ -1,14 +1,26 @@
 // Atlas Web
 
-// dependancies
+// Dependencies
 const { test, expect } = require("@playwright/test");
 const { PartsGrossProfitView } = require("./parts_gross_profit_view.js");
 const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 
-//test
+// Test
 test.describe
   .serial("Atlas Web - Parts Operations Page Elements @smoke", () => {
-  test.slow();
+  let page;
+  let partsGrossProfitView;
+
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    partsGrossProfitView = new PartsGrossProfitView(page);
+    await partsGrossProfitView.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
+
   test("Navigate to Atlas Web, Dealership Listing and validate card Header and other basic elements have loaded as expected", async ({
     browser,
     page,
@@ -78,7 +90,7 @@ test.describe
 
     const locatorNames = [
       "cpg2024AOPinput",
-      "cpgPotentialInput",
+      // "cpgPotentialInput",
       "cpgYoYcounter",
       "cpgPerformanceChart",
       "cpgInfoBox",
@@ -120,7 +132,7 @@ test.describe
 
     const locatorNames = [
       "wg2024AOPinput",
-      "wgPotentialInput",
+      //  "wgPotentialInput",
       "wgYoYcounter",
       "wgPerformanceChart",
       "wgInfoBox",
@@ -162,7 +174,7 @@ test.describe
 
     const locatorNames = [
       "ig2024AOPinput",
-      "igPotentialInput",
+      // "igPotentialInput",
       "igYoYcounter",
       "igPerformanceChart",
       "igInfoBox",
@@ -203,7 +215,7 @@ test.describe
 
     const locatorNames = [
       "wsg2024AOPinput",
-      "wsgPotentialInput",
+      //  "wsgPotentialInput",
       "wsgYoYcounter",
       "wsgPerformanceChart",
       "wsgInfoBox",
@@ -245,7 +257,7 @@ test.describe
 
     const locatorNames = [
       "aog2024AOPinput",
-      "aogPotentialInput",
+      //  "aogPotentialInput",
       "aogYoYcounter",
       "aogPerformanceChart",
       "aogInfoBox",

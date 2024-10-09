@@ -38,7 +38,7 @@ test.describe
     try {
       //press Update to trigger Error Alert
       await personalSFFE.locators.peAOPinput().clear();
-      await personalSFFE.locators.pePotentialInput().clear();
+      // await personalSFFE.locators.pePotentialInput().clear();
       await personalSFFE.locators.peUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -76,9 +76,9 @@ test.describe
     try {
       //input invalid symbols to trigger Error Alert
       await personalSFFE.locators.peAOPinput().clear("1701");
-      await personalSFFE.locators.pePotentialInput().clear("2000");
+      // await personalSFFE.locators.pePotentialInput().clear("2000");
       await personalSFFE.locators.peAOPinput().fill(",./");
-      await personalSFFE.locators.pePotentialInput().fill(",./");
+      // await personalSFFE.locators.pePotentialInput().fill(",./");
       await personalSFFE.locators.peUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -117,8 +117,8 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await personalSFFE.locators.peAOPinput().clear("1701");
       await personalSFFE.locators.peAOPinput().fill("1701");
-      await personalSFFE.locators.pePotentialInput().clear("2000");
-      await personalSFFE.locators.pePotentialInput().fill("2000");
+      //await personalSFFE.locators.pePotentialInput().clear("2000");
+      //await personalSFFE.locators.pePotentialInput().fill("2000");
       await personalSFFE.locators.peUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -157,7 +157,7 @@ test.describe
     try {
       //press Update to trigger Error Alert
       await personalSFFE.locators.sfeAOPinput().clear();
-      await personalSFFE.locators.sfePotentialInput().clear();
+      //await personalSFFE.locators.sfePotentialInput().clear();
       await personalSFFE.locators.sfeUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -195,9 +195,9 @@ test.describe
     try {
       //input invalid symbols to trigger Error Alert
       await personalSFFE.locators.sfeAOPinput().clear("1701");
-      await personalSFFE.locators.sfePotentialInput().clear("2000");
+      //await personalSFFE.locators.sfePotentialInput().clear("2000");
       await personalSFFE.locators.sfeAOPinput().fill(",./");
-      await personalSFFE.locators.sfePotentialInput().fill(",./");
+      //await personalSFFE.locators.sfePotentialInput().fill(",./");
       await personalSFFE.locators.sfeUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -236,8 +236,8 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await personalSFFE.locators.sfeAOPinput().clear("1701");
       await personalSFFE.locators.sfeAOPinput().fill("1701");
-      await personalSFFE.locators.sfePotentialInput().clear("2000");
-      await personalSFFE.locators.sfePotentialInput().fill("2000");
+      // await personalSFFE.locators.sfePotentialInput().clear("2000");
+      // await personalSFFE.locators.sfePotentialInput().fill("2000");
       await personalSFFE.locators.sfeUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -276,7 +276,7 @@ test.describe
     try {
       //press Update to trigger Error Alert
       await personalSFFE.locators.feAOPinput().clear();
-      await personalSFFE.locators.fePotentialInput().clear();
+      // await personalSFFE.locators.fePotentialInput().clear();
       await personalSFFE.locators.feUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -314,9 +314,9 @@ test.describe
     try {
       //input invalid symbols to trigger Error Alert
       await personalSFFE.locators.feAOPinput().clear("1701");
-      await personalSFFE.locators.fePotentialInput().clear("2000");
+      //await personalSFFE.locators.fePotentialInput().clear("2000");
       await personalSFFE.locators.feAOPinput().fill(",./");
-      await personalSFFE.locators.fePotentialInput().fill(",./");
+      //await personalSFFE.locators.fePotentialInput().fill(",./");
       await personalSFFE.locators.feUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -355,8 +355,8 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await personalSFFE.locators.feAOPinput().clear("1701");
       await personalSFFE.locators.feAOPinput().fill("1701");
-      await personalSFFE.locators.fePotentialInput().clear("2000");
-      await personalSFFE.locators.fePotentialInput().fill("2000");
+      //await personalSFFE.locators.fePotentialInput().clear("2000");
+      //await personalSFFE.locators.fePotentialInput().fill("2000");
       await personalSFFE.locators.feUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {

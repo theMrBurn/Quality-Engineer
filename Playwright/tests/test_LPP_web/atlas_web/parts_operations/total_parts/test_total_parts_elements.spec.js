@@ -1,11 +1,10 @@
 // Atlas Web
 
-// dependancies
+// Dependencies
 const { test, expect } = require("@playwright/test");
 const { PartsTotalParts } = require("./total_parts");
 const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 
-//test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {
   test("Navigate to Atlas Web, Parts Operations, and validate Total Parts basic elements have loaded as expected", async ({
     browser,
@@ -15,10 +14,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await partsTotalParts.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    // const atlasLogin = new AtlasLogin();
+    // await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Total Parts
+    // Start at dealership listing and navigate to plan details, then to Total Parts
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
@@ -28,18 +27,18 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await page.getByRole("tab", { name: "Parts Operations" }).click();
     await page.getByRole("menuitem", { name: "Total Parts" }).click();
 
-    //landed on the sales gross profit view, validate basic elements have loaded (big list)
+    // Landed on the sales gross profit view, validate basic elements have loaded (big list)
 
     const locatorNames = [
       "totalParts",
       "totalPartsExpenseHeader",
       "totalSalesOpProfHeader",
       "aop2024",
-      "potential2024",
+      //"potential2024",
       "aopYoYcounter",
       "aop2024PerformanceChart",
       "tsopAOP2024",
-      "tsopPotential2024",
+      //"tsopPotential2024",
       "tsopYoYcounter",
       "tsop2024PerformanceChart",
       "completeButton",

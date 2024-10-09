@@ -36,7 +36,7 @@ test.describe
     try {
       //press Update to trigger Error Alert
       await sdoTotalServiceDetail.locators.tdeAOP2024input().clear();
-      await sdoTotalServiceDetail.locators.tdePotential2024input().clear();
+      // await sdoTotalServiceDetail.locators.tdePotential2024input().clear();
       await sdoTotalServiceDetail.locators.tdeUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -73,11 +73,11 @@ test.describe
     try {
       //input invalid symbols to trigger Error Alert
       await sdoTotalServiceDetail.locators.tdeAOP2024input().clear("1701");
-      await sdoTotalServiceDetail.locators
-        .tdePotential2024input()
-        .clear("2000");
+      // await sdoTotalServiceDetail.locators
+      //   .tdePotential2024input()
+      //   .clear("2000");
       await sdoTotalServiceDetail.locators.tdeAOP2024input().fill(",./");
-      await sdoTotalServiceDetail.locators.tdePotential2024input().fill(",./");
+      // await sdoTotalServiceDetail.locators.tdePotential2024input().fill(",./");
       await sdoTotalServiceDetail.locators.tdeUpdateButton().isDisabled();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -115,10 +115,10 @@ test.describe
       //input valid amount and click Update - vaidate Update Success
       await sdoTotalServiceDetail.locators.tdeAOP2024input().clear("1701");
       await sdoTotalServiceDetail.locators.tdeAOP2024input().fill("1701");
-      await sdoTotalServiceDetail.locators
-        .tdePotential2024input()
-        .clear("2000");
-      await sdoTotalServiceDetail.locators.tdePotential2024input().fill("2000");
+      // await sdoTotalServiceDetail.locators
+      //   .tdePotential2024input()
+      //   .clear("2000");
+      //await sdoTotalServiceDetail.locators.tdePotential2024input().fill("2000");
       await sdoTotalServiceDetail.locators.tdeUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {

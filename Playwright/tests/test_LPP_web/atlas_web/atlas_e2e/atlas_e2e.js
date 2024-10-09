@@ -1,3 +1,5 @@
+const { expect } = require('playwright/test');
+
 // this POM is for /Atlas E2E
 class AtlasE2E {
   /**
@@ -114,9 +116,7 @@ class AtlasE2E {
 
   async submitForReviewCancel() {
     try {
-      await this.page
-        .getByRole("button", { name: "Submit for Review" })
-        .click();
+      await this.page.getByTestId("seasonality-action-button").click();
 
       await this.page.getByRole("button", { name: "Cancel" }).click();
     } catch (error) {
@@ -127,16 +127,15 @@ class AtlasE2E {
 
   async submitForReviewConfirm() {
     try {
-      await this.page
-        .getByRole("button", { name: "Submit for Review" })
-        .click();
+      await this.page.getByTestId('seasonality-action-button').click();
+      await this.page.getByRole('button', { name: 'Submit for Review' }).click();
 
-      await this.page
-        .getByRole("button", { name: "Submit for Review" })
-        .click();
+      const successPop = await this.page.getByText('Plan Status Successfully');
+      await expect(successPop).toBeVisible();
+
     } catch (error) {
-      console.error("Error in submitForReviewConfirm:", error.message);
-      throw error;
+      console.error("Error during test:", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   }
 

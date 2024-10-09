@@ -1,12 +1,23 @@
 // Atlas Web
 
-// dependancies
+// Dependencies
 const { test, expect } = require("@playwright/test");
 const { PartsPersonnelExpense } = require("./partsOpsPSFFE");
 const AtlasLogin = require("../../../../../helpers/login/atlas_login.js");
 
-//test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {
+  let page;
+  let partsPersonnelExpense;
+
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    partsPersonnelExpense = new PartsPersonnelExpense(page);
+    await partsPersonnelExpense.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
   test("Navigate to Atlas Web, Parts Operations, PSFFE basic elements have loaded as expected", async ({
     browser,
     page,

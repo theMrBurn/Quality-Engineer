@@ -7,7 +7,21 @@ const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 
 //test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {
+  let page;
+  let planDetailsView;
+
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    planDetailsView = new PlanDetailsView(page);
+    await planDetailsView.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
+
   test.slow();
+
   test("Navigate to Atlas Web, choose Plan 0, validate Plan Details Page, Role Assignments column elements have loaded as expected", async ({
     browser,
     page,

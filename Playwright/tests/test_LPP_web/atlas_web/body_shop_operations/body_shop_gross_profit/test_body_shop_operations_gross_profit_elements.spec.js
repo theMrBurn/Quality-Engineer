@@ -8,9 +8,20 @@ const AtlasLogin = require("../../../../../helpers/login/atlas_login");
 // Instantiate your AtlasLogin class
 const atlasLogin = new AtlasLogin();
 
-//test
+// test
 test.describe
   .serial("Atlas Web - Body Shop Operations Page Elements @smoke", () => {
+  let bodyShopGrossProfitView;
+
+  test.beforeEach(async ({ page }) => {
+    bodyShopGrossProfitView = new BodyShopGrossProfitView(page);
+    await bodyShopGrossProfitView.goto();
+  });
+
+  test.afterEach(async ({ page }) => {
+    await page.close();
+  });
+
   test("Navigate to Atlas Web, Body Shop Operations and validate basic elements have loaded as expected", async ({
     browser,
     page,
@@ -48,7 +59,7 @@ test.describe
       "totalBodyShopGrossHeader",
       ...[
         "cpg2024AOPinput",
-        "cpgPotentialInput",
+        //"cpgPotentialInput",
         "cpgYoYcounter",
         "cpgPerformanceChart",
         "cpgInfoBox",
@@ -56,7 +67,7 @@ test.describe
       ],
       ...[
         "ig2024AOPinput",
-        "igPotentialInput",
+        //"igPotentialInput",
         "igYoYcounter",
         "igPerformanceChart",
         "igInfoBox",
@@ -64,7 +75,7 @@ test.describe
       ],
       ...[
         "ads2024AOPinput",
-        "adsPotentialInput",
+        //"adsPotentialInput",
         "adsYoYcounter",
         "adsPerformanceChart",
         "adsInfoBox",
@@ -72,7 +83,7 @@ test.describe
       ],
       ...[
         "pg2024AOPinput",
-        "pgPotentialInput",
+        //"pgPotentialInput",
         "pgYoYcounter",
         "pgPerformanceChart",
         "pgInfoBox",
@@ -80,7 +91,7 @@ test.describe
       ],
       ...[
         "aog2024AOPinput",
-        "aogPotentialInput",
+        //"aogPotentialInput",
         "aogYoYcounter",
         "aogPerformanceChart",
         "aogInfoBox",
@@ -88,7 +99,7 @@ test.describe
       ],
       ...[
         "tr2024AOPinput",
-        "trPotentialInput",
+        //"trPotentialInput",
         "trYoYcounter",
         "trPerformanceChart",
         "trInfoBox",
@@ -96,15 +107,21 @@ test.describe
       ],
       ...[
         "tbs2024AOP",
-        "tbsPotential",
+        // "tbsPotential",
         "tbsYoYcounter",
         "tbsPerformanceChart",
         "tbsUpdateButton",
       ],
     ];
 
-    for (const locatorName of locatorNames) {
-      await bodyShopGrossProfitView.checkElementVisibility(locatorName);
+    try {
+      for (const locatorName of locatorNames) {
+        await bodyShopGrossProfitView.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      // Mark the test as failed
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

@@ -7,6 +7,18 @@ const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 
 //test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {
+  let page;
+  let adminStoreView;
+
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    adminStoreView = new AdminStoreView(page);
+    await adminStoreView.goto();
+  });
+
+  test.afterEach(async () => {
+    await page.close();
+  });
   test("Navigate to Atlas Web, Dealership Listing and validate Page elements have loaded as expected", async ({
     browser,
     page,

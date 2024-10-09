@@ -56,7 +56,7 @@ class BodyShopGrossProfitView {
           .first(),
       igInfoBox: () =>
         this.page.locator(
-          "div:nth-child(3) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root > .MuiAlert-message",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div[2]/div/div/div/div/div/div[2]/div',
         ),
 
       igUpdateButton: () =>
@@ -77,7 +77,7 @@ class BodyShopGrossProfitView {
           .first(),
       adsInfoBox: () =>
         this.page.locator(
-          "div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[2]/div/div/div/div/div/div[2]',
         ),
 
       adsUpdateButton: () =>
@@ -100,7 +100,7 @@ class BodyShopGrossProfitView {
           .first(),
       pgInfoBox: () =>
         this.page.locator(
-          "div:nth-child(5) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[2]/div/div/div/div/div/div[2]/div',
         ),
 
       pgUpdateButton: () =>
@@ -113,7 +113,7 @@ class BodyShopGrossProfitView {
       aogPotentialInput: () => this.page.locator("#BodyShopMultiple").nth(1),
       aogYoYcounter: () =>
         this.page.locator(
-          "div:nth-child(5) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[1]/div[1]/div/div/div[2]',
         ),
       aogPerformanceChart: () =>
         this.page
@@ -123,7 +123,7 @@ class BodyShopGrossProfitView {
           .first(),
       aogInfoBox: () =>
         this.page.locator(
-          "div:nth-child(6) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root > .MuiAlert-message",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[2]/div[1]/div[2]/div/div/div/div/div/div[2]',
         ),
 
       aogUpdateButton: () =>
@@ -146,7 +146,7 @@ class BodyShopGrossProfitView {
           .first(),
       trInfoBox: () =>
         this.page.locator(
-          "div:nth-child(7) > div:nth-child(2) > div > div:nth-child(2) > div > .MuiStack-root > .MuiBox-root > .MuiPaper-root > .MuiAlert-message",
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[7]/div[2]/div[1]/div[2]/div/div/div/div/div/div[2]',
         ),
 
       trUpdateButton: () =>
