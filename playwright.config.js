@@ -74,7 +74,7 @@ const config = {
     screenshot: "only-on-failure",
   },
 
-  /* Configure projects for major browsers */
+  /* Configure projects */
   projects: [
     {
       name: "InnovationPOC",
@@ -355,6 +355,16 @@ const config = {
       use: {
         storageState: "Playwright/helpers/login/test_allpay_superUser.json",
         baseURL: "https://app-allpaytest-wu2-web.azurewebsites.net/",
+      },
+    },
+
+    {
+      name: "Performance_Dashboard_NEW_LocalDev",
+      testDir: "Playwright/tests/PD_2",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/login/test_allpay_superUser.json",
+        baseURL: "http://localhost:3000",
       },
     },
 
