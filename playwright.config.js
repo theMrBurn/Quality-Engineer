@@ -359,12 +359,12 @@ const config = {
     },
 
     {
-      name: "Performance_Dashboard_NEW_LocalDev",
-      testDir: "Playwright/tests/PD_2",
+      name: "PD_Admin_Local_Test",
+      testDir: "Playwright/tests/PD_2/test_PD_Admin/",
       retries: 3,
       use: {
         storageState: "Playwright/helpers/login/test_allpay_superUser.json",
-        baseURL: "http://localhost:3000",
+        baseURL: "http://localhost:3000/",
       },
     },
 
