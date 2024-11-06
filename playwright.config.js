@@ -87,6 +87,16 @@ const config = {
     },
 
     {
+      name: "PDAdminLocal",
+      testDir: "Playwright/tests/test_pd20/test_PD_Admin",
+      retries: 3,
+      use: {
+        // storageState: "Playwright/helpers/login/pd_AdminSuperuserLogin.json",
+        baseURL: "http://localhost:3000",
+      },
+    },
+
+    {
       name: "AtlasWeb",
       testDir: "Playwright/tests/test_LPP_web/atlas_web",
       retries: 3,
@@ -355,16 +365,6 @@ const config = {
       use: {
         storageState: "Playwright/helpers/login/test_allpay_superUser.json",
         baseURL: "https://app-allpaytest-wu2-web.azurewebsites.net/",
-      },
-    },
-
-    {
-      name: "PD_Admin_Local_Test",
-      testDir: "Playwright/tests/PD_2/test_PD_Admin/",
-      retries: 3,
-      use: {
-        storageState: "Playwright/helpers/login/test_allpay_superUser.json",
-        baseURL: "http://localhost:3000/",
       },
     },
 
