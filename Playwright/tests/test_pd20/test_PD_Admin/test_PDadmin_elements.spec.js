@@ -29,7 +29,7 @@ test.describe
       }
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw new Error("Test failed.", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
@@ -44,10 +44,7 @@ test.describe
     const perfDashAdmin = new PerfDashAdmin(page);
     await perfDashAdmin.goto();
 
-    // The YukonAppBarProps should show you the env you're operating in, if local dev, develop, test or UAT (prod if Prod of course, but we're not testing prod)
-    const displayedENV = page.locator(
-      'body > div > header > div > header > div > div.MuiBox-root.css-voneje > div.MuiBox-root.css-0 > div > div > p',
-    );
+    const displayedENV = perfDashAdmin.locators.localEnvDisplay();
 
     try {
       // Get the text content of the displayed environment

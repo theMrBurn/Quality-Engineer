@@ -15,6 +15,12 @@ class PerfDashAdmin {
       // kendo Grid elements
       kGridLocator: () => this.page.locator('//*[@id=":R4kvaj6:"]'),
 
+      // local env display component
+      localEnvDisplay: () =>
+        this.page.locator(
+          "body > div > header > div > header > div > div.MuiBox-root.css-voneje > div.MuiBox-root.css-0 > div > div > p",
+        ),
+
       // buttons
       deleteAdminButton: () =>
         this.page.locator(
