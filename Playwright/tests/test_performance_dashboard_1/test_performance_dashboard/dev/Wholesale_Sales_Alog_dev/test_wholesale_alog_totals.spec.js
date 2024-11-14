@@ -1,0 +1,24 @@
+// dependancies
+const { test, expect } = require("@playwright/test");
+const { WholesaleAlog } = require("./wholesale_alog_totals.js");
+// user to be implemented in future, hence commenting it until future implementation.
+//test.use({ storageState: "helpers/spe_auth_testenv.json" });
+
+//test
+test.describe.serial("/Wholesale_Sales_ALOG_dev", () => {
+   test("Wholesale Alog Total", async function ({
+       browser, 
+       page,
+     }) {
+       test.setTimeout(600000);
+       const wholesalealog = new WholesaleAlog(page);
+       // We can use these two methods in case if the storage state doesnt work
+       await wholesalealog.goto();
+       await wholesalealog.login();
+       await wholesalealog.twostepauthlogin();
+       await wholesalealog.SelectStoresForRegression();
+       await wholesalealog.NavigateToSalesWholesaleLogALOG();
+       await wholesalealog.VerifyTotalVehicle();       
+       await wholesalealog.ValidationTotalSumOfUnits();
+    });
+});

@@ -87,6 +87,16 @@ const config = {
     },
 
     {
+      name: "PDash_test",
+      testDir: "Playwright/tests/test_performance_dashboard_1",
+      retries: 3,
+      use: {
+      storageState: "Playwright/helpers/login/pd_AdminSuperuserLogin.json",
+      baseURL: "https://spedev.lithiainc.com/main/",
+      },
+    },
+
+    {
       name: "PDAdminLocal",
       testDir: "Playwright/tests/test_pd20/test_PD_Admin",
       retries: 3,

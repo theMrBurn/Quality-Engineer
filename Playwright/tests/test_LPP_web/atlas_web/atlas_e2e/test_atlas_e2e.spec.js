@@ -190,7 +190,7 @@ test.describe
       await atlase2e.clickElement("aop2024byMonth");
 
       // Validate URL string
-      const urlString1 = "plan/0/history?history=2024";
+      const urlString1 = "plan/0/history?history=2025";
       const currentURL1 = await page.url();
       await expect(currentURL1).toContain(urlString1);
 
