@@ -88,7 +88,7 @@ const config = {
 
     {
       name: "PDash_test",
-      testDir: "Playwright/tests/test_performance_dashboard_1",
+      testDir: "Playwright/tests/test_pd10",
       retries: 3,
       use: {
       storageState: "Playwright/helpers/login/pd_AdminSuperuserLogin.json",
