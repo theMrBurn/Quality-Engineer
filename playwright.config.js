@@ -91,8 +91,18 @@ const config = {
       testDir: "Playwright/tests/test_pd10",
       retries: 3,
       use: {
-      storageState: "Playwright/helpers/login/pd_AdminSuperuserLogin.json",
-      baseURL: "https://spedev.lithiainc.com/main/",
+        storageState: "Playwright/helpers/login/spe_test_user.json",
+        baseURL: "https://spedev.lithiainc.com/main/",
+      },
+    },
+
+    {
+      name: "PDash_Login_test",
+      testDir: "Playwright/tests/test_pd10/test_spe_dashboard_login/",
+      retries: 3,
+      use: {
+        //storageState: "Playwright/helpers/login/pd_AdminSuperuserLogin.json",
+        baseURL: "https://spedev.lithiainc.com/main/",
       },
     },
 

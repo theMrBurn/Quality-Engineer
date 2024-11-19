@@ -5,7 +5,9 @@
     "lolex": "^6.0.0",
     "playwright": "^1.45.2"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test"
+  },
   "dependencies": {
     "npm": "^10.5.2",
     "punycode2": "^1.0.1"

@@ -1,32 +1,81 @@
 const { expect } = require("@playwright/test");
+const fs = require("fs");
+const path = require("path");
 
-class MainStoreLogin
- {
+class MainStoreLogin {
   /**
    * @param {import('playwright').Page} page
    */
   constructor(page) {
     this.page = page;
-    this.getUsername=page.locator('id=i0116');
-    this.getPassword=page.locator('id=i0118');
+    this.locators = {
+      getUsername: () => this.page.locator("id=i0116"),
+      getPassword: () => this.page.locator("id=i0118"),
+      signInButton: () => this.page.locator("id=idSIButton9"),
+      kmsiCheckbox: () => this.page.locator("id=KmsiCheckboxField"),
+    };
   }
+
   async goto() {
-    await this.page.goto('https://spedev.lithiainc.com/main/store');
- // Pause for 10 seconds, to see what's going on.
- await this.page.waitForTimeout(10000);
- }
+    await this.page.goto("/main/store");
+    await this.page.waitForLoadState("load");
+  }
+
   async login() {
-    await this.getUsername.click();
-    await this.page.fill('input[id="i0116"]', 't_PerfDash_01@lithia.com'); //username
-    await this.page.locator('id=idSIButton9').click();
-    await this.getPassword.click();
-    await this.page.fill('input[name="passwd"]', 'GkCow**!#w#)4E#Sj3Rb8KS*TkGduz'); //pwd
-    await this.page.click('text=Sign In');
-    await this.page.waitForNavigation();
+    await this.locators.getUsername().click();
+    await this.page
+      .locator('input[id="i0116"]')
+      .fill("t_PerfDash_01@lithia.com");
+    await this.locators.signInButton().click();
+    await this.locators.getPassword().click();
+    await this.page
+      .locator('input[name="passwd"]')
+      .fill("GkCow**!#w#)4E#Sj3Rb8KS*TkGduz");
+    await this.page.click("text=Sign In");
+  }
+
+  async twostepauthlogin() {
+    await this.locators.kmsiCheckbox().click();
+    await this.locators.signInButton().click();
+  }
+
+  async saveSessionState() {
+    const storageState = await this.page.context().storageState();
+    const storagePath = path.resolve(
+      __dirname,
+      "Playwright/helpers/login/spe_test_user.json",
+    );
+    fs.writeFileSync(storagePath, JSON.stringify(storageState));
+  }
+
+  // Check if element is visible
+  async checkElementVisibility(locatorName) {
+    await this.page.waitForLoadState("load");
+    const locatorFunction = this.locators[locatorName];
+
+    try {
+      const element = await locatorFunction().first();
+      await expect(element).toBeVisible();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      const errorMessage = `Locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
     }
-    async twostepauthlogin(){
-      await this.page.click('id=KmsiCheckboxField');
-      await this.page.click('id=idSIButton9');
+  }
+
+  // Fill form with given test data
+  async fillForm(testData) {
+    for (const [key, value] of Object.entries(testData)) {
+      const locatorFunction = this.locators[key];
+      if (locatorFunction) {
+        await this.page.waitForLoadState("networkidle");
+        const inputElement = await locatorFunction();
+        await inputElement.fill(value);
+      } else {
+        console.warn(`Locator not found for key: ${key}`);
+      }
     }
+  }
 }
-module.exports= { MainStoreLogin };
+
+module.exports = { MainStoreLogin };
