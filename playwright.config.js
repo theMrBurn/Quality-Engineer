@@ -91,7 +91,7 @@ const config = {
       testDir: "Playwright/tests/test_pd10",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/spe_test_user.json",
+        //storageState: "Playwright/helpers/login/spe_test_user.json",
         baseURL: "https://spedev.lithiainc.com/main/",
       },
     },
@@ -113,6 +113,16 @@ const config = {
       use: {
         // storageState: "Playwright/helpers/login/pd_AdminSuperuserLogin.json",
         baseURL: "http://localhost:3000",
+      },
+    },
+
+    {
+      name: "PD_1_Local",
+      testDir: "Playwright/tests/test_pd20/test_PD_Admin",
+      retries: 3,
+      use: {
+        // storageState: "Playwright/helpers/login/pd_AdminSuperuserLogin.json",
+        baseURL: "https://localhost:44343/",
       },
     },
 

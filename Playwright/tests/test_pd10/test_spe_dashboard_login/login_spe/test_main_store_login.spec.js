@@ -1,31 +1,18 @@
-const { test, expect, browsser } = require("@playwright/test");
-const { MainStoreLogin } = require("./main_store_login.js");
-const fs = require("fs");
-const path = require("path");
+import { test, expect } from '@playwright/test';
+import { MainStoreLogin } from './main_store_login.js';
 
-test.describe.serial("Performance Dashboard 1.0 - /login_spe  @e2e", () => {
+test.describe.serial('Performance Dashboard 1.0 - /login_spe  @e2e', () => {
+  let mainStoreLogin;
+
   test.beforeEach(async ({ page }) => {
-    console.log("Setting up before test");
-
-    // Load session storage before each test
-    const storagePath = path.resolve(
-      __dirname,
-      "Playwright/helpers/login/spe_test_user.json",
-    );
-    if (fs.existsSync(storagePath)) {
-      const storageState = JSON.parse(fs.readFileSync(storagePath, "utf-8"));
-      await page.context().addCookies(storageState.cookies);
-      await page.context().setLocalStorage(storageState.localStorage);
-    }
+    mainStoreLogin = new MainStoreLogin(page);
+    await mainStoreLogin.goto();
   });
 
-  test("Performance Dashboard - Attempt login to SPE", async ({ page }) => {
-    const mainStoreLogin = new MainStoreLogin(page);
-    await mainStoreLogin.goto();
+  test('Performance Dashboard - Attempt login to SPE', async ({ page }) => {
+    const elementsToCheck = ['getUsername', 'getPassword', 'signInButton'];
 
     try {
-      const elementsToCheck = ["getUsername", "getPassword", "signInButton"];
-
       // Ensure elements are visible before interaction
       for (const element of elementsToCheck) {
         await mainStoreLogin.checkElementVisibility(element);
@@ -33,21 +20,20 @@ test.describe.serial("Performance Dashboard 1.0 - /login_spe  @e2e", () => {
 
       // Use fillForm to fill in credentials
       await mainStoreLogin.fillForm({
-        getUsername: "t_PerfDash_01@lithia.com",
-        getPassword: "GkCow**!#w#)4E#Sj3Rb8KS*TkGduz",
+        getUsername: 't_PerfDash_01@lithia.com',
+        getPassword: 'GkCow**!#w#)4E#Sj3Rb8KS*TkGduz',
       });
 
       await mainStoreLogin.login();
       await mainStoreLogin.twostepauthlogin();
-      await mainStoreLogin.saveSessionState(); // Save the session state after login
     } catch (error) {
-      console.error("Error during test:", error.message);
+      console.error('Error during test:', error.message);
       throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
-  test.afterEach(async ({ browser, page }) => {
-    browser.close();
-    console.log("Cleaning up after test");
+  test.afterEach(async ({ context }) => {
+    await context.close();
+    console.log('Cleaning up after test');
   });
 });

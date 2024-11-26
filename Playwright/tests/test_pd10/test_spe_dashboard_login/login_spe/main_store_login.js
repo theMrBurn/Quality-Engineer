@@ -1,6 +1,4 @@
 const { expect } = require("@playwright/test");
-const fs = require("fs");
-const path = require("path");
 
 class MainStoreLogin {
   /**
@@ -37,15 +35,6 @@ class MainStoreLogin {
   async twostepauthlogin() {
     await this.locators.kmsiCheckbox().click();
     await this.locators.signInButton().click();
-  }
-
-  async saveSessionState() {
-    const storageState = await this.page.context().storageState();
-    const storagePath = path.resolve(
-      __dirname,
-      "Playwright/helpers/login/spe_test_user.json",
-    );
-    fs.writeFileSync(storagePath, JSON.stringify(storageState));
   }
 
   // Check if element is visible
