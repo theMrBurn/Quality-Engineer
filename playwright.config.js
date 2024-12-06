@@ -91,7 +91,7 @@ const config = {
       testDir: "Playwright/tests/test_pd10",
       retries: 3,
       use: {
-        //storageState: "Playwright/helpers/login/spe_test_user.json",
+        //storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
         baseURL: "https://spedev.lithiainc.com/main/",
       },
     },

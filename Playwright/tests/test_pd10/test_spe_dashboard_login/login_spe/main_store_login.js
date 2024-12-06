@@ -37,7 +37,7 @@ class MainStoreLogin {
     await this.locators.signInButton().click();
   }
 
-  // Check if element is visible
+  // get page elements
   async checkElementVisibility(locatorName) {
     await this.page.waitForLoadState("load");
     const locatorFunction = this.locators[locatorName];
@@ -52,7 +52,22 @@ class MainStoreLogin {
     }
   }
 
-  // Fill form with given test data
+  /// interact with elements
+
+  async clickElement(locatorName) {
+    const locatorFunction = this.locators[locatorName];
+
+    try {
+      await this.page.waitForLoadState("load");
+      const element = await locatorFunction().first();
+      await element.click();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      const errorMessage = `Clicking on locator '${locatorName}' failed: ${originalError.message}`;
+      throw new Error(errorMessage);
+    }
+  }
+
   async fillForm(testData) {
     for (const [key, value] of Object.entries(testData)) {
       const locatorFunction = this.locators[key];
