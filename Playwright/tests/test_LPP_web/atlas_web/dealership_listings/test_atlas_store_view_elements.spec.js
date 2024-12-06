@@ -17,7 +17,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
   });
 
   test.afterEach(async () => {
-    await page.close();
+    //await page.close();
   });
   test("Navigate to Atlas Web, Dealership Listing and validate Page elements have loaded as expected", async ({
     browser,
