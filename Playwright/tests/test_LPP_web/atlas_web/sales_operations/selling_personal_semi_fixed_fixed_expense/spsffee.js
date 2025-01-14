@@ -115,8 +115,6 @@ class SellingPersonalExpense {
   }
 
   // get page elements
-
-  // get page elements
   async checkElementVisibility(locatorName) {
     await this.page.waitForLoadState("load");
     const locatorFunction = this.locators[locatorName];

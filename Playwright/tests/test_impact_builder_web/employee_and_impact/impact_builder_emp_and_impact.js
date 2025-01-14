@@ -1,117 +1,123 @@
-const { expect } = require("@playwright/test");
+const { test, expect } = require("@playwright/test");
+const { InventoryWidget } = require("./main_dashboard_pt.js");
 
-class EmployeeImpact {
-  constructor(page) {
-    this.page = page;
-    this.locators = {
-      //impact analysis
-      impactBuilderAnalysisHeader: () => this.page.getByText("Impact Analysis"),
-      reasonTypeDropdown: () => this.page.locator('//*[@id="menu-"]/div[3]/ul'),
-      addPayPlanBtn: () =>
-        this.page.getByRole("button", { name: "Add A Pay Plan" }),
-      assignEmployeeBtn: () =>
-        this.page.getByRole("button", { name: "Assign Employee" }),
-      configureBtn: () => this.page.getByRole("button", { name: "Configure" }),
-      removeBtn: () => this.page.getByRole("button", { name: "Remove" }),
+test.describe.serial("/main_dashboard_performance_tracking_widget_dev", () => {
+  test("Performance Tracking Widget - Main Dashboard", async ({ page }) => {
+    const iw = new InventoryWidget(page);
 
-      //payplan assignments modal
-      payPlanSearchBox: () => this.page.getByLabel("Search"),
-      searchBtn: () => this.page.getByTestId("SearchIcon"),
-      applyBtn: () => this.page.getByRole("button", { name: "Apply" }),
-      payPlanIdColumn: () => this.page.getByText("Pay Plan ID"),
-      employeeColumn: () => this.page.getByText("Employee"),
-      employeeIdColumn: () => this.page.getByText("Employee ID"),
-      nameColumn: () => this.page.getByText("Name"),
-      jobColumn: () => this.page.getByText("Job"),
-      companyColumn: () => this.page.getByText("Company"),
-      departmentColumn: () => this.page.getByText("Department"),
-      cancelBtn: () => this.page.getByRole("button", { name: "Cancel" }),
-      payPlanGrid: () => this.page.locator('[data-test="kendo-data-grid"]'),
+    // Helper function to validate for multiple stores
+    async function validateStore(
+      storeSelectionMethod,
+      storeName,
+      validationMethod,
+    ) {
+      await iw.goto();
+      await storeSelectionMethod();
+      console.log(storeName);
+      await validationMethod();
+    }
 
-      //employe addignment modal
-      employeeLookup: () => this.page.getByText("Employee Lookup"),
-      substituteEmployeeFilter: () =>
-        this.page.getByLabel("Substitute Employee"),
-      prospectiveEmployeeFilter: () =>
-        this.page.getByLabel("Prospective Employee"),
-      selectBtn: () => this.page.getByRole("button", { name: "Select" }),
-      empSearchBtn: () => this.page.getByLabel("Search"),
-      empSearchIcon: () => this.page.getByTestId("SearchIcon"),
-      empApplyBtn: () => this.page.getByRole("button", { name: "Apply" }),
-    };
-  }
+    async function selectStore(name, locationText, storeLabel) {
+      await iw.clickElement("multipleStores");
+      await iw.clickElement("allSelectorIndicator");
+      await iw.clickElement("allSelectorIndicator");
+      await iw.clickElement("locationText");
+      await iw.clickElement("specificStore");
+      await iw.clickElement("storeSelectorButton");
+    }
 
-  // Navigate to endpoint
-  async goto() {
-    await this.page.goto("/Reports/28");
-    await this.page.waitForLoadState("domcontentloaded");
-  }
+    async function validateTheUnits() {
+      await iw.page.waitForLoadState("load");
 
-  // Check element visibility
-  async checkElementVisibility(locatorName) {
-    await this.page.waitForLoadState("load");
-    const locatorFunction = this.locators[locatorName];
+      const values = await Promise.all([
+        iw.locators.performanceTracking(2).innerText(),
+        iw.locators.performanceTracking(3).innerText(),
+        iw.locators.performanceTracking(4).innerText(),
+      ]);
 
-    try {
-      const element = await locatorFunction().first();
-      await expect(element).toBeVisible();
-      await this.page.waitForLoadState("networkidle");
-    } catch (originalError) {
-      throw new Error(
-        `Locator '${locatorName}' failed: ${originalError.message}`,
+      const parsedValues = values.map((value) =>
+        parseInt(value.replace(",", "")),
       );
+      // Further validation logic...
+      return parsedValues;
     }
-  }
 
-  // find first grid row
-  async findFirstGridRow(gridElement) {
-    await this.page.waitForSelector(gridElement);
-    const gridRowHandles = await this.page.$$(gridElement);
+    async function validateWithDetailUnits() {
+      const values = await validateTheUnits();
+      const [newActual, usedActual, totalActual] = values;
 
-    if (gridRowHandles.length > 0) {
-      const firstGridRow = gridRowHandles[0];
-      await this.page.evaluate((element) => {
-        if (!element.isConnected) {
-          throw new Error("Element is not attached to the DOM");
-        }
-      }, firstGridRow);
-
-      await this.page.waitForTimeout(1000);
-      await firstGridRow.click();
-      await this.page.waitForLoadState("networkidle");
-    } else {
-      console.log("No grid rows found.");
-    }
-  }
-
-  // interact with elements
-  async fillForm(testData) {
-    for (const [key, value] of Object.entries(testData)) {
-      const locatorFunction = this.locators[key];
-      if (locatorFunction) {
-        await this.page.waitForLoadState("networkidle");
-        const inputElement = await locatorFunction();
-        await inputElement.fill(value);
-      } else {
-        console.warn(`Locator not found for key: ${key}`);
+      // Example comparisons
+      if (newActual !== usedActual) {
+        console.log(
+          `Mismatch between newActual and usedActual: ${newActual} !== ${usedActual}`,
+        );
       }
+      if (usedActual !== totalActual) {
+        console.log(
+          `Mismatch between usedActual and totalActual: ${usedActual} !== totalActual`,
+        );
+      }
+
+      // Further detailed validations...
     }
-  }
 
-  async clickElement(locatorName) {
-    await this.page.waitForLoadState("load");
-    const locatorFunction = this.locators[locatorName];
-
-    try {
-      const element = await locatorFunction().first();
-      await element.click();
-      await this.page.waitForLoadState("networkidle");
-    } catch (originalError) {
-      throw new Error(
-        `Clicking on locator '${locatorName}' failed: ${originalError.message}`,
+    async function selectStoreThornhillHonda() {
+      await selectStore(
+        "Thornhill Honda",
+        "Location Text Example",
+        "Store Label Example",
       );
     }
-  }
-}
 
-module.exports = { EmployeeImpact };
+    async function selectStoreFHCJDR() {
+      await selectStore(
+        "FH CDJR",
+        "Location Text Example",
+        "Store Label Example",
+      );
+    }
+
+    async function selectStoreMarkhamBMW() {
+      await selectStore(
+        "Markham BMW",
+        "Location Text Example",
+        "Store Label Example",
+      );
+    }
+
+    async function selectStoreDTLA() {
+      await selectStore(
+        "DT LA",
+        "Location Text Example",
+        "Store Label Example",
+      );
+    }
+
+    async function selectStoreTroyHighLine() {
+      await selectStore(
+        "Troy JLR",
+        "Location Text Example",
+        "Store Label Example",
+      );
+    }
+
+    await validateStore(
+      selectStoreThornhillHonda,
+      "Thornhill Honda",
+      validateTheUnits,
+    );
+    await validateStore(selectStoreFHCJDR, "FH CDJR", validateTheUnits);
+    await validateStore(selectStoreMarkhamBMW, "Markham BMW", validateTheUnits);
+    await validateStore(selectStoreDTLA, "DT LA", validateTheUnits);
+    await validateStore(selectStoreTroyHighLine, "Troy JLR", validateTheUnits);
+
+    // Uncomment the following lines to use the detailed validation method instead
+    /*
+    await validateStore(selectStoreThornhillHonda, "Thornhill Honda", validateWithDetailUnits);
+    await validateStore(selectStoreFHCJDR, "FH CDJR", validateWithDetailUnits);
+    await validateStore(selectStoreMarkhamBMW, "Markham BMW", validateWithDetailUnits);
+    await validateStore(selectStoreDTLA, "DT LA", validateWithDetailUnits);
+    await validateStore(selectStoreTroyHighLine, "Troy JLR", validateWithDetailUnits);
+    */
+  });
+});

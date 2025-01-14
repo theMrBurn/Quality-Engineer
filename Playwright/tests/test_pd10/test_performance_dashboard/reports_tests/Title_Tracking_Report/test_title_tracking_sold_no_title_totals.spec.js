@@ -1,14 +1,17 @@
-import { test, expect } from "@playwright/test";
-import { MainStoreLogin } from "./main_store_login";
+const { test, expect } = require("@playwright/test");
+const {
+  MainStoreLogin,
+} = require("../../../test_spe_dashboard_login/login_spe/main_store_login.js");
 
 test.describe.serial("Performance Dashboard 1.0 - /login_spe  @e2e", () => {
-  test("Performance Dashboard - Attempt login to SPE", async ({ page }) => {
-    // Initialize the MainStoreLogin class
-    const mainStoreLogin = new MainStoreLogin(page);
+  let mainStoreLogin;
 
-    // Navigate to the login page
+  test.beforeEach(async ({ page }) => {
+    mainStoreLogin = new MainStoreLogin(page);
     await mainStoreLogin.goto();
+  });
 
+  test("Performance Dashboard - Attempt login to SPE", async ({ page }) => {
     const elementsToCheck = ["getUsername", "getPassword", "signInButton"];
 
     try {
@@ -23,11 +26,16 @@ test.describe.serial("Performance Dashboard 1.0 - /login_spe  @e2e", () => {
         getPassword: "GkCow**!#w#)4E#Sj3Rb8KS*TkGduz",
       });
 
-      // Perform the login action
       await mainStoreLogin.login();
       await mainStoreLogin.twostepauthlogin();
     } catch (error) {
-      console.error("Error during login:", error);
+      console.error("Error during test:", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
+  });
+
+  test.afterEach(async ({ context }) => {
+    await context.close();
+    console.log("Cleaning up after test");
   });
 });

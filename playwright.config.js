@@ -92,7 +92,7 @@ const config = {
       retries: 3,
       use: {
         //storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
-        baseURL: "https://spedev.lithiainc.com/main/",
+        baseURL: "https://spedev.lithiainc.com/main/store/",
       },
     },
 
@@ -102,7 +102,7 @@ const config = {
       retries: 3,
       use: {
         //storageState: "Playwright/helpers/login/pd_AdminSuperuserLogin.json",
-        baseURL: "https://spedev.lithiainc.com/main/",
+        baseURL: "https://spedev.lithiainc.com/main/store",
       },
     },
 
@@ -131,7 +131,8 @@ const config = {
       testDir: "Playwright/tests/test_LPP_web/atlas_web",
       retries: 3,
       use: {
-        storageState: "Playwright/helpers/login/atlas_test_env_auth.json",
+        storageState:
+          "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },

@@ -20,7 +20,7 @@ test.describe
     await bodyShopPersonnelExpense.goto();
   });
 
-  test.afterEach(async () => {
+  test.afterEach(async ({ page }) => {
     await page.close();
   });
 
