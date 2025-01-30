@@ -115,6 +115,8 @@ class EscaladeVDT {
     ).toBeVisible();
   }
 
+  //common test methods
+
   async findFirstGridRow(gridElement) {
     await this.page.waitForSelector(gridElement); // Wait for the grid element to be available in the DOM
     const gridRowHandles = await this.page.$$(gridElement); // Get handles for all grid rows
@@ -138,8 +140,6 @@ class EscaladeVDT {
     }
   }
 
-  // get page elements
-
   async checkElementVisibility(locatorName) {
     await this.page.waitForLoadState("load");
     const locatorFunction = this.locators[locatorName];
@@ -153,8 +153,6 @@ class EscaladeVDT {
       throw new Error(errorMessage);
     }
   }
-
-  /// interact with elements
 
   async fillForm(testData) {
     for (const [key, value] of Object.entries(testData)) {

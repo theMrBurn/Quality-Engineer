@@ -9,12 +9,9 @@ const {
 //test
 test.describe.serial("/New_Vehicle_Inventory_dev", () => {
   test("login to SPE", async function ({ browser, page }) {
-    test.setTimeout(900000);
     const newvehicleinventory = new NewVehicleInventory(page);
     // We can use these two methods in case if the storage state doesnt work
-    await newvehicleinventory.goto();
-    await newvehicleinventory.login();
-    await newvehicleinventory.twostepauthlogin();
+
     await newvehicleinventory.goto();
     await newvehicleinventory.SelectStoresForRegression();
     await newvehicleinventory.NavigateToSalesNewInventoryDetail();

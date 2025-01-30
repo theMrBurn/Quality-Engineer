@@ -13,7 +13,9 @@ test.describe.serial("/main_dashboard_loaner_summary_widget_dev", () => {
     await dealsAverage.goto();
 
     const mainStoreLogin = new MainStoreLogin(page);
+    await mainStoreLogin.goto();
     await mainStoreLogin.login();
+    await mainStoreLogin.twostepauthlogin();
 
     try {
       const dealsAverage = new DealsAverageWidget(page);
