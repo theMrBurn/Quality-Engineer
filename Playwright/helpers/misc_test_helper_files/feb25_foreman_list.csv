@@ -1,0 +1,126 @@
+Table 1
+EMPLOYEE_ID,FIRST_NAME,LAST_NAME,WORK_DAY_COMPANY_CODE,JOB_CODE_DESC,JOBCODE,DEPT_DESC,COMPANY_NAME
+267063,Lowell,Rust,L0577,Shop Foreman,35003,Body Shop,Norfolk Ford
+237244,Justin,Fournier,L0398,Shop Foreman,35003,Service,Ann Arbor BMW
+227942,Matthew,Adam,L0353,Shop Foreman,35003,Service,Austin Honda
+240351,Mark,Horvatich,L0456,Shop Foreman,35003,Service,Austin Kia
+278948,Andrew,Enterline,L0815,Shop Foreman,35003,Service,Bartlett Buick GMC
+96318,Joseph,Brown,L0230,Shop Foreman,35003,Service,Beaverton Mercedes
+240842,Benjamin,Rossman,L0436,Shop Foreman,35003,Service,Bellevue Toyota
+199387,Omar,Suero,L0710,Shop Foreman,35003,Service,Bloomfield BMW
+174494,Travis,Stear,L0072,Shop Foreman,35003,Service,Boise Ford Lincoln
+88566,Richard,Stuart,L0072,Shop Foreman,35003,Service,Boise Ford Lincoln
+177721,Michael,Olson,L0701,Shop Foreman,35003,Service,Brunswick Toyota
+270063,Christopher,Niswonger,L0331,Shop Foreman,35003,Service,Calallen CJDR
+243860,Daniel,Baty,L0492,Shop Foreman,35003,Service,Chamblee Honda
+267817,Richard,McCoid,L0595,Shop Foreman,35003,Service,Chantilly Nissan
+267338,Charles,Cole,L0593,Shop Foreman,35003,Service,Chesapeake Honda
+285625,Charles,Bullins,L0591,Shop Foreman,35003,Service,Chesapeake Hyundai
+267356,Christopher,Kita,L0588,Shop Foreman,35003,Service,Chesapeake Toyota
+227903,Johnny,Longoria,L0358,Shop Foreman,35003,Service,Clear Lake Honda
+278888,Ray,Townes,L0816,Shop Foreman,35003,Service,Collierville Chevrolet Buick GMC
+247352,Victor,Guida,L0504,Shop Foreman,35003,Service,Coral Springs Audi
+79215,Jose,Rivera,L0169,Shop Foreman,35003,Service,Corpus Christi CJD
+228188,Jose,Rivera,L0349,Shop Foreman,35003,Service,Dallas Honda
+255298,Richard,Ojeda,L0543,Shop Foreman,35003,Service,Doral Acura
+255502,Abel,Hernandez,L0536,Shop Foreman,35003,Service,Doral Hyundai
+255486,Armando,Barcena,L0536,Shop Foreman,35003,Service,Doral Hyundai
+255598,Barbaro,Calero Gonzalez,L0538,Shop Foreman,35003,Service,Doral Kia
+255393,Roberto,Santos Ufret,L0542,Shop Foreman,35003,Service,Doral Volkswagen
+255329,Rodrigo,Cuellar,L0542,Shop Foreman,35003,Service,Doral Volkswagen
+187199,John,Posey,L0307,Shop Foreman,35003,Service,Downtown LA Audi
+187340,Jason,Beltran,L0304,Shop Foreman,35003,Service,Downtown LA Mercedes-Benz
+189887,Luis,Carrera,L0304,Shop Foreman,35003,Service,Downtown LA Mercedes-Benz
+187298,Jose,Vasquez,L0304,Shop Foreman,35003,Service,Downtown LA Mercedes-Benz
+187090,Haroutioun,Hamparian,L0304,Shop Foreman,35003,Service,Downtown LA Mercedes-Benz
+187215,Dennis,Gong,L0308,Shop Foreman,35003,Service,Downtown LA Porsche
+245921,Steve,Claude,L0309,Shop Foreman,35003,Service,Downtown LA Toyota
+187301,Marcos,Aguilar,L0309,Shop Foreman,35003,Service,Downtown LA Toyota
+260632,Nicholas,Desroches,L0567,Shop Foreman,35003,Service,Fairfield Airstream
+235278,David,Farrer,L0403,Shop Foreman,35003,Service,Farmington Hills Audi
+235364,Chance,George,L0409,Shop Foreman,35003,Service,Farmington Hills Porsche
+236776,Anthony,Morabito,L0414,Shop Foreman,35003,Service,Ferndale Ford
+271463,James,Torres,L0503,Shop Foreman,35003,Service,Fort Lauderdale Audi
+100911,Craig,Forman,L0410,Shop Foreman,35003,Service,Freehold BMW
+5850,Gustavo,Martinez Flores,L0023,Shop Foreman,35003,Service,Fresno Ford Lincoln
+262231,Joseph,Shank,L0346,Shop Foreman,35003,Service,Grapevine Honda
+246202,Ivan,Heath,L0470,Shop Foreman,35003,Service,Guelph Subaru
+203211,John,Doyle,L0779,Shop Foreman,35003,Service,Hamilton Honda
+266337,Rolf,Zierow Jr,L0579,Shop Foreman,35003,Service,Hampton Honda
+182659,Gary,Gibo,L0280,Shop Foreman,35003,Service,Honolulu Ford
+178150,Dan,Kawamoto,L0254,Shop Foreman,35003,Service,Honolulu Volkswagen
+255466,Fritzroy,Innis,L0540,Shop Foreman,35003,Service,Largo Honda
+252408,Joseph,Garcia,L0519,Shop Foreman,35003,Service,Las Vegas Jeep
+276871,Edward,Furness,L0808,Shop Foreman,35003,Service,Maplewood Audi
+245736,Sascha,Olthoff,L0474,Shop Foreman,35003,Service,Markham BMW
+94060,Robert,Raetz,L0006,Shop Foreman,35003,Service,Medford Toyota
+255647,Andres,Maldonado,L0535,Shop Foreman,35003,Service,Miami Buick GMC
+255818,Gustavo,Perez,L0531,Shop Foreman,35003,Service,Miami Hyundai
+255817,Allan,Perez,L0531,Shop Foreman,35003,Service,Miami Hyundai
+255787,Jai,Bellve-Gabriele,L0533,Shop Foreman,35003,Service,Miami Subaru
+276859,Drew,Jolly,L0805,Shop Foreman,35003,Service,Minneapolis Audi
+277287,Kelly,Martin,L0805,Shop Foreman,35003,Service,Minneapolis Audi
+277699,Riccardo,De Santis,L0804,Shop Foreman,35003,Service,Minneapolis Ferrari
+277339,Michael,Lamm,L0806,Shop Foreman,35003,Service,Minneapolis Porsche
+277518,Jonathan,Bittner,L0807,Shop Foreman,35003,Service,Minnetonka BMW
+277487,Jesse,Johnson,L0807,Shop Foreman,35003,Service,Minnetonka BMW
+283367,Jorge,Enciso,L0336,Shop Foreman,35003,Service,Mission Viejo Land Rover
+245860,Damian Leszek,Abratowski,L0469,Shop Foreman,35003,Service,Mississauga BMW
+245818,Daniel,Pacheco,L0469,Shop Foreman,35003,Service,Mississauga BMW
+195368,Stephen,Ohler,L0267,Shop Foreman,35003,Service,Missoula Ford
+99152,Bernardo,Guzman-Duran,L0183,Shop Foreman,35003,Service,Monterey BMW
+207147,Hayward,Mccauley,L0339,Shop Foreman,35003,Service,Morgantown CJDRF
+285801,Adesh,Harry Paul,L0477,Shop Foreman,35003,Service,Newmarket Audi
+88568,Michael,Steadmon,L0026,Shop Foreman,35003,Service,Odessa Chevrolet
+20658,Donald,Sydow,L0150,Shop Foreman,35003,Service,Odessa Toyota
+183558,Phil,Cain,L0717,Shop Foreman,35003,Service,Oxnard Toyota
+185180,Zachary,Woloszyk,L0287,Shop Foreman,35003,Service,Pittsburgh Subaru
+236628,Robert,Cording,L0418,Shop Foreman,35003,Service,Plymouth Cadillac
+99592,Tony,Foley,L0224,Shop Foreman,35003,Service,Portland BMW
+186702,Sean,Morin,L0257,Shop Foreman,35003,Service,Portland Cadillac
+193620,Martin,Magnani,L0768,Shop Foreman,35003,Service,Ramsey Lexus
+69609,Jason,Packard,L0145,Shop Foreman,35003,Service,Reno CJ
+72111,Matthew,Winkelman,L0038,Shop Foreman,35003,Service,Reno Subaru
+263917,Duncan,Hodgkinson,L0478,Shop Foreman,35003,Service,Richmond Hill Harley Davidson
+249806,Carlos,Roman,L0352,Shop Foreman,35003,Service,Rockwall Honda
+240219,Colby,Bancroft,L0452,Shop Foreman,35003,Service,Rockwall Kia
+210217,Adam,Alexander,L0348,Shop Foreman,35003,Service,Roseville Lexus
+249290,Nicholas,Dunbar,L0507,Shop Foreman,35003,Service,Roseville Toyota
+249331,Robert,Thomas,L0507,Shop Foreman,35003,Service,Roseville Toyota
+240432,Joseph,Moreno,L0457,Shop Foreman,35003,Service,Round Rock Kia
+270796,John,Fisher,L0786,Shop Foreman,35003,Service,San Antonio Honda
+270796,John,Fisher,L0786,Shop Foreman,35003,Service,San Antonio Honda-Historical
+248857,Luis,Espinoza,L0364,Shop Foreman,35003,Service,San Francisco BMW
+226605,John,Ohara,L0364,Shop Foreman,35003,Service,San Francisco BMW
+239329,Michael,Lill,L0388,Shop Foreman,35003,Service,Sanford CJDR
+81347,Jimmy,Lujan,L0155,Shop Foreman,35003,Service,Santa Fe CJD
+74843,Jacob,Purvis,L0110,Shop Foreman,35003,Service,Seattle BMW
+17335,Michael,Van Matre,L0110,Shop Foreman,35003,Service,Seattle BMW
+17331,Dean,Tatro,L0110,Shop Foreman,35003,Service,Seattle BMW
+230704,Robert,Cline,L0377,Shop Foreman,35003,Service,Sherman Oaks Audi
+238794,Robert,Dondonyan,L0448,Shop Foreman,35003,Service,Sherman Oaks BMW
+238829,Suriya,Mongkolpitaksuk,L0448,Shop Foreman,35003,Service,Sherman Oaks BMW
+273377,Steven,Densmore,L0582,Shop Foreman,35003,Service,Smyrna Ford
+266959,Lee,Santos,L0598,Shop Foreman,35003,Service,Springfield VA Toyota
+231595,Michael,Salins,L0379,Shop Foreman,35003,Service,Sterling BMW
+286236,Leonardo,Borce,L0823,Shop Foreman,35003,Service,Sterling Subaru
+279287,Johnson,Chan,L0530,Shop Foreman,35003,Service,Thornhill Honda
+114458,Amy,Rodriguez,L0725,Shop Foreman,35003,Service,Torrance Toyota
+235592,Robert,Campbell,L0421,Shop Foreman,35003,Service,Troy Cadillac
+237280,Hilario,Castellanos,L0780,Shop Foreman,35003,Service,Troy Land Rover
+231123,Elton,Onouye,L0368,Shop Foreman,35003,Service,Valencia Lexus
+275257,Levik,Mahmoody,L0375,Shop Foreman,35003,Service,Van Nuys Hyundai
+231312,Jose,Vix,L0373,Shop Foreman,35003,Service,Van Nuys Lexus
+230844,Raul,Rivas,L0374,Shop Foreman,35003,Service,Van Nuys Mercedes-Benz
+273268,Jorge,Ortiz,L0374,Shop Foreman,35003,Service,Van Nuys Mercedes-Benz
+231073,Gilbert,Avelar,L0371,Shop Foreman,35003,Service,Van Nuys Toyota
+269470,Raffi,Aghiarian,L0371,Shop Foreman,35003,Service,Van Nuys Toyota
+245596,Stephan,Dos Santos,L0464,Shop Foreman,35003,Service,Vaughan Audi
+246312,Jessie Marie,Richards,L0463,Shop Foreman,35003,Service,Vaughan Porsche
+246342,Piers,Kuznick,L0463,Shop Foreman,35003,Service,Vaughan Porsche
+246354,Duane,Pierre,L0463,Shop Foreman,35003,Service,Vaughan Porsche
+246637,Kyle,Booser,L0502,Shop Foreman,35003,Service,Washington Ford
+207861,Nicholas,Wrage,L0342,Shop Foreman,35003,Service,Wesley Chapel Honda
+207792,Robert,Privett,L0343,Shop Foreman,35003,Service,Wesley Chapel Toyota
+246391,Valentin,Voinea,L0467,Shop Foreman,35003,Service,Woodbridge McLaren
+184507,Marcann,Marriott,L0744,Shop Foreman,35003,Service,Yorkville Subaru

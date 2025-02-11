@@ -91,8 +91,18 @@ const config = {
       testDir: "Playwright/tests/test_pd10",
       retries: 3,
       use: {
-        //storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
+        storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
         baseURL: "https://spedev.lithiainc.com/main/store/",
+      },
+    },
+
+    {
+      name: "PD_1_Local",
+      testDir: "Playwright/tests/test_pd10",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
+        baseURL: "https://localhost:44343/",
       },
     },
 
@@ -118,7 +128,7 @@ const config = {
 
     {
       name: "PD_1_Local",
-      testDir: "Playwright/tests/test_pd20/test_PD_Admin",
+      testDir: "Playwright/tests/test_pd10",
       retries: 3,
       use: {
         // storageState: "Playwright/helpers/login/pd_AdminSuperuserLogin.json",

@@ -2,6 +2,7 @@ const { test, expect } = require("@playwright/test");
 const { NewVehicleInventory } = require("./new_vehicle_inventory");
 
 test.describe.serial("/New_Vehicle_Inventory", () => {
+  test.fixme("need to update nav and locators to get this to work as expected");
   test("Excess Duplicates", async ({ page }) => {
     // Navigate to the base URL
     await page.goto("/");
