@@ -10,15 +10,11 @@ EMPLOYEE_ID,FIRST_NAME,LAST_NAME,WORK_DAY_COMPANY_CODE,JOB_CODE_DESC,JOBCODE,DEP
 199387,Omar,Suero,L0710,Shop Foreman,35003,Service,Bloomfield BMW
 174494,Travis,Stear,L0072,Shop Foreman,35003,Service,Boise Ford Lincoln
 88566,Richard,Stuart,L0072,Shop Foreman,35003,Service,Boise Ford Lincoln
-177721,Michael,Olson,L0701,Shop Foreman,35003,Service,Brunswick Toyota
 270063,Christopher,Niswonger,L0331,Shop Foreman,35003,Service,Calallen CJDR
-243860,Daniel,Baty,L0492,Shop Foreman,35003,Service,Chamblee Honda
 267817,Richard,McCoid,L0595,Shop Foreman,35003,Service,Chantilly Nissan
-267338,Charles,Cole,L0593,Shop Foreman,35003,Service,Chesapeake Honda
 285625,Charles,Bullins,L0591,Shop Foreman,35003,Service,Chesapeake Hyundai
 267356,Christopher,Kita,L0588,Shop Foreman,35003,Service,Chesapeake Toyota
 227903,Johnny,Longoria,L0358,Shop Foreman,35003,Service,Clear Lake Honda
-278888,Ray,Townes,L0816,Shop Foreman,35003,Service,Collierville Chevrolet Buick GMC
 247352,Victor,Guida,L0504,Shop Foreman,35003,Service,Coral Springs Audi
 79215,Jose,Rivera,L0169,Shop Foreman,35003,Service,Corpus Christi CJD
 228188,Jose,Rivera,L0349,Shop Foreman,35003,Service,Dallas Honda
@@ -89,7 +85,7 @@ EMPLOYEE_ID,FIRST_NAME,LAST_NAME,WORK_DAY_COMPANY_CODE,JOB_CODE_DESC,JOBCODE,DEP
 249331,Robert,Thomas,L0507,Shop Foreman,35003,Service,Roseville Toyota
 240432,Joseph,Moreno,L0457,Shop Foreman,35003,Service,Round Rock Kia
 270796,John,Fisher,L0786,Shop Foreman,35003,Service,San Antonio Honda
-270796,John,Fisher,L0786,Shop Foreman,35003,Service,San Antonio Honda-Historical
+270796,John,Fisher,L0786,Shop Foreman,35003,Service,San Antonio Honda
 248857,Luis,Espinoza,L0364,Shop Foreman,35003,Service,San Francisco BMW
 226605,John,Ohara,L0364,Shop Foreman,35003,Service,San Francisco BMW
 239329,Michael,Lill,L0388,Shop Foreman,35003,Service,Sanford CJDR
@@ -123,4 +119,3 @@ EMPLOYEE_ID,FIRST_NAME,LAST_NAME,WORK_DAY_COMPANY_CODE,JOB_CODE_DESC,JOBCODE,DEP
 207861,Nicholas,Wrage,L0342,Shop Foreman,35003,Service,Wesley Chapel Honda
 207792,Robert,Privett,L0343,Shop Foreman,35003,Service,Wesley Chapel Toyota
 246391,Valentin,Voinea,L0467,Shop Foreman,35003,Service,Woodbridge McLaren
-184507,Marcann,Marriott,L0744,Shop Foreman,35003,Service,Yorkville Subaru

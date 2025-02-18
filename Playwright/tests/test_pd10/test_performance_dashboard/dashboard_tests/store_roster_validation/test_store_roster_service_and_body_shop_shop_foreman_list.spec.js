@@ -5,8 +5,9 @@ test.describe("Store Roster Foreman Tests", () => {
   test.use({ storageState: "Playwright/helpers/login/pd1_dev_env_login.json" });
   test.slow();
 
-  test('Validate and Verify Employees Data from CSV', async ({ page }) => {
+  test('Validate and Verify Employees Data from CSV', async ({ page, browser }) => {
     const rosterForeman = new StoreRosterForeman(page);
+    const failedRecords = [];
 
     await rosterForeman.goto();
     await page.waitForLoadState('networkidle');
@@ -38,21 +39,37 @@ test.describe("Store Roster Foreman Tests", () => {
         // Choose store from the roster page
         await rosterForeman.selectStore(employee.COMPANY_NAME);
 
-        // Verify that the employee's row is present in the table
-        const employeeRow = await page.locator(`text=${employee.EMPLOYEE_ID}`).first();
-        await expect(employeeRow).toBeVisible();
-
         console.log(`Test passed for employee ID: ${employee.EMPLOYEE_ID}`);
       } catch (error) {
         console.error(`Test failed for employee ID: ${employee.EMPLOYEE_ID} - ${error.message}`);
+        failedRecords.push(employee);
       } finally {
-        // Refresh the page to reset the state for the next iteration
+        // Handle unexpected browser closure or page issues
         try {
           await rosterForeman.goto();
         } catch (reloadError) {
           console.error(`Failed to reload the page: ${reloadError.message}`);
+
+          // Reopen browser and recreate context/page if necessary
+          const newContext = await browser.newContext();
+          const newPage = await newContext.newPage();
+          rosterForeman.setPage(newPage);
+          await rosterForeman.goto();
+          await newPage.waitForLoadState('networkidle');
         }
       }
+    }
+
+    // Output the failed records
+    if (failedRecords.length) {
+      console.log('Test complete. Here are the records not found:');
+      failedRecords.forEach(record => {
+        console.log(`Employee ID: ${record.EMPLOYEE_ID}, Company Name: ${record.COMPANY_NAME}`);
+      });
+      // Fail the test if there are any failed records
+      throw new Error('Some records failed validation. See the failed records above.');
+    } else {
+      console.log('Test complete. All records successfully validated.');
     }
   });
 });

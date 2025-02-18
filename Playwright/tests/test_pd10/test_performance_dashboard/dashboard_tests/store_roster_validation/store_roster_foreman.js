@@ -106,7 +106,16 @@ class StoreRosterForeman {
   async selectStore(storeName) {
     const storeLocator = this.locators.storeRow(storeName);
     await storeLocator.click();
-  }
+
+    // Ensure the URL contains 'StoreEmployeeRoster'
+    await this.page.waitForFunction(
+        (url) => window.location.href.includes(url),
+        'StoreEmployeeRoster'
+    );
+
+    // Optionally, you can add an assertion to verify the URL contains 'StoreEmployeeRoster'
+    expect(this.page.url()).toContain('StoreEmployeeRoster');
+}
 
   async verifyEmployeeInTable(employeeId) {
     const employeeRow = this.locators.employeeRow(employeeId);
