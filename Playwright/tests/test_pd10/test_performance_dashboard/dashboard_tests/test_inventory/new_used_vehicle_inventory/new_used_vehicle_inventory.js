@@ -1,6 +1,6 @@
 const { expect } = require("@playwright/test");
 
-class NewVehicleInventory {
+class NewUsedVehicleInventory {
   /**
    * @param {import('playwright').Page} page
    */
@@ -383,4 +383,4 @@ class NewVehicleInventory {
   }
 }
 
-module.exports = { NewVehicleInventory };
+module.exports = { NewUsedVehicleInventory };
