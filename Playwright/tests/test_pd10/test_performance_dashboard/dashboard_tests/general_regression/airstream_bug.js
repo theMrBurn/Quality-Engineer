@@ -9,38 +9,42 @@ class Airstream {
     this.locators = {
       getMultiStore: () =>
         this.page
-          .locator(
-            'div:has-text("Multiple Stores Location Group VP Manufacturer Same Store 12 Groups LITHIABAIERL")',
-          )
+          .locator("div")
+          .filter({ hasText: "Multiple Stores Location" })
           .nth(2),
       getSelectGroup: () =>
-        this.page.locator(
-          "text=12 Groups LITHIABAIERLDTLADAYPRESTIGECARBONEOTHERSUBURBANPFAFFAIRSTREAM",
+        this.page.getByText(
+          "Groups LITHIABAIERLDTLADAYPRESTIGECARBONEOTHERSUBURBANPFAFFAIRSTREAM",
         ),
       getPfaffCheck: () => this.page.locator("text=PFAFF"),
       getAirstreamGroup: () => this.page.locator("#grpAirstream"),
       getGoButton: () => this.page.locator('text="GO"'),
       getStoreSelector: () =>
         this.page.locator("#storeSelector >> text=Select"),
-      getCalifornia: () => this.page.locator("text=CALIFORNIA"),
+      getCalifornia: () =>
+        this.page
+          .getByRole("listitem")
+          .filter({ hasText: "CALIFORNIA[+]Bay Area" })
+          .locator("div")
+          .nth(2),
       getIdaho: () =>
         this.page
-          .locator(
-            "text=IDAHO[+]Boise Airstream AdventuresBoise Ford LincolnIdaho Falls FordPocatello CJ >> div",
-          )
-          .nth(2),
+          .getByRole("listitem")
+          .filter({ hasText: "IDAHO[+]Boise Airstream" })
+          .locator("div")
+          .first(),
       getOregon: () =>
         this.page
-          .locator(
-            "text=OREGON[+]Beaverton Buick GMCBeaverton MercedesBend CDJRBend ChevroletBend HondaB >> div",
-          )
-          .nth(2),
+          .getByRole("listitem")
+          .filter({ hasText: "OREGON[+]Beaverton Buick" })
+          .locator("div")
+          .first(),
       getWashington: () =>
         this.page
-          .locator(
-            "text=WASHINGTON[+]Bellevue SubaruBellevue ToyotaSeattle Airstream AdventuresSeattle B >> div",
-          )
-          .nth(2),
+          .getByRole("listitem")
+          .filter({ hasText: "WASHINGTON[+]Bellevue" })
+          .locator("div")
+          .first(),
       getPacing1: () =>
         this.page.locator(
           "xpath=//body/div[1]/main[1]/div[1]/section[1]/div[2]/article[1]/table[1]/tbody[1]/tr[5]/td[3]",
