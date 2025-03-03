@@ -53,6 +53,6 @@ test.describe.serial("Denali Portal - Functionality @func", () => {
     await denaliPortal.goto();
 
     //click LPO Launch button, validate landing URL contains "/lienpayoff"
-    await denaliPortal.clickCVPLaunch();
+    await denaliPortal.clickDIMSLaunch();
   });
 });

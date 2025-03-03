@@ -32,7 +32,7 @@ class DenaliPortal {
           name: "Lienholder Manager LHM",
         }),
 
-      elementHeaderCVP: () =>
+      elementHeaderDIMS: () =>
         this.page.getByRole("heading", {
           name: "Driveway Inventory Management System DIMS",
         }),
