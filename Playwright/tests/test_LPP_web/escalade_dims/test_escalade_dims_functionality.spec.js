@@ -5,7 +5,7 @@
 
 // dependancies
 const { test, expect } = require("@playwright/test");
-const { EscaladeCVP } = require("./escalade_CVP.js");
+const { escaladeDIMS } = require("./escalade_dims.js");
 
 //for upload tests
 const salesData1 =
@@ -23,14 +23,14 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     browser,
     page,
   }) => {
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     await page.waitForLoadState("domcontentloaded");
 
     try {
       // click Stock # column to re-order grid view
-      await escaladeCVP.clickElement("stockNumColumn");
+      await escaladeDIMS.clickElement("stockNumColumn");
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
@@ -42,14 +42,14 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     browser,
     page,
   }) => {
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     try {
       // click Stock # column to re-order grid view
-      await escaladeCVP.clickElement("stockNumColumn");
+      await escaladeDIMS.clickElement("stockNumColumn");
       //click Stock # and inner column Filter
-      await escaladeCVP.clickElement("stockColumnFilter");
+      await escaladeDIMS.clickElement("stockColumnFilter");
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
@@ -61,17 +61,17 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     browser,
     page,
   }) => {
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     try {
       // click Stock # column to re-order grid view
-      await escaladeCVP.clickElement("stockNumColumn");
+      await escaladeDIMS.clickElement("stockNumColumn");
 
       //click Stock # and inner column Filter
-      await escaladeCVP.clickElement("stockColumnFilter");
+      await escaladeDIMS.clickElement("stockColumnFilter");
 
-      await escaladeCVP.clickElement("stockColumnInnerFilter");
+      await escaladeDIMS.clickElement("stockColumnInnerFilter");
 
       await page.getByRole("textbox").first().fill("1234568");
 
@@ -109,17 +109,17 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     test.fixme(
       "need to see if there are changes to filter logic to get this test working again 5/31/24",
     );
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     try {
       // click Stock # column to re-order grid view
-      await escaladeCVP.clickElement("stockNumColumn");
+      await escaladeDIMS.clickElement("stockNumColumn");
 
       //click Stock # and inner column Filter
-      await escaladeCVP.clickElement("stockColumnFilter");
+      await escaladeDIMS.clickElement("stockColumnFilter");
 
-      await escaladeCVP.clickElement("stockColumnInnerFilter");
+      await escaladeDIMS.clickElement("stockColumnInnerFilter");
 
       await page.getByRole("textbox").first().fill("1234568");
 
@@ -132,35 +132,35 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
       const locatorNames1 = ["infoIcon", "editButton"];
 
       for (const locatorName of locatorNames1) {
-        await escaladeCVP.checkElementVisibility(locatorName);
+        await escaladeDIMS.checkElementVisibility(locatorName);
       }
 
       // click Edit and then validate Cancel button available
-      await escaladeCVP.clickElement("editButton");
+      await escaladeDIMS.clickElement("editButton");
 
       //validate expected text elements have loaded
       const locatorNames2 = ["cancelButton"];
 
       for (const locatorName of locatorNames2) {
-        await escaladeCVP.checkElementVisibility(locatorName);
+        await escaladeDIMS.checkElementVisibility(locatorName);
       }
 
       // click Cancel and validate Complete Button is available
-      await escaladeCVP.clickElement("cancelButton");
+      await escaladeDIMS.clickElement("cancelButton");
 
       // click Edit and then validate Cancel button available
-      await escaladeCVP.clickElement("editButton");
+      await escaladeDIMS.clickElement("editButton");
 
-      await escaladeCVP.clickElement("cancelButton");
+      await escaladeDIMS.clickElement("cancelButton");
 
       //validate expected text elements have loaded
       const locatorNames3 = ["completeButton"];
 
       for (const locatorName of locatorNames3) {
-        await escaladeCVP.checkElementVisibility(locatorName);
+        await escaladeDIMS.checkElementVisibility(locatorName);
       }
       // // close panel
-      await escaladeCVP.clickElement("closeEditPanelIcon");
+      await escaladeDIMS.clickElement("closeEditPanelIcon");
     } catch (error) {
       console.error("Error during test:", error.message);
       // Mark the test as failed
@@ -172,13 +172,13 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     browser,
     page,
   }) => {
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     try {
       // go to upload, but cancel it before choosing the file
       await page.getByRole("button", { name: "UPLOAD SALES DATA" }).click();
-      await escaladeCVP.clickElement("cancelButton");
+      await escaladeDIMS.clickElement("cancelButton");
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);
@@ -189,12 +189,12 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     browser,
     page,
   }) => {
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     try {
       // the full upload method, including success alert validation
-      await escaladeCVP.uploadSalesData(salesData1);
+      await escaladeDIMS.uploadSalesData(salesData1);
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);
@@ -205,12 +205,12 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     browser,
     page,
   }) => {
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     try {
       // the full upload method, including success alert validation
-      await escaladeCVP.uploadSalesData(salesData2);
+      await escaladeDIMS.uploadSalesData(salesData2);
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);
@@ -221,12 +221,12 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     browser,
     page,
   }) => {
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     try {
       // the full upload method, including success alert validation
-      await escaladeCVP.uploadSalesData(salesData3);
+      await escaladeDIMS.uploadSalesData(salesData3);
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);
@@ -237,12 +237,12 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     browser,
     page,
   }) => {
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     try {
       // the full upload method, including Error alert Message validation
-      await escaladeCVP.uploadBADSalesData(salesDataBAD);
+      await escaladeDIMS.uploadBADSalesData(salesDataBAD);
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);
@@ -253,15 +253,15 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     browser,
     page,
   }) => {
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     try {
       // click Inventory and interact with search
-      await escaladeCVP.clickElement("inventoryTab");
+      await escaladeDIMS.clickElement("inventoryTab");
 
       // input valid search
-      await escaladeCVP.clickElement("inventoryHubColunmn");
+      await escaladeDIMS.clickElement("inventoryHubColunmn");
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);
@@ -273,19 +273,19 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     page,
   }) => {
     test.skip("needs more work then can be done during the 4/16/24 sprint");
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     try {
       // click Inventory and interact with search
-      await escaladeCVP.clickElement("inventoryTab");
+      await escaladeDIMS.clickElement("inventoryTab");
 
       // Check if any grid rows are found and click the first one
-      await escaladeCVP.findFirstGridRow(".MuiGrid-root > .MuiGrid-root");
+      await escaladeDIMS.findFirstGridRow(".MuiGrid-root > .MuiGrid-root");
 
-      await escaladeCVP.clickElement("editButton");
+      await escaladeDIMS.clickElement("editButton");
 
-      await escaladeCVP.clickElement("inventoryHubColunmn");
+      await escaladeDIMS.clickElement("inventoryHubColunmn");
 
       await page.getByRole("option", { name: "Portland" }).click();
       await page.getByRole("button", { name: "Cancel" }).click();
@@ -301,20 +301,20 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
   }) => {
     test.skip("needs more work then can be done during the 4/16/24 sprint");
 
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new escaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     // click Inventory and interact with search
-    await escaladeCVP.clickInvintoryTab();
+    await escaladeDIMS.clickInvintoryTab();
 
     // Check if any grid rows are found and click the first one
-    await escaladeCVP.findFirstGridRow(
+    await escaladeDIMS.findFirstGridRow(
       '//*[@id="root"]/div/div[1]/div[3]/span[2]/div/div/div/div/div',
     );
 
-    await escaladeCVP.clickEditButton();
+    await escaladeDIMS.clickEditButton();
 
-    await escaladeCVP.clickHubNameDropdown();
+    await escaladeDIMS.clickHubNameDropdown();
     await page.getByRole("option", { name: "Portland" }).click();
     await page.getByRole("button", { name: "Save" }).click();
   });

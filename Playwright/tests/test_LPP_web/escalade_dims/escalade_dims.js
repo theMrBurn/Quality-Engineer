@@ -1,7 +1,7 @@
 // this POM is for /lienpayoff
 const { expect } = require("@playwright/test");
 
-class EscaladeCVP {
+class escaladeDIMS {
   /**
    * @param {import('playwright').Page} page
    */
@@ -14,7 +14,7 @@ class EscaladeCVP {
       // headers
       pageHeader: () =>
         this.page.getByRole("heading", {
-          name: "Centralized Vehicle Processing",
+          name: "Driveway Inventory Management System",
           exact: true,
         }),
 
@@ -64,7 +64,7 @@ class EscaladeCVP {
 
   // Navigate to /Payroll/Regular endpoint
   async goto() {
-    await this.page.goto("/cvp");
+    await this.page.goto("/dims");
     await this.page.waitForLoadState("networkidle");
   }
 
@@ -179,4 +179,4 @@ class EscaladeCVP {
 
   // search
 }
-module.exports = { EscaladeCVP };
+module.exports = { escaladeDIMS };

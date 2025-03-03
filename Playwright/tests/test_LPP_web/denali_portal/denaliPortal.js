@@ -34,7 +34,7 @@ class DenaliPortal {
 
       elementHeaderCVP: () =>
         this.page.getByRole("heading", {
-          name: "Central Vehicle Processing CVP",
+          name: "Driveway Inventory Management System DIMS",
         }),
 
       launchLPObutton: () =>
@@ -91,7 +91,7 @@ class DenaliPortal {
         }),
       vehicleProcessingTriangle: () =>
         this.page.getByRole("button", {
-          name: "Vehicle Processing (CVP)",
+          name: "Driveway Inventory Management System (DIMS)",
         }),
     };
   }
@@ -156,9 +156,9 @@ class DenaliPortal {
     await expect(this.page.url()).toContain("/lienholders");
   }
 
-  async clickCVPLaunch() {
-    await this.locators.launchCVP().click();
-    await expect(this.page.url()).toContain("/cvp");
+  async clickDIMSMLaunch() {
+    await this.locators.launchDIMS().click();
+    await expect(this.page.url()).toContain("/dims");
   }
 
   async clickLienPayoffLink() {
@@ -187,7 +187,7 @@ class DenaliPortal {
 
   async clickVDTDocumentTrackingMenuLink() {
     await this.locators.documentTrackingSubLink().click();
-    await expect(this.page.url()).toContain("cvp/vdt");
+    await expect(this.page.url()).toContain("/vdt");
     await this.page.waitForLoadState("networkidle");
   }
 
