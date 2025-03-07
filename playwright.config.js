@@ -362,12 +362,11 @@ const config = {
     },
 
     {
-      name: "EscaladeCVP",
-      testDir: "Playwright/tests/test_LPP_web/escalade_cvp",
+      name: "EscaladeDIMS",
+      testDir: "Playwright/tests/test_LPP_web/escalade_dims",
       retries: 3,
       use: {
-        storageState:
-          "Application%20QA%20Test%20Automation/Playwright/helpers/login/test_DenaliLPP_superUser.json",
+        storageState: "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         baseURL: "https://test.lpp.lithia.com/",
       },
     },

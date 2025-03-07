@@ -1,11 +1,11 @@
-// Escalade CVP
+// Escalade DIMS
 
 // POMs have to live in the same directory as the test, for now
 // we will paramaterize the storageState with other .json for each userLogin, if necessary
 
 // dependancies
 const { test, expect } = require("@playwright/test");
-const { escaladeDIMS } = require("./escalade_dims.js");
+const { EscaladeDIMS } = require("./escalade_dims.js");
 
 //for upload tests
 const salesData1 =
@@ -17,13 +17,13 @@ const salesData3 =
 const salesDataBAD = "Playwright/helpers/misc_test_helper_files/TIMECARD.csv";
 
 //test
-test.describe.serial("Escalade CVP - Page Functionality @func", () => {
+test.describe.serial("Escalade DIMS - Page Functionality @func", () => {
   test.slow();
-  test("Navigate to Escalade CVP and validate Stock Number Column sort functioning as expected", async ({
+  test("Navigate to Escalade DIMS and validate Stock Number Column sort functioning as expected", async ({
     browser,
     page,
   }) => {
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     await page.waitForLoadState("domcontentloaded");
@@ -38,11 +38,11 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     }
   });
 
-  test("Navigate to Escalade CVP and validate Stock Number Column Filter functioning as expected", async ({
+  test("Navigate to Escalade DIMS and validate Stock Number Column Filter functioning as expected", async ({
     browser,
     page,
   }) => {
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     try {
@@ -57,11 +57,11 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     }
   });
 
-  test("Navigate to Escalade CVP and validate Stock Number Column Filter functionality, enter stock number validate result, clear filter", async ({
+  test("Navigate to Escalade DIMS and validate Stock Number Column Filter functionality, enter stock number validate result, clear filter", async ({
     browser,
     page,
   }) => {
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     try {
@@ -102,14 +102,14 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     //expect(rowText).toContain("No records available");
   });
 
-  test("Navigate to Escalade CVP and validate when Stock Number filtered, can be edited in Edit panel", async ({
+  test("Navigate to Escalade DIMS and validate when Stock Number filtered, can be edited in Edit panel", async ({
     browser,
     page,
   }) => {
     test.fixme(
       "need to see if there are changes to filter logic to get this test working again 5/31/24",
     );
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     try {
@@ -168,11 +168,11 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     }
   });
 
-  test("Navigate to Escalade CVP and validate Sales Data Upload functionality, but cancel before uploading ", async ({
+  test("Navigate to Escalade DIMS and validate Sales Data Upload functionality, but cancel before uploading ", async ({
     browser,
     page,
   }) => {
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     try {
@@ -185,11 +185,11 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     }
   });
 
-  test("Navigate to Escalade CVP and validate Sales Data Upload functionality, Manheim_2023-05-25.csv ", async ({
+  test("Navigate to Escalade DIMS and validate Sales Data Upload functionality, Manheim_2023-05-25.csv ", async ({
     browser,
     page,
   }) => {
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     try {
@@ -201,11 +201,11 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     }
   });
 
-  test("Navigate to Escalade CVP and validate Sales Data Upload functionality, Manheim_2023-05-29.csv ", async ({
+  test("Navigate to Escalade DIMS and validate Sales Data Upload functionality, Manheim_2023-05-29.csv ", async ({
     browser,
     page,
   }) => {
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     try {
@@ -217,11 +217,11 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     }
   });
 
-  test("Navigate to Escalade CVP and validate Sales Data Upload functionality, Manheim_2023-05-31.csv ", async ({
+  test("Navigate to Escalade DIMS and validate Sales Data Upload functionality, Manheim_2023-05-31.csv ", async ({
     browser,
     page,
   }) => {
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     try {
@@ -233,11 +233,11 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     }
   });
 
-  test("Navigate to Escalade CVP and validate Sales Data Upload functionality, bad file, should provide error alert", async ({
+  test("Navigate to Escalade DIMS and validate Sales Data Upload functionality, bad file, should provide error alert", async ({
     browser,
     page,
   }) => {
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     try {
@@ -249,11 +249,11 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     }
   });
 
-  test("Navigate to Escalade CVP and validate Inventory Tab filter functionality", async ({
+  test("Navigate to Escalade DIMS and validate Inventory Tab filter functionality", async ({
     browser,
     page,
   }) => {
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     try {
@@ -268,12 +268,12 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     }
   });
 
-  test("Navigate to Escalade CVP and validate Inventory Tab Edit Panel functionality, but cancel before saving", async ({
+  test("Navigate to Escalade DIMS and validate Inventory Tab Edit Panel functionality, but cancel before saving", async ({
     browser,
     page,
   }) => {
     test.skip("needs more work then can be done during the 4/16/24 sprint");
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     try {
@@ -295,13 +295,13 @@ test.describe.serial("Escalade CVP - Page Functionality @func", () => {
     }
   });
 
-  test("Navigate to Escalade CVP and validate Inventory Tab Edit Panel functionality, Chosing Hub from Dropdown and Save choice", async ({
+  test("Navigate to Escalade DIMS and validate Inventory Tab Edit Panel functionality, Chosing Hub from Dropdown and Save choice", async ({
     browser,
     page,
   }) => {
     test.skip("needs more work then can be done during the 4/16/24 sprint");
 
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     // click Inventory and interact with search

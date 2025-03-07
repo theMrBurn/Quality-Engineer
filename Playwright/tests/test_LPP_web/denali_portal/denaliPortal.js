@@ -47,7 +47,8 @@ class DenaliPortal {
       launchDealership: () =>
         this.page.getByRole("button", { name: "Launch" }).nth(2),
       launchLHM: () => this.page.getByRole("button", { name: "Launch" }).nth(3),
-      launchCVP: () => this.page.getByRole("button", { name: "Launch" }).nth(4),
+      launchDIMS: () =>
+        this.page.getByRole("button", { name: "Launch" }).nth(4),
       leftMenu: () => this.page.getByRole("button", { name: "menu" }),
       leftMenuClose: () =>
         this.page.locator("div:nth-child(2) > button:nth-child(2)"),
@@ -156,7 +157,7 @@ class DenaliPortal {
     await expect(this.page.url()).toContain("/lienholders");
   }
 
-  async clickDIMSMLaunch() {
+  async clickDIMSLaunch() {
     await this.locators.launchDIMS().click();
     await expect(this.page.url()).toContain("/dims");
   }

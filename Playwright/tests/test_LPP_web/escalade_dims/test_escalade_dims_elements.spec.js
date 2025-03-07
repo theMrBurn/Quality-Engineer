@@ -5,7 +5,7 @@
 
 // dependancies
 const { test, expect } = require("@playwright/test");
-const { escaladeDIMS } = require("./escalade_dims.js");
+const { EscaladeDIMS } = require("./escalade_dims.js");
 
 //test
 test.describe.serial("Escalade CVP - Page Elements @smoke", () => {
@@ -13,7 +13,7 @@ test.describe.serial("Escalade CVP - Page Elements @smoke", () => {
     browser,
     page,
   }) => {
-    const escaladeDIMS = new escaladeDIMS(page);
+    const escaladeDIMS = new EscaladeDIMS(page);
     await escaladeDIMS.goto();
 
     //validate expected text elements have loaded

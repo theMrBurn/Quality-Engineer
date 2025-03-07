@@ -26,7 +26,7 @@ test.describe.serial("Denali Portal - Page Elements @smoke", () => {
       "elementHeaderFlooring",
       "elementHeaderDealerships",
       "elementHeaderLHM",
-      "elementHeaderCVP",
+      "elementHeaderDIMS",
     ];
 
     for (const locatorName of locatorNames) {

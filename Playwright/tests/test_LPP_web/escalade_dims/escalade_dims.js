@@ -1,7 +1,7 @@
 // this POM is for /lienpayoff
 const { expect } = require("@playwright/test");
 
-class escaladeDIMS {
+class EscaladeDIMS {
   /**
    * @param {import('playwright').Page} page
    */
@@ -179,4 +179,4 @@ class escaladeDIMS {
 
   // search
 }
-module.exports = { escaladeDIMS };
+module.exports = { EscaladeDIMS };
