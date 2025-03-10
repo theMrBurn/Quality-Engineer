@@ -8,8 +8,8 @@ const { test, expect } = require("@playwright/test");
 const { EscaladeDIMS } = require("./escalade_dims.js");
 
 //test
-test.describe.serial("Escalade CVP - Page Elements @smoke", () => {
-  test("Navigate to Escalade CVP and validate Page elements have loaded as expected", async ({
+test.describe.serial("Escalade DIMS - Page Elements @smoke", () => {
+  test("Navigate to Escalade DIMS and validate Page elements have loaded as expected", async ({
     browser,
     page,
   }) => {
