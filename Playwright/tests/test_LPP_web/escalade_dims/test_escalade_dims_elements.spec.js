@@ -5,23 +5,23 @@
 
 // dependancies
 const { test, expect } = require("@playwright/test");
-const { EscaladeCVP } = require("./escalade_CVP.js");
+const { EscaladeDIMS } = require("./escalade_dims.js");
 
 //test
-test.describe.serial("Escalade CVP - Page Elements @smoke", () => {
-  test("Navigate to Escalade CVP and validate Page elements have loaded as expected", async ({
+test.describe.serial("Escalade DIMS - Page Elements @smoke", () => {
+  test("Navigate to Escalade DIMS and validate Page elements have loaded as expected", async ({
     browser,
     page,
   }) => {
-    const escaladeCVP = new EscaladeCVP(page);
-    await escaladeCVP.goto();
+    const escaladeDIMS = new EscaladeDIMS(page);
+    await escaladeDIMS.goto();
 
     //validate expected text elements have loaded
     const locatorNames = ["pageHeader", "salesTab", "inventoryTab"];
 
     try {
       for (const locatorName of locatorNames) {
-        await escaladeCVP.checkElementVisibility(locatorName);
+        await escaladeDIMS.checkElementVisibility(locatorName);
       }
     } catch (error) {
       console.error("Error during test:", error.message);

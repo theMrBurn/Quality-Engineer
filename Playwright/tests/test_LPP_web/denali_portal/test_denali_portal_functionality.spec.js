@@ -45,7 +45,7 @@ test.describe.serial("Denali Portal - Functionality @func", () => {
     await denaliPortal.clickLHMlaunch();
   });
 
-  test("Navigate to Denali Portal and validate when Central Vehicle Processing Launch is clicked, valid destination URL reached as expected", async ({
+  test("Navigate to Denali Portal and validate when Driveway Inventory Management System Launch is clicked, valid destination URL reached as expected", async ({
     browser,
     page,
   }) => {
@@ -53,6 +53,6 @@ test.describe.serial("Denali Portal - Functionality @func", () => {
     await denaliPortal.goto();
 
     //click LPO Launch button, validate landing URL contains "/lienpayoff"
-    await denaliPortal.clickCVPLaunch();
+    await denaliPortal.clickDIMSLaunch();
   });
 });
