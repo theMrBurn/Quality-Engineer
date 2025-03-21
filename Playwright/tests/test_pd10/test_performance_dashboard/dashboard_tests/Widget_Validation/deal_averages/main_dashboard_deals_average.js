@@ -8,8 +8,6 @@ class DealsAverageWidget {
     this.page = page;
 
     this.locators = {
-      getUsername: () => this.page.locator("id=i0116"),
-      getPassword: () => this.page.locator("id=i0118"),
       getSalesTab: () => this.page.locator('text="Sales" >> nth=0'),
       getSalesFIOps: () => this.page.locator(':nth-match(:text("F&I Ops"),1)'),
       getSalesFIOpsDashboard: () =>
