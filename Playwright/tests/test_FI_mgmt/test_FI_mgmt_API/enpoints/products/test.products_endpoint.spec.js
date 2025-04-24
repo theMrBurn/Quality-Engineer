@@ -16,9 +16,7 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     console.log("Received response:", response.status(), response.statusText());
 
     expect(response.status()).toBe(404);
-    console.log(
-      "Test completed: GET /invalid-endpoint returns 404 - Not Found",
-    );
+    console.log("Test completed: GET /invalid-endpoint returns 404 - Not Found");
   });
 
   test("POST /products returns 400 - Invalid product creation", async ({
@@ -32,15 +30,12 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     });
 
     const responseBody = await response.json();
-    console.log("Received response:", response.status(), responseBody);
+    console.log("Received response status:", response.status());
+    console.table([responseBody]); // Use console.table for better visual output
 
     expect(response.status()).toBe(400);
-    expect(responseBody.error).toBe(
-      "Invalid input types or required fields are missing.",
-    );
-    console.log(
-      "Test completed: POST /products returns 400 - Invalid product creation",
-    );
+    expect(responseBody.error).toBe("Invalid input types or required fields are missing.");
+    console.log("Test completed: POST /products returns 400 - Invalid product creation");
   });
 
   test("POST /products returns 409 - Conflict on existing product", async ({
@@ -49,7 +44,7 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     console.log("Starting test: POST /products with existing product data");
 
     const requestBody = {
-      product: "Test Product", // Replace with a known existing product
+      product: "Test Product",
       lease_type: "L",
       source_field: "FIIncome",
       sales_amount: "FIIncome",
@@ -64,15 +59,12 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     });
 
     const responseBody = await response.json();
-    console.log("Received response:", response.status(), responseBody);
+    console.log("Received response status:", response.status());
+    console.table([responseBody]); // Use console.table for better visual output
 
     expect(response.status()).toBe(409);
-    expect(responseBody.error).toBe(
-      "Product mapping already exists. No insert performed.",
-    );
-    console.log(
-      "Test completed: POST /products returns 409 - Conflict on existing product",
-    );
+    expect(responseBody.error).toBe("Product mapping already exists. No insert performed.");
+    console.log("Test completed: POST /products returns 409 - Conflict on existing product");
   });
 
   test("POST /products creates a product successfully", async ({ request }) => {
@@ -90,7 +82,7 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     };
 
     console.log("Sending POST request to:", `${baseURL}/products`);
-    console.log("Request body:", JSON.stringify(requestBody));
+    console.log("Request body:", JSON.stringify(requestBody, null, 2));
 
     const response = await request.post(`${baseURL}/products`, {
       headers: { "Content-Type": "application/json" },
@@ -98,13 +90,11 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     });
 
     const responseBody = await response.json();
-    console.log("Received response:", response.status(), responseBody);
+    console.log("Received response status:", response.status());
+    console.table([responseBody]); // Use console.table for better visual output
 
     expect(response.status()).toBe(201);
-    expect(responseBody).toHaveProperty(
-      "message",
-      expect.stringContaining("Product successfully added where ID="),
-    );
+    expect(responseBody).toHaveProperty("message", expect.stringContaining("Product successfully added where ID="));
     expect(responseBody).toHaveProperty("product_mapping_id");
 
     // Store the new product ID for future use
@@ -112,18 +102,16 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     console.log("Created product with ID:", dynamicProductId);
 
     // Immediate verification of product existence
-    const getProductResponse = await request.get(
-      `${baseURL}/products/${dynamicProductId}`,
-    );
+    const getProductResponse = await request.get(`${baseURL}/products/${dynamicProductId}`);
     console.log("Verifying product existence with ID:", dynamicProductId);
-    expect(getProductResponse.status()).toBe(
-      200,
-      "Product not found after creation.",
-    );
+    console.log("Received response:", getProductResponse.status(), getProductResponse.statusText());
 
-    console.log(
-      "Test completed: POST /products creates a product successfully",
-    );
+    expect(getProductResponse.status()).toBe(200, "Product not found after creation.");
+    const productBody = await getProductResponse.json();
+    console.log("Product existence verification response body:");
+    console.table([productBody]); // Use console.table for better visual output
+
+    console.log("Test completed: POST /products creates a product successfully");
   });
 
   test("GET /products returns 200 - success", async ({ request }) => {
@@ -134,6 +122,8 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
 
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
+    console.log("Response body:");
+    console.table(responseBody); // Use console.table for better visual output
     expect(responseBody.length).toBeGreaterThan(0);
 
     console.log("Verifying structure of the first product...");
@@ -155,19 +145,17 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     console.log("Starting test: GET /products/{productId}");
 
     expect(dynamicProductId).toBeDefined(); // Ensure dynamic ID was set
-    const response = await request.get(
-      `${baseURL}/products/${dynamicProductId}`,
-    );
+    const response = await request.get(`${baseURL}/products/${dynamicProductId}`);
     console.log("Received response:", response.status(), response.statusText());
 
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
+    console.log("Response body:");
+    console.table([responseBody]); // Use console.table for better visual output
     expect(responseBody).toHaveProperty("PRODUCT_MAPPING_ID", dynamicProductId);
     expect(responseBody).toHaveProperty("NAME");
 
-    console.log(
-      "Test completed: GET /products/{productId} returns 200 - success",
-    );
+    console.log("Test completed: GET /products/{productId} returns 200 - success");
   });
 
   test("PUT /products updates a product and returns 200 - success", async ({
@@ -189,7 +177,7 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     };
 
     console.log("Sending PUT request to:", url);
-    console.log("Payload:", JSON.stringify(payload));
+    console.log("Payload:", JSON.stringify(payload, null, 2));
 
     // Make the PUT request
     const response = await request.put(url, {
@@ -202,18 +190,14 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     // Check if the response status is 200
     console.log("Received response status:", response.status());
     const responseBody = await response.json();
-    console.log("Response body:", JSON.stringify(responseBody));
+    console.log("Response body:");
+    console.table([responseBody]); // Use console.table for better visual output
 
     expect(response.status()).toBe(200);
-    expect(responseBody).toHaveProperty(
-      "message",
-      expect.stringContaining("Product mapping updated successfully"),
-    ); // Adjusting expectation to match the response message format
-    expect(responseBody).toHaveProperty("product_mapping_id"); // Assuming the ID is returned in the response
+    expect(responseBody).toHaveProperty("message", expect.stringContaining("Product mapping updated successfully"));
+    expect(responseBody).toHaveProperty("product_mapping_id");
 
-    console.log(
-      "Test completed: PUT /products updates a product and returns 200 - success",
-    );
+    console.log("Test completed: PUT /products updates a product and returns 200 - success");
   });
 
   // Negative Tests for /products/{id}
@@ -227,9 +211,7 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     console.log("Received response:", response.status(), response.statusText());
 
     expect(response.status()).toBe(404);
-    console.log(
-      "Test completed: GET /products/{invalidId} returns 404 - Not Found",
-    );
+    console.log("Test completed: GET /products/{invalidId} returns 404 - Not Found");
   });
 
   // Positive Tests for /products/{id}
@@ -237,18 +219,16 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     console.log("Starting test: GET /products/{validId}");
 
     expect(dynamicProductId).toBeDefined(); // Ensure dynamic ID was set
-    const response = await request.get(
-      `${baseURL}/products/${dynamicProductId}`,
-    );
+    const response = await request.get(`${baseURL}/products/${dynamicProductId}`);
     console.log("Received response:", response.status(), response.statusText());
 
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
+    console.log("Response body:");
+    console.table([responseBody]); // Use console.table for better visual output
     expect(responseBody).toHaveProperty("PRODUCT_MAPPING_ID", dynamicProductId);
     expect(responseBody).toHaveProperty("NAME");
 
-    console.log(
-      "Test completed: GET /products/{validId} returns 200 - success",
-    );
+    console.log("Test completed: GET /products/{validId} returns 200 - success");
   });
 });
