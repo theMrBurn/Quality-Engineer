@@ -87,6 +87,36 @@ const config = {
     },
 
     {
+      name: "FI_mgmt_API_Local",
+      testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_API",
+      retries: 3,
+      use: {
+        // commented out until AUTH is in place storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
+        baseURL: "http://localhost:3200/",
+      },
+    },
+
+    {
+      name: "FI_mgmt_UI_Local",
+      testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_UI",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
+        baseURL: "http://localhost:3000/",
+      },
+    },
+
+    {
+      name: "FI_mgmt_API",
+      testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_API",
+      retries: 3,
+      use: {
+        //storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
+        baseURL: "https://spedev.lithiainc.com/main/store/",
+      },
+    },
+
+    {
       name: "PDash_test",
       testDir: "Playwright/tests/test_pd10",
       retries: 3,
@@ -122,7 +152,7 @@ const config = {
       retries: 3,
       use: {
         // storageState: "Playwright/helpers/login/pd_AdminSuperuserLogin.json",
-        baseURL: "http://localhost:3000",
+        baseURL: "http://localhost:3000/",
       },
     },
 

@@ -1,4 +1,3 @@
-// this POM is for /Payroll
 const { expect } = require("@playwright/test");
 
 class FILog {
@@ -7,181 +6,237 @@ class FILog {
    */
   constructor(page) {
     this.page = page;
-    this.getUsername = page.locator("id=i0116");
-    this.getPassword = page.locator("id=i0118");
-    this.getSalesTab = page.locator('text="Sales" >> nth=0');
-    this.getFIOps = page.locator(':nth-match(:text("F&I Ops"),1)');
-    this.getFIlog = page.locator(':nth-match(:text("F&I Log"),1)');
-    this.getCash = page.locator(
-      "xpath=//body/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]",
-    );
-    this.getFin = page.locator(
-      "xpath=//body/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]",
-    );
-    this.getTotals = page.locator(
-      "xpath=//body/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[4]/div[1]",
-    );
-    this.getTotalStores = page.locator("tr");
-    this.getStoreSelector = page.locator(
-      'div:has-text("Multiple Stores Location Group VP Manufacturer Same Store 12 Groups LITHIABAIERL")',
-    );
-    this.getAllselector = page.locator(".allSelectorIndicator");
-    this.getCanada = page.locator(
-      "text=CANADA[+]Concord Wholesale PartsConcord Wholesale VehiclesGuelph SubaruKitchner  >> div",
-    );
-    this.getSelectButton = page.locator("#storeSelector >> text=Select");
-    this.getGoBUtton = page.locator('text="GO"');
+
+    this.locators = {
+      getSalesTab: () => this.page.locator('text="Sales" >> nth=0'),
+      getFIOps: () => this.page.locator(':nth-match(:text("F&I Ops"), 1)'),
+      getFIlog: () => this.page.locator(':nth-match(:text("F&I Log"), 1)'),
+      getCash: () =>
+        this.page.locator(
+          "xpath=//body/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]",
+        ),
+      getFin: () =>
+        this.page.locator(
+          "xpath=//body/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]",
+        ),
+      getTotals: () =>
+        this.page.locator(
+          "xpath=//body/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[4]/div[1]",
+        ),
+      getTotalStores: () => this.page.locator("tr"),
+      getStoreSelector: () =>
+        this.page.locator(
+          'div:has-text("Multiple Stores Location Group VP Manufacturer Same Store 12 Groups LITHIABAIERL")',
+        ),
+      getAllselector: () => this.page.locator(".allSelectorIndicator"),
+      getCanada: () =>
+        this.page.locator(
+          "text=CANADA[+]Concord Wholesale PartsConcord Wholesale VehiclesGuelph SubaruKitchner  >> div",
+        ),
+      getSelectButton: () => this.page.locator("#storeSelector >> text=Select"),
+      getGoBUtton: () => this.page.locator('text="GO"'),
+    };
   }
+
+  //navigation
   async goto() {
-    await this.page.goto("https://spedev.lithiainc.com/main/store", {
-      timeout: 0,
-    });
-    // Pause for 10 seconds, to see what's going on.
-    await this.page.waitForLoadState("networkidle");
+    await this.page.goto("/");
+    await this.page.waitForLoadState("load");
   }
-  async login() {
-    await this.getUsername.click();
-    await this.page.fill('input[id="i0116"]', "t_PerfDash_01@lithia.com"); //username
-    await this.page.locator("id=idSIButton9").click();
-    await this.getPassword.click();
-    await this.page.fill(
-      'input[name="passwd"]',
-      "GkCow**!#w#)4E#Sj3Rb8KS*TkGduz",
-    ); //pwd
-    await this.page.click("text=Sign In");
-  }
-  async twostepauthlogin() {
-    await this.page.click("id=KmsiCheckboxField");
-    await this.page.click("id=idSIButton9");
-  }
+
   async NavigateToSalesFILog() {
-    await this.getSalesTab.click();
-    await this.getFIOps.click();
-    await this.getFIlog.click();
+    await this.clickElement("getSalesTab");
+    await this.clickElement("getFIOps");
+    await this.clickElement("getFIlog");
     await this.page.waitForLoadState("networkidle");
   }
+
   async SelectAllStores() {
     await this.page.waitForLoadState("networkidle");
-    await this.getStoreSelector.nth(2).click();
-    await this.getAllselector.click();
-    await this.getSelectButton.click();
+    await this.locators.getStoreSelector().nth(2).click();
+    await this.clickElement("getAllselector");
+    await this.clickElement("getSelectButton");
     await this.page.waitForLoadState("networkidle");
   }
+
   async VerifyTotalVehicle() {
-    const a = await this.getCash.innerText();
-    const totalcash = parseInt(a);
-    const b = await this.getFin.innerText();
-    const totalfin = parseInt(b);
+    const totalcash = parseInt(await this.locators.getCash().innerText()) || 0;
+    const totalfin = parseInt(await this.locators.getFin().innerText()) || 0;
     const sum = totalcash + totalfin;
-    const total = await this.getTotals.innerText();
-    const ttotal = parseInt(total);
-    if (ttotal == sum) console.log("FI Log Total Match");
-    else console.log("FI Log  Total Mismatch");
+    const ttotal = parseInt(await this.locators.getTotals().innerText()) || 0;
+
+    if (ttotal === sum) console.log("FI Log Total Match");
+    else console.log("FI Log Total Mismatch");
   }
+
   async ValidateTotalCountForAStore() {
-    const a = await this.getTotalStores.count();
-    for (var i = 1; i <= a - 3; i++) {
-      var beforeXpath = "//div[3]/table[1]/tbody[1]/tr[";
-      var afterXpathCash = "]/td[2]";
-      var afterXpathFin = "]/td[3]";
-      var afterXpathCount = "]/td[4]";
-      var beforeXpathStore =
-        "//body/div[1]/div[2]/div[1]/section[1]/div[3]/table[1]/tbody[1]/tr[";
-      var afterXpathStore = "]/td[1]/a[1]";
-      var ActualStoreNameXpath = beforeXpathStore + i + afterXpathStore;
-      var ActualXpathCash = beforeXpath + i + afterXpathCash;
-      var ActualXpathFin = beforeXpath + i + afterXpathFin;
-      var ActualXpathCount = beforeXpath + i + afterXpathCount;
-      var j = await this.page.locator(ActualStoreNameXpath).innerText();
-      var b = await this.page.locator(ActualXpathCash).innerText();
-      if (b.length == 0) {
-        b = 0;
-      }
-      var e = parseInt(b);
-      var c = await this.page.locator(ActualXpathFin).innerText();
-      if (c.length == 0) {
-        c = 0;
-      }
-      var f = parseInt(c);
-      var d = await this.page.locator(ActualXpathCount).innerText();
-      if (d.length == 0) {
-        d = 0;
-      }
-      var g = parseInt(d);
-      var sum = e + f;
-      if (sum == g) {
-        console.log("The FI Log - total for a store " + j + " matches");
+    const totalStores = await this.locators.getTotalStores().count();
+    for (let i = 1; i <= totalStores - 3; i++) {
+      const storeName = await this.page
+        .locator(
+          `//body/div[1]/div[2]/div[1]/section[1]/div[3]/table[1]/tbody[1]/tr[${i}]/td[1]/a[1]`,
+        )
+        .innerText();
+
+      const cash =
+        parseInt(
+          await this.page
+            .locator(`//div[3]/table[1]/tbody[1]/tr[${i}]/td[2]`)
+            .innerText(),
+        ) || 0;
+      const fin =
+        parseInt(
+          await this.page
+            .locator(`//div[3]/table[1]/tbody[1]/tr[${i}]/td[3]`)
+            .innerText(),
+        ) || 0;
+      const count =
+        parseInt(
+          await this.page
+            .locator(`//div[3]/table[1]/tbody[1]/tr[${i}]/td[4]`)
+            .innerText(),
+        ) || 0;
+
+      const sum = cash + fin;
+      if (sum === count) {
+        console.log(`The FI Log - total for a store ${storeName} matches`);
       } else {
-        console.log("The FI Log - total for a store " + j + " mismatches");
+        console.log(`The FI Log - total for a store ${storeName} mismatches`);
       }
     }
   }
+
   async ValidateTotalCash() {
-    const a = await this.getTotalStores.count();
-    var sum = 0;
-    for (var i = 1; i <= a - 3; i++) {
-      var beforeXpath =
-        "//body/div[1]/div[2]/div[1]/section[1]/div[3]/table[1]/tbody[1]/tr[";
-      var afterXpathCash = "]/td[2]";
-      var ActualXpathCash = beforeXpath + i + afterXpathCash;
-      var b = await this.page.locator(ActualXpathCash).innerText();
-      if (b.length == 0) {
-        b = 0;
-      }
-      var e = parseInt(b);
-      sum = sum + e;
+    const totalStores = await this.locators.getTotalStores().count();
+    let cashSum = 0;
+
+    for (let i = 1; i <= totalStores - 3; i++) {
+      const cash =
+        parseInt(
+          await this.page
+            .locator(
+              `//body/div[1]/div[2]/div[1]/section[1]/div[3]/table[1]/tbody[1]/tr[${i}]/td[2]`,
+            )
+            .innerText(),
+        ) || 0;
+      cashSum += cash;
     }
-    var c = await this.getCash.innerText();
-    var g = parseInt(c);
-    if (sum == g) {
-      console.log("The FI Log -total Cash Count matches");
+
+    const totalCash = parseInt(await this.locators.getCash().innerText()) || 0;
+    if (cashSum === totalCash) {
+      console.log("The FI Log - total Cash Count matches");
     } else {
-      console.log("The FI Log -total Cash Count mismatches");
+      console.log("The FI Log - total Cash Count mismatches");
     }
   }
+
   async ValidateTotalFin() {
-    const a = await this.getTotalStores.count();
-    var sum = 0;
-    for (var i = 1; i <= a - 3; i++) {
-      var beforeXpath = "//div[3]/table[1]/tbody[1]/tr[";
-      var afterXpathFin = "]/td[3]";
-      var ActualXpathFin = beforeXpath + i + afterXpathFin;
-      var b = await this.page.locator(ActualXpathFin).innerText();
-      if (b.length == 0) {
-        b = 0;
-      }
-      var e = parseInt(b);
-      sum = sum + e;
+    const totalStores = await this.locators.getTotalStores().count();
+    let finSum = 0;
+
+    for (let i = 1; i <= totalStores - 3; i++) {
+      const fin =
+        parseInt(
+          await this.page
+            .locator(`//div[3]/table[1]/tbody[1]/tr[${i}]/td[3]`)
+            .innerText(),
+        ) || 0;
+      finSum += fin;
     }
-    var c = await this.getFin.innerText();
-    var g = parseInt(c);
-    if (sum == g) {
-      console.log("The FI Log -total Fin Count matches");
+
+    const totalFin = parseInt(await this.locators.getFin().innerText()) || 0;
+    if (finSum === totalFin) {
+      console.log("The FI Log - total Fin Count matches");
     } else {
-      console.log("The FI Log -total Fin Count mismatches");
+      console.log("The FI Log - total Fin Count mismatches");
     }
   }
+
   async ValidateTotalCount() {
-    const a = await this.getTotalStores.count();
-    var sum = 0;
-    for (var i = 1; i <= a - 3; i++) {
-      var beforeXpath = "//div[3]/table[1]/tbody[1]/tr[";
-      var afterXpathFin = "]/td[4]";
-      var ActualXpathFin = beforeXpath + i + afterXpathFin;
-      var b = await this.page.locator(ActualXpathFin).innerText();
-      if (b.length == 0) {
-        b = 0;
-      }
-      var e = parseInt(b);
-      sum = sum + e;
+    const totalStores = await this.locators.getTotalStores().count();
+    let countSum = 0;
+
+    for (let i = 1; i <= totalStores - 3; i++) {
+      const count =
+        parseInt(
+          await this.page
+            .locator(`//div[3]/table[1]/tbody[1]/tr[${i}]/td[4]`)
+            .innerText(),
+        ) || 0;
+      countSum += count;
     }
-    var c = await this.getTotals.innerText();
-    var g = parseInt(c);
-    if (sum == g) {
-      console.log("The FI Log -total Count matches");
+
+    const totalCount =
+      parseInt(await this.locators.getTotals().innerText()) || 0;
+    if (countSum === totalCount) {
+      console.log("The FI Log - total Count matches");
     } else {
-      console.log("The FI Log -total Count mismatches");
+      console.log("The FI Log - total Count mismatches");
+    }
+  }
+
+  // common test methods
+  async checkElementVisibility(locatorName) {
+    await this.page.waitForLoadState("load");
+    const locatorFunction = this.locators[locatorName];
+    const element = await locatorFunction().first();
+
+    try {
+      await expect(element).toBeVisible();
+    } catch (error) {
+      throw new Error(
+        `Locator '${locatorName}' is not visible: ${error.message}`,
+      );
+    }
+  }
+
+  async findFirstGridRow(gridElement) {
+    await this.page.waitForSelector(gridElement);
+    const gridRowHandles = await this.page.$$(gridElement);
+
+    if (gridRowHandles.length > 0) {
+      const firstGridRow = gridRowHandles[0];
+      await this.ensureElementIsConnected(firstGridRow);
+      await firstGridRow.click();
+      console.log("Clicked on the first grid row.");
+    } else {
+      console.log("No grid rows found.");
+    }
+  }
+
+  async fillForm(testData) {
+    for (const [key, value] of Object.entries(testData)) {
+      const locatorFunction = this.locators[key];
+      if (locatorFunction) {
+        try {
+          await this.page.waitForLoadState("networkidle");
+          const inputElement = await locatorFunction();
+          await inputElement.fill(value);
+        } catch (error) {
+          throw new Error(
+            `Filling the form field with locator '${key}' failed: ${error.message}`,
+          );
+        }
+      } else {
+        console.warn(`Locator not found for key: ${key}`);
+      }
+    }
+  }
+
+  async clickElement(locatorName) {
+    await this.page.waitForLoadState("load");
+    const locatorFunction = this.locators[locatorName];
+    const element = await locatorFunction().first();
+
+    try {
+      await element.click();
+      await this.page.waitForLoadState("networkidle");
+    } catch (error) {
+      throw new Error(
+        `Clicking on locator '${locatorName}' failed: ${error.message}`,
+      );
     }
   }
 }
+
 module.exports = { FILog };
