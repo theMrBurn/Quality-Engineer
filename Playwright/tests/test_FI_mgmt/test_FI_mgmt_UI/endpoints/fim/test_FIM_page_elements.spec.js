@@ -25,7 +25,7 @@ test.describe.serial("/ F&I management, /FIM page @smoke", () => {
     try {
       for (const locatorName of locatorNames) {
         console.log(
-          "validating page elements are present and have loaded as expected",
+          `Validating page element: ${locatorName} is present and has loaded as expected`,
         );
         await fimgmt.checkElementVisibility(locatorName);
       }
