@@ -499,6 +499,16 @@ const config = {
     },
 
     {
+      name: "BMDDev",
+      testDir: "Playwright/tests/test_BMD_web",
+      retries: 0,
+      use: {
+        storageState: "Playwright/helpers/login/dev_bmd_auth.json",
+        baseURL: "https://app-bmd-wu2-dev-web.azurewebsites.net/",
+      },
+    },
+
+    {
       name: "SPEDev",
       testDir: "Playwright/tests/test_performance_dashboard",
       retries: 3,
