@@ -20,8 +20,8 @@ test.describe.serial("/ F&I management, /FIM page @func", () => {
       await page.getByTestId("menu-item").click();
 
       // Validate page text
-      const pageText = fimgmt.locators.fimPageText(); // Ensure you call the locator function
-      await expect(pageText).toContainText("This is the F&I management");
+      const pageText = page.getByRole("heading", { name: "Stores" }); // Ensure you call the locator function
+      await expect(pageText).toContainText("Stores");
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);

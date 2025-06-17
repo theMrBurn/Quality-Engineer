@@ -15,7 +15,6 @@ test.describe.serial("/ F&I management, /FIM page @smoke", () => {
       "fimPageHeader",
       "fimPageLogo",
       "fimUserTag",
-      "fimPageText",
       "fimPageFooter",
       "fimPageSupportLink",
       "fimPageSupportLinkText",

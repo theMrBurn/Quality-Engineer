@@ -10,7 +10,17 @@ test.describe.serial("/ F&I management, /FIM page/Sales @smoke", () => {
 
     await page.waitForLoadState("load");
 
-    const locatorNames = ["storesTab", "productsTab", "storesGrid"];
+    const locatorNames = [
+      "storesTab",
+      "productsTab",
+      "storesGrid",
+      "storeNameColumn",
+      "addressColumn",
+      "cityColumn",
+      "stateColumn",
+      "zipColumn",
+      "storeNumberColumn",
+    ];
 
     try {
       for (const locatorName of locatorNames) {

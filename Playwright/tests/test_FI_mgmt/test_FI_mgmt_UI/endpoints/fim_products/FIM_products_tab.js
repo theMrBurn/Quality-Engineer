@@ -1,22 +1,62 @@
 const { expect } = require("@playwright/test");
 
-class FIM_Stores {
+class FIM_Products {
   /**
    * @param {import('playwright').Page} page
    */
   constructor(page) {
     this.page = page;
     this.locators = {
+      // Navigation Tabs
       storesTab: () => this.page.locator('[data-testid="nav-stores"]'),
       productsTab: () => this.page.locator('[data-testid="nav-products"]'),
-      storesGrid: () => this.page.locator("body > div > div:nth-child(4)"),
-      productsGrid: () => this.page.getByText("This is the Products page."),
+      storesHeader: () =>
+        this.page.locator("div").filter({ hasText: /^Stores$/ }),
+      // Grids
+      storesGrid: () =>
+        this.page
+          .getByTestId("stores-grid-wrapper")
+          .locator("div")
+          .filter({ hasText: "Store #Store" })
+          .nth(1),
+      productsGrid: () =>
+        this.page.locator(
+          "body > div > div.css-19nh8ml-ProductsPage-container > div.css-13dtgw9-ProductsPage-contentContainer",
+        ),
+
+      // Modal Related
+      productsModal: () => this.page.locator("#modal-content"),
+      selectProductsButton: () =>
+        this.page.locator('[data-testid="select-products-button"]'),
+      cancelButton: () => this.page.locator('[data-testid="cancel-button"]'),
+      searchProducts: () =>
+        this.page.getByRole("textbox", { name: "Search Products" }),
+      xOutButton: () => this.page.getByRole("button", { name: "close" }),
+
+      // Product Form Elements
+      productNameLabel: () => this.page.locator("#product-name-label"),
+      productNameInput: () =>
+        this.page.locator('[data-testid="product-name-input"]'),
+      categorySelectInput: () =>
+        this.page.locator('[data-testid="category-select-input"]'),
+      salesAmountInput: () =>
+        this.page.locator('[data-testid="sales-amount-input"]'),
+      costAmountInput: () =>
+        this.page.locator('[data-testid="cost-amount-input"]'),
+      grossAmountInput: () =>
+        this.page.locator('[data-testid="gross-amount-input"]'),
+
+      // Buttons
+      addProductsButton: () => this.page.getByTestId("open-modal-button"),
+      openModalButton: () =>
+        this.page.locator('[data-testid="open-modal-button"]'),
+      closeButton: () => this.page.locator('button[name="close"]'),
     };
   }
 
   // Navigation
   async goto() {
-    await this.page.goto("/FIM/stores");
+    await this.page.goto("/fim/products");
     await this.page.waitForLoadState("load");
   }
 
@@ -86,4 +126,4 @@ class FIM_Stores {
   }
 }
 
-module.exports = { FIM_Stores };
+module.exports = { FIM_Products };

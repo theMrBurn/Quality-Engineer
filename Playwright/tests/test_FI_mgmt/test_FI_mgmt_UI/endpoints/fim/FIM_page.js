@@ -11,12 +11,13 @@ class FIM {
         this.page.locator("div").filter({ hasText: /^F&I Management$/ }),
       fimPageLogo: () =>
         this.page.getByRole("img", { name: "Lithia Motors Logo" }),
-      fimPageText: () => this.page.getByText("This is the F&I management"),
+      fimPageText: () => this.page.getByText("This is the Stores page"),
       fimUserTag: () => this.page.getByTestId("user-menu"),
       fimUserTagSignOut: () => this.page.getByTestId("menu-item"),
       fimPageFooter: () => this.page.locator("body > div > footer"),
       fimPageSupportLink: () => this.page.getByRole("link"),
       fimPageSupportLinkText: () => this.page.getByText("Help and Support"),
+      fimStoresHeader: () => this.page.getByRole("heading", { name: "Stores" }),
     };
   }
 
