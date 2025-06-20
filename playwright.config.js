@@ -167,6 +167,16 @@ const config = {
     },
 
     {
+      name: "PD_2_Dev",
+      testDir: "Playwright/tests/test_pd20",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/login/pd2_dev_env_login.json",
+        baseURL: "https://dev.apps.lithia.com/performancedashboard",
+      },
+    },
+
+    {
       name: "AtlasWeb",
       testDir: "Playwright/tests/test_LPP_web/atlas_web",
       retries: 3,
