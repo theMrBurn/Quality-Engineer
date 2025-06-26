@@ -1,5 +1,6 @@
 import { test } from "@playwright/test";
 import { FIM } from "./FIM_page"; // Corrected import statement
+import FIM_Login from "../../../../../helpers/login/fim_login";
 
 // test 1
 test.describe.serial("/ F&I management, /FIM page @smoke", () => {
@@ -8,6 +9,9 @@ test.describe.serial("/ F&I management, /FIM page @smoke", () => {
   }) => {
     const fimgmt = new FIM(page);
     await fimgmt.goto();
+
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page); // Call the l
 
     await page.waitForLoadState("load");
 

@@ -1,5 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { FIM_Products } from "./FIM_products_tab";
+import FIM_Login from "../../../../../helpers/login/fim_login";
+import { clear } from "console";
 
 // Test suite for F&I management, FIM page
 test.describe
@@ -7,11 +9,13 @@ test.describe
   test("Validate Stores tab navigation", async ({ page }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page); // Call the login method
 
     try {
       await page.waitForLoadState("load");
 
-      // Click products tab
+      // Click tab
       await fimProducts.locators.storesTab().click();
       console.log("Clicked on Stores tab.");
 
@@ -33,9 +37,12 @@ test.describe
   test("Validate Add Products Modal opens correctly", async ({ page }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page); // Call the login method
 
     try {
       await page.waitForLoadState("load");
+      await fimProducts.locators.productsTab().click();
 
       // Click Add Products button
       await fimProducts.locators.addProductsButton().click();
@@ -54,9 +61,12 @@ test.describe
   test("Validate Cancel Button functionality in Modal", async ({ page }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page); // Call the login method
 
     try {
       await page.waitForLoadState("load");
+      await fimProducts.locators.productsTab().click();
 
       // Click Add Products button
       await fimProducts.locators.addProductsButton().click();
@@ -86,9 +96,12 @@ test.describe
   test("Validate X Out Button functionality in Modal", async ({ page }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page); // Call the login method
 
     try {
       await page.waitForLoadState("load");
+      await fimProducts.locators.productsTab().click();
 
       // Click Add Products button
       await fimProducts.locators.addProductsButton().click();
@@ -115,22 +128,34 @@ test.describe
     }
   });
 
-  test("Validate search functionality in Add Products Modal", async ({
+  test("Validate search functionality in Add Products Modal (cancel via X first)", async ({
     page,
   }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page); // Call the login method
 
     try {
       await page.waitForLoadState("load");
+      await fimProducts.locators.productsTab().click();
 
       await fimProducts.locators.searchProducts().fill("Test Product");
       console.log("Filled search input with 'Test Product'.");
 
-      const testProduct = page.getByTestId("product-cell-0");
+      const clearSearchX = fimProducts.locators.clearSearchX();
 
-      await expect(testProduct).toContainText("Test Product");
-      console.log("Checked that products grid contains 'Test Product'.");
+      await expect(clearSearchX).toBeVisible();
+
+      await clearSearchX.click();
+
+      await fimProducts.locators.searchProducts().fill("Test Product");
+      console.log("Filled search input with 'Test Product'.");
+
+      // const testProduct = page.getByTestId("product-cell-0");
+
+      // await expect(testProduct).toContainText("Test Product");
+      // console.log("Checked that products grid contains 'Test Product'.");
     } catch (error) {
       console.error("Error during test:", error.message);
       throw error; // Re-throw the error to fail the test

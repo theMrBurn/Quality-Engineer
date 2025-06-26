@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { FIM_Products } from "./FIM_products_tab";
+import FIM_Login from "../../../../../helpers/login/fim_login";
 
 // Test suite for F&I management, FIM page
 test.describe
@@ -9,6 +10,9 @@ test.describe
   }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
+
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page);
 
     try {
       await page.waitForLoadState("load");
@@ -38,6 +42,11 @@ test.describe
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
 
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page);
+
+    await fimProducts.locators.productsTab().click(); // Ensure you click the Products tab first
+
     try {
       await page.waitForLoadState("load");
 
@@ -61,6 +70,10 @@ test.describe
   }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page);
+
+    await fimProducts.locators.productsTab().click(); // Ensure you click the Products tab first
 
     try {
       await page.waitForLoadState("load");
@@ -94,6 +107,10 @@ test.describe
   }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page);
+
+    await fimProducts.locators.productsTab().click();
 
     try {
       await page.waitForLoadState("load");
@@ -127,6 +144,10 @@ test.describe
   }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page);
+
+    await fimProducts.locators.productsTab().click();
 
     try {
       await page.waitForLoadState("load");

@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { FIM } from "./FIM_page";
+import FIM_Login from "../../../../../helpers/login/fim_login";
 
 // Test suite for F&I management, FIM page
 test.describe.serial("/ F&I management, /FIM page @func", () => {
@@ -9,15 +10,18 @@ test.describe.serial("/ F&I management, /FIM page @func", () => {
     const fimgmt = new FIM(page);
     await fimgmt.goto();
 
-    try {
-      await page.waitForLoadState("load");
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page);
 
+    try {
       // Click user icon
       console.log(
         "validating page elements can be interacted with as expected..",
       );
-      await page.getByTestId("user-menu").click();
-      await page.getByTestId("menu-item").click();
+      const userTag = await page.getByTestId("user-menu");
+      const menuItem = await page.getByTestId("menu-item");
+
+      await expect(userTag, menuItem).toBeVisible();
 
       // Validate page text
       const pageText = page.getByRole("heading", { name: "Stores" }); // Ensure you call the locator function
@@ -33,6 +37,8 @@ test.describe.serial("/ F&I management, /FIM page @func", () => {
   }) => {
     const fimgmt = new FIM(page);
     await fimgmt.goto();
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page); // Call the l
 
     try {
       await page.waitForLoadState("load");

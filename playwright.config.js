@@ -91,8 +91,28 @@ const config = {
       testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_API",
       retries: 3,
       use: {
-        // commented out until AUTH is in place storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
+        storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
         baseURL: "http://localhost:3200/",
+      },
+    },
+
+    {
+      name: "FI_mgmt_API_DEV",
+      testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_API",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
+        baseURL: "https://dev.lpp.lithia.com/",
+      },
+    },
+
+    {
+      name: "FI_mgmt_UI_DEV",
+      testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_UI",
+      retries: 3,
+      use: {
+        storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
+        baseURL: "https://dev.lpp.lithia.com/",
       },
     },
 

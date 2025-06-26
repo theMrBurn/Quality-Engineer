@@ -1,5 +1,6 @@
 import { test } from "@playwright/test";
 import { FIM_Stores } from "./FIM_stores_tab";
+import FIM_Login from "../../../../../helpers/login/fim_login";
 
 test.describe.serial("/ F&I management, /FIM page/Sales @smoke", () => {
   test("Navigate to /FIM/Sales and validate page loads elements as expected", async ({
@@ -7,6 +8,9 @@ test.describe.serial("/ F&I management, /FIM page/Sales @smoke", () => {
   }) => {
     const fimStores = new FIM_Stores(page);
     await fimStores.goto();
+
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page); // Call the l
 
     await page.waitForLoadState("load");
 

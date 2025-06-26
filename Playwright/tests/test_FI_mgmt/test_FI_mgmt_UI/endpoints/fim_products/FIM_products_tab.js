@@ -51,6 +51,8 @@ class FIM_Products {
       openModalButton: () =>
         this.page.locator('[data-testid="open-modal-button"]'),
       closeButton: () => this.page.locator('button[name="close"]'),
+      clearSearchX: () =>
+        this.page.getByTestId("clear-storeproduct-search-button"),
     };
   }
 

@@ -15,7 +15,8 @@ class FIM {
       fimUserTag: () => this.page.getByTestId("user-menu"),
       fimUserTagSignOut: () => this.page.getByTestId("menu-item"),
       fimPageFooter: () => this.page.locator("body > div > footer"),
-      fimPageSupportLink: () => this.page.getByRole("link"),
+      fimPageSupportLink: () =>
+        this.page.locator("body > div > footer > div.footer-left > a > svg"),
       fimPageSupportLinkText: () => this.page.getByText("Help and Support"),
       fimStoresHeader: () => this.page.getByRole("heading", { name: "Stores" }),
     };
