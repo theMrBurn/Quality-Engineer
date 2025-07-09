@@ -14,8 +14,7 @@ test.describe
     await bmdMainPage.goto();
 
     try {
-      //await bmdMainPage.checkElementVisibility("demoButton");
-      //await bmdMainPage.clickElement("demoButton");
+      await expect(page.locator('h4')).toContainText('Data Tables');
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);
