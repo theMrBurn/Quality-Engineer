@@ -3,7 +3,7 @@ import { FIM } from "./FIM_page"; // Corrected import statement
 import FIM_Login from "../../../../../helpers/login/fim_login";
 
 // test 1
-test.describe.serial("/ F&I management, /FIM page @smoke", () => {
+test.describe.serial("F&I management, /FIM page @smoke", () => {
   test("Navigate to /FIM and validate page loads elements as expected", async ({
     page,
   }) => {
@@ -11,7 +11,7 @@ test.describe.serial("/ F&I management, /FIM page @smoke", () => {
     await fimgmt.goto();
 
     const fimLogin = new FIM_Login(); // Instantiate the login helper
-    await fimLogin.loginFIM(page); // Call the l
+    await fimLogin.loginFIM(page); // Call the login method
 
     await page.waitForLoadState("load");
 
@@ -22,13 +22,13 @@ test.describe.serial("/ F&I management, /FIM page @smoke", () => {
       "fimPageFooter",
       "fimPageSupportLink",
       "fimPageSupportLinkText",
-      //"fimUserTagSignOut", -- do this once we have logout, add a seperate click action to expose it
+      "fimUserTagSignOut",
     ];
 
     try {
       for (const locatorName of locatorNames) {
         console.log(
-          `Validating page element: ${locatorName} is present and has loaded as expected`,
+          `Validating page element: '${locatorName}' is present and has loaded as expected`,
         );
         await fimgmt.checkElementVisibility(locatorName);
       }

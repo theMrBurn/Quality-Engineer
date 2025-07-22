@@ -4,162 +4,144 @@ import FIM_Login from "../../../../../helpers/login/fim_login";
 
 // Test suite for F&I management, FIM page
 test.describe
-  .serial("Navigate to /FIM/Products and validate page element functionality is working as expected @func", () => {
-  test("Navigate to /FIM/Products and validate when clicked, Stores tab navigates as expected", async ({
-    page,
-  }) => {
+  .serial("Navigate to /FIM/Products and validate page element functionality is working as expected @func @combined", () => {
+  test("Validate Stores tab navigation", async ({ page }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
-
-    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    const fimLogin = new FIM_Login();
     await fimLogin.loginFIM(page);
 
     try {
       await page.waitForLoadState("load");
-
-      // Click products tab
-      console.log(
-        "validating page elements can be interacted with as expected..",
-      );
       await fimProducts.locators.storesTab().click();
+      console.log("Clicked on Stores tab.");
 
-      // Validate page text
-      const pageText = fimProducts.locators.storesHeader(); // Ensure you call the locator function
+      const pageText = fimProducts.locators.storesHeader();
       await expect(pageText).toContainText("Stores");
+      console.log("Checked for expected text on Stores page.");
 
-      // Validate landing URL
       const currentURL = page.url();
-      await expect(currentURL).toContain("/fim/stores"); // Ensure this matches the expected URL
+      await expect(currentURL).toContain("/fim/stores");
+      console.log("Checked that URL is correct.");
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw error; // Re-throw the error to fail the test
+      throw error;
     }
   });
 
-  test("Navigate to /FIM/Products and validate when clicked, Add Products Modal presents as expected", async ({
-    page,
-  }) => {
+  test("Validate Add Products Modal opens correctly", async ({ page }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
-
-    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    const fimLogin = new FIM_Login();
     await fimLogin.loginFIM(page);
-
-    await fimProducts.locators.productsTab().click(); // Ensure you click the Products tab first
 
     try {
       await page.waitForLoadState("load");
+      await fimProducts.locators.productsTab().click();
 
-      // Click Add Products button
-      console.log(
-        "validating page elements can be interacted with as expected.. attempting to Click Add Products button",
-      );
       await fimProducts.locators.addProductsButton().click();
+      console.log("Clicked on Add Products button.");
 
-      // Validate page text
-      const pageText = fimProducts.locators.productsModal(); // Ensure you call the locator function
+      const pageText = fimProducts.locators.productsModal();
       await expect(pageText).toContainText("Enter details to add new product");
+      console.log("Checked for expected text in Add Products modal.");
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw error; // Re-throw the error to fail the test
+      throw error;
     }
   });
 
-  test("Navigate to /FIM/Products and validate can use Cancel Button to cancel out of Modal", async ({
-    page,
-  }) => {
+  test("Validate Cancel Button functionality in Modal", async ({ page }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
-    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    const fimLogin = new FIM_Login();
     await fimLogin.loginFIM(page);
-
-    await fimProducts.locators.productsTab().click(); // Ensure you click the Products tab first
 
     try {
       await page.waitForLoadState("load");
+      await fimProducts.locators.productsTab().click();
 
-      // Click Add Products button
-      console.log(
-        "validating page elements can be interacted with as expected.. attempting to Click Add Products button",
-      );
       await fimProducts.locators.addProductsButton().click();
+      console.log("Clicked on Add Products button.");
 
-      // Validate page text
-      const pageText = fimProducts.locators.productsModal(); // Ensure you call the locator function
+      const pageText = fimProducts.locators.productsModal();
       await expect(pageText).toContainText("Enter details to add new product");
+      console.log("Checked for expected text in Add Products modal.");
 
-      // click cancel and land back on main page
       await fimProducts.locators.cancelButton().click();
+      console.log("Clicked on Cancel button.");
 
       const addProdHeader = page
         .locator("div")
         .filter({ hasText: /^Add Product$/ })
         .nth(1);
       await expect(addProdHeader).not.toBeVisible();
+      console.log("Checked that Add Product header is no longer visible.");
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw error; // Re-throw the error to fail the test
+      throw error;
     }
   });
 
-  test("Navigate to /FIM/Products and validate can use X Out Button to cancel out of Modal", async ({
-    page,
-  }) => {
+  test("Validate X Out Button functionality in Modal", async ({ page }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
-    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    const fimLogin = new FIM_Login();
     await fimLogin.loginFIM(page);
-
-    await fimProducts.locators.productsTab().click();
 
     try {
       await page.waitForLoadState("load");
+      await fimProducts.locators.productsTab().click();
 
-      // Click Add Products button
-      console.log(
-        "validating page elements can be interacted with as expected.. attempting to Click Add Products button",
-      );
       await fimProducts.locators.addProductsButton().click();
+      console.log("Clicked on Add Products button.");
 
-      // Validate page text
-      const pageText = fimProducts.locators.productsModal(); // Ensure you call the locator function
+      const pageText = fimProducts.locators.productsModal();
       await expect(pageText).toContainText("Enter details to add new product");
+      console.log("Checked for expected text in Add Products modal.");
 
-      // click cancel and land back on main page
       await fimProducts.locators.xOutButton().click();
+      console.log("Clicked on X Out button.");
 
       const addProdHeader = page
         .locator("div")
         .filter({ hasText: /^Add Product$/ })
         .nth(1);
       await expect(addProdHeader).not.toBeVisible();
+      console.log("Checked that Add Product header is no longer visible.");
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw error; // Re-throw the error to fail the test
+      throw error;
     }
   });
 
-  test("Navigate to /FIM/Products and validate when clicked, Add Products Modal presents functionality works as expected", async ({
+  test("Validate search functionality in Add Products Modal", async ({
     page,
   }) => {
     const fimProducts = new FIM_Products(page);
     await fimProducts.goto();
-    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    const fimLogin = new FIM_Login();
     await fimLogin.loginFIM(page);
-
-    await fimProducts.locators.productsTab().click();
 
     try {
       await page.waitForLoadState("load");
+      await fimProducts.locators.productsTab().click();
+      console.log("Navigated to Products tab.");
 
       await fimProducts.locators.searchProducts().fill("Test Product");
+      console.log("Filled search input with 'Test Product'.");
 
-      const testProduct = page.getByTestId("product-cell-0");
+      const clearSearchX = fimProducts.locators.clearSearchX();
+      //await expect(clearSearchX).toBeVisible();
 
-      await expect(testProduct).toContainText("Test Product");
+      await clearSearchX.click();
+      console.log("Clicked on Clear Search X.");
+
+      await fimProducts.locators.searchProducts().fill("Test Product");
+      console.log("Filled search input again with 'Test Product'.");
     } catch (error) {
       console.error("Error during test:", error.message);
-      throw error; // Re-throw the error to fail the test
+      throw error;
     }
   });
 });

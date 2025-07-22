@@ -10,8 +10,10 @@ class FIM_Products {
       // Navigation Tabs
       storesTab: () => this.page.locator('[data-testid="nav-stores"]'),
       productsTab: () => this.page.locator('[data-testid="nav-products"]'),
-      storesHeader: () =>
-        this.page.locator("div").filter({ hasText: /^Stores$/ }),
+      productsHeader: () =>
+        this.page.getByRole("heading", { name: "Products" }),
+      storesHeader: () => this.page.getByRole("heading", { name: "Stores" }),
+
       // Grids
       storesGrid: () =>
         this.page
@@ -21,8 +23,13 @@ class FIM_Products {
           .nth(1),
       productsGrid: () =>
         this.page.locator(
-          "body > div > div.css-19nh8ml-ProductsPage-container > div.css-13dtgw9-ProductsPage-contentContainer",
+          "body > div > div.css-h1izif-ProductsPage-container > div.css-oeb6hy-ProductsPage-contentContainer > div > div.css-gd12fs-ProductsGrid-gridScrollContainer",
         ),
+      productNameColumn: () => this.page.getByText("Product Name"),
+      categoryColumn: () => this.page.getByText("Category"),
+      salesAmountColumn: () => this.page.getByText("Sales Amount"),
+      costAmountColumn: () => this.page.getByText("Cost Amount"),
+      grossAmountColumn: () => this.page.getByText("Gross Amount"),
 
       // Modal Related
       productsModal: () => this.page.locator("#modal-content"),
@@ -51,8 +58,7 @@ class FIM_Products {
       openModalButton: () =>
         this.page.locator('[data-testid="open-modal-button"]'),
       closeButton: () => this.page.locator('button[name="close"]'),
-      clearSearchX: () =>
-        this.page.getByTestId("clear-storeproduct-search-button"),
+      clearSearchX: () => this.page.getByTestId("clear-product-search-button"),
     };
   }
 

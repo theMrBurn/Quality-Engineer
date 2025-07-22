@@ -10,7 +10,7 @@ test.describe.serial("/ F&I management, /FIM page/Sales @smoke", () => {
     await fimStores.goto();
 
     const fimLogin = new FIM_Login(); // Instantiate the login helper
-    await fimLogin.loginFIM(page); // Call the l
+    await fimLogin.loginFIM(page); // Call the login method
 
     await page.waitForLoadState("load");
 
@@ -29,7 +29,7 @@ test.describe.serial("/ F&I management, /FIM page/Sales @smoke", () => {
     try {
       for (const locatorName of locatorNames) {
         console.log(
-          `Validating page element: ${locatorName} is present and has loaded as expected`,
+          `Validating page element: '${locatorName}' is present and has loaded as expected`,
         );
         await fimStores.checkElementVisibility(locatorName);
       }

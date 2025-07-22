@@ -1,9 +1,7 @@
-// Test suite for API testing - /products
 const { test, expect } = require("@playwright/test");
 
 // Test suite for API testing - /products
 test.describe.serial("API testing - /products @fiManagementAPI", () => {
-  const baseURL = process.env.BASE_URL || "http://localhost:3200";
   let dynamicProductId; // Variable to hold the ID of a created product
 
   // Negative Tests for /products
@@ -12,7 +10,7 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
   }) => {
     console.log("Starting test: GET /products with invalid endpoint");
 
-    const invalidURL = `${baseURL}/invalid-endpoint`;
+    const invalidURL = `/invalid-endpoint`;
     const response = await request.get(invalidURL);
     console.log("Received response:", response.status(), response.statusText());
 
@@ -27,7 +25,7 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
   }) => {
     console.log("Starting test: POST /products with invalid data");
 
-    const response = await request.post(`${baseURL}/products`, {
+    const response = await request.post(`/products`, {
       headers: { "Content-Type": "application/json" },
       data: {},
     });
@@ -45,39 +43,6 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     );
   });
 
-  test("POST /products returns 409 - Conflict on existing product", async ({
-    request,
-  }) => {
-    console.log("Starting test: POST /products with existing product data");
-
-    const requestBody = {
-      product: "Test Product",
-      lease_type: "L",
-      source_field: "FIIncome",
-      sales_amount: "FIIncome",
-      cost_amount: "Miscellaneous6",
-      gross_amount: "",
-      user_id: 123,
-    };
-
-    const response = await request.post(`${baseURL}/products`, {
-      headers: { "Content-Type": "application/json" },
-      data: requestBody,
-    });
-
-    const responseBody = await response.json();
-    console.log("Received response status:", response.status());
-    console.table([responseBody]); // Use console.table for better visual output
-
-    expect(response.status()).toBe(409);
-    expect(responseBody.error).toBe(
-      "Product mapping already exists. No insert performed.",
-    );
-    console.log(
-      "Test completed: POST /products returns 409 - Conflict on existing product",
-    );
-  });
-
   test("POST /products creates a product successfully", async ({ request }) => {
     console.log("Starting test: POST /products creates a product");
 
@@ -92,10 +57,10 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
       user_id: uniqueUserId,
     };
 
-    console.log("Sending POST request to:", `${baseURL}/products`);
+    console.log("Sending POST request to:", `/products`);
     console.log("Request body:", JSON.stringify(requestBody, null, 2));
 
-    const response = await request.post(`${baseURL}/products`, {
+    const response = await request.post(`/products`, {
       headers: { "Content-Type": "application/json" },
       data: requestBody,
     });
@@ -117,7 +82,7 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
 
     // Immediate verification of product existence
     const getProductResponse = await request.get(
-      `${baseURL}/products/${dynamicProductId}`,
+      `/products/${dynamicProductId}`,
     );
     console.log("Verifying product existence with ID:", dynamicProductId);
     console.log(
@@ -139,10 +104,43 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     );
   });
 
+  test("POST /products returns 409 - Conflict on existing product", async ({
+    request,
+  }) => {
+    console.log("Starting test: POST /products with existing product data");
+
+    const requestBody = {
+      product: "Test Product",
+      lease_type: "L",
+      source_field: "FIIncome",
+      sales_amount: "FIIncome",
+      cost_amount: "Miscellaneous6",
+      gross_amount: "",
+      user_id: 123,
+    };
+
+    const response = await request.post(`/products`, {
+      headers: { "Content-Type": "application/json" },
+      data: requestBody,
+    });
+
+    const responseBody = await response.json();
+    console.log("Received response status:", response.status());
+    console.table([responseBody]); // Use console.table for better visual output
+
+    expect(response.status()).toBe(409);
+    expect(responseBody.error).toBe(
+      "Product mapping already exists. No insert performed.",
+    );
+    console.log(
+      "Test completed: POST /products returns 409 - Conflict on existing product",
+    );
+  });
+
   test("GET /products returns 200 - success", async ({ request }) => {
     console.log("Starting test: GET /products");
 
-    const response = await request.get(`${baseURL}/products`);
+    const response = await request.get(`/products`);
     console.log("Received response:", response.status(), response.statusText());
 
     expect(response.status()).toBe(200);
@@ -170,9 +168,7 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     console.log("Starting test: GET /products/{productId}");
 
     expect(dynamicProductId).toBeDefined(); // Ensure dynamic ID was set
-    const response = await request.get(
-      `${baseURL}/products/${dynamicProductId}`,
-    );
+    const response = await request.get(`/products/${dynamicProductId}`);
     console.log("Received response:", response.status(), response.statusText());
 
     expect(response.status()).toBe(200);
@@ -192,7 +188,7 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
   }) => {
     console.log("Starting test: PUT /products");
 
-    const url = `${baseURL}/products`; // Keeping the endpoint as specified
+    const url = `/products`; // Relative URL without baseURL
 
     // Define the payload for the PUT request
     const payload = {
@@ -234,23 +230,30 @@ test.describe.serial("API testing - /products @fiManagementAPI", () => {
     );
   });
 
-  // Negative Tests for /products/{id}
-  test("GET /products/{invalidId} returns 404 - Not Found", async ({
+  test("DELETE /products deletes a product successfully", async ({
     request,
   }) => {
-    test.fixme(
-      "not sure why this is failing, so we're going to skip it until there's bandwidth to investigate it",
-    );
+    console.log("Starting test: DELETE /products deletes a product");
 
-    console.log("Starting test: GET /products/{invalidId}");
+    const deletePayload = {
+      product_name: "Test Product",
+      lease_type: "L",
+      source_field: "FIIncome",
+    };
 
-    const invalidId = 999; // A non-existent ID
-    const response = await request.get(`${baseURL}/products/${invalidId}`);
-    console.log("Received response:", response.status(), response.statusText());
+    console.log("Sending DELETE request to:", `/products`);
+    console.log("Request body:", JSON.stringify(deletePayload, null, 2));
 
-    expect(response.status()).toBe(404);
-    console.log(
-      "Test completed: GET /products/{invalidId} returns 404 - Not Found",
-    );
+    const response = await request.delete(`/products`, {
+      headers: { "Content-Type": "application/json" },
+      data: deletePayload,
+    });
+
+    const responseBody = await response.json();
+    console.log("Received response status:", response.status());
+    console.table([responseBody]); // Better visual output
+
+    expect(response.status()).toBe(200);
+    console.log("Test completed: DELETE /products deletes a product");
   });
 });

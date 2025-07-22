@@ -3,7 +3,7 @@ import { FIM } from "./FIM_page";
 import FIM_Login from "../../../../../helpers/login/fim_login";
 
 // Test suite for F&I management, FIM page
-test.describe.serial("/ F&I management, /FIM page @func", () => {
+test.describe.serial("F&I management, /FIM page @func", () => {
   test("Navigate to /FIM and validate page element functionality is working as expected", async ({
     page,
   }) => {
@@ -11,7 +11,9 @@ test.describe.serial("/ F&I management, /FIM page @func", () => {
     await fimgmt.goto();
 
     const fimLogin = new FIM_Login(); // Instantiate the login helper
-    await fimLogin.loginFIM(page);
+    await fimLogin.loginFIM(page); // Call the login method
+
+    await page.waitForLoadState("load");
 
     try {
       // Click user icon
@@ -37,8 +39,11 @@ test.describe.serial("/ F&I management, /FIM page @func", () => {
   }) => {
     const fimgmt = new FIM(page);
     await fimgmt.goto();
+
     const fimLogin = new FIM_Login(); // Instantiate the login helper
     await fimLogin.loginFIM(page); // Call the l
+
+    await page.waitForLoadState("load");
 
     try {
       await page.waitForLoadState("load");
@@ -57,7 +62,7 @@ test.describe.serial("/ F&I management, /FIM page @func", () => {
       // Get the URL of the new page
       const currentURL = newPage.url();
       const supportLink =
-        "https://lithia.service-now.com/rrc?id=emp_taxonomy_topic&topic_id=d96b7ab51bcb9550a11f1131b24bcbe8";
+        "https://lithia.service-now.com/rrc?id=emp_taxonomy_topic&topic_id=e7ef104e3bc6ee504d679c9c24e45ad9";
 
       // Validate the new URL
       await expect(currentURL).toBe(supportLink);

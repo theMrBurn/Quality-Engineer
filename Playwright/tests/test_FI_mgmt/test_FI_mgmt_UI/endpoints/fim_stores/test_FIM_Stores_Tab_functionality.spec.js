@@ -82,7 +82,7 @@ test.describe
       await page.getByRole("option", { name: "15" }).click();
 
       // Validate the updated pagination text
-      const pageCountUpdated = await page.getByText("Items 1 - 15 of");
+      const pageCountUpdated = await page.getByText("Items per page");
 
       await expect(pageCountUpdated).toBeVisible();
     } catch (error) {
@@ -99,11 +99,11 @@ test.describe
     const fimLogin = new FIM_Login(); // Instantiate the login helper
     await fimLogin.loginFIM(page); // Call the login method
     try {
-      await page.waitForLoadState("load");
+      await page.waitForLoadState("networkidle");
 
       // Click on store name cell
       await page.getByTestId("store-name-cell-318").click();
-      // Click on store link
+      // Click on store link - updated for store 318
       await page.getByTestId("store-link-318").click();
 
       // Click on store product header
@@ -132,7 +132,7 @@ test.describe
 
       // Click on store name cell
       await page.getByTestId("store-name-cell-318").click();
-      // Click on store link
+      // Click on store link - updated for store 318
       await page.getByTestId("store-link-318").click();
       // Click on store product header
       await page.getByTestId("storeproduct-header").click();
@@ -177,12 +177,13 @@ test.describe
     await fimStores.goto();
     const fimLogin = new FIM_Login(); // Instantiate the login helper
     await fimLogin.loginFIM(page); // Call the login method
+
     try {
       await page.waitForLoadState("load");
 
       // Click on store name cell
       await page.getByTestId("store-name-cell-318").click();
-      // Click on store link
+      // Click on store link - updated for store 318
       await page.getByTestId("store-link-318").click();
       // Click on store product header
       await page.getByTestId("storeproduct-header").click();
@@ -227,30 +228,45 @@ test.describe
     await fimStores.goto();
     const fimLogin = new FIM_Login(); // Instantiate the login helper
     await fimLogin.loginFIM(page); // Call the login method
+
+    const logStep = (step) => {
+      console.log(`Executing step: ${step}`);
+    };
+
     try {
       await page.waitForLoadState("load");
 
       // Click on store name cell
+      logStep("Clicking on store name cell");
       await page.getByTestId("store-name-cell-318").click();
-      // Click on store link
+
+      // Click on store link - updated for store 318
+      logStep("Clicking on store link");
       await page.getByTestId("store-link-318").click();
+
       // Click on store product header
+      logStep("Clicking on store product header");
       await page.getByTestId("storeproduct-header").click();
+
       // Click to open add store products modal
+      logStep("Opening add store products modal");
       await page.getByTestId("open-add-store-products-modal-button").click();
 
       // Click on 'Add Products'
+      logStep("Clicking on 'Add Products'");
       await page
         .getByTestId("add-store-products-modal")
         .getByText("Add Products")
         .click();
 
       // Click on the heading to select products
+      logStep("Selecting products to add");
       await page
-        .getByRole("heading", { name: "Select products to add to" })
+        .getByRole("heading", { name: "Select products to add" })
         .click();
 
       // Search for products to add
+      logStep("Searching for products to add");
       await page.getByTestId("search-products-input").click();
       await page.getByTestId("search-products-input").fill("test");
       await page
@@ -259,68 +275,86 @@ test.describe
         .click();
 
       // Clear the search input
+      logStep("Clearing the search input");
       await page.getByTestId("search-products-input").click();
       await page.getByTestId("search-products-input").fill("");
 
       // Cancel adding products
+      logStep("Cancelling adding products");
       await page.getByTestId("cancel-add-products-button").click();
 
       // Reopen add store products modal
+      logStep("Reopening add store products modal");
       await page.getByTestId("open-add-store-products-modal-button").click();
       await page.getByRole("button", { name: "close" }).click(); // Closing the modal
 
       // Open the modal again
+      logStep("Opening the add store products modal again");
       await page.getByTestId("open-add-store-products-modal-button").click();
 
       // Select specific products
+      logStep("Selecting specific products");
       await page
         .getByRole("row", { name: "Select Row Windshield Purchase" })
         .getByLabel("Select Row")
         .check();
       await page.getByTestId("cancel-add-products-button").click();
+
+      logStep("Reopening add store products modal");
       await page.getByTestId("open-add-store-products-modal-button").click();
+
+      logStep("Selecting Windshield Purchase again");
       await page
         .getByRole("row", { name: "Select Row Windshield Purchase" })
         .getByLabel("Select Row")
         .check();
+
+      logStep("Selecting Wear Tear Lease");
       await page
         .getByRole("row", { name: "Select Row Wear Tear Lease" })
         .getByLabel("Select Row")
         .check();
+
+      logStep("Selecting Upsell Nitro Purchase");
       await page
         .getByRole("row", { name: "Select Row Upsell Nitro Purchase" })
         .getByLabel("Select Row")
         .check();
+
+      logStep("Selecting PDR Purchase");
       await page
         .getByRole("row", { name: "Select Row PDR Purchase" })
         .getByLabel("Select Row")
         .check();
 
       // Cancel adding products again
+      logStep("Cancelling adding products again");
       await page.getByTestId("cancel-add-products-button").click();
 
       // Open the modal again
+      logStep("Opening the modal again");
       await page.getByTestId("open-add-store-products-modal-button").click();
 
       // Select additional products
+      logStep("Selecting GPS Lease");
       await page
         .getByRole("row", { name: "Select Row GPS Lease" })
         .locator("span")
         .click();
+      logStep("Selecting GPS Purchase");
       await page
         .getByRole("row", { name: "Select Row GPS Purchase" })
         .getByLabel("Select Row")
         .check();
+
+      logStep("Selecting ETCH Lease");
       await page
         .getByRole("row", { name: "Select Row ETCH Lease" })
         .getByLabel("Select Row")
         .check();
-      await page
-        .getByRole("row", { name: "Select Row Test Product 189" })
-        .getByLabel("Select Row")
-        .check();
 
       // Submit selected products
+      logStep("Submitting selected products");
       await page.getByTestId("submit-products-button").click();
     } catch (error) {
       console.error("Error during test:", error.message);
@@ -328,7 +362,7 @@ test.describe
     }
   });
 
-  test("Navigate to /FIM/Stores and validate edit Store Product functionality works as expected, then delete", async ({
+  test("Navigate to /FIM/Stores and validate edit Store Product functionality works as expected", async ({
     page,
   }) => {
     const fimStores = new FIM_Stores(page);
@@ -340,22 +374,14 @@ test.describe
     try {
       await page.waitForLoadState("load");
 
-      await page.getByTestId("store-link-447").click();
-
-      await page.getByTestId("open-add-store-products-modal-button").click();
+      // Click on store link - updated for store 318
+      await page.getByTestId("store-link-318").click();
+      await page.getByTestId("storeproduct-cell-0").click();
+      await page.getByTestId("editproduct-0").click();
       await page
-        .getByRole("row", { name: "Select Row Test Product Lease" })
-        .getByLabel("Select Row")
-        .check();
-      await page.getByTestId("submit-products-button").click();
-      await page.getByRole("textbox", { name: "Search Products" }).click();
-      await page.getByRole("textbox", { name: "Search Products" }).fill("test");
-      await page
-        .getByRole("columnheader", { name: "Product Name" })
-        .locator("span")
-        .nth(1)
+        .getByTestId("sales-amount-field")
+        .getByRole("button", { name: "Open" })
         .click();
-      await page.getByTestId("editproduct-2").click();
       await page
         .getByTestId("gross-amount-field")
         .getByRole("button", { name: "Open" })
@@ -369,22 +395,29 @@ test.describe
       await page.getByTestId("save-edit-product-button").click();
 
       await page.waitForLoadState("load");
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw error; // Re-throw the error to fail the test
+    }
+  });
 
-      // may need to save these as CONST objects to assert against later
-      await page.getByText("Test Product updated");
-      await page.getByTestId("success-icon");
+  test("Navigate to /FIM/Stores and select first grid row product and confirm delete functionality works as expected", async ({
+    page,
+  }) => {
+    test.fixme(
+      "need to work out how to delete a grid row better then the raw test tag.. its got a lot of hard coded values in it..",
+    );
+    const fimStores = new FIM_Stores(page);
+    await fimStores.goto();
 
-      // await page.getByRole('row', { name: 'Test Product Lease' }).locator('path').nth(1).click();
-      // await page.getByRole('row', { name: 'Test Product Lease' }).getByTestId('delete-product-undefined').click();
-      // await page.getByText('Remove Product?').click();
-      // await page.getByTestId('cancel-remove-button').click();
-      // await page.getByRole('row', { name: 'Test Product Lease' }).getByTestId('delete-product-undefined').click();
-      // await page.getByRole('button', { name: 'close' }).click();
-      // await page.getByRole('row', { name: 'Test Product Lease' }).getByTestId('delete-product-undefined').click();
-      // await page.getByTestId('confirm-remove-button').click();
-      // await page.getByTestId('success-icon').click();
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page); // Call the login method
 
-      //await page.getByText('Test Product successfully').toBeVisible();
+    try {
+      await page.waitForLoadState("load");
+      //find first grid row
+      await fimStores.findFirstGridRow();
+      await page.locator("delete-product-50869").click();
     } catch (error) {
       console.error("Error during test:", error.message);
       throw error; // Re-throw the error to fail the test

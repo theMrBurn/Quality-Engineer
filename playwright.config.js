@@ -87,22 +87,12 @@ const config = {
     },
 
     {
-      name: "FI_mgmt_API_Local",
-      testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_API",
-      retries: 3,
-      use: {
-        storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
-        baseURL: "http://localhost:3200/",
-      },
-    },
-
-    {
       name: "FI_mgmt_API_DEV",
       testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_API",
       retries: 3,
       use: {
         storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
-        baseURL: "https://dev.lpp.lithia.com/",
+        baseURL: "https://app-lpp-fim-dev-api.azurewebsites.net",
       },
     },
 
@@ -112,7 +102,7 @@ const config = {
       retries: 3,
       use: {
         storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
-        baseURL: "https://dev.lpp.lithia.com/",
+        baseURL: "https://dev.lpp.lithia.com",
       },
     },
 
@@ -122,17 +112,17 @@ const config = {
       retries: 3,
       use: {
         storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
-        baseURL: "http://localhost:3000/",
+        baseURL: "http://localhost:3000",
       },
     },
 
     {
-      name: "FI_mgmt_API",
+      name: "FI_mgmt_API_Local",
       testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_API",
       retries: 3,
       use: {
-        //storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
-        baseURL: "https://spedev.lithiainc.com/main/store/",
+        storageState: "Playwright/helpers/login/pd1_dev_env_login.json",
+        baseURL: "http://localhost:3200",
       },
     },
 
