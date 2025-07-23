@@ -167,8 +167,19 @@ const config = {
     },
 
     {
+      name: "PD_2_Local",
+      testDir: "Playwright/tests/test_pd20/local",
+      retries: 3,
+      use: {
+       storageState: "Playwright/helpers/login/pd2_local_env_auth.json",
+       baseURL: "http://localhost:3000/",
+       headless: false
+      },
+    },
+
+    {
       name: "PD_2_Dev",
-      testDir: "Playwright/tests/test_pd20",
+      testDir: "Playwright/tests/test_pd20/dev",
       retries: 3,
       use: {
         storageState: "Playwright/helpers/login/pd2_dev_env_login.json",
@@ -184,6 +195,7 @@ const config = {
         storageState:
           "Application%20QA%20Test%20Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         baseURL: "https://test.lpp.lithia.com/",
+        headless: false
       },
     },
 
