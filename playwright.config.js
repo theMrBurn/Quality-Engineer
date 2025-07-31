@@ -499,12 +499,42 @@ const config = {
     },
 
     {
+      name: "BMDLocal",
+      testDir: "Playwright/tests/test_BMD_web",
+      retries: 0,
+      use: {
+        storageState: "Playwright/helpers/login/local_bmd_auth.json",
+        baseURL: "http://localhost:3000/",
+      },
+    },
+
+    {
       name: "BMDDev",
       testDir: "Playwright/tests/test_BMD_web",
       retries: 0,
       use: {
         storageState: "Playwright/helpers/login/dev_bmd_auth.json",
         baseURL: "https://app-bmd-wu2-dev-web.azurewebsites.net/",
+      },
+    },
+
+    {
+      name: "BMDUAT",
+      testDir: "Playwright/tests/test_BMD_web",
+      retries: 0,
+      use: {
+        storageState: "Playwright/helpers/login/dev_bmd_auth.json",
+        baseURL: "https://app-bmd-wu2-uat-web.azurewebsites.net/",
+      },
+    },
+
+    {
+      name: "BMDProd",
+      testDir: "Playwright/tests/test_BMD_web",
+      retries: 0,
+      use: {
+        storageState: "Playwright/helpers/login/dev_bmd_auth.json",
+        baseURL: "https://app-bmd-wu2-prod-web.azurewebsites.net/",
       },
     },
 
