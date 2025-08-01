@@ -14,7 +14,7 @@ test.describe
     await bmdMainPage.goto();
 
     try {
-      await expect(page.locator('h4')).toContainText('Data Tables');
+      await expect(page.locator('h4.MuiTypography-h4:first-child')).toContainText('Data Tables');
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);
