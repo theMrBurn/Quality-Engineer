@@ -500,7 +500,10 @@ const config = {
       testDir: "Playwright/tests/test_BMD_web",
       retries: 0,
       use: {
-        storageState: path.resolve(__dirname, 'Playwright/helpers/login/local_bmd_auth.json'),
+        storageState: path.resolve(
+          __dirname, 
+          "Playwright/helpers/login/local_bmd_auth.json",
+        ),
         baseURL: "http://localhost:3000/",
       },
     },
@@ -510,7 +513,10 @@ const config = {
       testDir: "Playwright/tests/test_BMD_web",
       retries: 0,
       use: {
-        storageState: path.resolve(__dirname, 'Playwright/helpers/login/dev_bmd_auth.json'),
+        storageState: path.resolve(
+          __dirname, 
+          "Playwright/helpers/login/dev_bmd_auth.json",
+        ),
         baseURL: "https://app-bmd-wu2-dev-web.azurewebsites.net/",
       },
     },
@@ -520,7 +526,10 @@ const config = {
       testDir: "Playwright/tests/test_BMD_web",
       retries: 0,
       use: {
-        storageState: path.resolve(__dirname, 'Playwright/helpers/login/local_bmd_auth.json'),
+        storageState: path.resolve(
+          __dirname, 
+          "Playwright/helpers/login/dev_bmd_auth.json",
+        ),
         baseURL: "https://app-bmd-wu2-uat-web.azurewebsites.net/",
       },
     },
@@ -530,7 +539,10 @@ const config = {
       testDir: "Playwright/tests/test_BMD_web",
       retries: 0,
       use: {
-        storageState: path.resolve(__dirname, 'Playwright/helpers/login/local_bmd_auth.json'),
+        storageState: path.resolve(
+          __dirname, 
+          "Playwright/helpers/login/dev_bmd_auth.json",
+        ),
         baseURL: "https://app-bmd-wu2-prod-web.azurewebsites.net/",
       },
     },
