@@ -7,10 +7,58 @@ class FIM_Products {
   constructor(page) {
     this.page = page;
     this.locators = {
+      // Navigation Tabs
       storesTab: () => this.page.locator('[data-testid="nav-stores"]'),
       productsTab: () => this.page.locator('[data-testid="nav-products"]'),
-      storesGrid: () => this.page.locator("body > div > div:nth-child(4)"),
-      productsGrid: () => this.page.getByText("This is the Products page."),
+      productsHeader: () =>
+        this.page.getByRole("heading", { name: "Products" }),
+      storesHeader: () => this.page.getByRole("heading", { name: "Stores" }),
+
+      // Grids
+      storesGrid: () =>
+        this.page
+          .getByTestId("stores-grid-wrapper")
+          .locator("div")
+          .filter({ hasText: "Store #Store" })
+          .nth(1),
+      productsGrid: () =>
+        this.page.locator(
+          "body > div > div.css-h1izif-ProductsPage-container > div.css-oeb6hy-ProductsPage-contentContainer > div > div.css-gd12fs-ProductsGrid-gridScrollContainer",
+        ),
+      productNameColumn: () => this.page.getByText("Product Name"),
+      categoryColumn: () => this.page.getByText("Category"),
+      salesAmountColumn: () => this.page.getByText("Sales Amount"),
+      costAmountColumn: () => this.page.getByText("Cost Amount"),
+      grossAmountColumn: () => this.page.getByText("Gross Amount"),
+
+      // Modal Related
+      productsModal: () => this.page.locator("#modal-content"),
+      selectProductsButton: () =>
+        this.page.locator('[data-testid="select-products-button"]'),
+      cancelButton: () => this.page.locator('[data-testid="cancel-button"]'),
+      searchProducts: () =>
+        this.page.getByRole("textbox", { name: "Search Products" }),
+      xOutButton: () => this.page.getByRole("button", { name: "close" }),
+
+      // Product Form Elements
+      productNameLabel: () => this.page.locator("#product-name-label"),
+      productNameInput: () =>
+        this.page.locator('[data-testid="product-name-input"]'),
+      categorySelectInput: () =>
+        this.page.locator('[data-testid="category-select-input"]'),
+      salesAmountInput: () =>
+        this.page.locator('[data-testid="sales-amount-input"]'),
+      costAmountInput: () =>
+        this.page.locator('[data-testid="cost-amount-input"]'),
+      grossAmountInput: () =>
+        this.page.locator('[data-testid="gross-amount-input"]'),
+
+      // Buttons
+      addProductsButton: () => this.page.getByTestId("open-modal-button"),
+      openModalButton: () =>
+        this.page.locator('[data-testid="open-modal-button"]'),
+      closeButton: () => this.page.locator('button[name="close"]'),
+      clearSearchX: () => this.page.getByTestId("clear-product-search-button"),
     };
   }
 

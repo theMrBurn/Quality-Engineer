@@ -8,15 +8,68 @@ class FIM_Stores {
     this.page = page;
     this.locators = {
       storesTab: () => this.page.locator('[data-testid="nav-stores"]'),
+      storesHeader: () =>
+        this.page.locator("div").filter({ hasText: /^Stores$/ }),
       productsTab: () => this.page.locator('[data-testid="nav-products"]'),
-      storesGrid: () => this.page.locator("body > div > div:nth-child(4)"),
-      productsGrid: () => this.page.getByText("This is the Products page."),
+      storesGrid: () =>
+        this.page
+          .getByTestId("stores-grid-wrapper")
+          .locator("div")
+          .filter({ hasText: "Store #Store" })
+          .nth(1),
+      productsGrid: () =>
+        this.page.locator("#«r42»-role-element-id > div.k-grid-header"),
+
+      // grid column headers
+      storeNameColumn: () =>
+        this.page
+          .getByRole("columnheader", { name: "Store Name" })
+          .locator("span")
+          .nth(1),
+      addressColumn: () =>
+        this.page
+          .getByRole("columnheader", { name: "Address" })
+          .locator("span")
+          .nth(1),
+      cityColumn: () =>
+        this.page
+          .getByRole("columnheader", { name: "City" })
+          .locator("span")
+          .nth(1),
+      stateColumn: () =>
+        this.page
+          .getByRole("columnheader", { name: "State" })
+          .locator("span")
+          .nth(1),
+      zipColumn: () =>
+        this.page
+          .getByRole("columnheader", { name: "Zip" })
+          .locator("span")
+          .nth(1),
+      storeNumberColumn: () =>
+        this.page
+          .getByRole("columnheader", { name: "Store #" })
+          .locator("span")
+          .nth(1),
+
+      // add products modal
+      addProductsButton: () =>
+        this.page.getByTestId("open-add-store-products-modal-button"),
+
+      //pagination locators
+      itemsPerPage: () => this.page.getByText("10Items per page123456Items 1"),
+      accessibilityId: () => this.page.locator('[id="«r5j»-accessibility-id"]'),
+      itemsPerPageText: () => this.page.getByText("Items per page"),
+      itemsRangeText: () => this.page.getByText("Items 1 - 10 of"),
+      selectButton: () => this.page.getByRole("button", { name: "select" }),
+      option15: () => this.page.getByRole("option", { name: "15" }),
+      items1To15: () => this.page.getByText("Items 1 - 15 of"),
     };
   }
 
   // Navigation
   async goto() {
-    await this.page.goto("/FIM/stores");
+    await this.page.goto("/fim/stores");
     await this.page.waitForLoadState("load");
   }
 

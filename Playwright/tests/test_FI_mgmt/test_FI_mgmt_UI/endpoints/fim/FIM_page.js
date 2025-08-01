@@ -11,19 +11,21 @@ class FIM {
         this.page.locator("div").filter({ hasText: /^F&I Management$/ }),
       fimPageLogo: () =>
         this.page.getByRole("img", { name: "Lithia Motors Logo" }),
-      fimPageText: () => this.page.getByText("This is the F&I management"),
+      fimPageText: () => this.page.getByText("This is the Stores page"),
       fimUserTag: () => this.page.getByTestId("user-menu"),
-      fimUserTagSignOut: () => this.page.getByTestId("menu-item"),
+      fimUserTagSignOut: () => this.page.getByTestId("user-menu"),
       fimPageFooter: () => this.page.locator("body > div > footer"),
-      fimPageSupportLink: () => this.page.getByRole("link"),
+      fimPageSupportLink: () =>
+        this.page.locator("body > div > footer > div.footer-left > a > svg"),
       fimPageSupportLinkText: () => this.page.getByText("Help and Support"),
+      fimStoresHeader: () => this.page.getByRole("heading", { name: "Stores" }),
     };
   }
 
   // navigation
   async goto() {
-    await this.page.goto("fim");
-    await this.page.waitForLoadState("load");
+    await this.page.goto("/fim/stores");
+    await this.page.waitForLoadState("networkidle");
   }
 
   // common test methods

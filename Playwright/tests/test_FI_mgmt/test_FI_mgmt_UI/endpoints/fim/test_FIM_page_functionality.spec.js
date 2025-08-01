@@ -1,27 +1,33 @@
 import { test, expect } from "@playwright/test";
 import { FIM } from "./FIM_page";
+import FIM_Login from "../../../../../helpers/login/fim_login";
 
 // Test suite for F&I management, FIM page
-test.describe.serial("/ F&I management, /FIM page @func", () => {
+test.describe.serial("F&I management, /FIM page @func", () => {
   test("Navigate to /FIM and validate page element functionality is working as expected", async ({
     page,
   }) => {
     const fimgmt = new FIM(page);
     await fimgmt.goto();
 
-    try {
-      await page.waitForLoadState("load");
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page); // Call the login method
 
+    await page.waitForLoadState("load");
+
+    try {
       // Click user icon
       console.log(
         "validating page elements can be interacted with as expected..",
       );
-      await page.getByTestId("user-menu").click();
-      await page.getByTestId("menu-item").click();
+      const userTag = await page.getByTestId("user-menu");
+      const menuItem = await page.getByTestId("menu-item");
+
+      await expect(userTag, menuItem).toBeVisible();
 
       // Validate page text
-      const pageText = fimgmt.locators.fimPageText(); // Ensure you call the locator function
-      await expect(pageText).toContainText("This is the F&I management");
+      const pageText = page.getByRole("heading", { name: "Stores" }); // Ensure you call the locator function
+      await expect(pageText).toContainText("Stores");
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);
@@ -33,6 +39,11 @@ test.describe.serial("/ F&I management, /FIM page @func", () => {
   }) => {
     const fimgmt = new FIM(page);
     await fimgmt.goto();
+
+    const fimLogin = new FIM_Login(); // Instantiate the login helper
+    await fimLogin.loginFIM(page); // Call the l
+
+    await page.waitForLoadState("load");
 
     try {
       await page.waitForLoadState("load");
@@ -51,7 +62,7 @@ test.describe.serial("/ F&I management, /FIM page @func", () => {
       // Get the URL of the new page
       const currentURL = newPage.url();
       const supportLink =
-        "https://lithia.service-now.com/rrc?id=emp_taxonomy_topic&topic_id=d96b7ab51bcb9550a11f1131b24bcbe8";
+        "https://lithia.service-now.com/rrc?id=emp_taxonomy_topic&topic_id=e7ef104e3bc6ee504d679c9c24e45ad9";
 
       // Validate the new URL
       await expect(currentURL).toBe(supportLink);

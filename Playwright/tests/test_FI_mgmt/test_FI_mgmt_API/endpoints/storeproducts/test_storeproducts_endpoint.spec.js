@@ -2,9 +2,7 @@ const { test, expect } = require("@playwright/test");
 
 // Test suite for API testing - /storeproducts
 test.describe.serial("API testing - /storeproducts @fiManagementAPI", () => {
-  const baseURL = process.env.BASE_URL || "http://localhost:3200";
-
-  const companyNumber = 499; // The company number you're testing with
+  const companyNumber = 447; // The company number you're testing with
 
   // Negative Test for POST /storeproducts with invalid data
   test("POST /storeproducts returns 400 - Invalid product creation", async ({
@@ -12,7 +10,7 @@ test.describe.serial("API testing - /storeproducts @fiManagementAPI", () => {
   }) => {
     console.log("Starting test: POST /storeproducts with invalid data");
 
-    const response = await request.post(`${baseURL}/storeproducts`, {
+    const response = await request.post(`/storeproducts`, {
       headers: { "Content-Type": "application/json" },
       data: {},
     });
@@ -37,7 +35,7 @@ test.describe.serial("API testing - /storeproducts @fiManagementAPI", () => {
     console.log("Starting test: GET /storeproducts/{invalidId}");
 
     const invalidId = 9999; // A non-existent ID
-    const response = await request.get(`${baseURL}/storeproducts/${invalidId}`);
+    const response = await request.get(`/storeproducts/${invalidId}`);
     console.log(
       "Received response status:",
       response.status(),
@@ -70,11 +68,11 @@ test.describe.serial("API testing - /storeproducts @fiManagementAPI", () => {
     };
 
     console.group("Request Information");
-    console.log("Sending POST request to:", `${baseURL}/storeproducts`);
+    console.log("Sending POST request to:", `/storeproducts`);
     console.log("Request body:", JSON.stringify(payload, null, 2));
     console.groupEnd();
 
-    const response = await request.post(`${baseURL}/storeproducts`, {
+    const response = await request.post(`/storeproducts`, {
       data: payload,
       headers: { "Content-Type": "application/json" },
     });
@@ -101,6 +99,10 @@ test.describe.serial("API testing - /storeproducts @fiManagementAPI", () => {
   test("PUT /storeproducts updates a product successfully", async ({
     request,
   }) => {
+    test.fixme(
+      "there is no ability to pull the product_column_source_id from the database, so this test will fail, i need it in order to Update the product I created at the beginning of the test",
+    );
+
     console.log(
       "Starting test: PUT /storeproducts updates a product successfully",
     );
@@ -108,19 +110,19 @@ test.describe.serial("API testing - /storeproducts @fiManagementAPI", () => {
     const updatedProduct = {
       company_number: companyNumber,
       lease_type: "P",
-      product_name: "Lube Test",
-      source_field: null,
-      sales_amount: "12345", // Updated field
-      cost_amount: "12345", // Updated field
-      gross_amount: "12345", // Updated field
+      product_name: "Test Lube",
+      source_field: "Ins2Income",
+      sales_amount: "Ins2Fee", // Updated field
+      cost_amount: null, // Updated field
+      gross_amount: null, // Updated field
     };
 
     console.group("Request Information");
-    console.log("Sending PUT request to:", `${baseURL}/storeproducts`);
+    console.log("Sending PUT request to:", `/storeproducts`);
     console.log("Request body:", JSON.stringify(updatedProduct, null, 2));
     console.groupEnd();
 
-    const response = await request.put(`${baseURL}/storeproducts`, {
+    const response = await request.put(`/storeproducts`, {
       data: updatedProduct,
       headers: { "Content-Type": "application/json" },
     });
@@ -142,6 +144,10 @@ test.describe.serial("API testing - /storeproducts @fiManagementAPI", () => {
   test("DELETE /storeproducts deletes the product successfully", async ({
     request,
   }) => {
+    test.fixme(
+      "there is no ability to pull the product_column_source_id from the database, so this test will fail, i need it in order to delete the product I created at the beginning of the test",
+    );
+
     console.log(
       "Starting test: DELETE /storeproducts deletes a product successfully",
     );
@@ -154,11 +160,11 @@ test.describe.serial("API testing - /storeproducts @fiManagementAPI", () => {
     };
 
     console.group("Request Information");
-    console.log("Sending DELETE request to:", `${baseURL}/storeproducts`);
+    console.log("Sending DELETE request to:", `/storeproducts`);
     console.log("Request body:", JSON.stringify(deletePayload, null, 2));
     console.groupEnd();
 
-    const response = await request.delete(`${baseURL}/storeproducts`, {
+    const response = await request.delete(`/storeproducts`, {
       data: deletePayload,
       headers: { "Content-Type": "application/json" },
     });
