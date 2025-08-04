@@ -12,9 +12,9 @@ const xrayOptions = {
 };
 
 /**
- * @see https://playwright.dev/docs/test-configuration
- * @type {import('@playwright/test').PlaywrightTestConfig}
- */
+* @see https://playwright.dev/docs/test-configuration
+* @type {import('@playwright/test').PlaywrightTestConfig}
+*/
 const config = {
   globalSetup: "",
 
@@ -30,7 +30,7 @@ const config = {
      */
     timeout: 10 * 80 * 100,
   },
-
+ 
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
 
@@ -41,10 +41,8 @@ const config = {
   workers: process.env.CI ? 1 : 6,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
-    ["junit", { outputFile: "Playwright/test_results/test-xray-report.xml" }],
-  ],
-
+  reporter: [['junit', { outputFile: 'Playwright/test_results/test-xray-report.xml' }]],
+ 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -54,14 +52,14 @@ const config = {
     launchOptions: {
       slowMo: 360,
     },
-    screenshot: "only-on-failure",
+    screenshot: 'only-on-failure',
   },
-
+ 
   /* Configure projects */
   projects: [
     {
-      name: "InnovationPOC",
-      testDir: "Playwright/tests/innovation_sprint_poc",
+      name: 'InnovationPOC',
+      testDir: 'Playwright/tests/innovation_sprint_poc',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -71,10 +69,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/atlas",
       },
     },
-
+ 
     {
-      name: "FI_mgmt_API_DEV",
-      testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_API",
+      name: 'FI_mgmt_API_DEV',
+      testDir: 'Playwright/tests/test_FI_mgmt/test_FI_mgmt_API',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -84,10 +82,10 @@ const config = {
         baseURL: "https://app-lpp-fim-dev-api.azurewebsites.net",
       },
     },
-
+ 
     {
-      name: "FI_mgmt_UI_DEV",
-      testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_UI",
+      name: 'FI_mgmt_UI_DEV',
+      testDir: 'Playwright/tests/test_FI_mgmt/test_FI_mgmt_UI',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -97,10 +95,10 @@ const config = {
         baseURL: "https://dev.lpp.lithia.com",
       },
     },
-
+ 
     {
-      name: "FI_mgmt_UI_Local",
-      testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_UI",
+      name: 'FI_mgmt_UI_Local',
+      testDir: 'Playwright/tests/test_FI_mgmt/test_FI_mgmt_UI',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -110,10 +108,10 @@ const config = {
         baseURL: "http://localhost:3000",
       },
     },
-
+ 
     {
-      name: "FI_mgmt_API_Local",
-      testDir: "Playwright/tests/test_FI_mgmt/test_FI_mgmt_API",
+      name: 'FI_mgmt_API_Local',
+      testDir: 'Playwright/tests/test_FI_mgmt/test_FI_mgmt_API',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -123,10 +121,10 @@ const config = {
         baseURL: "http://localhost:3200",
       },
     },
-
+ 
     {
-      name: "PDash_test",
-      testDir: "Playwright/tests/test_pd10",
+      name: 'PDash_test',
+      testDir: 'Playwright/tests/test_pd10',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -136,10 +134,10 @@ const config = {
         baseURL: "https://spedev.lithiainc.com/main/store/",
       },
     },
-
+ 
     {
-      name: "PD_1_Local",
-      testDir: "Playwright/tests/test_pd10",
+      name: 'PD_1_Local',
+      testDir: 'Playwright/tests/test_pd10',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -149,20 +147,20 @@ const config = {
         baseURL: "https://localhost:44343/",
       },
     },
-
+ 
     {
-      name: "PDash_Login_test",
-      testDir: "Playwright/tests/test_pd10/test_spe_dashboard_login/",
+      name: 'PDash_Login_test',
+      testDir: 'Playwright/tests/test_pd10/test_spe_dashboard_login/',
       retries: 3,
       use: {
         // no storageState here as per original config
         baseURL: "https://spedev.lithiainc.com/main/store",
       },
     },
-
+ 
     {
-      name: "PDAdminLocal",
-      testDir: "Playwright/tests/test_pd20/test_PD_Admin",
+      name: 'PDAdminLocal',
+      testDir: 'Playwright/tests/test_pd20/test_PD_Admin',
       retries: 3,
       use: {
         baseURL: "http://localhost:3000/",
@@ -225,10 +223,10 @@ const config = {
         },
       },
     },
-
+ 
     {
-      name: "AtlasWebUAT",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web",
+      name: 'AtlasWebUAT',
+      testDir: 'Playwright/tests/test_LPP_web/atlas_web',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -238,10 +236,10 @@ const config = {
         baseURL: "https://uat.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "AtlasDealershipListings",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web/dealership_listings",
+      name: 'AtlasDealershipListings',
+      testDir: 'Playwright/tests/test_LPP_web/atlas_web/dealership_listings',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -251,10 +249,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "AtlasPlanDetailsView",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web/plan_details",
+      name: 'AtlasPlanDetailsView',
+      testDir: 'Playwright/tests/test_LPP_web/atlas_web/plan_details',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -264,10 +262,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "AtlasSalesOps",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web/sales_operations/",
+      name: 'AtlasSalesOps',
+      testDir: 'Playwright/tests/test_LPP_web/atlas_web/sales_operations/',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -277,11 +275,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "AtlasServiceDetailOps",
-      testDir:
-        "Playwright/tests/test_LPP_web/atlas_web/service_detail_operations",
+      name: 'AtlasServiceDetailOps',
+      testDir: 'Playwright/tests/test_LPP_web/atlas_web/service_detail_operations',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -291,10 +288,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "AtlasPartsOps",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web/parts_operations",
+      name: 'AtlasPartsOps',
+      testDir: 'Playwright/tests/test_LPP_web/atlas_web/parts_operations',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -304,10 +301,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "AtlasBodyShopOps",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web/body_shop_operations",
+      name: 'AtlasBodyShopOps',
+      testDir: 'Playwright/tests/test_LPP_web/atlas_web/body_shop_operations',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -317,10 +314,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "AtlasTotalStoreOps",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web/total_store/",
+      name: 'AtlasTotalStoreOps',
+      testDir: 'Playwright/tests/test_LPP_web/atlas_web/total_store/',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -330,10 +327,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "AtlasAPI",
-      testDir: "Playwright/tests/test_LPP_api/atlas_api",
+      name: 'AtlasAPI',
+      testDir: 'Playwright/tests/test_LPP_api/atlas_api',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -343,10 +340,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "TahoeLOFAPI_Local",
-      testDir: "Playwright/tests/test_LPP_api/tahoe_api",
+      name: 'TahoeLOFAPI_Local',
+      testDir: 'Playwright/tests/test_LPP_api/tahoe_api',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -356,10 +353,10 @@ const config = {
         baseURL: "http://localhost:5000/api",
       },
     },
-
+ 
     {
-      name: "TahoeLOFAPI_Test",
-      testDir: "Playwright/tests/test_LPP_api/tahoe_api",
+      name: 'TahoeLOFAPI_Test',
+      testDir: 'Playwright/tests/test_LPP_api/tahoe_api',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -369,10 +366,10 @@ const config = {
         baseURL: "https://azwu2loftest-apim.azure-api.net/api/",
       },
     },
-
+ 
     {
-      name: "AllPayTest",
-      testDir: "Playwright/tests/test_payroll_app_ui",
+      name: 'AllPayTest',
+      testDir: 'Playwright/tests/test_payroll_app_ui',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -382,10 +379,10 @@ const config = {
         baseURL: "https://azwu2apweb-test.azurewebsites.net/",
       },
     },
-
+ 
     {
-      name: "AllPayDev",
-      testDir: "Playwright/tests/test_payroll_app_ui",
+      name: 'AllPayDev',
+      testDir: 'Playwright/tests/test_payroll_app_ui',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -395,10 +392,10 @@ const config = {
         baseURL: "https://azwu2aptest-dev.azurewebsites.net/",
       },
     },
-
+ 
     {
-      name: "AllPayUAT",
-      testDir: "Playwright/tests/test_payroll_app_ui",
+      name: 'AllPayUAT',
+      testDir: 'Playwright/tests/test_payroll_app_ui',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -408,10 +405,10 @@ const config = {
         baseURL: "https://azwu2apweb-uat.azurewebsites.net/",
       },
     },
-
+ 
     {
-      name: "DenaliLPPTest",
-      testDir: "Playwright/tests/test_LPP_web/denali_portal",
+      name: 'DenaliLPPTest',
+      testDir: 'Playwright/tests/test_LPP_web/denali_portal',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -421,10 +418,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "SaharaLPOTest",
-      testDir: "Playwright/tests/test_LPP_web/sahara_LPO",
+      name: 'SaharaLPOTest',
+      testDir: 'Playwright/tests/test_LPP_web/sahara_LPO',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -434,10 +431,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "SaharaNewLienTest",
-      testDir: "Playwright/tests/test_LPP_web/sahara_new_lien",
+      name: 'SaharaNewLienTest',
+      testDir: 'Playwright/tests/test_LPP_web/sahara_new_lien',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -447,10 +444,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "SaharaFlooringPayoffs",
-      testDir: "Playwright/tests/test_LPP_web/sahara_flooring_payoffs",
+      name: 'SaharaFlooringPayoffs',
+      testDir: 'Playwright/tests/test_LPP_web/sahara_flooring_payoffs',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -460,10 +457,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "SaharaFlooringRequests",
-      testDir: "Playwright/tests/test_LPP_web/sahara_flooring_requests",
+      name: 'SaharaFlooringRequests',
+      testDir: 'Playwright/tests/test_LPP_web/sahara_flooring_requests',
       timeout: 100 * 1000 * 10000,
       retries: 3,
       use: {
@@ -474,10 +471,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "SaharaLHM",
-      testDir: "Playwright/tests/test_LPP_web/sahara_leinholder_management_web",
+      name: 'SaharaLHM',
+      testDir: 'Playwright/tests/test_LPP_web/sahara_leinholder_management_web',
       use: {
         storageState: path.resolve(
           __dirname,
@@ -486,10 +483,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "EscaladeDIMS",
-      testDir: "Playwright/tests/test_LPP_web/escalade_dims",
+      name: 'EscaladeDIMS',
+      testDir: 'Playwright/tests/test_LPP_web/escalade_dims',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -499,10 +496,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "EscaladeVDT",
-      testDir: "Playwright/tests/test_LPP_web/escalade_vdt",
+      name: 'EscaladeVDT',
+      testDir: 'Playwright/tests/test_LPP_web/escalade_vdt',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -512,10 +509,10 @@ const config = {
         baseURL: "https://test.lpp.lithia.com/",
       },
     },
-
+ 
     {
-      name: "CamaroDMM",
-      testDir: "Playwright/tests/test_LPP_web/camero_DMM",
+      name: 'CamaroDMM',
+      testDir: 'Playwright/tests/test_LPP_web/camero_DMM',
       retries: 3,
       use: {
         storageState: path.resolve(
@@ -523,6 +520,58 @@ const config = {
           "Playwright/helpers/login/test_DenaliLPP_superUser.json",
         ),
         baseURL: "https://test.lpp.lithia.com/",
+      },
+    },
+
+    {
+      name: "BMDLocal",
+      testDir: "Playwright/tests/test_BMD_web",
+      retries: 0,
+      use: {
+        storageState: path.resolve(
+          __dirname, 
+          "Playwright/helpers/login/local_bmd_auth.json",
+        ),
+        baseURL: "http://localhost:3000/",
+      },
+    },
+
+    {
+      name: "BMDDev",
+      testDir: "Playwright/tests/test_BMD_web",
+      retries: 0,
+      use: {
+        storageState: path.resolve(
+          __dirname, 
+          "Playwright/helpers/login/dev_bmd_auth.json",
+        ),
+        baseURL: "https://app-bmd-wu2-dev-web.azurewebsites.net/",
+      },
+    },
+
+    {
+      name: "BMDUAT",
+      testDir: "Playwright/tests/test_BMD_web",
+      retries: 0,
+      use: {
+        storageState: path.resolve(
+          __dirname, 
+          "Playwright/helpers/login/dev_bmd_auth.json",
+        ),
+        baseURL: "https://app-bmd-wu2-uat-web.azurewebsites.net/",
+      },
+    },
+
+    {
+      name: "BMDProd",
+      testDir: "Playwright/tests/test_BMD_web",
+      retries: 0,
+      use: {
+        storageState: path.resolve(
+          __dirname, 
+          "Playwright/helpers/login/dev_bmd_auth.json",
+        ),
+        baseURL: "https://app-bmd-wu2-prod-web.azurewebsites.net/",
       },
     },
 
@@ -545,9 +594,9 @@ const config = {
       },
     },
   ],
-
+ 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   outputDir: "Playwright/test_results",
 };
-
+ 
 module.exports = config;
