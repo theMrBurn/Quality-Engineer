@@ -203,7 +203,6 @@ const config = {
           "Application QA Test Automation/Playwright/helpers/login/atlas_test_env_auth.json",
         ),
         baseURL: "https://test.lpp.lithia.com/",
-        headless: false
       },
     },
 
