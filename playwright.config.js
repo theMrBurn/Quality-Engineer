@@ -171,10 +171,13 @@ const config = {
 
     {
       name: "PD_2_Local",
-      testDir: "Playwright/tests/test_pd20/local",
-      retries: 3,
+      testDir: "Playwright/tests/test_pd20/test_main_page",
+      retries: 0,
       use: {
-       storageState: "Playwright/helpers/login/pd2_local_env_auth.json",
+       storageState: path.resolve(
+          __dirname,
+          "Playwright/helpers/login/local_pd20_auth.json",
+       ),
        baseURL: "http://localhost:3000/",
        headless: false
       },
@@ -182,10 +185,13 @@ const config = {
 
     {
       name: "PD_2_Dev",
-      testDir: "Playwright/tests/test_pd20/dev",
-      retries: 3,
+      testDir: "Playwright/tests/test_pd20/test_main_page",
+      retries: 0,
       use: {
-        storageState: "Playwright/helpers/login/pd2_dev_env_login.json",
+        storageState: path.resolve(
+          __dirname,
+          "Playwright/helpers/login/dev_pd20_auth.json",
+        ),
         baseURL: "https://dev.apps.lithia.com/performancedashboard",
       },
     },
