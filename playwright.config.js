@@ -177,7 +177,6 @@ const config = {
           "Playwright/helpers/login/local_pd20_auth.json",
        ),
        baseURL: "http://localhost:3000/",
-       headless: false
       },
     },
 
