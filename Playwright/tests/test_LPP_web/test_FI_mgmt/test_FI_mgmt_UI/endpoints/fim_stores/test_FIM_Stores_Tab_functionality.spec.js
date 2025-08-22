@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { FIM_Stores } from "./FIM_stores_tab";
-import FIM_Login from "../../../../../helpers/login/fim_login";
+import FIM_Login from "../../../../../../helpers/login/fim_login";
 
 // Test suite for F&I management, FIM page
 test.describe
