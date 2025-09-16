@@ -1,20 +1,39 @@
 // @ts-check
 const path = require("path");
-const { devices } = require("@playwright/test");
-
-// JUnit reporter config for Xray
-const xrayOptions = {
-  setupFilesAfterEnv: ["./Playwright/helpers/afterEach.js"],
-  embedAnnotationsAsProperties: true,
-  textContentAnnotations: ["test_description"],
-  embedAttachmentsAsProperty: "testrun_evidence",
-  outputFile: "./test_results/test-xray-report.xml",
-};
+const fs = require("fs");
 
 /**
-* @see https://playwright.dev/docs/test-configuration
-* @type {import('@playwright/test').PlaywrightTestConfig}
-*/
+ * Helper function to resolve storageState paths relative to the config file.
+ * @param {Array} projects
+ * @returns {Array}
+ */
+
+function resolveStorageState(projects) {
+  return projects.map((project) => {
+    if (project.use && project.use.storageState) {
+      return {
+        ...project,
+        use: {
+          ...project.use,
+          storageState: path.resolve(__dirname, project.use.storageState),
+        },
+      };
+    }
+    return project;
+  });
+}
+
+// Load projects from JSON file
+const rawProjects = fs.readFileSync(
+  path.resolve(__dirname, "projects.json"),
+  "utf-8",
+);
+let projects = JSON.parse(rawProjects);
+projects = resolveStorageState(projects);
+
+/**
+ * @type {import('@playwright/test').PlaywrightTestConfig}
+ */
 const config = {
   globalSetup: "",
 
@@ -30,7 +49,7 @@ const config = {
      */
     timeout: 10 * 80 * 100,
   },
- 
+
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
 
@@ -41,8 +60,10 @@ const config = {
   workers: process.env.CI ? 1 : 6,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['junit', { outputFile: 'Playwright/test_results/test-xray-report.xml' }]],
- 
+  reporter: [
+    ["junit", { outputFile: "Playwright/test_results/test-xray-report.xml" }],
+  ],
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -52,549 +73,14 @@ const config = {
     launchOptions: {
       slowMo: 360,
     },
-    screenshot: 'only-on-failure',
+    screenshot: "only-on-failure",
   },
- 
-  /* Configure projects */
-  projects: [
-    {
-      name: 'InnovationPOC',
-      testDir: 'Playwright/tests/innovation_sprint_poc',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/atlas",
-      },
-    },
- 
-    {
-      name: 'FI_mgmt_API_DEV',
-      testDir: 'Playwright/tests/test_FI_mgmt/test_FI_mgmt_API',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/pd1_dev_env_login.json",
-        ),
-        baseURL: "https://app-lpp-fim-dev-api.azurewebsites.net",
-      },
-    },
- 
-    {
-      name: 'FI_mgmt_UI_DEV',
-      testDir: 'Playwright/tests/test_FI_mgmt/test_FI_mgmt_UI',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/pd1_dev_env_login.json",
-        ),
-        baseURL: "https://dev.lpp.lithia.com",
-      },
-    },
- 
-    {
-      name: 'FI_mgmt_UI_Local',
-      testDir: 'Playwright/tests/test_FI_mgmt/test_FI_mgmt_UI',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/pd1_dev_env_login.json",
-        ),
-        baseURL: "http://localhost:3000",
-      },
-    },
- 
-    {
-      name: 'FI_mgmt_API_Local',
-      testDir: 'Playwright/tests/test_FI_mgmt/test_FI_mgmt_API',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/pd1_dev_env_login.json",
-        ),
-        baseURL: "http://localhost:3200",
-      },
-    },
- 
-    {
-      name: 'PDash_test',
-      testDir: 'Playwright/tests/test_pd10',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/pd1_dev_env_login.json",
-        ),
-        baseURL: "https://spedev.lithiainc.com/main/store/",
-      },
-    },
- 
-    {
-      name: 'PD_1_Local',
-      testDir: 'Playwright/tests/test_pd10',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/pd1_dev_env_login.json",
-        ),
-        baseURL: "https://localhost:44343/",
-      },
-    },
- 
-    {
-      name: 'PDash_Login_test',
-      testDir: 'Playwright/tests/test_pd10/test_spe_dashboard_login/',
-      retries: 3,
-      use: {
-        // no storageState here as per original config
-        baseURL: "https://spedev.lithiainc.com/main/store",
-      },
-    },
- 
-    {
-      name: 'PDAdminLocal',
-      testDir: 'Playwright/tests/test_pd20/test_PD_Admin',
-      retries: 3,
-      use: {
-        baseURL: "http://localhost:3000/",
-      },
-    },
 
-    {
-      name: "PD_2_Local",
-      testDir: "Playwright/tests/test_pd20/test_main_page",
-      retries: 0,
-      use: {
-       storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/local_pd20_auth.json",
-       ),
-       baseURL: "http://localhost:3000/",
-      },
-    },
+  /* Load projects dynamically */
+  projects: projects,
 
-    {
-      name: "PD_2_Dev",
-      testDir: "Playwright/tests/test_pd20/test_main_page",
-      retries: 0,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/dev_pd20_auth.json",
-        ),
-        baseURL: "https://dev.apps.lithia.com/performancedashboard",
-      },
-    },
-
-    {
-      name: "AtlasWeb",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web",
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Application QA Test Automation/Playwright/helpers/login/atlas_test_env_auth.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
-
-    {
-      name: "AtlasWebE2E",
-      testDir: "Playwright/tests/test_LPP_web/atlas_web/atlas_e2e",
-      retries: 0,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/atlas_test_env_auth.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-        launchOptions: {
-          slowMo: 500, // Add the slowMo option here
-        },
-      },
-    },
- 
-    {
-      name: 'AtlasWebUAT',
-      testDir: 'Playwright/tests/test_LPP_web/atlas_web',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/atlas_test_env_auth.json",
-        ),
-        baseURL: "https://uat.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'AtlasDealershipListings',
-      testDir: 'Playwright/tests/test_LPP_web/atlas_web/dealership_listings',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/atlas_test_env_auth.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'AtlasPlanDetailsView',
-      testDir: 'Playwright/tests/test_LPP_web/atlas_web/plan_details',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/atlas_test_env_auth.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'AtlasSalesOps',
-      testDir: 'Playwright/tests/test_LPP_web/atlas_web/sales_operations/',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/atlas_test_env_auth.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'AtlasServiceDetailOps',
-      testDir: 'Playwright/tests/test_LPP_web/atlas_web/service_detail_operations',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/atlas_test_env_auth.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'AtlasPartsOps',
-      testDir: 'Playwright/tests/test_LPP_web/atlas_web/parts_operations',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/atlas_test_env_auth.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'AtlasBodyShopOps',
-      testDir: 'Playwright/tests/test_LPP_web/atlas_web/body_shop_operations',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/atlas_test_env_auth.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'AtlasTotalStoreOps',
-      testDir: 'Playwright/tests/test_LPP_web/atlas_web/total_store/',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/atlas_test_env_auth.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'AtlasAPI',
-      testDir: 'Playwright/tests/test_LPP_api/atlas_api',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/atlas_test_env_auth.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'TahoeLOFAPI_Local',
-      testDir: 'Playwright/tests/test_LPP_api/tahoe_api',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "http://localhost:5000/api",
-      },
-    },
- 
-    {
-      name: 'TahoeLOFAPI_Test',
-      testDir: 'Playwright/tests/test_LPP_api/tahoe_api',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "https://azwu2loftest-apim.azure-api.net/api/",
-      },
-    },
- 
-    {
-      name: 'AllPayTest',
-      testDir: 'Playwright/tests/test_payroll_app_ui',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_allpay_superUser.json",
-        ),
-        baseURL: "https://azwu2apweb-test.azurewebsites.net/",
-      },
-    },
- 
-    {
-      name: 'AllPayDev',
-      testDir: 'Playwright/tests/test_payroll_app_ui',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/dev_allPay_superuser_auth.json",
-        ),
-        baseURL: "https://azwu2aptest-dev.azurewebsites.net/",
-      },
-    },
- 
-    {
-      name: 'AllPayUAT',
-      testDir: 'Playwright/tests/test_payroll_app_ui',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/uat_allPay_superuser_auth.json",
-        ),
-        baseURL: "https://azwu2apweb-uat.azurewebsites.net/",
-      },
-    },
- 
-    {
-      name: 'DenaliLPPTest',
-      testDir: 'Playwright/tests/test_LPP_web/denali_portal',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'SaharaLPOTest',
-      testDir: 'Playwright/tests/test_LPP_web/sahara_LPO',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'SaharaNewLienTest',
-      testDir: 'Playwright/tests/test_LPP_web/sahara_new_lien',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'SaharaFlooringPayoffs',
-      testDir: 'Playwright/tests/test_LPP_web/sahara_flooring_payoffs',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'SaharaFlooringRequests',
-      testDir: 'Playwright/tests/test_LPP_web/sahara_flooring_requests',
-      timeout: 100 * 1000 * 10000,
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'SaharaLHM',
-      testDir: 'Playwright/tests/test_LPP_web/sahara_leinholder_management_web',
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'EscaladeDIMS',
-      testDir: 'Playwright/tests/test_LPP_web/escalade_dims',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'EscaladeVDT',
-      testDir: 'Playwright/tests/test_LPP_web/escalade_vdt',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Application QA Test Automation/Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
- 
-    {
-      name: 'CamaroDMM',
-      testDir: 'Playwright/tests/test_LPP_web/camero_DMM',
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-        ),
-        baseURL: "https://test.lpp.lithia.com/",
-      },
-    },
-
-    {
-      name: "BMDLocal",
-      testDir: "Playwright/tests/test_BMD_web",
-      retries: 0,
-      use: {
-        storageState: path.resolve(
-          __dirname, 
-          "Playwright/helpers/login/local_bmd_auth.json",
-        ),
-        baseURL: "http://localhost:3000/",
-      },
-    },
-
-    {
-      name: "BMDDev",
-      testDir: "Playwright/tests/test_BMD_web",
-      retries: 0,
-      use: {
-        storageState: path.resolve(
-          __dirname, 
-          "Playwright/helpers/login/dev_bmd_auth.json",
-        ),
-        baseURL: "https://app-bmd-wu2-dev-web.azurewebsites.net/",
-      },
-    },
-
-    {
-      name: "BMDUAT",
-      testDir: "Playwright/tests/test_BMD_web",
-      retries: 0,
-      use: {
-        storageState: path.resolve(
-          __dirname, 
-          "Playwright/helpers/login/dev_bmd_auth.json",
-        ),
-        baseURL: "https://app-bmd-wu2-uat-web.azurewebsites.net/",
-      },
-    },
-
-    {
-      name: "BMDProd",
-      testDir: "Playwright/tests/test_BMD_web",
-      retries: 0,
-      use: {
-        storageState: path.resolve(
-          __dirname, 
-          "Playwright/helpers/login/dev_bmd_auth.json",
-        ),
-        baseURL: "https://app-bmd-wu2-prod-web.azurewebsites.net/",
-      },
-    },
-
-    {
-      name: "SPEDev",
-      testDir: "Playwright/tests/test_performance_dashboard",
-      retries: 3,
-    },
-
-    {
-      name: "Impact_Builder_Web_Test",
-      testDir: "Playwright/tests/test_impact_builder_web",
-      retries: 3,
-      use: {
-        storageState: path.resolve(
-          __dirname,
-          "Playwright/helpers/login/test_allpay_superUser.json",
-        ),
-        baseURL: "https://app-allpaytest-wu2-web.azurewebsites.net/",
-      },
-    },
-  ],
- 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   outputDir: "Playwright/test_results",
 };
- 
+
 module.exports = config;

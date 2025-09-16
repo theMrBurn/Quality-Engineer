@@ -56,6 +56,8 @@ class TotalSalesExpenseView {
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[2]',
         ),
 
+
+
       // complete
       completeButton: () =>
         this.page.locator(
