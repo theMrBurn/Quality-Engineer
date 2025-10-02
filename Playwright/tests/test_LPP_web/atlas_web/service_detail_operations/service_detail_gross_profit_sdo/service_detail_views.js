@@ -21,7 +21,7 @@ class ServiceDetailstView {
       totalServiceGrossHeader: () => this.page.getByText("Total Service Gross"),
 
       //Flat Rate Hours card locators
-      frh2024AOPinput: () => this.page.locator("#ServiceTHRS").first(),
+      frhAOPinput: () => this.page.locator("#ServiceTHRS").first(),
       frhPotentialInput: () =>
         this.page.getByRole("textbox", { name: "Retail Units" }),
       frhYoYcounter: () =>
@@ -38,7 +38,7 @@ class ServiceDetailstView {
         ),
 
       //Customer Pay Gross card locators
-      cpg2024AOPinput: () => this.page.locator("#LOPS20205").first(),
+      cpgAOPinput: () => this.page.locator("#LOPS20205").first(),
       cpgPotentialInput: () => this.page.locator("#LOPS20205").nth(1),
       cpgYoYcounter: () =>
         this.page.locator(
@@ -58,7 +58,7 @@ class ServiceDetailstView {
         ),
 
       //Warrenty Gross card locators
-      warg2024AOPinput: () => this.page.locator("#LOPS20305").first(),
+      wargAOPinput: () => this.page.locator("#LOPS20305").first(),
       wargPotentialInput: () => this.page.locator("#LOPS20305").nth(1),
       wargYoYcounter: () =>
         this.page.locator(
@@ -78,7 +78,7 @@ class ServiceDetailstView {
         ),
 
       //Internal Gross card locators
-      ig2024AOPinput: () => this.page.locator("#LOPS20405").first(),
+      igAOPinput: () => this.page.locator("#LOPS20405").first(),
       igPotentialInput: () => this.page.locator("#LOPS20405").nth(1),
       igYoYcounter: () =>
         this.page.locator(
@@ -98,7 +98,7 @@ class ServiceDetailstView {
         ),
 
       //All Other Gross card locators
-      aog2024AOPinput: () => this.page.locator("#ServiceMultiple").first(),
+      aogAOPinput: () => this.page.locator("#ServiceMultiple").first(),
       aogPotentialInput: () => this.page.locator("#ServiceMultiple").nth(1),
       aogYoYcounter: () =>
         this.page.locator(
@@ -118,7 +118,7 @@ class ServiceDetailstView {
         ),
 
       //Total Detail Gross card locators
-      tdg2024AOPinput: () => this.page.locator("#LOPS35605").first(),
+      tdgAOPinput: () => this.page.locator("#LOPS35605").first(),
       tdgPotentialInput: () => this.page.locator("#LOPS35605").nth(1),
       tdgYoYcounter: () =>
         this.page.locator(
@@ -138,7 +138,7 @@ class ServiceDetailstView {
         ),
 
       //Total Serivce Gross card locators
-      // tsg2024AOPinput: () => this.page.locator("#LOPS35605").first(), -- input no longer valid
+      // tsgAOPinput: () => this.page.locator("#LOPS35605").first(), -- input no longer valid
       // tsgPotentialInput: () => this.page.locator("#LOPS35605").nth(1),
       tsgAOP: () =>
         this.page.locator(

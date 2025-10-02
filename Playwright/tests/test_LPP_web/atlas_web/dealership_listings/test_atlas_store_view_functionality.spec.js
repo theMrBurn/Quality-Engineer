@@ -1,39 +1,23 @@
-// Atlas Web
-
-// dependancies
 const { test, expect } = require("@playwright/test");
 const { AdminStoreView } = require("./atlas_web.js");
 const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 
-// test
 test.describe.serial("Atlas Web - Page Elements @func", () => {
-  let adminStoreView;
-
-  test.beforeEach(async ({ browser, page }) => {
-    adminStoreView = new AdminStoreView(page);
-    await adminStoreView.goto();
-  });
-
-  test.afterEach(async ({ page }) => {
-    await page.close();
-  });
-
-  test.slow();
-
   test("Navigate to Atlas Web, click on first Dealership Listing and validate Seasonality Page elements have loaded as expected", async ({
-    browser,
     page,
   }) => {
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
 
-    try {
-      // Your existing test steps
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
+    try {
       await page.getByText("STORE", { exact: true }).click();
       await page.getByText("L0000 Aop Test Store").click();
       await page.waitForLoadState();
-      await page.waitForURL("/atlas/plan/0/history?history=2024");
+      await page.waitForURL("/atlas/plan/0/history?history=2025");
 
       await page.goto("https://test.lpp.lithia.com/atlas/");
       await page
@@ -41,52 +25,52 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
         .getByTestId("ArrowCircleRightIcon");
     } catch (error) {
       console.error("Error during test:", error.message);
-      // Mark the test as failed
       throw new Error("Test failed.");
     }
   });
 
   test("Navigate to Atlas Web, search for L0023 and validate search option has loaded, as expected", async ({
-    browser,
     page,
   }) => {
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     try {
-      // Your existing test steps
       await page.getByPlaceholder("SEARCH").click();
       await page.getByPlaceholder("SEARCH").fill("L0023");
       await page.getByRole("button", { name: "Submit" }).click();
     } catch (error) {
       console.error("Error during test:", error.message);
-      // Mark the test as failed
       throw new Error("Test failed.");
     }
   });
 
   test("Navigate to Atlas Web, search for L0023 and validate search option Reset Filters works as expected", async ({
-    browser,
     page,
   }) => {
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
 
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
     try {
-      // Your existing test steps
       await page.getByPlaceholder("SEARCH").click();
       await page.getByPlaceholder("SEARCH").fill("L0023");
       await page.getByRole("button", { name: "Submit" }).click();
       await page.getByRole("button", { name: "Reset Filters" }).click();
     } catch (error) {
       console.error("Error during test:", error.message);
-      // Mark the test as failed
       throw new Error("Test failed.");
     }
   });
 
   test("Navigate to Atlas Web, scroll to bottom, click to validate pagination options", async ({
-    browser,
     page,
   }) => {
     test.fixme(
@@ -94,6 +78,10 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     );
     const adminStoreView = new AdminStoreView(page);
     await adminStoreView.goto();
+
+    // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // find NEXT pagination button and click
@@ -129,7 +117,6 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
       //await expect(textContent2).toHaveText("- of items");
     } catch (error) {
       console.error("Error during test:", error.message);
-      // Mark the test as failed
       throw new Error("Test failed.");
     }
   });

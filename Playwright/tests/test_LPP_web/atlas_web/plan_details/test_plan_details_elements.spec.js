@@ -30,8 +30,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await planDetailsView.goto();
 
     // // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // await page.getByLabel("Plan Details (0)").locator("path").click();
     // await page.waitForURL("atlas/plan/0");
@@ -65,7 +65,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
   }) => {
     const planDetailsView = new PlanDetailsView(page);
     await planDetailsView.goto();
-    await page.waitForLoadState("load");
+
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     const locatorNames = [
       "planProgress",
@@ -91,18 +94,21 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     page,
   }) => {
     const planDetailsView = new PlanDetailsView(page);
-    await planDetailsView.goto();
-    await page.waitForLoadState("load");
+    await planDetailsView.goto("/atlas/plan/0");
+
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     const locatorNames = [
       "storePerformance",
       "aopByMonth",
       "viewAOPButton",
       "viewSeasonValuesCalcd",
-      "actualValues2023ByMonth",
+      "actualValuesByMonth",
       "viewDataButton1",
       "currentYearDownload",
-      "mbmActual2022",
+      "mbmActual",
       "viewDataButton2",
       "historicalDownload",
       "trendAnalyzer",

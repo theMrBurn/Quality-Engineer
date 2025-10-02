@@ -5,9 +5,6 @@ const { test, expect } = require("@playwright/test");
 const { TotalStoreView } = require("./total_store_view");
 const AtlasLogin = require("../../../../helpers/login/atlas_login");
 
-// Instantiate your AtlasLogin class
-const atlasLogin = new AtlasLogin();
-
 //test
 test.describe
   .serial("Atlas Web - Total Store Page Functional Tests @func", () => {
@@ -19,9 +16,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Total Store Ops
     await page
@@ -36,7 +33,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await totalStoreView.locators.ai2024AOPinput().clear();
+      await totalStoreView.locators.aiAOPinput().clear();
       //await totalStoreView.locators.aiPotentialInput().clear();
       await totalStoreView.locators.aiUpdateButton().isDisabled();
     } catch (error) {
@@ -53,9 +50,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Total Store Ops
     await page
@@ -70,9 +67,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await totalStoreView.locators.ai2024AOPinput().clear("1701");
+      await totalStoreView.locators.aiAOPinput().clear("1701");
       // await totalStoreView.locators.aiPotentialInput().clear("2000");
-      await totalStoreView.locators.ai2024AOPinput().fill(",./");
+      await totalStoreView.locators.aiAOPinput().fill(",./");
       // await totalStoreView.locators.aiPotentialInput().fill(",./");
       await totalStoreView.locators.aiUpdateButton().isDisabled();
     } catch (error) {
@@ -89,9 +86,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Total Store Ops
     await page
@@ -106,8 +103,8 @@ test.describe
 
     try {
       //input invalid amount and click Update - vaidate Update Success
-      await totalStoreView.locators.ai2024AOPinput().clear("1701");
-      await totalStoreView.locators.ai2024AOPinput().fill("1701");
+      await totalStoreView.locators.aiAOPinput().clear("1701");
+      await totalStoreView.locators.aiAOPinput().fill("1701");
       // await totalStoreView.locators.aiPotentialInput().clear("2000");
       // await totalStoreView.locators.aiPotentialInput().fill("2000");
       await totalStoreView.locators.aiUpdateButton().click();
@@ -126,9 +123,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate Total Store Ops
     await page
@@ -164,9 +161,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate Total Store Ops
     await page
@@ -202,9 +199,9 @@ test.describe
     const totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //click complete - vaidate complete confirmation modal
     await page

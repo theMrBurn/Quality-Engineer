@@ -31,10 +31,10 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await bodyShopTotalParts.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
-    //start at dealership listing and navagate to plan details, then to navigate to Total Parts
+    //start at dealership listing and navagate to plan details, then to navigate to Total Body Shop
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
@@ -49,15 +49,19 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     const locatorNames = [
       "totalBodyShopExpense",
       "totalBodyShopOperatingProfit",
-      "aop2024",
-      "potential2024",
+      "aop",
+      "potential",
       "aopYoYcounter",
-      "aop2024PerformanceChart",
-      "tbsopAOP2024",
-      "tbsopPotential2024",
+      "aopPerformanceChart",
+      "tbsopAOP",
+      "tbsopPotential",
       "tbsopYoYcounter",
-      "tbsop2024PerformanceChart",
+      "tbsopPerformanceChart",
       "completeButton",
+      "tbsopAOP",
+      "tbsopPotential",
+      "tbsopYoYcounter",
+      "tbsopPerformanceChart",
     ];
 
     try {

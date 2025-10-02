@@ -31,8 +31,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -49,7 +49,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await bodyShopGrossProfitView.locators.cpg2024AOPinput().clear();
+      await bodyShopGrossProfitView.locators.cpgAOPinput().clear();
       //await bodyShopGrossProfitView.locators.cpgPotentialInput().clear();
       await bodyShopGrossProfitView.locators.cpgUpdateButton().isDisabled();
     } catch (error) {
@@ -67,8 +67,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -85,9 +85,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await bodyShopGrossProfitView.locators.cpg2024AOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.cpgAOPinput().clear("1701");
       //await bodyShopGrossProfitView.locators.cpgPotentialInput().clear("2000");
-      await bodyShopGrossProfitView.locators.cpg2024AOPinput().fill(",./");
+      await bodyShopGrossProfitView.locators.cpgAOPinput().fill(",./");
       //await bodyShopGrossProfitView.locators.cpgPotentialInput().fill(",./");
       await bodyShopGrossProfitView.locators.cpgUpdateButton().isDisabled();
     } catch (error) {
@@ -105,8 +105,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -123,8 +123,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await bodyShopGrossProfitView.locators.cpg2024AOPinput().clear("1701");
-      await bodyShopGrossProfitView.locators.cpg2024AOPinput().fill("1701");
+      await bodyShopGrossProfitView.locators.cpgAOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.cpgAOPinput().fill("1701");
       //await bodyShopGrossProfitView.locators.cpgPotentialInput().clear("2000");
       //await bodyShopGrossProfitView.locators.cpgPotentialInput().fill("2000");
       await bodyShopGrossProfitView.locators.cpgUpdateButton().click();
@@ -144,8 +144,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -162,7 +162,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await bodyShopGrossProfitView.locators.ig2024AOPinput().clear();
+      await bodyShopGrossProfitView.locators.igAOPinput().clear();
       //await bodyShopGrossProfitView.locators.igPotentialInput().clear();
       await bodyShopGrossProfitView.locators.igUpdateButton().isDisabled();
     } catch (error) {
@@ -180,8 +180,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -198,9 +198,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await bodyShopGrossProfitView.locators.ig2024AOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.igAOPinput().clear("1701");
       //await bodyShopGrossProfitView.locators.igPotentialInput().clear("2000");
-      await bodyShopGrossProfitView.locators.ig2024AOPinput().fill(",./");
+      await bodyShopGrossProfitView.locators.igAOPinput().fill(",./");
       //await bodyShopGrossProfitView.locators.igPotentialInput().fill(",./");
       await bodyShopGrossProfitView.locators.igUpdateButton().isDisabled();
     } catch (error) {
@@ -218,8 +218,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -236,8 +236,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await bodyShopGrossProfitView.locators.ig2024AOPinput().clear("1701");
-      await bodyShopGrossProfitView.locators.ig2024AOPinput().fill("1701");
+      await bodyShopGrossProfitView.locators.igAOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.igAOPinput().fill("1701");
       //await bodyShopGrossProfitView.locators.igPotentialInput().clear("2000");
       //await bodyShopGrossProfitView.locators.igPotentialInput().fill("2000");
       await bodyShopGrossProfitView.locators.igUpdateButton().click();
@@ -257,8 +257,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -275,7 +275,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await bodyShopGrossProfitView.locators.ads2024AOPinput().clear();
+      await bodyShopGrossProfitView.locators.adsAOPinput().clear();
       //await bodyShopGrossProfitView.locators.adsPotentialInput().clear();
       await bodyShopGrossProfitView.locators.adsUpdateButton().isDisabled();
     } catch (error) {
@@ -293,8 +293,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -311,9 +311,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await bodyShopGrossProfitView.locators.ads2024AOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.adsAOPinput().clear("1701");
       //await bodyShopGrossProfitView.locators.adsPotentialInput().clear("2000");
-      await bodyShopGrossProfitView.locators.ads2024AOPinput().fill(",./");
+      await bodyShopGrossProfitView.locators.adsAOPinput().fill(",./");
       //await bodyShopGrossProfitView.locators.adsPotentialInput().fill(",./");
       await bodyShopGrossProfitView.locators.adsUpdateButton().isDisabled();
     } catch (error) {
@@ -331,8 +331,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -349,8 +349,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await bodyShopGrossProfitView.locators.ads2024AOPinput().clear("1701");
-      await bodyShopGrossProfitView.locators.ads2024AOPinput().fill("1701");
+      await bodyShopGrossProfitView.locators.adsAOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.adsAOPinput().fill("1701");
       //await bodyShopGrossProfitView.locators.adsPotentialInput().clear("2000");
       //await bodyShopGrossProfitView.locators.adsPotentialInput().fill("2000");
       await bodyShopGrossProfitView.locators.adsUpdateButton().click();
@@ -370,8 +370,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -388,7 +388,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await bodyShopGrossProfitView.locators.pg2024AOPinput().clear();
+      await bodyShopGrossProfitView.locators.pgAOPinput().clear();
       //await bodyShopGrossProfitView.locators.pgPotentialInput().clear();
       await bodyShopGrossProfitView.locators.pgUpdateButton().isDisabled();
     } catch (error) {
@@ -406,8 +406,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -424,9 +424,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await bodyShopGrossProfitView.locators.pg2024AOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.pgAOPinput().clear("1701");
       // await bodyShopGrossProfitView.locators.pgPotentialInput().clear("2000");
-      await bodyShopGrossProfitView.locators.pg2024AOPinput().fill(",./");
+      await bodyShopGrossProfitView.locators.pgAOPinput().fill(",./");
       // await bodyShopGrossProfitView.locators.pgPotentialInput().fill(",./");
       await bodyShopGrossProfitView.locators.pgUpdateButton().isDisabled();
     } catch (error) {
@@ -444,8 +444,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -462,8 +462,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await bodyShopGrossProfitView.locators.pg2024AOPinput().clear("1701");
-      await bodyShopGrossProfitView.locators.pg2024AOPinput().fill("1701");
+      await bodyShopGrossProfitView.locators.pgAOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.pgAOPinput().fill("1701");
       // await bodyShopGrossProfitView.locators.pgPotentialInput().clear("2000");
       // await bodyShopGrossProfitView.locators.pgPotentialInput().fill("2000");
       await bodyShopGrossProfitView.locators.pgUpdateButton().click();
@@ -483,8 +483,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -501,7 +501,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await bodyShopGrossProfitView.locators.aog2024AOPinput().clear();
+      await bodyShopGrossProfitView.locators.aogAOPinput().clear();
       // await bodyShopGrossProfitView.locators.aogPotentialInput().clear();
       await bodyShopGrossProfitView.locators.aogUpdateButton().isDisabled();
     } catch (error) {
@@ -519,8 +519,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -537,9 +537,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await bodyShopGrossProfitView.locators.aog2024AOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.aogAOPinput().clear("1701");
       //  await bodyShopGrossProfitView.locators.aogPotentialInput().clear("2000");
-      await bodyShopGrossProfitView.locators.aog2024AOPinput().fill(",./");
+      await bodyShopGrossProfitView.locators.aogAOPinput().fill(",./");
       //  await bodyShopGrossProfitView.locators.aogPotentialInput().fill(",./");
       await bodyShopGrossProfitView.locators.aogUpdateButton().isDisabled();
     } catch (error) {
@@ -557,8 +557,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -575,8 +575,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await bodyShopGrossProfitView.locators.aog2024AOPinput().clear("1701");
-      await bodyShopGrossProfitView.locators.aog2024AOPinput().fill("1701");
+      await bodyShopGrossProfitView.locators.aogAOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.aogAOPinput().fill("1701");
       //  await bodyShopGrossProfitView.locators.aogPotentialInput().clear("2000");
       //  await bodyShopGrossProfitView.locators.aogPotentialInput().fill("2000");
       await bodyShopGrossProfitView.locators.aogUpdateButton().click();
@@ -596,8 +596,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -614,7 +614,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await bodyShopGrossProfitView.locators.tr2024AOPinput().clear();
+      await bodyShopGrossProfitView.locators.trAOPinput().clear();
       //  await bodyShopGrossProfitView.locators.trPotentialInput().clear();
       await bodyShopGrossProfitView.locators.trUpdateButton().isDisabled();
     } catch (error) {
@@ -632,8 +632,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -650,9 +650,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await bodyShopGrossProfitView.locators.tr2024AOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.trAOPinput().clear("1701");
       //  await bodyShopGrossProfitView.locators.trPotentialInput().clear("2000");
-      await bodyShopGrossProfitView.locators.tr2024AOPinput().fill(",./");
+      await bodyShopGrossProfitView.locators.trAOPinput().fill(",./");
       //  await bodyShopGrossProfitView.locators.trPotentialInput().fill(",./");
       await bodyShopGrossProfitView.locators.trUpdateButton().isDisabled();
     } catch (error) {
@@ -670,8 +670,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -688,8 +688,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await bodyShopGrossProfitView.locators.tr2024AOPinput().clear("1701");
-      await bodyShopGrossProfitView.locators.tr2024AOPinput().fill("1701");
+      await bodyShopGrossProfitView.locators.trAOPinput().clear("1701");
+      await bodyShopGrossProfitView.locators.trAOPinput().fill("1701");
       //  await bodyShopGrossProfitView.locators.trPotentialInput().clear("2000");
       //  await bodyShopGrossProfitView.locators.trPotentialInput().fill("2000");
       await bodyShopGrossProfitView.locators.trUpdateButton().click();

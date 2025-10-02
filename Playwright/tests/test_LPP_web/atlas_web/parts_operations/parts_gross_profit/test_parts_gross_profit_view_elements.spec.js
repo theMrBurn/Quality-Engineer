@@ -29,8 +29,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -74,8 +74,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -89,7 +89,7 @@ test.describe
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
-      "cpg2024AOPinput",
+      "cpgAOPinput",
       // "cpgPotentialInput",
       "cpgYoYcounter",
       "cpgPerformanceChart",
@@ -116,8 +116,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -131,7 +131,7 @@ test.describe
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
-      "wg2024AOPinput",
+      "wgAOPinput",
       //  "wgPotentialInput",
       "wgYoYcounter",
       "wgPerformanceChart",
@@ -158,8 +158,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -173,7 +173,7 @@ test.describe
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
-      "ig2024AOPinput",
+      "igAOPinput",
       // "igPotentialInput",
       "igYoYcounter",
       "igPerformanceChart",
@@ -199,8 +199,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -214,7 +214,7 @@ test.describe
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
-      "wsg2024AOPinput",
+      "wsgAOPinput",
       //  "wsgPotentialInput",
       "wsgYoYcounter",
       "wsgPerformanceChart",
@@ -241,8 +241,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -256,7 +256,7 @@ test.describe
     await page.waitForLoadState("networkidle");
 
     const locatorNames = [
-      "aog2024AOPinput",
+      "aogAOPinput",
       //  "aogPotentialInput",
       "aogYoYcounter",
       "aogPerformanceChart",

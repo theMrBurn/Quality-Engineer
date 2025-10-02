@@ -1,6 +1,6 @@
 // Atlas Web
 
-// dependancies
+// dependencies
 const { test, expect } = require("@playwright/test");
 const { TotalStoreView } = require("./total_store_view");
 const AtlasLogin = require("../../../../helpers/login/atlas_login");
@@ -8,20 +8,27 @@ const AtlasLogin = require("../../../../helpers/login/atlas_login");
 // Instantiate your AtlasLogin class
 const atlasLogin = new AtlasLogin();
 
-//test
+// Test
 test.describe.serial("Atlas Web - Page Elements @smoke", () => {
-  test("Navigate to Atlas Web, Parts Operations, and validate Total Parts basic elements have loaded as expected", async ({
-    browser,
-    page,
-  }) => {
-    const totalStoreView = new TotalStoreView(page);
+  let page;
+  let totalStoreView;
+
+  test.beforeEach(async ({ browser }) => {
+    page = await browser.newPage();
+    totalStoreView = new TotalStoreView(page);
     await totalStoreView.goto();
+  });
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+  test.afterEach(async () => {
+    await page.close();
+  });
 
-    //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
+  test("Navigate to Atlas Web, Total Store Operations, and validate Total Store basic elements have loaded as expected", async () => {
+    // // Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
+
+    // Start at dealership listing and navigate to plan details, then navigate to Total Store
     await page
       .getByRole("columnheader", { name: "STORE " })
       .locator("span")
@@ -32,37 +39,41 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await page.getByText("Total Store", { exact: true }).click();
     await page.waitForLoadState("networkidle");
 
-    //landed on the body shop total parts view, validate basic elements have loaded
-
+    // Landed on the total store view, validate basic elements have loaded
     const locatorNames = [
       "totalStoreHeader",
       "totalStoreGross",
       "totalStoreExpense",
       "additionalIncome",
       "netProfitBeforeTax",
-      "aop2024",
+      "aop",
       //"potential2024",
       "aopYoYcounter",
-      "aop2024PerformanceChart",
-      "tseAOP2024",
+      "aopPerformanceChart",
+      "tseAOP",
       //"tsePotential2024",
       "tseYoYcounter",
-      "tse2024PerformanceChart",
-      "ai2024AOPinput",
+      "tsePerformanceChart",
+      "aiAOPinput",
       //"aiPotentialInput",
       "aiYoYcounter",
       "aiPerformanceChart",
       "aiUpdateButton",
-      "npbtAOP2024",
+      "npbtAOP",
       //"npbtPotential2024",
       "npbtYoYcounter",
-      "npbt2024PerformanceChart",
+      "npbtPerformanceChart",
       "topCompleteButton",
       "bottomCompleteButton",
     ];
 
-    for (const locatorName of locatorNames) {
-      await totalStoreView.checkElementVisibility(locatorName);
+    try {
+      for (const locatorName of locatorNames) {
+        await totalStoreView.checkElementVisibility(locatorName);
+      }
+    } catch (error) {
+      console.error("Error during test:", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

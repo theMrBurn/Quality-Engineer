@@ -17,8 +17,8 @@ test.describe
     await page.waitForLoadState("networkidle");
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
@@ -35,7 +35,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await sdoTotalServiceDetail.locators.tdeAOP2024input().clear();
+      await sdoTotalServiceDetail.locators.tdeAOPinput().clear();
       // await sdoTotalServiceDetail.locators.tdePotential2024input().clear();
       await sdoTotalServiceDetail.locators.tdeUpdateButton().isDisabled();
     } catch (error) {
@@ -54,8 +54,8 @@ test.describe
     await page.waitForLoadState("networkidle");
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
@@ -72,11 +72,11 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await sdoTotalServiceDetail.locators.tdeAOP2024input().clear("1701");
+      await sdoTotalServiceDetail.locators.tdeAOPinput().clear("1701");
       // await sdoTotalServiceDetail.locators
       //   .tdePotential2024input()
       //   .clear("2000");
-      await sdoTotalServiceDetail.locators.tdeAOP2024input().fill(",./");
+      await sdoTotalServiceDetail.locators.tdeAOPinput().fill(",./");
       // await sdoTotalServiceDetail.locators.tdePotential2024input().fill(",./");
       await sdoTotalServiceDetail.locators.tdeUpdateButton().isDisabled();
     } catch (error) {
@@ -95,8 +95,8 @@ test.describe
     await page.waitForLoadState("networkidle");
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
@@ -113,8 +113,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await sdoTotalServiceDetail.locators.tdeAOP2024input().clear("1701");
-      await sdoTotalServiceDetail.locators.tdeAOP2024input().fill("1701");
+      await sdoTotalServiceDetail.locators.tdeAOPinput().clear("1701");
+      await sdoTotalServiceDetail.locators.tdeAOPinput().fill("1701");
       // await sdoTotalServiceDetail.locators
       //   .tdePotential2024input()
       //   .clear("2000");

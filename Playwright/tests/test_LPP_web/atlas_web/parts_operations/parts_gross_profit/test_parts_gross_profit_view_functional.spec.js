@@ -31,8 +31,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -47,7 +47,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await partsGrossProfitView.locators.cpg2024AOPinput().clear();
+      await partsGrossProfitView.locators.cpgAOPinput().clear();
       //  await partsGrossProfitView.locators.cpgPotentialInput().clear();
       await partsGrossProfitView.locators.cpgUpdateButton().isDisabled();
     } catch (error) {
@@ -65,8 +65,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -81,9 +81,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await partsGrossProfitView.locators.cpg2024AOPinput().clear("1701");
+      await partsGrossProfitView.locators.cpgAOPinput().clear("1701");
       //  await partsGrossProfitView.locators.cpgPotentialInput().clear("2000");
-      await partsGrossProfitView.locators.cpg2024AOPinput().fill(",./");
+      await partsGrossProfitView.locators.cpgAOPinput().fill(",./");
       //  await partsGrossProfitView.locators.cpgPotentialInput().fill(",./");
       await partsGrossProfitView.locators.cpgUpdateButton().isDisabled();
     } catch (error) {
@@ -101,8 +101,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -119,8 +119,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await partsGrossProfitView.locators.cpg2024AOPinput().clear("1701");
-      await partsGrossProfitView.locators.cpg2024AOPinput().fill("1701");
+      await partsGrossProfitView.locators.cpgAOPinput().clear("1701");
+      await partsGrossProfitView.locators.cpgAOPinput().fill("1701");
       await partsGrossProfitView.locators.cpgUpdateButton().click();
       await expect(page.getByText("Plan step updated!")).toBeVisible();
     } catch (error) {
@@ -138,8 +138,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -154,7 +154,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await partsGrossProfitView.locators.wg2024AOPinput().clear();
+      await partsGrossProfitView.locators.wgAOPinput().clear();
       //  await partsGrossProfitView.locators.wgPotentialInput().clear();
       await partsGrossProfitView.locators.wgUpdateButton().isDisabled();
     } catch (error) {
@@ -172,8 +172,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -188,9 +188,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await partsGrossProfitView.locators.wg2024AOPinput().clear("1701");
+      await partsGrossProfitView.locators.wgAOPinput().clear("1701");
       //  await partsGrossProfitView.locators.wgPotentialInput().clear("2000");
-      await partsGrossProfitView.locators.wg2024AOPinput().fill(",./");
+      await partsGrossProfitView.locators.wgAOPinput().fill(",./");
       //  await partsGrossProfitView.locators.wgPotentialInput().fill(",./");
       await partsGrossProfitView.locators.wgUpdateButton().isDisabled();
     } catch (error) {
@@ -208,8 +208,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -226,8 +226,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await partsGrossProfitView.locators.wg2024AOPinput().clear("1701");
-      await partsGrossProfitView.locators.wg2024AOPinput().fill("1701");
+      await partsGrossProfitView.locators.wgAOPinput().clear("1701");
+      await partsGrossProfitView.locators.wgAOPinput().fill("1701");
       //  await partsGrossProfitView.locators.wgPotentialInput().clear("2000");
       //  await partsGrossProfitView.locators.wgPotentialInput().fill("2000");
       await partsGrossProfitView.locators.wgUpdateButton().click();
@@ -247,8 +247,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -263,7 +263,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await partsGrossProfitView.locators.ig2024AOPinput().clear();
+      await partsGrossProfitView.locators.igAOPinput().clear();
       //  await partsGrossProfitView.locators.igPotentialInput().clear();
       await partsGrossProfitView.locators.igUpdateButton().isDisabled();
     } catch (error) {
@@ -281,8 +281,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -297,9 +297,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await partsGrossProfitView.locators.ig2024AOPinput().clear("1701");
+      await partsGrossProfitView.locators.igAOPinput().clear("1701");
       //  await partsGrossProfitView.locators.igPotentialInput().clear("2000");
-      await partsGrossProfitView.locators.ig2024AOPinput().fill(",./");
+      await partsGrossProfitView.locators.igAOPinput().fill(",./");
       //  await partsGrossProfitView.locators.igPotentialInput().fill(",./");
       await partsGrossProfitView.locators.igUpdateButton().isDisabled();
     } catch (error) {
@@ -317,8 +317,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -333,8 +333,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await partsGrossProfitView.locators.ig2024AOPinput().clear("1701");
-      await partsGrossProfitView.locators.ig2024AOPinput().fill("1701");
+      await partsGrossProfitView.locators.igAOPinput().clear("1701");
+      await partsGrossProfitView.locators.igAOPinput().fill("1701");
       //  await partsGrossProfitView.locators.igPotentialInput().clear("2000");
       //  await partsGrossProfitView.locators.igPotentialInput().fill("2000");
       await partsGrossProfitView.locators.igUpdateButton().click();
@@ -354,8 +354,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -370,7 +370,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await partsGrossProfitView.locators.wsg2024AOPinput().clear();
+      await partsGrossProfitView.locators.wsgAOPinput().clear();
       //  await partsGrossProfitView.locators.wsgPotentialInput().clear();
       await partsGrossProfitView.locators.wsgUpdateButton().isDisabled();
     } catch (error) {
@@ -388,8 +388,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -404,9 +404,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await partsGrossProfitView.locators.wsg2024AOPinput().clear("1701");
+      await partsGrossProfitView.locators.wsgAOPinput().clear("1701");
       //  await partsGrossProfitView.locators.wsgPotentialInput().clear("2000");
-      await partsGrossProfitView.locators.wsg2024AOPinput().fill(",./");
+      await partsGrossProfitView.locators.wsgAOPinput().fill(",./");
       //  await partsGrossProfitView.locators.wsgPotentialInput().fill(",./");
       await partsGrossProfitView.locators.wsgUpdateButton().isDisabled();
     } catch (error) {
@@ -424,8 +424,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -440,8 +440,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await partsGrossProfitView.locators.wsg2024AOPinput().clear("1701");
-      await partsGrossProfitView.locators.wsg2024AOPinput().fill("1701");
+      await partsGrossProfitView.locators.wsgAOPinput().clear("1701");
+      await partsGrossProfitView.locators.wsgAOPinput().fill("1701");
       //  await partsGrossProfitView.locators.wsgPotentialInput().clear("2000");
       //  await partsGrossProfitView.locators.wsgPotentialInput().fill("2000");
       await partsGrossProfitView.locators.wsgUpdateButton().click();
@@ -461,8 +461,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -477,7 +477,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await partsGrossProfitView.locators.aog2024AOPinput().clear();
+      await partsGrossProfitView.locators.aogAOPinput().clear();
       //  await partsGrossProfitView.locators.aogPotentialInput().clear();
       await partsGrossProfitView.locators.aogUpdateButton().isDisabled();
     } catch (error) {
@@ -495,8 +495,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -511,9 +511,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await partsGrossProfitView.locators.aog2024AOPinput().clear("1701");
+      await partsGrossProfitView.locators.aogAOPinput().clear("1701");
       //  await partsGrossProfitView.locators.aogPotentialInput().clear("2000");
-      await partsGrossProfitView.locators.aog2024AOPinput().fill(",./");
+      await partsGrossProfitView.locators.aogAOPinput().fill(",./");
       //  await partsGrossProfitView.locators.aogPotentialInput().fill(",./");
       await partsGrossProfitView.locators.aogUpdateButton().isDisabled();
     } catch (error) {
@@ -531,8 +531,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -547,8 +547,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await partsGrossProfitView.locators.aog2024AOPinput().clear("1701");
-      await partsGrossProfitView.locators.aog2024AOPinput().fill("1701");
+      await partsGrossProfitView.locators.aogAOPinput().clear("1701");
+      await partsGrossProfitView.locators.aogAOPinput().fill("1701");
       //  await partsGrossProfitView.locators.aogPotentialInput().clear("2000");
       //  await partsGrossProfitView.locators.aogPotentialInput().fill("2000");
       await partsGrossProfitView.locators.aogUpdateButton().click();
@@ -568,8 +568,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -584,7 +584,7 @@ test.describe
 
     try {
       //press Update to trigger Error Alert
-      await partsGrossProfitView.locators.tr2024AOPinput().clear();
+      await partsGrossProfitView.locators.trAOPinput().clear();
       //  await partsGrossProfitView.locators.trPotentialInput().clear();
       await partsGrossProfitView.locators.trUpdateButton().isDisabled();
     } catch (error) {
@@ -602,8 +602,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -618,9 +618,9 @@ test.describe
 
     try {
       //input invalid symbols to trigger Error Alert
-      await partsGrossProfitView.locators.tr2024AOPinput().clear("1701");
+      await partsGrossProfitView.locators.trAOPinput().clear("1701");
       // await partsGrossProfitView.locators.trPotentialInput().clear("2000");
-      await partsGrossProfitView.locators.tr2024AOPinput().fill(",./");
+      await partsGrossProfitView.locators.trAOPinput().fill(",./");
       // await partsGrossProfitView.locators.trPotentialInput().fill(",./");
       await partsGrossProfitView.locators.trUpdateButton().isDisabled();
     } catch (error) {
@@ -638,8 +638,8 @@ test.describe
     await partsGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Parts Operations
     await page
@@ -654,8 +654,8 @@ test.describe
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await partsGrossProfitView.locators.tr2024AOPinput().clear("1701");
-      await partsGrossProfitView.locators.tr2024AOPinput().fill("1701");
+      await partsGrossProfitView.locators.trAOPinput().clear("1701");
+      await partsGrossProfitView.locators.trAOPinput().fill("1701");
       // await partsGrossProfitView.locators.trPotentialInput().clear("2000");
       // await partsGrossProfitView.locators.trPotentialInput().fill("2000");
       await partsGrossProfitView.locators.trUpdateButton().click();

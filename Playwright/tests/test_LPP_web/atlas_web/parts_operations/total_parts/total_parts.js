@@ -19,11 +19,11 @@ class PartsTotalParts {
         this.page.getByText("Total Parts Operating Profit"),
 
       //Total Parts Expense
-      aop2024: () =>
+      aop: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
-      potential2024: () =>
+      potential: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
@@ -31,17 +31,17 @@ class PartsTotalParts {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
-      aop2024PerformanceChart: () =>
+      aopPerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
         ),
 
       //Total Parts Operating Profit
-      tsopAOP2024: () =>
+      tsopAOP: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
-      tsopPotential2024: () =>
+      tsopPotential: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
@@ -49,16 +49,32 @@ class PartsTotalParts {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
-      tsop2024PerformanceChart: () =>
+      tsopPerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[2]',
         ),
 
+      //Total Parts Operating Profit
+      tpdpAOP: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
+        ),
+      tpdpPotential: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
+        ),
+      tpdpYoYcounter: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
+        ),
+      tpdpPerformanceChart: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
+        ),
+
       // complete
       completeButton: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[4]/div/button',
-        ),
+        this.page.getByRole("button", { name: "Complete" }).first(),
     };
   }
 

@@ -30,8 +30,8 @@ test.describe
     await bodyShopGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -58,7 +58,7 @@ test.describe
       "totalRevenueHeader",
       "totalBodyShopGrossHeader",
       ...[
-        "cpg2024AOPinput",
+        "cpgAOPinput",
         //"cpgPotentialInput",
         "cpgYoYcounter",
         "cpgPerformanceChart",
@@ -66,7 +66,7 @@ test.describe
         "cpgUpdateButton",
       ],
       ...[
-        "ig2024AOPinput",
+        "igAOPinput",
         //"igPotentialInput",
         "igYoYcounter",
         "igPerformanceChart",
@@ -74,7 +74,7 @@ test.describe
         "igUpdateButton",
       ],
       ...[
-        "ads2024AOPinput",
+        "adsAOPinput",
         //"adsPotentialInput",
         "adsYoYcounter",
         "adsPerformanceChart",
@@ -82,7 +82,7 @@ test.describe
         "adsUpdateButton",
       ],
       ...[
-        "pg2024AOPinput",
+        "pgAOPinput",
         //"pgPotentialInput",
         "pgYoYcounter",
         "pgPerformanceChart",
@@ -90,7 +90,7 @@ test.describe
         "pgUpdateButton",
       ],
       ...[
-        "aog2024AOPinput",
+        "aogAOPinput",
         //"aogPotentialInput",
         "aogYoYcounter",
         "aogPerformanceChart",
@@ -98,7 +98,7 @@ test.describe
         "aogUpdateButton",
       ],
       ...[
-        "tr2024AOPinput",
+        "trAOPinput",
         //"trPotentialInput",
         "trYoYcounter",
         "trPerformanceChart",
@@ -106,7 +106,7 @@ test.describe
         "trUpdateButton",
       ],
       ...[
-        "tbs2024AOP",
+        "tbsAOP",
         // "tbsPotential",
         "tbsYoYcounter",
         "tbsPerformanceChart",

@@ -21,11 +21,11 @@ class TotalStoreView {
       netProfitBeforeTax: () => this.page.getByText("Net Profit Before Tax"),
 
       //Total Store Gross
-      aop2024: () =>
+      aop: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
-      potential2024: () =>
+      potential: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
@@ -33,17 +33,17 @@ class TotalStoreView {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
-      aop2024PerformanceChart: () =>
+      aopPerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
         ),
 
       //Total Store Expense
-      tseAOP2024: () =>
+      tseAOP: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
-      tsePotential2024: () =>
+      tsePotential: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
@@ -51,13 +51,13 @@ class TotalStoreView {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
-      tse2024PerformanceChart: () =>
+      tsePerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[2]/div/div/canvas',
         ),
 
       //Additional Income
-      ai2024AOPinput: () => this.page.locator("#LOPS86410").first(),
+      aiAOPinput: () => this.page.locator("#LOPS86410").first(),
       aiPotentialInput: () => this.page.locator("#LOPS86410").nth(1),
       aiYoYcounter: () =>
         this.page.locator(
@@ -75,11 +75,11 @@ class TotalStoreView {
         ),
 
       //Net Profit Before Tax
-      npbtAOP2024: () =>
+      npbtAOP: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
-      npbtPotential2024: () =>
+      npbtPotential: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
@@ -87,7 +87,7 @@ class TotalStoreView {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
-      npbt2024PerformanceChart: () =>
+      npbtPerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[2]',
         ),

@@ -16,8 +16,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -31,7 +31,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //press Update to trigger Error Alert
-      await salesGrossProfitView.locators.nru2024AOPinput().clear();
+      await salesGrossProfitView.locators.nruAOPinput().clear();
       // await salesGrossProfitView.locators.nruPotentialInput().clear();
       await salesGrossProfitView.locators.nruUpdateButton().isDisabled();
     } catch (error) {
@@ -49,8 +49,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -64,8 +64,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input invalid symbols to trigger Error Alert
-      await salesGrossProfitView.locators.nru2024AOPinput().clear("1701");
-      await salesGrossProfitView.locators.nru2024AOPinput().fill(",./");
+      await salesGrossProfitView.locators.nruAOPinput().clear("1701");
+      await salesGrossProfitView.locators.nruAOPinput().fill(",./");
       // await salesGrossProfitView.locators.nruPotentialInput().fill(",./");
       await salesGrossProfitView.locators.nruUpdateButton().isDisabled();
     } catch (error) {
@@ -83,8 +83,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -98,8 +98,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.nru2024AOPinput().clear("1701");
-      await salesGrossProfitView.locators.nru2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.nruAOPinput().clear("1701");
+      await salesGrossProfitView.locators.nruAOPinput().fill("1701");
       // await salesGrossProfitView.locators.nruPotentialInput().clear("2000");
       // await salesGrossProfitView.locators.nruPotentialInput().fill("2000");
       await salesGrossProfitView.locators.nruUpdateButton().click();
@@ -119,8 +119,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -134,7 +134,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //press Update to trigger Error Alert
-      await salesGrossProfitView.locators.fraN2024AOPinput().clear();
+      await salesGrossProfitView.locators.fraNAOPinput().clear();
       // await salesGrossProfitView.locators.fraNPotentialInput().clear();
       await salesGrossProfitView.locators.fraNUpdateButton().isDisabled();
     } catch (error) {
@@ -152,8 +152,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -167,9 +167,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input invalid symbols to trigger Error Alert
-      await salesGrossProfitView.locators.fraN2024AOPinput().clear("1701");
+      await salesGrossProfitView.locators.fraNAOPinput().clear("1701");
       // await salesGrossProfitView.locators.fraNPotentialInput().clear("2000");
-      await salesGrossProfitView.locators.fraN2024AOPinput().fill(",./");
+      await salesGrossProfitView.locators.fraNAOPinput().fill(",./");
       //await salesGrossProfitView.locators.fraNPotentialInput().fill(",./");
       await salesGrossProfitView.locators.fraNUpdateButton().isDisabled();
     } catch (error) {
@@ -187,8 +187,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -202,8 +202,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.fraN2024AOPinput().clear("1701");
-      await salesGrossProfitView.locators.fraN2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.fraNAOPinput().clear("1701");
+      await salesGrossProfitView.locators.fraNAOPinput().fill("1701");
       // await salesGrossProfitView.locators.fraNPotentialInput().clear("2000");
       // await salesGrossProfitView.locators.fraNPotentialInput().fill("2000");
       await salesGrossProfitView.locators.fraNUpdateButton().click();
@@ -223,8 +223,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -238,7 +238,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //press Update to trigger Error Alert
-      await salesGrossProfitView.locators.fiaN2024AOPinput().clear();
+      await salesGrossProfitView.locators.fiaNAOPinput().clear();
       //await salesGrossProfitView.locators.fiaNPotentialInput().clear();
       await salesGrossProfitView.locators.fiaNUpdateButton().isDisabled();
     } catch (error) {
@@ -256,8 +256,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -271,9 +271,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input invalid symbols to trigger Error Alert
-      await salesGrossProfitView.locators.fiaN2024AOPinput().clear("1701");
+      await salesGrossProfitView.locators.fiaNAOPinput().clear("1701");
       //await salesGrossProfitView.locators.fiaNPotentialInput().clear("2000");
-      await salesGrossProfitView.locators.fiaN2024AOPinput().fill(",./");
+      await salesGrossProfitView.locators.fiaNAOPinput().fill(",./");
       //await salesGrossProfitView.locators.fiaNPotentialInput().fill(",./");
       await salesGrossProfitView.locators.fiaNUpdateButton().isDisabled();
     } catch (error) {
@@ -291,8 +291,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -306,8 +306,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.fiaN2024AOPinput().clear("1701");
-      await salesGrossProfitView.locators.fiaN2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.fiaNAOPinput().clear("1701");
+      await salesGrossProfitView.locators.fiaNAOPinput().fill("1701");
       // await salesGrossProfitView.locators.fiaNPotentialInput().clear("2000");
       // await salesGrossProfitView.locators.fiaNPotentialInput().fill("2000");
       await salesGrossProfitView.locators.fiaNUpdateButton().click();
@@ -327,8 +327,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -342,7 +342,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //press Update to trigger Error Alert
-      await salesGrossProfitView.locators.uru2024AOPinput().clear();
+      await salesGrossProfitView.locators.uruAOPinput().clear();
       //  await salesGrossProfitView.locators.uruPotentialInput().clear();
       await salesGrossProfitView.locators.uruUpdateButton().isDisabled();
     } catch (error) {
@@ -360,8 +360,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -375,9 +375,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input invalid symbols to trigger Error Alert
-      await salesGrossProfitView.locators.uru2024AOPinput().clear();
+      await salesGrossProfitView.locators.uruAOPinput().clear();
       // await salesGrossProfitView.locators.uruPotentialInput().clear();
-      await salesGrossProfitView.locators.uru2024AOPinput().fill(",./");
+      await salesGrossProfitView.locators.uruAOPinput().fill(",./");
       // await salesGrossProfitView.locators.uruPotentialInput().fill(",./");
       await salesGrossProfitView.locators.uruUpdateButton().isDisabled();
     } catch (error) {
@@ -395,8 +395,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -410,8 +410,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.uru2024AOPinput().clear("1701");
-      await salesGrossProfitView.locators.uru2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.uruAOPinput().clear("1701");
+      await salesGrossProfitView.locators.uruAOPinput().fill("1701");
       //await salesGrossProfitView.locators.uruPotentialInput().clear("2000");
       //await salesGrossProfitView.locators.uruPotentialInput().fill("2000");
       await salesGrossProfitView.locators.uruUpdateButton().click();
@@ -431,8 +431,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -464,8 +464,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -499,8 +499,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -535,8 +535,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -550,7 +550,7 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //press Update to trigger Error Alert
-      await salesGrossProfitView.locators.fiau2024AOPinput().clear();
+      await salesGrossProfitView.locators.fiauAOPinput().clear();
       // await salesGrossProfitView.locators.fiauPotentialInput().clear();
       await salesGrossProfitView.locators.fiauUpdateButton().isDisabled();
     } catch (error) {
@@ -568,8 +568,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -583,9 +583,9 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input invalid symbols to trigger Error Alert
-      await salesGrossProfitView.locators.fiau2024AOPinput().clear();
+      await salesGrossProfitView.locators.fiauAOPinput().clear();
       // await salesGrossProfitView.locators.fiauPotentialInput().clear();
-      await salesGrossProfitView.locators.fiau2024AOPinput().fill(",./");
+      await salesGrossProfitView.locators.fiauAOPinput().fill(",./");
       // await salesGrossProfitView.locators.fiauPotentialInput().fill(",./");
       await salesGrossProfitView.locators.fiauUpdateButton().isDisabled();
     } catch (error) {
@@ -603,8 +603,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -618,8 +618,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
 
     try {
       //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.fiau2024AOPinput().clear("1701");
-      await salesGrossProfitView.locators.fiau2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.fiauAOPinput().clear("1701");
+      await salesGrossProfitView.locators.fiauAOPinput().fill("1701");
       // await salesGrossProfitView.locators.fiauPotentialInput().clear("2000");
       // await salesGrossProfitView.locators.fiauPotentialInput().fill("2000");
       await salesGrossProfitView.locators.fiauUpdateButton().click();
@@ -639,8 +639,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -672,8 +672,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -707,8 +707,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -743,8 +743,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -776,8 +776,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -811,8 +811,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -847,8 +847,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -881,8 +881,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -916,8 +916,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -952,8 +952,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -986,8 +986,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -1021,8 +1021,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -1057,8 +1057,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -1091,8 +1091,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -1126,8 +1126,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page
@@ -1162,8 +1162,8 @@ test.describe.serial("Atlas Web - Page Elements @func", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SGPV
     await page

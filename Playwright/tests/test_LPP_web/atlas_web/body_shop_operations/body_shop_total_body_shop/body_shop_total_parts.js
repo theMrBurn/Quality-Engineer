@@ -19,11 +19,11 @@ class BodyShopTotalParts {
         this.page.getByText("Total Body Shop Operating Profit"),
 
       //Total Parts Expense
-      aop2024: () =>
+      aop: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
-      potential2024: () =>
+      potential: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]',
         ),
@@ -31,17 +31,17 @@ class BodyShopTotalParts {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]',
         ),
-      aop2024PerformanceChart: () =>
+      aopPerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
         ),
 
       //Total Body Shop Operating Profit
-      tbsopAOP2024: () =>
+      tbsopAOP: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
-      tbsopPotential2024: () =>
+      tbsopPotential: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[3]',
         ),
@@ -49,16 +49,32 @@ class BodyShopTotalParts {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
-      tbsop2024PerformanceChart: () =>
+      tbsopPerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[2]',
         ),
 
+      //Total Body Shop Operating Profit
+      tbsopAOP: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
+        ),
+      tbsopPotential: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
+        ),
+      tbsopYoYcounter: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]',
+        ),
+      tbsopPerformanceChart: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
+        ),
+
       // complete
       completeButton: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[4]/div/button',
-        ),
+        this.page.getByRole("button", { name: "Complete" }).first(),
     };
   }
 

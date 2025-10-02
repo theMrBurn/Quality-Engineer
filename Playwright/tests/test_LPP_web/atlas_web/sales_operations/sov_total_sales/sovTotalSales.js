@@ -17,13 +17,13 @@ class TotalSalesExpenseView {
         this.page.getByText("Total Sales Operating Profit"),
 
       //Total Sales Expense
-      aop2024: () =>
+      aop: () =>
         this.page
           .locator(
             '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
           )
           .first(),
-      potential2024: () =>
+      potential: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
@@ -31,19 +31,19 @@ class TotalSalesExpenseView {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
-      aop2024PerformanceChart: () =>
+      aopPerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
         ),
 
       //Total Sales Operating Profit
-      tsopAOP2024: () =>
+      tsopAOP: () =>
         this.page
           .locator(
             '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[1]/div',
           )
           .first(),
-      tsopPotential2024: () =>
+      tsopPotential: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
@@ -51,18 +51,37 @@ class TotalSalesExpenseView {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
-      tsop2024PerformanceChart: () =>
+      tsopPerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[2]',
         ),
 
-
+      // total sales dept profit
+      todpCardTitle: () =>
+        this.page
+          .locator("div")
+          .filter({ hasText: /^Total Sales Department Profit$/ })
+          .nth(3),
+      todpAOPTotal: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
+        ),
+      todpYOY: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
+        ),
+      todpPotential: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
+        ),
+      todpPerformanceChart: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
+        ),
 
       // complete
       completeButton: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[4]/div/button',
-        ),
+        this.page.getByRole("button", { name: "Complete" }).first(),
     };
   }
 

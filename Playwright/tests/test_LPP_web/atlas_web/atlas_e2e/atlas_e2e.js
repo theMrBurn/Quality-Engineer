@@ -1,4 +1,4 @@
-const { expect } = require('playwright/test');
+const { expect } = require("playwright/test");
 
 // this POM is for /Atlas E2E
 class AtlasE2E {
@@ -33,7 +33,7 @@ class AtlasE2E {
       cancelButton: () => this.page.getByRole("button", { name: "Cancel" }),
       viewButton: () => this.page.getByRole("button", { name: "View" }),
       unassignButton: () => this.page.getByLabel("Clear"),
-      aop2024byMonth: () =>
+      aopbyMonth: () =>
         this.page.getByRole("menuitem", { name: "AOP by Month" }),
       storePerformance: () =>
         this.page.getByRole("tab", { name: "Store Performance" }),
@@ -127,12 +127,13 @@ class AtlasE2E {
 
   async submitForReviewConfirm() {
     try {
-      await this.page.getByTestId('seasonality-action-button').click();
-      await this.page.getByRole('button', { name: 'Submit for Review' }).click();
+      await this.page.getByTestId("seasonality-action-button").click();
+      await this.page
+        .getByRole("button", { name: "Submit for Review" })
+        .click();
 
-      const successPop = await this.page.getByText('Plan Status Successfully');
+      const successPop = await this.page.getByText("Plan Status Successfully");
       await expect(successPop).toBeVisible();
-
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);

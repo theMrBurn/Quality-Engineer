@@ -20,7 +20,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then to navigate to SPSFFEE
-    await page.getByText('STORE', { exact: true }).click();
+    await page.getByText("STORE", { exact: true }).click();
 
     await page.getByText("L0000 Aop Test Store").click();
     await page.getByRole("tab", { name: "Sales Operations" }).click();
@@ -29,15 +29,20 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     const locatorNames = [
       "totalSalesHeader",
       "totalSalesOpProfHeader",
-      "aop2024",
-      "potential2024",
+      "aop",
+      "potential",
       "aopYoYcounter",
-      "aop2024PerformanceChart",
-      "tsopAOP2024",
+      "aopPerformanceChart",
+      "tsopAOP",
       // "tsopPotential2024",
       "tsopYoYcounter",
-      "tsop2024PerformanceChart",
+      "tsopPerformanceChart",
       "completeButton",
+      "todpCardTitle",
+      "todpAOPTotal",
+      "todpYOY",
+      "todpPotential",
+      "todpPerformanceChart",
     ];
 
     for (const locatorName of locatorNames) {

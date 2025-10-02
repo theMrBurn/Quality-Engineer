@@ -137,7 +137,7 @@ class AdminStoreView {
 
   // Navigate to endpoint
   async goto() {
-    await this.page.goto("/atlas");
+    await this.page.goto("/atlas/");
     await this.page.waitForLoadState("load");
   }
 

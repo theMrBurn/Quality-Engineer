@@ -23,11 +23,11 @@ class SDOTotalServiceDetail {
         this.page.getByText("Total Detail Operating Profit"),
 
       //Total Service Espense
-      tseAOP2024: () =>
+      tseAOP: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
-      tsePotential2024: () =>
+      tsePotential: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
@@ -35,17 +35,17 @@ class SDOTotalServiceDetail {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
-      tseAOP2024PerformanceChart: () =>
+      tseAOPPerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
         ),
 
       //Total Service Operating Profit
-      tsopAOP2024: () =>
+      tsopAOP: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
-      tsopPotential2024: () =>
+      tsopPotential: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[3]/div',
         ),
@@ -53,52 +53,49 @@ class SDOTotalServiceDetail {
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
-      tsop2024PerformanceChart: () =>
+      tsopPerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div[2]/div[2]',
         ),
 
       //Total Detail Expense
-      tdeAOP2024input: () => this.page.locator('//*[@id="LOPS36400"]').first(),
-      tdePotential2024input: () =>
-        this.page.locator('//*[@id="LOPS36400"]').nth(1),
+      tdeAOPinput: () => this.page.locator('//*[@id="LOPS36400"]').first(),
+      tdePotentialinput: () => this.page.getByRole("textbox", { name: "AOP" }),
       tdeYoYcounter: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/div/div[2]/div',
         ),
-      tde2024PerformanceChart: () =>
+      tdePerformanceChart: () =>
         this.page.locator(
           '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[2]',
         ),
 
       tdeUpdateButton: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div[2]/div[1]/div[1]/div/button',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div[1]/div/button',
         ),
 
       //Total Detail Operating Profit
-      topAOP2024: () =>
+      tseAOP: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[1]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[1]/div',
         ),
-      topPotential2024: () =>
+      tsePotential: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[3]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[3]',
         ),
-      topYoYcounter: () =>
+      tseYoYcounter: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[1]/div/div/div/div[2]/div',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/div',
         ),
-      top2024PerformanceChart: () =>
+      tsePerformanceChart: () =>
         this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[5]/div[2]/div[2]',
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[2]/div[2]/div[2]',
         ),
 
       // complete
       completeButton: () =>
-        this.page.locator(
-          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[6]/div[4]/div/button',
-        ),
+        this.page.getByRole("button", { name: "Complete" }).first(),
     };
   }
 

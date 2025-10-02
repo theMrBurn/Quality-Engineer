@@ -32,8 +32,8 @@ test.describe
     await bodyShopPersonnelExpense.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to Body Shop Operations
     await page
@@ -55,19 +55,19 @@ test.describe
       "semiFixedExpenseHeader",
       "fixedExpenseHeader",
       "peAOPinput",
-      "pePotentialInput",
+      // "pePotentialInput", - no longer present on the app
       "peYoYcounter",
       "peInfoBox",
       "pePerformanceChart",
       "peUpdateButton",
       "sfeAOPinput",
-      "sfePotentialInput",
+      // "sfePotentialInput", - no longer present on the app
       "sfeYoYcounter",
       "sfePerformanceChart",
       "sfeInfobox",
       "sfeUpdateButton",
       "feAOPinput",
-      "fePotentialInput",
+      // "fePotentialInput", - no longer present on the app
       "feYoYcounter",
       "fePerformanceChart",
       "feInfobox",

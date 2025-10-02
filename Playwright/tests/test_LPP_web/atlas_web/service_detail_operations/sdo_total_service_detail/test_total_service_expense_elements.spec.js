@@ -15,9 +15,9 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await sdoTotalServiceDetail.goto();
     await page.waitForLoadState("networkidle");
 
-    // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    //Create an instance of AtlasLogin and call the signInHelper method
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to SPSFFEE
     await page
@@ -38,22 +38,23 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       "totalServiceOperatingProfitHeader",
       "totalDetailExpenseHeader",
       "totalDetailOperatingProfitHeader",
-      "tseAOP2024",
-      "tsePotential2024",
+      "tseAOP",
+      "tsePotential",
       "tseAOPYoYcounter",
-      "tseAOP2024PerformanceChart",
-      "tsopAOP2024",
-      "tsopPotential2024",
+      "tseAOPPerformanceChart",
+      "tsopAOP",
+      "tsopPotential",
       "tsopYoYcounter",
-      "tsop2024PerformanceChart",
-      "tdeAOP2024input",
-      "tdePotential2024input",
+      "tsopPerformanceChart",
+      "tdeAOPinput",
+      "tdePotentialinput",
       "tdeYoYcounter",
-      "tde2024PerformanceChart",
-      "topAOP2024",
-      "topPotential2024",
-      "topYoYcounter",
-      "top2024PerformanceChart",
+      "tdePerformanceChart",
+      "tseAOP",
+      "tsePotential",
+      "tseYoYcounter",
+      "tsePerformanceChart",
+
       "completeButton",
     ];
 

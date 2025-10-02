@@ -25,7 +25,7 @@ class BodyShopGrossProfitView {
         this.page.getByText("Total Body Shop Gross"),
 
       //customer pay gross card locators
-      cpg2024AOPinput: () => this.page.locator("#LOPS50205").first(),
+      cpgAOPinput: () => this.page.locator("#LOPS50205").first(),
       cpgPotentialInput: () => this.page.locator("#LOPS50205").nth(1),
       cpgYoYcounter: () =>
         this.page
@@ -42,7 +42,7 @@ class BodyShopGrossProfitView {
         ),
 
       //internal gross card locators
-      ig2024AOPinput: () => this.page.locator("#LOPS50305").first(),
+      igAOPinput: () => this.page.locator("#LOPS50305").first(),
       igPotentialInput: () => this.page.locator("#LOPS50305").nth(1),
       igYoYcounter: () =>
         this.page.locator(
@@ -65,7 +65,7 @@ class BodyShopGrossProfitView {
         ),
 
       //Assured Dealer Service Locators card locators
-      ads2024AOPinput: () => this.page.locator("#LOPS50405").first(),
+      adsAOPinput: () => this.page.locator("#LOPS50405").first(),
       adsPotentialInput: () => this.page.locator("#LOPS50405").nth(1),
       adsYoYcounter: () =>
         this.page.locator(
@@ -86,7 +86,7 @@ class BodyShopGrossProfitView {
         ),
 
       //Parts Gross card locators
-      pg2024AOPinput: () => this.page.locator("#LOPS50805").first(),
+      pgAOPinput: () => this.page.locator("#LOPS50805").first(),
       pgPotentialInput: () => this.page.locator("#LOPS50805").nth(1),
       pgYoYcounter: () =>
         this.page.locator(
@@ -109,7 +109,7 @@ class BodyShopGrossProfitView {
         ),
 
       //All Other Gross card locators
-      aog2024AOPinput: () => this.page.locator("#BodyShopMultiple").first(),
+      aogAOPinput: () => this.page.locator("#BodyShopMultiple").first(),
       aogPotentialInput: () => this.page.locator("#BodyShopMultiple").nth(1),
       aogYoYcounter: () =>
         this.page.locator(
@@ -132,7 +132,7 @@ class BodyShopGrossProfitView {
         ),
 
       //Total Revenue card locators
-      tr2024AOPinput: () => this.page.locator("#LOPS55600").first(),
+      trAOPinput: () => this.page.locator("#LOPS55600").first(),
       trPotentialInput: () => this.page.locator("#LOPS55600").nth(1),
       trYoYcounter: () =>
         this.page.locator(
@@ -155,7 +155,7 @@ class BodyShopGrossProfitView {
         ),
 
       //Total Body Shop Gross card locators
-      tbs2024AOP: () => this.page.locator("#LOPS55600").first(),
+      tbsAOP: () => this.page.locator("#LOPS55600").first(),
       tbsPotential: () => this.page.locator("#LOPS55600").nth(1),
       tbsYoYcounter: () =>
         this.page.locator(

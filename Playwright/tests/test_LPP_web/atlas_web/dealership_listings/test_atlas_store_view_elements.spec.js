@@ -27,8 +27,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await adminStoreView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     const locatorNames = [
       "heading1",

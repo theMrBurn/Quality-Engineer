@@ -20,7 +20,7 @@ class PartsGrossProfitView {
       totalPartsGrossHeader: () => this.page.getByText("Total Parts Gross"),
 
       //customer pay gross card locators
-      cpg2024AOPinput: () => this.page.locator("#LOPS40205").first(),
+      cpgAOPinput: () => this.page.locator("#LOPS40205").first(),
       cpgPotentialInput: () => this.page.locator("#LOPS40205").nth(1),
       cpgYoYcounter: () =>
         this.page.locator(
@@ -43,7 +43,7 @@ class PartsGrossProfitView {
           .first(),
 
       //warrenty gross card locators
-      wg2024AOPinput: () => this.page.locator("#LOPS40305").first(),
+      wgAOPinput: () => this.page.locator("#LOPS40305").first(),
       wgPotentialInput: () => this.page.locator("#LOPS40305").nth(1),
       wgYoYcounter: () =>
         this.page.locator(
@@ -66,7 +66,7 @@ class PartsGrossProfitView {
         ),
 
       //warrenty gross card locators
-      ig2024AOPinput: () => this.page.locator("#LOPS40405").first(),
+      igAOPinput: () => this.page.locator("#LOPS40405").first(),
       igPotentialInput: () => this.page.locator("#LOPS40405").nth(1),
       igYoYcounter: () =>
         this.page.locator(
@@ -89,7 +89,7 @@ class PartsGrossProfitView {
         ),
 
       //wholesale gross card locators
-      wsg2024AOPinput: () => this.page.locator("#LOPS40505").first(),
+      wsgAOPinput: () => this.page.locator("#LOPS40505").first(),
       wsgPotentialInput: () => this.page.locator("#LOPS40505").nth(1),
       wsgYoYcounter: () =>
         this.page.locator(
@@ -109,7 +109,7 @@ class PartsGrossProfitView {
         ),
 
       //all other gross card locators
-      aog2024AOPinput: () => this.page.locator("#PartsMultiple").first(),
+      aogAOPinput: () => this.page.locator("#PartsMultiple").first(),
       aogPotentialInput: () => this.page.locator("#PartsMultiple").nth(1),
       aogYoYcounter: () =>
         this.page.locator(
@@ -129,7 +129,7 @@ class PartsGrossProfitView {
         ),
 
       //Total Revenue card locators
-      tr2024AOPinput: () => this.page.locator("#LOPS45600").first(),
+      trAOPinput: () => this.page.locator("#LOPS45600").first(),
       trPotentialInput: () => this.page.locator("#LOPS45600").nth(1),
       trYoYcounter: () =>
         this.page.locator(
@@ -149,7 +149,7 @@ class PartsGrossProfitView {
         ),
 
       //Total Revenue card locators
-      tpg2024AOP: () =>
+      tpgAOP: () =>
         this.page
           .locator(
             '//*[@id="root"]/div/div[3]/div/div[2]/div/div[2]/div[8]/div[2]/div[1]/div/div/div/div[1]/div',

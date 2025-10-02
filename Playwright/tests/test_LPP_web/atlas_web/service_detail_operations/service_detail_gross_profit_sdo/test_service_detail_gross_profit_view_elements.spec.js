@@ -16,8 +16,8 @@ test.describe
     await serviceDetailstView.goto();
 
     //Create an instance of AtlasLogin and call the signInHelper method
-    //const atlasLogin = new AtlasLogin();
-    //await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -59,8 +59,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -80,7 +80,7 @@ test.describe
     //landed on the service details gross profit view, validate basic elements have loaded
 
     const locatorNames = [
-      "frh2024AOPinput",
+      "frhAOPinput",
       // "frhPotentialInput",
       "frhYoYcounter",
       "frhPerformanceChart",
@@ -100,8 +100,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -121,7 +121,7 @@ test.describe
     //landed on the service details gross profit view, validate basic elements have loaded
 
     const locatorNames = [
-      "cpg2024AOPinput",
+      "cpgAOPinput",
       // "cpgPotentialInput",
       "cpgYoYcounter",
       "cpgPerformanceChart",
@@ -142,8 +142,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -163,7 +163,7 @@ test.describe
     //landed on the service details gross profit view, validate basic elements have loaded
 
     const locatorNames = [
-      "warg2024AOPinput",
+      "wargAOPinput",
       //  "wargPotentialInput",
       "wargYoYcounter",
       "wargPerformanceChart",
@@ -184,8 +184,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -205,7 +205,7 @@ test.describe
     //landed on the service details gross profit view, validate basic elements have loaded
 
     const locatorNames = [
-      "ig2024AOPinput",
+      "igAOPinput",
       //  "igPotentialInput",
       "igYoYcounter",
       "igPerformanceChart",
@@ -226,8 +226,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -247,7 +247,7 @@ test.describe
     //landed on the service details gross profit view, validate basic elements have loaded
 
     const locatorNames = [
-      "aog2024AOPinput",
+      "aogAOPinput",
       //  "aogPotentialInput",
       "aogYoYcounter",
       "aogPerformanceChart",
@@ -268,8 +268,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page
@@ -289,7 +289,7 @@ test.describe
     //landed on the service details gross profit view, validate basic elements have loaded
 
     const locatorNames = [
-      "tdg2024AOPinput",
+      "tdgAOPinput",
       //  "tdgPotentialInput",
       "tdgYoYcounter",
       "tdgPerformanceChart",
@@ -310,8 +310,8 @@ test.describe
     await serviceDetailstView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     //start at dealership listing and navagate to plan details, then to navigate to service details gross profit
     await page

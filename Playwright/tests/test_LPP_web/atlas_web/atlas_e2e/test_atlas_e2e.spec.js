@@ -2,6 +2,7 @@
 
 // Import the required dependencies
 const { browser, test, expect } = require("@playwright/test");
+const AtlasLogin = require("../../../../helpers/login/atlas_login.js");
 const { AtlasE2E } = require("./atlas_e2e.js");
 const {
   SalesGrossProfitView,
@@ -16,8 +17,8 @@ test.describe
     await atlase2e.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       await page.getByLabel("Open").first().click();
@@ -49,8 +50,8 @@ test.describe
     await atlase2e.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // instantiate SalesGrossProfitView
     const salesGrossProfitView = new SalesGrossProfitView(page);
@@ -68,8 +69,8 @@ test.describe
 
       /// execute input steps from Func Tests
       //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.nru2024AOPinput().clear();
-      await salesGrossProfitView.locators.nru2024AOPinput().fill("725");
+      await salesGrossProfitView.locators.nruAOPinput().clear();
+      await salesGrossProfitView.locators.nruAOPinput().fill("725");
       await salesGrossProfitView.locators.nruUpdateButton().click();
 
       // Refresh the page
@@ -77,8 +78,8 @@ test.describe
       await page.waitForLoadState("load");
 
       //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.fraN2024AOPinput().clear();
-      await salesGrossProfitView.locators.fraN2024AOPinput().fill("1701");
+      await salesGrossProfitView.locators.fraNAOPinput().clear();
+      await salesGrossProfitView.locators.fraNAOPinput().fill("1701");
       await salesGrossProfitView.locators.fraNUpdateButton().click();
 
       // Refresh the page
@@ -86,8 +87,8 @@ test.describe
       await page.waitForLoadState("load");
 
       //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.fiaN2024AOPinput().clear();
-      await salesGrossProfitView.locators.fiaN2024AOPinput().fill("2300");
+      await salesGrossProfitView.locators.fiaNAOPinput().clear();
+      await salesGrossProfitView.locators.fiaNAOPinput().fill("2300");
       await salesGrossProfitView.locators.fiaNUpdateButton().click();
 
       // Refresh the page
@@ -95,8 +96,8 @@ test.describe
       await page.waitForLoadState("load");
 
       //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.uru2024AOPinput().clear();
-      await salesGrossProfitView.locators.uru2024AOPinput().fill("1300");
+      await salesGrossProfitView.locators.uruAOPinput().clear();
+      await salesGrossProfitView.locators.uruAOPinput().fill("1300");
       await salesGrossProfitView.locators.uruUpdateButton().click();
 
       // Refresh the page
@@ -113,8 +114,8 @@ test.describe
       await page.waitForLoadState("load");
 
       //input valid amount and click Update - vaidate Update Success
-      await salesGrossProfitView.locators.fiau2024AOPinput().clear();
-      await salesGrossProfitView.locators.fiau2024AOPinput().fill("2400");
+      await salesGrossProfitView.locators.fiauAOPinput().clear();
+      await salesGrossProfitView.locators.fiauAOPinput().fill("2400");
       await salesGrossProfitView.locators.fiauUpdateButton().click();
 
       // Refresh the page
@@ -180,14 +181,14 @@ test.describe
     await atlase2e.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       await atlase2e.clickElement("viewButton");
-      // Click AOP by Month 2024 and validate landing
+      // Click AOP by Month and validate landing
       await atlase2e.clickElement("storePerformance");
-      await atlase2e.clickElement("aop2024byMonth");
+      await atlase2e.clickElement("aopbyMonth");
 
       // Validate URL string
       const urlString1 = "plan/0/history?history=2025";
@@ -210,12 +211,12 @@ test.describe
       await page.reload();
       await page.waitForLoadState("load");
 
-      // Click AOP by Month 2024 and validate landing
+      // Click AOP by Month and validate landing
       await atlase2e.clickElement("storePerformance");
-      await atlase2e.clickElement("aop2024byMonth");
+      await atlase2e.clickElement("aopbyMonth");
 
       // Validate URL string
-      const urlString2 = "plan/0/history?history=2024";
+      const urlString2 = "plan/0/history?history=2025";
       const currentURL2 = await page.url();
       await expect(currentURL2).toContain(urlString2);
     } catch (error) {
@@ -229,8 +230,8 @@ test.describe
     await atlase2e.goto();
 
     // // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // instantiate SalesGrossProfitView
     const salesGrossProfitView = new SalesGrossProfitView(page);
@@ -268,17 +269,17 @@ test.describe
     await atlase2e.goto();
 
     // // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       await atlase2e.clickElement("viewButton");
-      // Click AOP by Month 2024 and validate landing
+      // Click AOP by Month and validate landing
       await atlase2e.clickElement("storePerformance");
-      await atlase2e.clickElement("aop2024byMonth");
+      await atlase2e.clickElement("aopbyMonth");
 
       // Validate URL string
-      const urlString1 = "plan/0/history?history=2024";
+      const urlString1 = "plan/0/history?history=2025";
       const currentURL1 = await page.url();
       await expect(currentURL1).toContain(urlString1);
 
@@ -304,14 +305,14 @@ test.describe
     await atlase2e.goto();
 
     // // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // Unapproval flow
       await atlase2e.clickElement("viewButton");
       await atlase2e.clickElement("storePerformance");
-      await atlase2e.clickElement("aop2024byMonth");
+      await atlase2e.clickElement("aopbyMonth");
 
       const unlockWarningText = await page.getByText(
         "This plan has been approved",
@@ -333,15 +334,15 @@ test.describe
     await atlase2e.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     try {
       // Finish the test and cleanup
-      const inputBox = await page.locator('//*[@id="mui-3"]');
+      const inputBox = await page.locator('#mui-4');
       await inputBox.click();
 
-      await page.getByLabel("Clear").click();
+      await page.getByRole("button", { name: "Clear" }).click();
     } catch (error) {
       console.error("Error during test:", error.message);
       throw new Error(`Test failed with error: ${error.message}`);

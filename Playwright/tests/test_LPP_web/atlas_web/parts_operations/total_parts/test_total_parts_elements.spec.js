@@ -14,8 +14,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await partsTotalParts.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // Start at dealership listing and navigate to plan details, then to Total Parts
     await page
@@ -33,15 +33,19 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
       "totalParts",
       "totalPartsExpenseHeader",
       "totalSalesOpProfHeader",
-      "aop2024",
-      //"potential2024",
+      "aop",
+      //"potential",
       "aopYoYcounter",
-      "aop2024PerformanceChart",
-      "tsopAOP2024",
-      //"tsopPotential2024",
+      "aopPerformanceChart",
+      "tsopAOP",
+      //"tsopPotential",
       "tsopYoYcounter",
-      "tsop2024PerformanceChart",
+      "tsopPerformanceChart",
       "completeButton",
+      "tpdpAOP",
+      "tpdpPotential",
+      "tpdpYoYcounter",
+      "tpdpPerformanceChart",
     ];
 
     try {

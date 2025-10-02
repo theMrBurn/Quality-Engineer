@@ -16,7 +16,10 @@ class PlanDetailsView {
       salesOperationsHeading: () =>
         this.page.getByRole("heading", { name: "Sales Operations" }).first(),
       assignEmployeeSalesOps: () => this.page.locator("#mui-3"),
-      usedSalesOperations: () => this.page.locator("#mui-5"),
+      usedSalesOperations: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[1]/div/div/div[2]/div/div/div[2]/div/div[2]/div/div/div',
+        ),
       assignButton1: () => this.page.locator("#mui-7"),
       infobox1: () =>
         this.page.getByText(
@@ -81,29 +84,33 @@ class PlanDetailsView {
       // Store Performance
       storePerformance: () => this.page.getByText("Store Performance"),
       aopByMonth: () =>
-        this.page.getByRole("heading", { name: "2024 AOP by Month" }),
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div/div/div[2]/div/div/div[1]/div/div[1]/h6',
+        ),
       viewAOPButton: () => this.page.getByRole("button", { name: "View AOP" }),
       viewSeasonValuesCalcd: () =>
-        this.page.getByText(
-          "View the seasonalized values calculated for the 2024 AOP",
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div/div/div[2]/div/div/div[1]/div/div[3]/div/div',
         ),
-      actualValues2023ByMonth: () =>
-        this.page.getByRole("heading", {
-          name: "2023 Actual/Forecast by Month",
-        }),
+      actualValuesByMonth: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div/div/div[2]/div/div/div[3]/div/div[1]/h6',
+        ),
       viewDataButton1: () =>
         this.page.getByRole("button", { name: "View Data" }).first(),
       currentYearDownload: () =>
         this.page.getByText(
           "Download the historical performance of the dealership for the current year",
         ),
-      mbmActual2022: () =>
-        this.page.getByRole("heading", { name: "2022 Actual by Month" }),
+      mbmActual: () =>
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div/div/div[2]/div/div/div[2]/div/div[1]/h6',
+        ),
       viewDataButton2: () =>
         this.page.getByRole("button", { name: "View Data" }).nth(1),
       historicalDownload: () =>
-        this.page.getByText(
-          "Download the historical performance of the dealership for the year 2022",
+        this.page.locator(
+          '//*[@id="root"]/div/div[3]/div/div[3]/div/div[2]/div/div[3]/div/div/div[2]/div/div/div[3]/div/div[2]',
         ),
       trendAnalyzer: () =>
         this.page.getByRole("heading", { name: "Trend Analyzer" }),

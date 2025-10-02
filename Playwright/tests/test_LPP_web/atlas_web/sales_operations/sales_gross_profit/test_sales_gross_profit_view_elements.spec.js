@@ -29,8 +29,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -70,8 +70,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -84,8 +84,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await page.getByRole("menuitem", { name: "Sales Gross Profit" }).click();
 
     const locatorNames = [
-      "nru2024AOPinput",
-      "nruPotentialInput",
+      "nruAOPinput",
+      // "nruPotentialInput", no longer an input
       "nruYoYcounter",
       "nruPerformanceChart",
       "nruSalesEfficiencyChart",
@@ -105,8 +105,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -119,8 +119,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await page.getByRole("menuitem", { name: "Sales Gross Profit" }).click();
 
     const locatorNames = [
-      "fraN2024AOPinput",
-      "fraNPotentialInput",
+      "fraNAOPinput",
+      // "fraNPotentialInput", no longer an input
       "fraNYoYcounter",
       "fraNPerformanceChart",
       "fraNUpdateButton",
@@ -139,8 +139,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -153,8 +153,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await page.getByRole("menuitem", { name: "Sales Gross Profit" }).click();
 
     const locatorNames = [
-      "fiaN2024AOPinput",
-      "fiaNPotentialInput",
+      "fiaNAOPinput",
+      // "fiaNPotentialInput", no longer an inputq
       "fiaNYoYcounter",
       "fiaNUpdateButton",
     ];
@@ -172,8 +172,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -187,7 +187,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
 
     const locatorNames = [
       "feauAOPinput",
-      "feauPotentialInput",
+      // "feauPotentialInput", no longer an input
       "feauYoYcounter",
       "feauPerformanceChart",
       "feauInfoBox",
@@ -207,8 +207,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -222,7 +222,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
 
     const locatorNames = [
       "feauAOPinput",
-      "feauPotentialInput",
+      // "feauPotentialInput", no longer an input
       "feauYoYcounter",
       "feauPerformanceChart",
       "feauInfoBox",
@@ -242,8 +242,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -257,7 +257,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
 
     const locatorNames = [
       "fGrossAOPinput",
-      "fGrossPotentialInput",
+      // "fGrossPotentialInput", no longer an input
       "fGrossYoYcounter",
       "fGrossPerformanceChart",
       "fGrossInfoBox",
@@ -277,8 +277,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -292,7 +292,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
 
     const locatorNames = [
       "wGrossAOPinput",
-      "wGrossPotentialInput",
+      // "wGrossPotentialInput", no longer an input
       "wGrossYoYcounter",
       "wGrossPerformanceChart",
       "wGrossInfoBox",
@@ -312,8 +312,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -327,7 +327,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
 
     const locatorNames = [
       "dFeeAOPinput",
-      "dFeePotentialInput",
+      // "dFeePotentialInput", no longer an input
       "dFeeYoYcounter",
       "dFeePerformanceChart",
       "dFeeInfoBox",
@@ -348,8 +348,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -363,7 +363,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
 
     const locatorNames = [
       "dFeeAOPinput",
-      "dFeePotentialInput",
+      // "dFeePotentialInput", no longer an input
       "dFeeYoYcounter",
       "dFeePerformanceChart",
       "dFeeInfoBox",
@@ -384,8 +384,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -399,7 +399,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
 
     const locatorNames = [
       "aogAOPinput",
-      "aogPotentialInput",
+      // "aogPotentialInput", no longer an input
       "aogYoYcounter",
       "aogPerformanceChart",
       "aogInfoBox",
@@ -419,8 +419,8 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
     await salesGrossProfitView.goto();
 
     // Create an instance of AtlasLogin and call the signInHelper method
-    // const atlasLogin = new AtlasLogin();
-    // await atlasLogin.signInHelper(page);
+    const atlasLogin = new AtlasLogin();
+    await atlasLogin.signInHelper(page);
 
     // start at dealership listing and navigate to plan details, then navigate to SGPV
     await page
@@ -434,7 +434,7 @@ test.describe.serial("Atlas Web - Page Elements @smoke", () => {
 
     const locatorNames = [
       "tsgAOP",
-      "tsgPotential",
+      // "tsgPotential", no longer an input
       "tsgYoYcounter",
       "tsgPerformanceChart",
       "bottomNextButton",
