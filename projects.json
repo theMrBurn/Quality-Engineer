@@ -106,7 +106,7 @@
     }
   },
 
-    {
+  {
     "name": "AtlasWebLocal",
     "testDir": "Playwright/tests/test_LPP_web/atlas_web",
     "retries": 3,
@@ -374,7 +374,11 @@
   {
     "name": "SPEDev",
     "testDir": "Playwright/tests/test_performance_dashboard",
-    "retries": 3
+    "retries": 3,
+    "use": {
+      "storageState": "Playwright/helpers/login/pd1_dev_env_login.json",
+      "baseURL": "https://spedev.lithiainc.com/main/store/"
+    }
   },
   {
     "name": "Impact_Builder_Web_Test",

@@ -1,0 +1,43 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    ports:
+      - 3330:3330
+    environment:
+      - NODE_ENV=development
+    healthcheck:
+      test: [CMD, curl, -f, http://localhost:3330/health]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - .:/workspace:cached
+      - /workspace/node_modules
+    working_dir: /workspace
+    user: node
+    command: [bash]  # Run bash as PID 1
+    stdin_open: true  # Keep STDIN open (like `-i`)
+    tty: true         # Allocate a pseudo-TTY (like `-t`)
+
+  tests:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      BASEURL_SPEDEV: https://spedev.lithiainc.com/main/store/
+      BASEURL_FI_MGMT_API_DEV: http://app:3330
+      AUT_URL: http://app:3330
+      # Note: No PLAYWRIGHT_PROJECT set here for flexibility
+    volumes:
+      - .:/workspace:cached
+      - /workspace/node_modules
+    working_dir: /workspace
+    user: node
+    command: [bash]  # Run bash as PID 1
+    stdin_open: true  # Keep STDIN open
+    tty: true         # Allocate a pseudo-TTY

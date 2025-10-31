@@ -7,7 +7,6 @@ const fs = require("fs");
  * @param {Array} projects
  * @returns {Array}
  */
-
 function resolveStorageState(projects) {
   return projects.map((project) => {
     if (project.use && project.use.storageState) {
@@ -23,13 +22,55 @@ function resolveStorageState(projects) {
   });
 }
 
-// Load projects from JSON file
-const rawProjects = fs.readFileSync(
-  path.resolve(__dirname, "projects.json"),
-  "utf-8",
-);
-let projects = JSON.parse(rawProjects);
+/**
+ * Helper function to transform project name to an environment variable key.
+ * Example: "FI_mgmt_API_DEV" => "BASEURL_FI_MGMT_API_DEV"
+ * @param {string} projectName
+ * @returns {string}
+ */
+function toEnvVarKey(projectName) {
+  // Uppercase, replace non-alphanumeric with underscore, prefix BASEURL_
+  return "BASEURL_" + projectName.toUpperCase().replace(/[^A-Z0-9]+/g, "_");
+}
+
+// Load projects from JSON file with defensive error handling
+let projects = [];
+try {
+  const projectsPath = path.resolve(__dirname, "projects.json");
+  if (fs.existsSync(projectsPath)) {
+    const rawProjects = fs.readFileSync(projectsPath, "utf-8");
+    projects = JSON.parse(rawProjects);
+  } else {
+    console.warn(`Warning: projects.json not found at ${projectsPath}`);
+  }
+} catch (err) {
+  console.error("Error reading or parsing projects.json:", err);
+}
+
+console.log("Loaded projects:", projects);
+
 projects = resolveStorageState(projects);
+
+// Defensive map to avoid accessing undefined properties and check baseURL presence
+projects = projects.map((project) => {
+  if (!project.use) project.use = {};
+  const envKey = toEnvVarKey(project.name);
+  const baseURL = process.env[envKey] || project.use.baseURL;
+
+  if (!baseURL) {
+    console.warn(`Warning: baseURL missing for project "${project.name}"`);
+  }
+
+  return {
+    ...project,
+    use: {
+      ...project.use,
+      baseURL,
+    },
+  };
+});
+
+console.log("Configured projects:", projects);
 
 /**
  * @type {import('@playwright/test').PlaywrightTestConfig}
