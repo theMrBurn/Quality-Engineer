@@ -85,8 +85,6 @@ class EscaladeVDT {
 
   // interact with elements
 
-  // upload
-
   async uploadSalesData(salesDataFile) {
     await this.page.getByRole("button", { name: "UPLOAD SALES DATA" }).click();
     await this.page.getByRole("button", { name: "Upload" }).click();

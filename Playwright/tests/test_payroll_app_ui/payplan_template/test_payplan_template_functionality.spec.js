@@ -3,483 +3,337 @@
 // POMs have to live in the same directory as the test, for now
 // we will paramaterize the storageState with other .json for each userLogin, if necessary
 
-// dependancies
+// dependencies
 const { test, expect } = require("@playwright/test");
 const { PayplanTemplate } = require("./payplan_template.js");
 
 // user
-//test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
+// test.use({ storageState: "Playwright/helpers/pw_auth_testenv.json" });
 
-//test
 test.describe.serial("Payplan Template @func", () => {
   test("Navigate to Payplan Template and validate Job input functionality", async ({
-    browser,
     page,
   }) => {
     const payplanTemplate = new PayplanTemplate(page);
     await payplanTemplate.goto();
 
-    // get Job input box
-    await payplanTemplate.getJobInput();
+    try {
+      // Check job input visibility
+      await payplanTemplate.checkElementVisibility("jobInput");
 
-    // validate jobs can be input
-    await payplanTemplate.inputJob("Building Manager");
+      // Input "Building Manager"
+      await payplanTemplate.fillForm({ jobInput: "Building Manager" });
 
-    // confirm on Grid that item above was chosen
-    await page.locator('span:has-text("Building Manager (65067)")');
+      // Confirm on grid item appears
+      await expect(
+        page.locator('span:has-text("Building Manager (65067)")'),
+      ).toBeVisible();
 
-    //delete input
-    await payplanTemplate.clickDeleteInput();
+      // Clear/delete input
+      await payplanTemplate.clearDropdownSelection("deleteInput");
 
-    // validate 2nd job can be input
-    await payplanTemplate.inputJob("Software Engineer");
+      // Input "Software Engineer"
+      await payplanTemplate.fillForm({ jobInput: "Software Engineer" });
 
-    // confirm on Grid that item above was chosen, once validated delete
-    await page.locator('span:has-text("Software Engineer (65083)")');
-    await payplanTemplate.clickDeleteInput();
+      // Confirm on grid item appears
+      await expect(
+        page.locator('span:has-text("Software Engineer (65083)")'),
+      ).toBeVisible();
+
+      // Clear/delete input again
+      await payplanTemplate.clearDropdownSelection("deleteInput");
+    } catch (error) {
+      console.error("Error during Job input test:", error.message);
+      throw new Error(`Job input test failed: ${error.message}`);
+    }
   });
 
   test("Navigate to Payplan Template and validate Department input functionality", async ({
-    browser,
     page,
   }) => {
     const payplanTemplate = new PayplanTemplate(page);
     await payplanTemplate.goto();
 
-    // get Job input box
-    await payplanTemplate.getDepartmentInput();
+    try {
+      // Check department input visibility
+      await payplanTemplate.checkElementVisibility("departmentInput");
 
+      // Input "Fleet"
+      await payplanTemplate.fillForm({ departmentInput: "Fleet" });
+      await expect(
+        page.locator('span:has-text("Fleet (FLEETS)")'),
+      ).toBeVisible();
+      await payplanTemplate.clearDropdownSelection("deleteInput");
 
-    // validate Department can be input
-    await payplanTemplate.inputDepartment("Fleet");
+      // Input "Parts"
+      await payplanTemplate.fillForm({ departmentInput: "Parts" });
+      await expect(
+        page.locator('span:has-text("Parts (PARTSS)")'),
+      ).toBeVisible();
+      await payplanTemplate.clearDropdownSelection("deleteInput");
 
-    // confirm on Grid that item above was chosen
-    await page.locator('span:has-text("Fleet (FLEETS)")');
-    await payplanTemplate.clickDeleteInput();
-
-    // validate Department can be input
-    await payplanTemplate.inputDepartment("Parts");
-
-    // confirm on Grid that item above was chosen
-    await page.locator('span:has-text("Parts (PARTSS)")');
-    await payplanTemplate.clickDeleteInput();
-
-    // validate 2nd Department can be input
-    await payplanTemplate.inputDepartment("Service");
-
-    // confirm on Grid that item above was chosen
-    await page.locator('span:has-text("Service (SERVIC)")');
-    await payplanTemplate.clickDeleteInput();
+      // Input "Service"
+      await payplanTemplate.fillForm({ departmentInput: "Service" });
+      await expect(
+        page.locator('span:has-text("Service (SERVIC)")'),
+      ).toBeVisible();
+      await payplanTemplate.clearDropdownSelection("deleteInput");
+    } catch (error) {
+      console.error("Error during Department input test:", error.message);
+      throw new Error(`Department input test failed: ${error.message}`);
+    }
   });
 
   test("Navigate to Payplan Template and validate State input functionality", async ({
-    browser,
     page,
   }) => {
     const payplanTemplate = new PayplanTemplate(page);
     await payplanTemplate.goto();
 
-    // get State input box
-    await payplanTemplate.getStateInput();
+    try {
+      // Check State input visibility
+      await payplanTemplate.checkElementVisibility("stateInput");
 
-    // validate State can be input
-    await payplanTemplate.inputState("Oregon");
+      // Input "Oregon"
+      await payplanTemplate.fillForm({ stateInput: "Oregon" });
+      await expect(page.locator('span:has-text("Oregon (OR)")')).toBeVisible();
 
-    // confirm on Grid that item above was chosen
-    await page.locator('span:has-text("Oregon (OR)")');
-    await payplanTemplate.clickDeleteInput();
+      // Clear/delete input
+      await payplanTemplate.clearDropdownSelection("deleteInput");
 
-    // since this test was written a DB change may have happened and deleted data for WA state.
-    // // validate 2nd Department can be input
-    // await payplanTemplate.inputState("Washington");
-
-    // // confirm on Grid that item above was chosen
-    // await page.locator('span:has-text("Washington (WA)")');
-    // await payplanTemplate.clickDeleteInput();
+      // Uncomment if DB data restores for Washington state
+      /*
+    await payplanTemplate.fillForm({ stateInput: "Washington" });
+    await expect(page.locator('span:has-text("Washington (WA)")')).toBeVisible();
+    await payplanTemplate.clearDropdownSelection('deleteInput');
+    */
+    } catch (error) {
+      console.error("Error during State input test:", error.message);
+      throw new Error(`State input test failed: ${error.message}`);
+    }
   });
 
   test("Navigate to Payplan Template and validate known Position Types input functionality", async ({
-    browser,
     page,
   }) => {
     const payplanTemplate = new PayplanTemplate(page);
     await payplanTemplate.goto();
 
-    //Bonus Only
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page.getByRole('option', { name: 'Individual Bonus Only' }).click();
-    await payplanTemplate.deletePositionTypeDropdown();
+    try {
+      const selectAndDeletePositionType = async (optionText, nth = 0) => {
+        // Open dropdown by clicking input
+        await payplanTemplate.locators.positionTypeDropdown().click();
 
-    //Combined MIS
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Combined MIS")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
+        // Click nth matching option by visible text
+        await page.locator(`text=${optionText}`).nth(nth).click();
 
-    //Hourly
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Hourly >> nth=0")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
+        // Clear/delete selection
+        const deleteButton = payplanTemplate.locators.positionTypeDelete();
 
-    //Hourly Offset
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Hourly Offset")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
+        if ((await deleteButton.count()) > 0) {
+          await deleteButton.click();
+        }
+      };
 
-    //Hourly Plus
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page.locator("#PositionTypeList_listbox >> text=Hourly Plus").click();
-    await payplanTemplate.deletePositionTypeDropdown();
+      const positionTypes = [
+        { text: "Individual Bonus Only" },
+        { text: "Combined MIS" },
+        { text: "Hourly" },
+        { text: "Hourly Offset" },
+        { text: "Hourly Plus" },
+        { text: "Individual F&I", nth: 1 },
+        { text: "Individual F&I Grid" },
+        { text: "Individual F&I Penetration" },
+        { text: "Individual F&I Tier" },
+        { text: "Individual Gross Profit" },
+        { text: "Individual RAP" },
+        // { text: "Individual Sales" }, // test.fixme, excluded
+        { text: "Individual Sales Unit Guarantee" },
+        { text: "Interim" },
+        { text: "Production" },
+        { text: "Single MIS" },
+        { text: "Store F&I" },
+        { text: "Store Gross Profit" },
+        { text: "Store Parts Gross" },
+        { text: "Store RAP" },
+        { text: "Team Gross Profit" },
+        { text: "Team RAP" },
+      ];
 
-    //Individual F&I
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Individual F&I >> nth=1")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Individual F&I Grid
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Individual F&I Grid")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Individual F&I Penetration
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Individual F&I Penetration")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Individual F&I Tier
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Individual F&I Tier")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    // //Individual Gross Profit
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Individual Gross Profit")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Individual RAP
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Individual RAP")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Individual Sales
-    // test.fixme("Individual sales needs a data test tag or some other label for this test to pass");
-    // await payplanTemplate.inputPositionTypeDropdown();
-    // await page.locator('#PositionTypeList_listbox >> text=Individual Sales').click();
-    // await payplanTemplate.deletePositionTypeDropdown();
-
-    //Individual Sales Unit Guarantee
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator(
-        "#PositionTypeList_listbox >> text=Individual Sales Unit Guarantee"
-      )
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Interim
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page.locator("#PositionTypeList_listbox >> text=Interim").click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Production
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page.locator("#PositionTypeList_listbox >> text=Production").click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Single MIS
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page.locator("#PositionTypeList_listbox >> text=Single MIS").click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Store F&I
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page.locator("#PositionTypeList_listbox >> text=Store F&I").click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Store Gross Profit
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Store Gross Profit")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Store Parts Gross
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Store Parts Gross")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Store RAP
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page.locator("#PositionTypeList_listbox >> text=Store RAP").click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Team Gross Profit
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page
-      .locator("#PositionTypeList_listbox >> text=Team Gross Profit")
-      .click();
-    await payplanTemplate.deletePositionTypeDropdown();
-
-    //Team RAP
-    await payplanTemplate.inputPositionTypeDropdown();
-    await page.locator("#PositionTypeList_listbox >> text=Team RAP").click();
-    await payplanTemplate.deletePositionTypeDropdown();
+      for (const { text, nth = 0 } of positionTypes) {
+        await selectAndDeletePositionType(text, nth);
+      }
+    } catch (error) {
+      console.error("Error during Position Types input test:", error.message);
+      throw new Error(`Position Types input test failed: ${error.message}`);
+    }
   });
 
   test("Navigate to Payplan Template and validate known PayPlan Types input functionality", async ({
-    browser,
     page,
   }) => {
     const payplanTemplate = new PayplanTemplate(page);
     await payplanTemplate.goto();
 
-    //Base
-    await payplanTemplate.inputPlanTypeDropdown();
-    await page.locator("text=Base").first().click();
-    await payplanTemplate.deletePlanTypeDropdown();
+    try {
+      const selectAndDeletePlanType = async (optionText, nth = 0) => {
+        // Open the Plan Type dropdown using locator from POM
+        await payplanTemplate.locators.planTypeDropdown().click();
 
-    //Contract Rate
-    await payplanTemplate.inputPlanTypeDropdown();
-    await page.locator("text=Contract Rate").first().click();
-    await payplanTemplate.deletePlanTypeDropdown();
+        // Click the nth occurrence of the plan type option by visible text
+        if (nth === 0) {
+          await page.locator(`text=${optionText}`).first().click();
+        } else {
+          await page.locator(`text=${optionText}`).nth(nth).click();
+        }
 
-    //Draw
-    await payplanTemplate.inputPlanTypeDropdown();
-    await page.locator("text=Draw").first().click();
-    await payplanTemplate.deletePlanTypeDropdown();
+        // Click delete/clear button using locator from POM
+        const deleteButton = payplanTemplate.locators.planTypeDelete();
+        if ((await deleteButton.count()) > 0) {
+          await deleteButton.click();
+        }
 
-    //Guarantee
-    await payplanTemplate.inputPlanTypeDropdown();
-    await page.locator("text=Guarantee >> nth=3").click();
-    await payplanTemplate.deletePlanTypeDropdown();
+        // Optional: Wait for any potential network or UI idle after clearing selection
+        await page.waitForLoadState("networkidle");
+      };
 
-    //Interim
-    await payplanTemplate.inputPlanTypeDropdown();
-    await page.locator("text=Interim >> nth=1").click();
-    await payplanTemplate.deletePlanTypeDropdown();
+      const planTypes = [
+        { text: "Base" },
+        { text: "Contract Rate" },
+        { text: "Draw" },
+        { text: "Guarantee", nth: 3 },
+        { text: "Interim", nth: 1 },
+        { text: "Interim Bonus" },
+        { text: "Maximum Amount" },
+        { text: "Special Guarantee" },
+        { text: "Split Base" },
+        { text: "Split Draw" },
+        { text: "Vehicle Allowance" },
+      ];
 
-    //Interim Bonus
-    await payplanTemplate.inputPlanTypeDropdown();
-    await page.locator("text=Interim Bonus").click();
-    await payplanTemplate.deletePlanTypeDropdown();
-
-    //Maximum Amount
-    await payplanTemplate.inputPlanTypeDropdown();
-    await page.locator("text=Maximum Amount").click();
-    await payplanTemplate.deletePlanTypeDropdown();
-
-    //Special Guarantee
-    await payplanTemplate.inputPlanTypeDropdown();
-    await page.locator("text=Special Guarantee").click();
-    await payplanTemplate.deletePlanTypeDropdown();
-
-    //Split Base
-    await payplanTemplate.inputPlanTypeDropdown();
-    await page.locator("text=Split Base").click();
-    await payplanTemplate.deletePlanTypeDropdown();
-
-    //Split Draw
-    await payplanTemplate.inputPlanTypeDropdown();
-    await page.locator("text=Split Draw").click();
-    await payplanTemplate.deletePlanTypeDropdown();
-
-    //Vehicle Allowance
-    await payplanTemplate.inputPlanTypeDropdown();
-    await page.locator("text=Vehicle Allowance").click();
-    await payplanTemplate.deletePlanTypeDropdown();
+      for (const { text, nth = 0 } of planTypes) {
+        await selectAndDeletePlanType(text, nth);
+      }
+    } catch (error) {
+      console.error("Error during Plan Types input test:", error.message);
+      throw new Error(`Plan Types input test failed: ${error.message}`);
+    }
   });
 
   test("Navigate to Payplan Template and validate known Template Names input functionality", async ({
-    browser,
     page,
   }) => {
     const payplanTemplate = new PayplanTemplate(page);
     await payplanTemplate.goto();
 
-    //SM - Tech - Sch 70
-    await payplanTemplate.inputTemplateNameDropdown("Tech - Sch 70");
-    await page.locator('li[role="option"]:has-text("Tech - Sch 70")').click();
-    await page.locator('span:has-text("Tech - Sch 70")');
+    try {
+      const templateNames = [
+        "Tech - Sch 70",
+        "SM - Sales Rep - Semi-Monthly COM",
+        "SM - Sales Rep - Monthly COM",
+        "Tech - Body Shop",
+        "Tech - RTH Booked",
+        "Tech - RTH Closed",
+        "Sales Rep - Monthly COM - Unit Gua",
+        "Sales Rep - Semi-Monthly COM - Unit Gua",
+        "Service Advisor ADS",
+        "F&I Grid Plan Template",
+        "Tech - RTH Skill Cost Booked",
+        "Tech - RTH Skill Cost Closed",
+        "WK - Sales Rep - Always COM",
+        "Sales Rep - Hourly Offset",
+        "Sales Rep - Hourly Plus",
+      ];
 
-    //SM - Sales Rep - Semi-Monthly COM
-    await payplanTemplate.inputTemplateNameDropdown(
-      "SM - Sales Rep - Semi-Monthly COM"
-    );
-    await page
-      .locator("text=SM - Sales Rep - Semi-Monthly COM >> nth=0")
-      .click();
-    await page.locator('span:has-text("SM - Sales Rep - Semi-Monthly COM")');
+      for (const name of templateNames) {
+        // Click the Template Name dropdown input to open options
+        await payplanTemplate.locators.templateNameDropdown().click();
 
-    //SM - Sales Rep - Monthly COM
-    await payplanTemplate.inputTemplateNameDropdown(
-      "SM - Sales Rep - Monthly COM"
-    );
-    await page.locator("text=SM - Sales Rep - Monthly COM >> nth=0").click();
-    await page.locator('span:has-text("SM - Sales Rep - Monthly COM")');
+        // Select the option with visible text matching current name
+        await page.locator(`li[role="option"]:has-text("${name}")`).click();
 
-    //SM - Tech - Body Shop
-    await payplanTemplate.inputTemplateNameDropdown("Tech - Body Shop");
-    await page
-      .locator('li[role="option"]:has-text("Tech - Body Shop")')
-      .click();
-    await page.locator('span:has-text("Tech - Body Shop")');
+        // Assert the selection is visible on the page
+        await expect(page.locator(`span:has-text("${name}")`)).toBeVisible();
 
-    //SM - Tech - RTH Booked
-    await payplanTemplate.inputTemplateNameDropdown("Tech - RTH Booked");
-    await page
-      .locator('li[role="option"]:has-text("Tech - RTH Booked")')
-      .click();
-    await page.locator('span:has-text("Tech - RTH Booked")');
+        // Clear/delete the selection before next iteration
+        const deleteButton = payplanTemplate.locators.templateNameDelete();
 
-    //SM - Tech - RTH Closed
-    await payplanTemplate.inputTemplateNameDropdown("Tech - RTH Closed");
-    await page
-      .locator('li[role="option"]:has-text("Tech - RTH Closed")')
-      .click();
-    await page.locator('span:has-text("Tech - RTH Closed")');
+        if ((await deleteButton.count()) > 0) {
+          await deleteButton.click();
 
-    //SM - Sales Rep - Monthly COM - Unit Gua
-    await payplanTemplate.inputTemplateNameDropdown(
-      "Sales Rep - Monthly COM - Unit Gua"
-    );
-    await page
-      .locator(
-        'li[role="option"]:has-text("Sales Rep - Monthly COM - Unit Gua")'
-      )
-      .click();
-    await page.locator('span:has-text("Sales Rep - Monthly COM - Unit Gua")');
-
-    //SM - Sales Rep - Semi-Monthly COM - Unit Gua
-    await payplanTemplate.inputTemplateNameDropdown(
-      "Sales Rep - Semi-Monthly COM - Unit Gua"
-    );
-    await page
-      .locator(
-        'li[role="option"]:has-text("Sales Rep - Semi-Monthly COM - Unit Gua")'
-      )
-      .click();
-    await page.locator(
-      'span:has-text("Sales Rep - Semi-Monthly COM - Unit Gua")'
-    );
-
-    //Service Advisor ADS
-    await payplanTemplate.inputTemplateNameDropdown("Service Advisor ADS");
-    await page
-      .locator('li[role="option"]:has-text("Service Advisor ADS")')
-      .click();
-    await page.locator('span:has-text("Service Advisor ADS")');
-
-    //F&I Grid Plan Template
-    await payplanTemplate.inputTemplateNameDropdown("F&I Grid Plan Template");
-    await page
-      .locator('li[role="option"]:has-text("F&I Grid Plan Template") >> nth=0')
-      .click();
-    await page.locator('span:has-text("F&I Grid Plan Template")');
-
-    //SM - Tech - RTH Skill Cost Booked
-    await payplanTemplate.inputTemplateNameDropdown(
-      "Tech - RTH Skill Cost Booked"
-    );
-    await page
-      .locator('li[role="option"]:has-text("Tech - RTH Skill Cost Booked")')
-      .click();
-    await page.locator('span:has-text("Tech - RTH Skill Cost Booked")');
-
-    //SM - Tech - RTH Skill Cost Closed
-    await payplanTemplate.inputTemplateNameDropdown(
-      "Tech - RTH Skill Cost Closed"
-    );
-    await page
-      .locator('li[role="option"]:has-text("Tech - RTH Skill Cost Closed")')
-      .click();
-    await page.locator('span:has-text("Tech - RTH Skill Cost Closed")');
-
-    //Sales Rep - Always COM
-    await payplanTemplate.inputTemplateNameDropdown(
-      "WK - Sales Rep - Always COM"
-    );
-    await page
-      .locator('li[role="option"]:has-text("Sales Rep - Always COM")')
-      .click();
-    await page.locator('span:has-text("Sales Rep - Always COM")');
-
-    //Sales Rep - Hourly Offset
-    await payplanTemplate.inputTemplateNameDropdown(
-      "Sales Rep - Hourly Offset"
-    );
-    await page.locator('text="Sales Rep - Hourly Offset"').click();
-    await page.locator('span:has-text("Sales Rep - Hourly Offset")');
-
-    //Sales Rep - Hourly Plus
-    await payplanTemplate.inputTemplateNameDropdown("Sales Rep - Hourly Plus");
-    await page.locator('text="Sales Rep - Hourly Plus"').click();
-    await page.locator('span:has-text("Sales Rep - Hourly Plus")');
+          // Wait for network idle or some UI stability after clearing
+          await page.waitForLoadState("networkidle");
+        }
+      }
+    } catch (error) {
+      console.error("Error during Template Names input test:", error.message);
+      throw new Error(`Template Names input test failed: ${error.message}`);
+    }
   });
 
   test("Navigate to Payplan Template and validate known PayPlan Pay Rate Types input functionality", async ({
-    browser,
     page,
   }) => {
     const payplanTemplate = new PayplanTemplate(page);
     await payplanTemplate.goto();
 
-    //Commission
-    await payplanTemplate.inputPayRateTypeTriangle();
-    await page.locator("text=Commission (CM)").first().click();
-    await payplanTemplate.deletePayRateType();
+    try {
+      const payRateTypes = [
+        "Commission (CM)",
+        "Flat Rate (FL)",
+        "Hourly (HR)",
+        "Salary (SL)",
+      ];
 
-    //Flat Rate
-    await payplanTemplate.inputPayRateTypeTriangle();
-    await page.locator("text=Flat Rate (FL)").first().click();
-    await payplanTemplate.deletePayRateType();
+      for (const name of payRateTypes) {
+        // Click the triangle/dropdown to open the pay rate type options
+        await payplanTemplate.locators.payRateTypeDropdownTriangle().click();
 
-    //Hourly
-    await payplanTemplate.inputPayRateTypeTriangle();
-    await page.locator("text=Hourly (HR)").first().click();
-    await payplanTemplate.deletePayRateType();
+        // Click the option matching the current pay rate type name
+        await page.locator(`text=${name}`).first().click();
 
-    //Salary
-    await payplanTemplate.inputPayRateTypeTriangle();
-    await page.locator("text=Salary (SL)").first().click();
-    await payplanTemplate.deletePayRateType();
+        // Click the delete button/icon to clear the selection
+        const deleteButton = payplanTemplate.locators.payRateTypeDelete();
+
+        if ((await deleteButton.count()) > 0) {
+          await deleteButton.click();
+
+          // Wait to ensure UI has settled after clearing selection
+          await page.waitForLoadState("networkidle");
+        }
+      }
+    } catch (error) {
+      console.error("Error during Pay Rate Types input test:", error.message);
+      throw new Error(`Pay Rate Types input test failed: ${error.message}`);
+    }
   });
 
   test("Navigate to Payplan Template and click Add PayPlan, basic smoke check of functionality", async ({
-    browser,
     page,
   }) => {
     const payplanTemplate = new PayplanTemplate(page);
     await payplanTemplate.goto();
 
-    await payplanTemplate.clickAddTemplate();
-    await expect(page).toHaveURL(
-      "/PayPlan/PlanDetails?id=0&payPlanUsage=Template"
-    );
+    try {
+      // Click the Add Template button
+      await payplanTemplate.locators.addTemplateButton().click();
 
-    //click save
-    await payplanTemplate.clickSaveButton(); // no success message alert to use as verification of save
+      // Expect navigation to PlanDetails page with id=0 and usage=Template
+      await expect(page).toHaveURL(
+        "/PayPlan/PlanDetails?id=0&payPlanUsage=Template",
+      );
 
-    //click back
-    await payplanTemplate.clickBackButton();
-    await expect(page).toHaveURL("/PayPlan/PayPlanTemplate");
+      // Click the Save button
+      await payplanTemplate.locators.saveButton().click();
+
+      // Click the Back button
+      await payplanTemplate.locators.backButton().click();
+
+      // Expect navigation back to PayPlanTemplate page
+      await expect(page).toHaveURL("/PayPlan/PayPlanTemplate");
+    } catch (error) {
+      console.error("Error during Add PayPlan smoke test:", error.message);
+      throw new Error(`Add PayPlan smoke test failed: ${error.message}`);
+    }
   });
 });

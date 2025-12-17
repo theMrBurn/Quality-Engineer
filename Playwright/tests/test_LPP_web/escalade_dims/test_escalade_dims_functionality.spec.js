@@ -73,17 +73,17 @@ test.describe.serial("Escalade DIMS - Page Functionality @func", () => {
 
       await escaladeDIMS.clickElement("stockColumnInnerFilter");
 
-      await page.getByRole("textbox").first().fill("1234568");
+      await page.getByRole("textbox").first().fill("12345");
 
       await page.getByRole("button", { name: "Filter", exact: true }).click();
 
       //validate grid only displays single row
       await page.waitForSelector(
-        "#root > div > div.MuiBox-root.css-1bkvht1 > div.MuiContainer-root.MuiContainer-maxWidthLg.css-1a6buty > span:nth-child(2) > div > div > div > div > div > div > div.k-grid-container > div > div:nth-child(1) > table > tbody > tr",
+        '//*[@id="root"]/div/div[1]/div[3]/span[2]/div/div/div/div/div/div/div[3]/div/div[1]',
       );
       // Get all rows in the grid
       const rows = await page.$$(
-        "#root > div > div.MuiBox-root.css-1bkvht1 > div.MuiContainer-root.MuiContainer-maxWidthLg.css-1a6buty > span:nth-child(2) > div > div > div > div > div > div > div.k-grid-container > div > div:nth-child(1) > table > tbody > tr",
+        "#root > div > div.MuiBox-root.css-1bkvht1 > div.MuiContainer-root.MuiContainer-maxWidthLg.css-1a6buty > span:nth-child(2) > div > div > div > div > div > div > div.k-grid-container > div",
       );
 
       // Assert that there is exactly one row

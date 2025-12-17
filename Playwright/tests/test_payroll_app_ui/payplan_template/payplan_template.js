@@ -1,4 +1,3 @@
-// this POM is for /Payplan/PayplanTemplate
 const { expect } = require("@playwright/test");
 
 class PayplanTemplate {
@@ -8,91 +7,102 @@ class PayplanTemplate {
   constructor(page) {
     this.page = page;
 
-    //// locators
+    // Locators grouped in an object with functions
+    this.locators = {
+      // headers
+      payplanTemplateHeader: () => this.page.locator("text=Pay Plan Templates"),
+      editTemplatePageHeader: () =>
+        this.page.locator("text=Edit Pay Plan Template"),
 
-    // headers
-    this.payplanTemplateHeader = page.locator("text=Pay Plan Templates");
-    this.editTemplatePageHeader = page.locator("text=Edit Pay Plan Template");
+      // page elements
+      footerNameText: () => this.page.locator('label:has-text("Footer Name")'),
+      jobText: () => this.page.locator('label:has-text("Job")'),
+      departmentText: () => this.page.locator('label:has-text("Department")'),
+      stateText: () => this.page.locator('label:has-text("State")'),
+      positionTypeText: () => this.page.locator("text=Position Type"),
+      payplanTypeText: () => this.page.locator('label:has-text("Plan Type")'),
+      templateNameText: () =>
+        this.page.locator('label:has-text("Template Name")'),
+      payRateTypeText: () =>
+        this.page.locator('label:has-text("Pay Rate Type")'),
 
-    // page elements
-    this.footerNameText = page.locator('label:has-text("Footer Name")');
-    this.jobText = page.locator('label:has-text("Job")');
-    this.departmentText = page.locator('label:has-text("Department")');
-    this.stateText = page.locator('label:has-text("State")');
-    this.positionTypeText = page.locator("text=Position Type");
-    this.payplanTypeText = page.locator('label:has-text("Plan Type")');
-    this.templateNameText = page.locator('label:has-text("Template Name")');
-    this.payRateTypeText = page.locator('label:has-text("Pay Rate Type")');
+      // grid elements
+      gridAddTemplateElement: () =>
+        this.page.locator('#grid div:has-text("Add Template")'),
+      gridPayPlanIDColumn: () => this.page.locator("text=Plan Id"),
+      gridTemplateNameColumn: () =>
+        this.page.locator('a:has-text("Template Name")'),
+      gridJobColumn: () => this.page.locator("text=Job >> nth=3"),
+      gridEmpStatusColumn: () => this.page.locator("text=Emp. Status >> nth=1"),
+      gridDepartmentColumn: () => this.page.locator("text=Department >> nth=2"),
+      gridStateColumn: () => this.page.locator('a:has-text("State")'),
+      gridPositionTypeColumn: () => this.page.locator("text=Postion Type"),
+      gridPlanTypesColumn: () => this.page.locator("text=Plan Types"),
+      gridPayRateTypeColumn: () =>
+        this.page.locator('a:has-text("Pay Rate Type")'),
+      gridPortableColumn: () => this.page.locator("text=Proratable"),
+      gridUpdatedByColumn: () => this.page.locator("text=Updated By"),
+      gridUpdatedOnColumn: () => this.page.locator("text=Updated On"),
 
-    // grid elements
-    this.gridAddTemplateElement = page.locator(
-      '#grid div:has-text("Add Template")'
-    );
-    this.gridPayPlanIDColumn = page.locator("text=Plan Id");
-    this.gridTemplateNameColumn = page.locator('a:has-text("Template Name")');
-    this.gridJobColumn = page.locator("text=Job >> nth=3");
-    this.gridEmpStatusColumn = page.locator("text=Emp. Status >> nth=1");
-    this.gridDepartmentColumn = page.locator("text=Department >> nth=2");
-    this.gridStateColumn = page.locator('a:has-text("State")');
-    this.gridPositionTypeColumn = page.locator("text=Postion Type");
-    this.gridPlanTypesColumn = page.locator("text=Plan Types");
-    this.gridPayRateTypeColumn = page.locator('a:has-text("Pay Rate Type")');
-    this.gridPortableColumn = page.locator("text=Proratable");
-    this.gridUpdatedByColumn = page.locator("text=Updated By");
-    this.gridUpdatedOnColumn = page.locator("text=Updated On");
+      // page alerts
+      saveConfirmationAlert: () => this.page.locator("#divSuccessHolder"),
 
-    // page alerts
-    this.saveConfirmationAlert = page.locator("#divSuccessHolder");
+      // buttons
+      addTemplateButton: () => this.page.locator("text=Add Template"),
+      clearFiltersButton: () => this.page.locator("text=Clear Filters"),
+      editButton: () => this.page.locator("text=Edit"),
+      saveButton: () => this.page.locator("text=Save"),
+      deleteButton: () => this.page.locator("text=Delete"),
+      backButton: () => this.page.locator("text=Back"),
+      deleteInput: () => this.page.getByTitle("delete"),
 
-    // buttons
-    this.addTemplateButton = page.locator("text=Add Template");
-    this.clearFiltersButton = page.locator("text=Clear Filters");
-    this.editButton = page.locator("text=Edit");
-    this.saveButton = page.locator("text=Save");
-    this.deleteButton = page.locator("text=Delete");
-    this.backButton = page.locator("text=Back");
-    this.deleteInput = page.getByTitle("delete");
+      // inputs
+      jobInput: () =>
+        this.page.locator('input[aria-describedby="JobList_taglist"]'),
+      departmentInput: () =>
+        this.page.locator('input[aria-describedby="DepartmentList_taglist"]'),
+      stateInput: () =>
+        this.page.locator('input[aria-describedby="StateList_taglist"]'),
 
-    // inputs
-    this.jobInput = page.locator('input[aria-describedby="JobList_taglist"]');
-    this.departmentInput = page.locator(
-      'input[aria-describedby="DepartmentList_taglist"]'
-    );
-    this.stateInput = page.locator(
-      'input[aria-describedby="StateList_taglist"]'
-    );
+      // position type
+      positionTypeDropdown: () =>
+        this.page.locator('input[name="PositionTypeList_input"]'),
+      positionTypeTriangle: () =>
+        this.page.locator('[aria-label="select"] >> nth=0'),
+      positionTypeDelete: () => this.page.getByRole("button", { name: "" }),
 
-    //position type
-    this.positionTypeDropdown = page.locator(
-      'input[name="PositionTypeList_input"]'
-    );
-    this.positionTypeTriangle = page.locator('[aria-label="select"] >> nth=0');
-    this.positionTypeDelete = page.getByRole("button", { name: "" });
+      // plan type
+      planTypeDropdown: () =>
+        this.page.locator('input[name="PlanTypeList_input"]'),
+      planTypeDropdownTriangle: () =>
+        this.page.locator('[aria-label="select"]').nth(1),
+      planTypeDelete: () =>
+        this.page.locator(
+          ".k-dropdown-wrap.k-state-default.k-state-focused .k-icon.k-clear-value",
+        ),
 
-    //plan type
-    this.planTypeDropdown = page.locator('input[name="PlanTypeList_input"]');
-    this.planTypeDropdownTriangle = page
-      .locator('[aria-label="select"]')
-      .nth(1);
-    this.planTypeDelete = page.locator(
-      ".k-dropdown-wrap.k-state-default.k-state-focused .k-icon.k-clear-value"
-    );
+      // template name
+      templateNameDropdown: () =>
+        this.page.locator('input[name="NameList_input"]'),
+      templateNameDelete: () =>
+        this.page
+          .locator(
+            ".k-dropdown-wrap.k-state-default.k-state-focused .k-icon.k-clear-value",
+          )
+          .nth(1),
 
-    //template name
-    this.templateNameDropdown = page.locator('input[name="NameList_input"]');
-
-    //pay rate type
-    this.payRateTypeDropdown = page.locator(
-      'input[name="PayRateTypeList_input"]'
-    );
-
-    this.payRateTypeDropdownTriangle = page
-      .locator('[aria-label="select"]')
-      .nth(3);
-
-    this.payRateTypeDelete = page.locator(
-      ".k-dropdown-wrap.k-state-default.k-state-focused .k-icon.k-clear-value"
-    );
+      // pay rate type
+      payRateTypeDropdown: () =>
+        this.page.locator('input[name="PayRateTypeList_input"]'),
+      payRateTypeDropdownTriangle: () =>
+        this.page.locator('[aria-label="select"]').nth(3),
+      payRateTypeDelete: () =>
+        this.page
+          .locator(
+            ".k-dropdown-wrap.k-state-default.k-state-focused .k-icon.k-clear-value",
+          )
+          .nth(2),
+    };
   }
 
   // Navigation
@@ -101,252 +111,74 @@ class PayplanTemplate {
     await this.page.waitForLoadState("networkidle");
   }
 
-  /// get elements
-  async getPayPlanTemplateHeader() {
-    await expect(this.payplanTemplateHeader).toBeVisible();
+  // Common test methods
+
+  /**
+   * Clicks the first element matching the grid selector provided.
+   * @param {string} gridElement - selector string for grid rows
+   */
+  async findFirstGridRow(gridElement) {
+    await this.page.waitForSelector(gridElement);
+    const gridRowHandles = await this.page.$$(gridElement);
+
+    if (gridRowHandles.length > 0) {
+      const firstGridRow = gridRowHandles[0];
+      await this.page.evaluate((element) => {
+        if (!element.isConnected) {
+          throw new Error("Element is not attached to the DOM");
+        }
+      }, firstGridRow);
+
+      await firstGridRow.click();
+      console.log("Clicked on the first grid row.");
+    } else {
+      console.log("No grid rows found.");
+    }
   }
 
-  async getGridIsVisible() {
-    await expect(this.gridAddTemplateElement).toBeVisible();
+  /**
+   * Checks visibility of the element by locator name
+   * @param {string} locatorName
+   */
+  async checkElementVisibility(locatorName) {
+    await this.page.waitForLoadState("load");
+    const locatorFunction = this.locators[locatorName];
+
+    if (!locatorFunction)
+      throw new Error(`Locator '${locatorName}' not found in locators object.`);
+
+    try {
+      const element = await locatorFunction().first();
+      await expect(element).toBeVisible();
+      await this.page.waitForLoadState("networkidle");
+    } catch (originalError) {
+      throw new Error(
+        `Locator '${locatorName}' failed: ${originalError.message}`,
+      );
+    }
   }
 
-  async getJobText() {
-    await expect(this.jobText).toBeVisible();
-  }
-
-  async getDepartmentText() {
-    await expect(this.departmentText).toBeVisible();
-  }
-
-  async getStateText() {
-    await expect(this.stateText).toBeVisible();
-  }
-
-  async getPositionTypeText() {
-    await expect(this.positionTypeText).toBeVisible();
-  }
-
-  async getPayPlanTypeText() {
-    await expect(this.payplanTypeText).toBeVisible();
-  }
-
-  async getTemplateNameText() {
-    await expect(this.templateNameText).toBeVisible();
-  }
-
-  async getPayRateTypeText() {
-    await expect(this.payRateTypeText).toBeVisible();
-  }
-
-  async getGridPlanID() {
-    await expect(this.gridPayPlanIDColumn).toBeVisible();
-  }
-
-  async getGridTemplateNameColumn() {
-    await expect(this.gridTemplateNameColumn).toBeVisible();
-  }
-
-  async getGridJobColumn() {
-    await expect(this.gridJobColumn).toBeVisible();
-  }
-
-  async getGridEmpStatusColumn() {
-    await expect(this.gridEmpStatusColumn).toBeVisible();
-  }
-
-  async getGridDepartmentColumn() {
-    await expect(this.gridDepartmentColumn).toBeVisible();
-  }
-
-  async getGridStateColumn() {
-    await expect(this.gridStateColumn).toBeVisible();
-  }
-
-  async getGridPositionTypeColumn() {
-    await expect(this.gridPositionTypeColumn).toBeVisible();
-  }
-
-  async getGridPlanTypesColumn() {
-    await expect(this.gridPlanTypesColumn).toBeVisible();
-  }
-
-  async getGridPayRateTypeColumn() {
-    await expect(this.gridPayRateTypeColumn).toBeVisible();
-  }
-
-  async getGridPortableColumn() {
-    await expect(this.gridPortableColumn).toBeVisible();
-  }
-
-  async getGridUpdatedByColumn() {
-    await expect(this.gridUpdatedByColumn).toBeVisible();
-  }
-
-  async getGridUpdatedOnColumn() {
-    await expect(this.gridUpdatedOnColumn).toBeVisible();
-  }
-
-  async getSaveConfirmationAlert() {
-    await expect(this.saveConfirmationAlert).toBeVisible();
-  }
-
-  async getAddTemplateButton() {
-    await expect(this.addTemplateButton).toBeVisible();
-  }
-
-  async getClearFiltersButton() {
-    await expect(this.clearFiltersButton).toBeVisible();
-  }
-
-  async getEditButton() {
-    await expect(this.editButton).toBeVisible();
-  }
-
-  async getSaveButton() {
-    await expect(this.saveButton).toBeVisible();
-  }
-
-  async getDeleteButton() {
-    await expect(this.deleteButton).toBeVisible();
-  }
-
-  async getBackButton() {
-    await expect(this.backButton).toBeVisible();
-  }
-
-  async getJobInput() {
-    await expect(this.jobInput).toBeVisible();
-  }
-
-  async getDepartmentInput() {
-    await expect(this.departmentInput).toBeVisible();
-  }
-
-  async getStateInput() {
-    await expect(this.stateInput).toBeVisible();
-  }
-
-  async getPositionTypeDropdown() {
-    await expect(this.positionTypeDropdown).toBeVisible();
-  }
-
-  async getPlanTypeDropdown() {
-    await expect(this.planTypeDropdown).toBeVisible();
-  }
-
-  async getTemplateNameDropdown() {
-    await expect(this.templateNameDropdown).toBeVisible();
-  }
-
-  async getPayRateTypeDropdown() {
-    await expect(this.payRateTypeDropdown).toBeVisible();
-  }
-
-  async getDeleteInput() {
-    await expect(
-      this.deleteInput,
-      "Delete Input from Dropdown not found"
-    ).toBeVisible();
-  }
-
-  // input elements
-
-  async inputJob(text) {
-    await this.getJobInput();
-    await this.jobInput.click();
-    await this.jobInput.fill(text);
-    await this.jobInput.fill("Arrow Down");
-    await this.jobInput.press("Enter");
-  }
-
-  async inputDepartment(text) {
-    await this.getDepartmentInput();
-    await this.departmentInput.click();
-    await this.departmentInput.fill(text);
-    await this.departmentInput.fill("Arrow Down");
-    await this.departmentInput.press("Enter");
-  }
-
-  async inputState(text) {
-    await this.getStateInput();
-    await this.stateInput.click();
-    await this.stateInput.fill(text);
-    await this.stateInput.fill("Arrow Down");
-    await this.stateInput.press("Enter");
-  }
-
-  async inputPositionTypeDropdown() {
-    await this.getPositionTypeDropdown();
-    await this.positionTypeTriangle.first().click();
-  }
-
-  async deletePositionTypeDropdown() {
-    await this.getPositionTypeDropdown();
-    await this.positionTypeDelete.first().click();
-  }
-
-  async inputPlanTypeDropdown() {
-    await this.getPlanTypeDropdown();
-    await this.planTypeDropdownTriangle.first().click();
-  }
-
-  async deletePlanTypeDropdown() {
-    await this.getPlanTypeDropdown();
-    await this.planTypeDelete.first().click();
-  }
-
-  async inputTemplateNameDropdown(text) {
-    await this.getTemplateNameDropdown();
-    await this.templateNameDropdown.click();
-    await this.templateNameDropdown.fill(text);
-  }
-
-  async deleteTemplateNameDropdown() {
-    await this.getTemplateNameDropdown();
-    await this.templateNameDelete.first().click();
-  }
-
-  async inputPayRateTypeDropdown(text) {
-    await this.getPayRateTypeDropdown();
-    await this.templateNameDropdown.click();
-    await this.templateNameDropdown.fill(text);
-  }
-
-  async inputPayRateTypeTriangle() {
-    await this.getPayRateTypeDropdown();
-    await this.payRateTypeDropdownTriangle.first().click();
-  }
-
-  async deletePayRateType() {
-    await this.getPayRateTypeDropdown();
-    await this.payRateTypeDelete.click();
-  }
-
-  async clickDeleteInput() {
-    await this.getDeleteInput();
-    await this.deleteInput.click();
-  }
-
-  // click elements
-  async clickEditButton() {
-    await this.getEditButton();
-    await this.editButton.click();
-  }
-
-  async clickSaveButton() {
-    await this.getSaveButton();
-    await this.saveButton.click();
-  }
-
-  async clickBackButton() {
-    await this.getBackButton();
-    await this.backButton.click();
-  }
-
-  async clickAddTemplate() {
-    // Click text=Add Template
-    await this.getAddTemplateButton();
-    await this.addTemplateButton.click();
+  /**
+   * Fills form fields using the testData object where key matches locator name and value is the text to input
+   * @param {Object} testData
+   */
+  async fillForm(testData) {
+    for (const [key, value] of Object.entries(testData)) {
+      const locatorFunction = this.locators[key];
+      if (!locatorFunction) {
+        console.warn(`Locator not found for key: ${key}`);
+        continue;
+      }
+      try {
+        await this.page.waitForLoadState("networkidle");
+        const inputElement = await locatorFunction();
+        await inputElement.fill(value);
+      } catch (originalError) {
+        throw new Error(
+          `Filling the form field with locator '${key}' failed: ${originalError.message}`,
+        );
+      }
+    }
   }
 }
 

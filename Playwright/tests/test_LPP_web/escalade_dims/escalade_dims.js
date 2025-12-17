@@ -26,7 +26,7 @@ class EscaladeDIMS {
       stockNumColumn: () => this.page.getByText("STOCK #"),
       stockColumnFilter: () =>
         this.page.locator(
-          "#root > div > div.MuiBox-root.css-1bkvht1 > div.MuiContainer-root.MuiContainer-maxWidthLg.css-1a6buty > span:nth-child(2) > div > div > div > div > div > div > div.k-grid-header > div > table > thead > tr > th.k-filterable.k-header.k-sorted.active > span.k-cell-inner > div > span",
+          "#root > div > div.MuiBox-root.css-1bkvht1 > div.MuiContainer-root.MuiContainer-maxWidthLg.css-4hqp1a-MuiContainer-root > span:nth-child(2) > div > div > div > div > div > div > div.k-grid-header > div > table > thead > tr > th:nth-child(1) > span.k-cell-inner > span > span",
         ),
       stockColumnInnerFilter: () =>
         this.page.getByText("Filter", { exact: true }),
@@ -69,8 +69,6 @@ class EscaladeDIMS {
   }
 
   // interact with elements
-
-  // upload
 
   async uploadSalesData(salesDataFile) {
     await this.page.getByRole("button", { name: "UPLOAD SALES DATA" }).click();
@@ -176,7 +174,5 @@ class EscaladeDIMS {
       throw new Error(errorMessage);
     }
   }
-
-  // search
 }
 module.exports = { EscaladeDIMS };
