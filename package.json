@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@playwright/test": "^1.55.0",
+    "@playwright/test": "^1.57.0",
     "@trunkio/launcher": "^1.3.4",
     "@types/node": "^20.12.7",
     "lolex": "^6.0.0",
@@ -15,7 +15,19 @@
   },
   "dependencies": {
     "csv-parser": "^3.2.0",
-    "npm": "^10.5.2",
+    "npm": "^11.7.0",
     "punycode2": "^1.0.1"
-  }
+  },
+  "name": "application-qa-test-automation",
+  "version": "1.0.0",
+  "description": "[please see Test Automation Repo Wiki](https://dev.azure.com/LithiaMotors/Application%20QA%20Test%20Automation/_wiki/wikis/Application-QA-Test-Automation.wiki/2136/Quality-Engineer-Setup-and-Technical-Onboarding) for instructions on getting started.",
+  "main": "generate-devcontainer-profiles.js",
+  "repository": {
+    "type": "git",
+    "url": "https://dev.azure.com/LithiaMotors/_git/Application%20QA%20Test%20Automation"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
 }

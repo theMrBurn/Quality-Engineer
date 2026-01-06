@@ -1,7 +1,8 @@
 {
   "name": "Playwright Test Suite",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
+    "context": ".."
   },
   "remoteEnv": {
     "PLAYWRIGHT_PROJECT": "InnovationPOC"
