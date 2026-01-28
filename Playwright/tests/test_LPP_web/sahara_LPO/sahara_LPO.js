@@ -18,6 +18,10 @@ class SaharaLPO {
       // unique page text
       fundingAlert: () => this.page.getByText("Update Lien - Lien payoff not found"),
 
+      // importing/loading message
+      importingMessage: () =>
+        this.page.getByText("Lien Payoff data is currently importing. Please check back soon."),
+
       // search, buttons, dropdowns and input boxes
       searchBar: () => this.page.getByPlaceholder("SEARCH"),
       groupDropdown: () => this.page.getByRole("button", { name: "ALL GROUPS" }),
@@ -63,198 +67,22 @@ class SaharaLPO {
     };
   }
 
-  // Navigate to /Payroll/Regular endpoint
+  // Navigate to /lienpayoff endpoint
   async goto() {
     await this.page.goto("/lienpayoff");
   }
 
-  // get page elements
-
-  async getPageHeader() {
-    await expect(this.locators.pageHeader(), "Page header not found").toBeVisible();
-  }
-
-  async getLPOLogo() {
-    await expect(this.locators.logoLPO(), "LPP Portal not found").toBeVisible();
-  }
-
-  async getSearchBar() {
-    await expect(this.locators.searchBar(), "Search Bar not found").toBeVisible();
-  }
-
-  async getLPOGridToolbar() {
-    await expect(this.locators.gridToolbarLPO(), "Tool Bar not found").toBeVisible();
-  }
-
-  async getGroupDropdown() {
-    await expect(this.locators.groupDropdown(), "Group dropdown not Found").toBeVisible();
-  }
-
-  async getApprovedColumn() {
-    await expect(this.locators.approvedColumn(), "Approved Column not found").toBeVisible();
-  }
-
-  async getIDColumn() {
-    await expect(this.locators.idColumn(), "ID Column not found").toBeVisible();
-  }
-
-  async getStoreNumberColumn() {
-    await expect(this.locators.storeNumberColumn(), "Store Number Column not found").toBeVisible();
-  }
-
-  async getCustomerColumn() {
-    await expect(this.locators.customerColumn(), "Customer Column not found").toBeVisible();
-  }
-
-  async getSalesStockNumColumn() {
-    await expect(this.locators.salesStockNumberColumn(), "Sales Stock Number Column not found").toBeVisible();
-  }
-
-  async getTradeVINColumn() {
-    await expect(this.locators.tradeVINColumn(), "Trade VIN Column not found").toBeVisible();
-  }
-
-  async getResetFiltersButton() {
-    await expect(this.locators.resetFiltersButton(), "Reset Filters Button not visible").toBeVisible();
-  }
-
-  async getLPOLogoURL() {
-    const saharaLPOLogoURL = this.locators.logoLPO();
-    const href = await saharaLPOLogoURL.getAttribute("href");
-    expect(href).toContain("lpp.lithia.com");
-  }
-
-  async getFirstRowLPO() {
-    await expect(this.locators.firstRowLPO(), "First row result not found on Grid").toBeVisible();
-  }
-
-  async getEditApprovalButton() {
-    await expect(this.locators.editApprovalButton(), "Edit Approvl Button not found when Modal expanded").toBeVisible();
-  }
-
-  async getCloseEditApproval() {
-    await expect(this.locators.closeEditApproveModal(), "Edit Approval Close not found").toBeVisible();
-  }
-
-  async getApprovalButton() {
-    await expect(this.locators.approvalButton(), "Approval Button not found").toBeVisible();
-  }
-
-  async getVinInput() {
-    await expect(this.locators.inputVin(), "Input Vin not found").toBeVisible();
-  }
-
-  async getLienholderDropdown() {
-    await expect(this.locators.lienholderDropdown(), "Lienholder Dropdown not found").toBeVisible();
-  }
-
-  async getSaveButton() {
-    await expect(this.locators.saveButton(), "Save Button not found").toBeVisible();
-  }
-
-  async getUnapproveButton() {
-    await expect(this.locators.unapproveButton(), "Unapprove Button not found").toBeVisible();
-  }
-
-  // interact with elements
-
-  async clickGroupsDropdown() {
-    await this.getGroupDropdown();
-    await this.locators.groupDropdown().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickResetFiltersButton() {
-    await this.getResetFiltersButton();
-    await this.locators.resetFiltersButton().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickFirstRowResult() {
-    await this.getFirstRowLPO();
-    const firstRow = this.locators.firstRowLPO();
-    expect(await firstRow.click());
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickEditButton() {
-    await this.getEditApprovalButton();
-    await this.locators.editApprovalButton().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickApprovalButton() {
-    try {
-      await this.getApprovalButton();
-      await this.locators.approvalButton().click();
-      const approveCheckbox = await this.page.getByRole("checkbox").first();
-      if (await approveCheckbox.isVisible()) {
-        await approveCheckbox.check();
-        const secondCheckbox = await this.page.getByRole("checkbox").nth(1);
-        if (await secondCheckbox.isVisible()) {
-          await secondCheckbox.check();
-        }
-        await this.page.getByRole("button", { name: "Approve" }).click();
-        await this.page.waitForLoadState("networkidle");
-      } else {
-        await this.page.waitForLoadState("networkidle");
-      }
-    } catch (error) {
-      console.error("Error: Unable to complete Approval", error);
-    }
-  }
-
-  async clickCloseEditApprovalModal() {
-    await this.getCloseEditApproval();
-    await this.locators.closeEditApproveModal().click();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickLienholdersDropdown() {
-    await this.getLienholderDropdown();
-    await this.locators.lienholderDropdown().click();
-  }
-
-  async clickSaveButton() {
-    await this.getSaveButton();
-    await this.locators.saveButton().click();
-
-    const confirmSave = this.page.getByText("Lien Payoff Updated");
-    await expect(confirmSave).toBeVisible();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async clickUnapproveButton() {
-    await this.getUnapproveButton();
-    await this.locators.unapproveButton().click();
-    await this.page.getByRole("button", { name: "Unapprove" }).click();
-
-    const confirmUnapprove = this.page.getByText(
-      "Removed Lien Payoff Approval"
-    );
-    await expect(confirmUnapprove).toBeVisible();
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  // input elements and forms
-
-  async inputSearch(text) {
-    await this.getSearchBar();
-    await this.locators.searchBar().click();
-    await this.locators.searchBar().fill(text);
-    await this.page.waitForLoadState("networkidle");
-  }
-
-  async inputVinNumber(text) {
-    await this.getVinInput();
-    await this.locators.inputVin().click();
-    await this.locators.inputVin().fill(text);
-  }
-
-  // get page elements
+  /**
+   * Checks visibility of an element by locator name
+   * @param {string} locatorName - The key in this.locators object
+   */
   async checkElementVisibility(locatorName) {
     await this.page.waitForLoadState("load");
     const locatorFunction = this.locators[locatorName];
+
+    if (!locatorFunction) {
+      throw new Error(`Locator '${locatorName}' not found in locators`);
+    }
 
     try {
       const element = await locatorFunction().first();
@@ -266,45 +94,32 @@ class SaharaLPO {
     }
   }
 
-// common test methods
-
-  async findFirstGridRow(gridElement) {
-    await this.page.waitForSelector(gridElement); // Wait for the grid element to be available in the DOM
-    const gridRowHandles = await this.page.$$(gridElement); // Get handles for all grid rows
-
-    // Check if any grid rows are found
-    if (gridRowHandles.length > 0) {
-      const firstGridRow = gridRowHandles[0];
-
-      // Ensure the element is attached to the DOM
-      await this.page.evaluate((element) => {
-        if (!element.isConnected) {
-          throw new Error("Element is not attached to the DOM");
-        }
-      }, firstGridRow);
-
-      // Click on the first grid row
-      await firstGridRow.click();
-      console.log("Clicked on the first grid row.");
-    } else {
-      console.log("No grid rows found.");
-    }
-  }
-
-  async checkElementVisibility(locatorName) {
+  /**
+   * Click an element by locator name
+   * @param {string} locatorName - The key in this.locators object
+   */
+  async clickElement(locatorName) {
     await this.page.waitForLoadState("load");
     const locatorFunction = this.locators[locatorName];
 
+    if (!locatorFunction) {
+      throw new Error(`Locator '${locatorName}' not found in locators`);
+    }
+
     try {
       const element = await locatorFunction().first();
-      await expect(element).toBeVisible();
+      await element.click();
       await this.page.waitForLoadState("networkidle");
     } catch (originalError) {
-      const errorMessage = `Locator '${locatorName}' failed: ${originalError.message}`;
+      const errorMessage = `Clicking on locator '${locatorName}' failed: ${originalError.message}`;
       throw new Error(errorMessage);
     }
   }
 
+  /**
+   * Fill a form based on test data object where keys correspond to locators keys
+   * @param {Object} testData - key:value pairs where key is locatorName, value is text to fill
+   */
   async fillForm(testData) {
     for (const [key, value] of Object.entries(testData)) {
       const locatorFunction = this.locators[key];
@@ -323,20 +138,75 @@ class SaharaLPO {
     }
   }
 
-  async clickElement(locatorName) {
-    await this.page.waitForLoadState("load");
-    const locatorFunction = this.locators[locatorName];
+  /**
+   * Finds and clicks the first row of a grid identified by its selector
+   * @param {string} gridElementSelector - selector for grid rows
+   */
+  async findFirstGridRow(gridElementSelector) {
+    await this.page.waitForSelector(gridElementSelector);
 
-    try {
-      const element = await locatorFunction().first();
-      await element.click();
-      await this.page.waitForLoadState("networkidle");
-    } catch (originalError) {
-      const errorMessage = `Clicking on locator '${locatorName}' failed: ${originalError.message}`;
-      throw new Error(errorMessage);
+    const gridRowHandles = await this.page.$$(gridElementSelector);
+    if (gridRowHandles.length > 0) {
+      const firstGridRow = gridRowHandles[0];
+
+      // Ensure it is attached to DOM
+      await this.page.evaluate((element) => {
+        if (!element.isConnected) {
+          throw new Error("Element is not attached to the DOM");
+        }
+      }, firstGridRow);
+
+      await firstGridRow.click();
+      console.log("Clicked on the first grid row.");
+    } else {
+      console.log("No grid rows found.");
     }
   }
 
+  /**
+   * Validate that the logo URL contains expected domain string
+   */
+  async validateLogoURL() {
+    const saharaLPOLogoURL = this.locators.logoLPO();
+    const href = await saharaLPOLogoURL.getAttribute("href");
+    expect(href).toContain("lpp.lithia.com");
+  }
+
+  /**
+   * Input text into search bar
+   * @param {string} text
+   */
+  async inputSearch(text) {
+    await this.checkElementVisibility("searchBar");
+    const searchBar = this.locators.searchBar();
+    await searchBar.click();
+    await searchBar.fill(text);
+    await this.page.waitForLoadState("networkidle");
+  }
+
+  /**
+   * Input VIN number into associated input field
+   * @param {string} text
+   */
+  async inputVinNumber(text) {
+    await this.checkElementVisibility("inputVin");
+    const vinInput = this.locators.inputVin();
+    await vinInput.click();
+    await vinInput.fill(text);
+  }
+
+  /**
+   * Detect if Lien Payoff data is currently importing
+   * @returns {Promise<boolean>} True if importing message visible, else false
+   */
+  async isDataImporting() {
+    try {
+      // Short timeout to avoid waiting too long if message is not present
+      return await this.locators.importingMessage().isVisible({ timeout: 2000 });
+    } catch {
+      return false;
+    }
+  }
 }
 
 module.exports = { SaharaLPO };
