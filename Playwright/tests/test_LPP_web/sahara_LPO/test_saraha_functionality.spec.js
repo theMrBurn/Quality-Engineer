@@ -2,16 +2,16 @@ import { test, expect } from "@playwright/test";
 import { SaharaLPO } from "./sahara_LPO.js";
 
 test.describe.serial("Sahara Lien Payoff - Functionality @func", () => {
-
-  test("Navigate to Sahara Lien Payoff and validate basic functional elements are working as expected", async ({
-    page,
-  }) => {
+  test("Basic functional elements test", async ({ page }) => {
     const saharaLPO = new SaharaLPO(page);
-    await saharaLPO.goto();
 
-    const importing = await saharaLPO.isDataImporting();
+    await saharaLPO.waitForPageLoad();
+    const importing = await saharaLPO.isImporting();
+
     if (importing) {
-      console.log("INFO: Lien Payoff data is currently importing. Test passes because this is expected behavior.");
+      console.log(
+        "INFO: Data is importing - basic functional elements test cannot run full checks. Marking test passed with info."
+      );
       return;
     }
 
@@ -26,20 +26,21 @@ test.describe.serial("Sahara Lien Payoff - Functionality @func", () => {
 
       await page.waitForLoadState("networkidle");
     } catch (error) {
-      console.error("Error during basic functionality test:", error.message);
-      throw new Error(`Functionality test failed with error: ${error.message}`);
+      console.error("Error during basic functional elements test:", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
-  test("Navigate to Sahara Lien Payoff and validate basic search input and corresponding grid output", async ({
-    page,
-  }) => {
+  test("Basic search input and grid output test", async ({ page }) => {
     const saharaLPO = new SaharaLPO(page);
-    await saharaLPO.goto();
 
-    const importing = await saharaLPO.isDataImporting();
+    await saharaLPO.waitForPageLoad();
+    const importing = await saharaLPO.isImporting();
+
     if (importing) {
-      console.log("INFO: Lien Payoff data is currently importing. Test passes because this is expected behavior.");
+      console.log(
+        "INFO: Data is importing - search and grid validation test cannot run full checks. Marking test passed with info."
+      );
       return;
     }
 
@@ -53,23 +54,24 @@ test.describe.serial("Sahara Lien Payoff - Functionality @func", () => {
 
       console.log(`Grid result text after search: ${gridResultsText}`);
 
-      // You can add assertion here when you want
+      // Add assertion when appropriate:
       // expect(gridResultsText).toContain("Smith");
     } catch (error) {
-      console.error("Error during search functionality test:", error.message);
-      throw new Error(`Search functionality test failed with error: ${error.message}`);
+      console.error("Error during search and grid validation test:", error.message);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 
-  test("Navigate to Sahara Lien Payoff and validate basic edit & approval workflow functions and modal close", async ({
-    page,
-  }) => {
+  test("Basic edit & approval workflow test", async ({ page }) => {
     const saharaLPO = new SaharaLPO(page);
-    await saharaLPO.goto();
 
-    const importing = await saharaLPO.isDataImporting();
+    await saharaLPO.waitForPageLoad();
+    const importing = await saharaLPO.isImporting();
+
     if (importing) {
-      console.log("INFO: Lien Payoff data is currently importing. Test passes because this is expected behavior.");
+      console.log(
+        "INFO: Data is importing - edit & approval workflow test cannot run full checks. Marking test passed with info."
+      );
       return;
     }
 
@@ -94,7 +96,7 @@ test.describe.serial("Sahara Lien Payoff - Functionality @func", () => {
       await page.waitForLoadState("networkidle");
     } catch (error) {
       console.error("Error during edit & approval workflow test:", error.message);
-      throw new Error(`Edit & approval workflow test failed with error: ${error.message}`);
+      throw new Error(`Test failed with error: ${error.message}`);
     }
   });
 });

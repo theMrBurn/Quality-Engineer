@@ -67,9 +67,24 @@ class SaharaLPO {
     };
   }
 
-  // Navigate to /lienpayoff endpoint
-  async goto() {
+  // Navigate to /lienpayoff endpoint and wait for basic page load
+  async waitForPageLoad() {
     await this.page.goto("/lienpayoff");
+    await this.page.waitForLoadState("load");
+    // Optionally wait for a key stable element like page header
+    await this.checkElementVisibility("pageHeader");
+  }
+
+  /**
+   * Detect if Lien Payoff data is currently importing
+   * @returns {Promise<boolean>} True if importing message visible, else false
+   */
+  async isImporting() {
+    try {
+      return await this.locators.importingMessage().isVisible({ timeout: 1000 });
+    } catch {
+      return false;
+    }
   }
 
   /**
@@ -193,19 +208,6 @@ class SaharaLPO {
     const vinInput = this.locators.inputVin();
     await vinInput.click();
     await vinInput.fill(text);
-  }
-
-  /**
-   * Detect if Lien Payoff data is currently importing
-   * @returns {Promise<boolean>} True if importing message visible, else false
-   */
-  async isDataImporting() {
-    try {
-      // Short timeout to avoid waiting too long if message is not present
-      return await this.locators.importingMessage().isVisible({ timeout: 2000 });
-    } catch {
-      return false;
-    }
   }
 }
 
