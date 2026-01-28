@@ -1,40 +1,40 @@
-// Sahara LPO
+import { test } from "@playwright/test";
+import { SaharaLPO } from "./sahara_LPO.js";
 
-// POMs have to live in the same directory as the test, for now
-// we will paramaterize the storageState with other .json for each userLogin, if necessary
-
-// dependancies
-const { test, expect } = require("@playwright/test");
-const { SaharaLPO } = require("./sahara_LPO.js");
-
-// user
-//test.use({ storageState: "Playwright/helpers/test_DenaliLPP_superUser.json" });
-
-//test
-test.describe.serial("Saraha Lein Payoff - Page Elements @smoke", () => {
-  test("Navigate to Saraha Lein Payoff and validate Page elements have loaded as expected", async ({
-    browser,
+test.describe.serial("Sahara Lien Payoff - Page Elements @smoke", () => {
+  test("Navigate to Sahara Lien Payoff and validate page elements have loaded as expected", async ({
     page,
   }) => {
     const saharaLPO = new SaharaLPO(page);
     await saharaLPO.goto();
 
-    // validate expected page elements have loaded
-    await saharaLPO.getPageHeader();
-    await saharaLPO.getLPOLogo();
-    await saharaLPO.getSearchBar();
-    await saharaLPO.getGroupDropdown();
-    await saharaLPO.getApprovedColumn();
-    await saharaLPO.getIDColumn();
-    await saharaLPO.getStoreNumberColumn();
-    await saharaLPO.getCustomerColumn();
-    await saharaLPO.getSalesStockNumColumn();
-    await saharaLPO.getTradeVINColumn();
+    await page.waitForLoadState("load");
 
-    // if data load is successful, the following interactive page elemends should be available
-    await saharaLPO.getLPOGridToolbar();
+    const locatorNames = [
+      "pageHeader",
+      "logoLPO",
+      "searchBar",
+      "groupDropdown",
+      "approvedColumn",
+      "idColumn",
+      "storeNumberColumn",
+      "customerColumn",
+      "salesStockNumberColumn",
+      "tradeVINColumn",
+      "gridToolbarLPO",
+    ];
 
-    // validate logo url directs back to LP
-    await saharaLPO.getLPOLogoURL();
+    try {
+      for (const locatorName of locatorNames) {
+        console.log(`Validating page element: '${locatorName}' is visible`);
+        await saharaLPO.checkElementVisibility(locatorName);
+      }
+
+      // Validate logo URL separately as it requires attribute check
+      await saharaLPO.getLPOLogoURL();
+    } catch (error) {
+      console.error("Error during page element validation:", error.message);
+      throw new Error(`Smoke test failed with error: ${error.message}`);
+    }
   });
 });

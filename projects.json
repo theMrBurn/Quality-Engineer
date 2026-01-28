@@ -274,6 +274,15 @@
       "baseURL": "https://test.lpp.lithia.com/"
     }
   },
+    {
+    "name": "SaharaLPO_UAT",
+    "testDir": "Playwright/tests/test_LPP_web/sahara_LPO",
+    "retries": 3,
+    "use": {
+      "storageState": "Playwright/helpers/login/uat_DenaliLPP_superUser.json",
+      "baseURL": "https://uat.lpp.lithia.com/lienpayoff"
+    }
+  },
   {
     "name": "SaharaNewLienTest",
     "testDir": "Playwright/tests/test_LPP_web/sahara_new_lien",
