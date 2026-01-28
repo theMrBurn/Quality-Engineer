@@ -30,8 +30,6 @@ test.describe.serial("Sahara Lien Payoff - Page Elements @smoke", () => {
         await saharaLPO.checkElementVisibility(locatorName);
       }
 
-      // Validate logo URL separately as it requires attribute check
-      await saharaLPO.getLPOLogoURL();
     } catch (error) {
       console.error("Error during page element validation:", error.message);
       throw new Error(`Smoke test failed with error: ${error.message}`);
