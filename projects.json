@@ -280,7 +280,7 @@
     "retries": 3,
     "use": {
       "storageState": "Playwright/helpers/login/uat_DenaliLPP_superUser.json",
-      "baseURL": "https://uat.lpp.lithia.com/lienpayoff"
+      "baseURL": "https://uat.lpp.lithia.com/"
     }
   },
   {

@@ -6,9 +6,8 @@ test.describe.serial("Sahara Lien Payoff - Page Elements @smoke", () => {
     page,
   }) => {
     const saharaLPO = new SaharaLPO(page);
-    await saharaLPO.goto();
 
-    await page.waitForLoadState("load");
+    await saharaLPO.waitForPageLoad();
 
     const locatorNames = [
       "pageHeader",
