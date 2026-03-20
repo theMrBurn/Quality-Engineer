@@ -1,69 +1,61 @@
 /**
  * Utility to scrape visible interactive elements dynamically,
- * extracting tag, attributes, selectors, and visible text.
+ * extracting selector keys and attributes for fallback use.
  *
  * @param {import('playwright').Page} page
- * @returns {Promise<Array<Object>>} - List of element descriptors
+ * @returns {Promise<{ results: Array<Object>, locatorMap: Map<string,string> }>}
  */
 async function scrapeInteractiveElements(page) {
   const selectors = `button:visible, select:visible, input:visible, a:visible, [role="button"]:visible, [role="combobox"]:visible, [role="link"]:visible, [role="menuitem"]:visible`;
   const elements = await page.locator(selectors).elementHandles();
   const results = [];
+  const locatorMap = new Map();
 
   for (const el of elements) {
     try {
       const tagName = await el.evaluate((e) => e.tagName.toLowerCase());
       const id = await el.getAttribute("id");
-      const name = await el.getAttribute("name");
       const ariaLabel = await el.getAttribute("aria-label");
-      const dataTestId =
-        (await el.getAttribute("data-testid")) ||
-        (await el.getAttribute("data-test"));
+      const dataTestId = (await el.getAttribute("data-testid")) || (await el.getAttribute("data-test"));
+      const name = await el.getAttribute("name");
       const classes = await el.getAttribute("class");
-      const title = await el.getAttribute("title");
-      const placeholder = await el.getAttribute("placeholder");
-      const role = await el.getAttribute("role");
-      const isDisabled = await el.evaluate(
-        (e) => e.disabled || e.getAttribute("aria-disabled") === "true",
-      );
 
-      if (isDisabled) continue;
+      let key;
+      if (id) key = id;
+      else if (ariaLabel) key = ariaLabel.replace(/\s+/g, '_').toLowerCase();
+      else if (dataTestId) key = dataTestId;
+      else if (name) key = name.replace(/\s+/g, '_').toLowerCase();
+      else key = `${tagName}_${results.length}`;
 
       let selector = "";
-
       if (id) selector = `#${id}`;
-      else if (dataTestId) selector = `[data-testid="${dataTestId}"]`;
       else if (ariaLabel) selector = `${tagName}[aria-label="${ariaLabel}"]`;
+      else if (dataTestId) selector = `[data-testid="${dataTestId}"]`;
       else if (name) selector = `${tagName}[name="${name}"]`;
-      else if (classes)
-        selector = `${tagName}.${classes.trim().split(/\s+/).join(".")}`;
+      else if (classes) selector = `${tagName}.${classes.trim().split(/\s+/).join('.')}`;
       else selector = tagName;
 
-      let visibleText = await el.evaluate((e) => e.textContent?.trim() || "");
-      if (!visibleText && (tagName === "input" || tagName === "select")) {
-        visibleText = await el.evaluate((e) => e.value || "");
-      }
+      locatorMap.set(key, selector);
+
+      const visibleText = (await el.textContent())?.trim() || "";
 
       results.push({
+        key,
         tagName,
-        id,
-        name,
+        selector,
         ariaLabel,
         dataTestId,
+        name,
         classes,
-        title,
-        placeholder,
-        role,
-        selector,
         visibleText,
       });
     } catch {
-      // Ignore errors on element evaluation
+      // Ignore errors
     }
   }
 
-  console.log("Scraped interactive elements:", results);
-  return results;
+  console.log(`Scraped ${results.length} interactive elements.`);
+  return { results, locatorMap };
 }
 
 module.exports = { scrapeInteractiveElements };

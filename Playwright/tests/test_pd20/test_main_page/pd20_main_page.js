@@ -2,16 +2,22 @@ const { expect } = require("@playwright/test");
 
 /**
  * PD20 Main Page Object with locators and common interaction methods.
- * Handles Power BI iframe elements explicitly with waits on frame content.
+ * 
+ * Work Items / Bug Fixes Tested:
+ * - WI#277087: Drill-through functionality on /sales-log with slicer selections should always open reports.
+ *   Bookmarks or active drill-through states should not prevent repeated drill-throughs.
+ *   https://dev.azure.com/LithiaMotors/Data%20and%20Apps/_workitems/edit/277087
+ *
+ * Future work items can be appended here as needed.
  */
 class PD20MainPage {
   /**
    * @param {import('playwright').Page} page
-   * @param {Object} testParams optional parameters object to drive test data, inputs, expectations
+   * @param {string} paramKey optional test parameters key (default: 'default')
    */
-  constructor(page, testParams = {}) {
+  constructor(page, paramKey = "default") {
     this.page = page;
-    this.testParams = testParams;
+    this.paramKey = paramKey;
 
     this.locators = {
       // Buttons
@@ -28,59 +34,100 @@ class PD20MainPage {
       // Bookmarks / Status
       bookmarkStatus: () => this.page.locator("#bookmark-status"),
 
-      // Power BI iframe locator - used internally only
+      // Power BI iframe locator
       powerBIFrameSelector: 'iframe[src*="powerbi.com"]',
 
-      // Locators inside Power BI iframe - accessed via async methods below
-      // Use explicit waits and contentFrame to ensure frame loaded before interaction
+      // App header or nav to verify login success (outside iframe)
+      appHeader: () => this.page.getByRole("banner"),
+
+      // The following are async getters for iframe-contained elements:
+
+      /**
+       * Wait for Power BI iframe and get content frame.
+       */
+      getPowerBIFrame: async () => {
+        console.log(`[${new Date().toISOString()}] Waiting for Power BI iframe attachment...`);
+        const frameHandle = await this.page.waitForSelector(
+          this.locators.powerBIFrameSelector,
+          { timeout: 60000 }
+        );
+        const contentFrame = await frameHandle.contentFrame();
+        if (!contentFrame) {
+          throw new Error("Power BI iframe contentFrame not acquired");
+        }
+        console.log(`[${new Date().toISOString()}] Power BI iframe contentFrame acquired.`);
+        return contentFrame;
+      },
 
       monthSlicerDropdown: async () => {
-        const frame = await this.waitForPowerBIFrameAndGet();
-        await frame.waitForSelector("#month-slicer", { state: "visible", timeout: 30000 });
+        const frame = await this.locators.getPowerBIFrame();
+        await frame.waitForSelector("#month-slicer", { timeout: 60000 });
+        await frame.waitForFunction(() => {
+          const select = document.querySelector("#month-slicer");
+          return select && select.options.length > 1;
+        }, { timeout: 60000 });
         return frame.locator("#month-slicer");
       },
 
       yearSlicerDropdown: async () => {
-        const frame = await this.waitForPowerBIFrameAndGet();
-        await frame.waitForSelector("#year-slicer", { state: "visible", timeout: 30000 });
+        const frame = await this.locators.getPowerBIFrame();
+        await frame.waitForSelector("#year-slicer", { timeout: 60000 });
+        await frame.waitForFunction(() => {
+          const select = document.querySelector("#year-slicer");
+          return select && select.options.length > 1;
+        }, { timeout: 60000 });
         return frame.locator("#year-slicer");
       },
 
       drillThroughLink: async () => {
-        const frame = await this.waitForPowerBIFrameAndGet();
-        await frame.waitForSelector(".drillthrough-link", { state: "visible", timeout: 30000 });
+        const frame = await this.locators.getPowerBIFrame();
+        await frame.waitForSelector(".drillthrough-link", { timeout: 60000 });
         return frame.locator(".drillthrough-link");
       },
 
       reportContainer: async () => {
-        const frame = await this.waitForPowerBIFrameAndGet();
-        await frame.waitForSelector("#report-container", { state: "visible", timeout: 30000 });
+        const frame = await this.locators.getPowerBIFrame();
+        await frame.waitForSelector("#report-container", { timeout: 60000 });
         return frame.locator("#report-container");
       },
-
-      // App header or nav outside iframe used to verify login success
-      appHeader: () => this.page.getByRole("banner"), // Replace with actual reliable logged-in UI selector
     };
+
+    // Embedded test parameters keyed by paramKey
+    this.testParamsMap = {
+      default: {
+        urls: {
+          mainPage: "https://dev.apps.lithiadriveway.com/performance-dashboard/sales-log",
+        },
+        inputs: {
+          inputField1: "1000",
+          inputField2: "2500",
+          inputField3: "-300",
+        },
+        expectedTexts: {
+          bookmarkApplied: "Bookmark applied successfully",
+        },
+        drillthrough: {
+          month: "March",
+          year: "2023",
+          repeatCount: 3,
+          urlContains: "sales-log",
+          reportVerifySelectors: ["#report-container", ".some-key-report-element"] // Replace with your actual selectors
+        },
+      },
+      // Add more param sets as needed
+    };
+
+    this.testParams = this.testParamsMap[this.paramKey] || this.testParamsMap.default;
   }
 
-  /**
-   * Helper method to wait for the Power BI iframe to be attached and get its Playwright Frame object.
-   */
-  async waitForPowerBIFrameAndGet() {
-    console.log(`[${new Date().toISOString()}] Waiting for Power BI iframe to be attached...`);
-    const frameHandle = await this.page.waitForSelector(this.locators.powerBIFrameSelector, { timeout: 30000 });
-    const frame = await frameHandle.contentFrame();
-    if (!frame) {
-      throw new Error("Power BI iframe contentFrame not available");
-    }
-    console.log(`[${new Date().toISOString()}] Power BI iframe contentFrame acquired.`);
-    return frame;
+  getTestParams() {
+    return this.testParams;
   }
 
   async goto(url) {
     const targetUrl =
       url ||
-      this.testParams.urls?.mainPage ||
+      this.testParams.urls.mainPage ||
       this.page.context()._options.baseURL ||
       "/";
     console.log(`[${new Date().toISOString()}] Navigating to ${targetUrl}`);
@@ -91,30 +138,29 @@ class PD20MainPage {
 
   async clickElement(locatorName) {
     const locatorFunc = this.locators[locatorName];
-    if (!locatorFunc)
-      throw new Error(`Locator '${locatorName}' not found`);
+    if (!locatorFunc) throw new Error(`Locator '${locatorName}' not found`);
     const element = locatorFunc.length ? await locatorFunc() : locatorFunc();
     console.log(`[${new Date().toISOString()}] Waiting for '${locatorName}' to be visible before click`);
     await element.waitFor({ state: "visible", timeout: 15000 });
     await element.click();
+    await this.page.waitForLoadState("networkidle");
     console.log(`[${new Date().toISOString()}] Clicked '${locatorName}'`);
   }
 
   async fillInput(locatorName, value) {
     const locatorFunc = this.locators[locatorName];
-    if (!locatorFunc)
-      throw new Error(`Locator '${locatorName}' not found`);
+    if (!locatorFunc) throw new Error(`Locator '${locatorName}' not found`);
     const element = locatorFunc.length ? await locatorFunc() : locatorFunc();
     console.log(`[${new Date().toISOString()}] Waiting for '${locatorName}' to be visible before fill`);
     await element.waitFor({ state: "visible", timeout: 15000 });
     await element.fill(value);
+    await this.page.waitForLoadState("networkidle");
     console.log(`[${new Date().toISOString()}] Filled '${locatorName}' with '${value}'`);
   }
 
   async getText(locatorName) {
     const locatorFunc = this.locators[locatorName];
-    if (!locatorFunc)
-      throw new Error(`Locator '${locatorName}' not found`);
+    if (!locatorFunc) throw new Error(`Locator '${locatorName}' not found`);
     const element = locatorFunc.length ? await locatorFunc() : locatorFunc();
     const text = await element.textContent();
     return text ? text.trim() : "";
@@ -122,12 +168,27 @@ class PD20MainPage {
 
   async checkElementVisibility(locatorName) {
     const locatorFunc = this.locators[locatorName];
-    if (!locatorFunc)
-      throw new Error(`Locator '${locatorName}' not found`);
+    if (!locatorFunc) throw new Error(`Locator '${locatorName}' not found`);
     const element = locatorFunc.length ? await locatorFunc() : locatorFunc();
     console.log(`[${new Date().toISOString()}] Checking visibility of '${locatorName}'`);
     await expect(element).toBeVisible({ timeout: 15000 });
   }
+
+  // Generic method: get selected option label or value of any select element locator
+  async getSelectedOption(locatorName) {
+    const locatorFunc = this.locators[locatorName];
+    if (!locatorFunc) throw new Error(`Locator '${locatorName}' not found`);
+    const selectElement = locatorFunc.length ? await locatorFunc() : locatorFunc();
+    return selectElement.evaluate((select) => {
+      const selectedOption = select.selectedOptions[0];
+      return selectedOption ? selectedOption.label || selectedOption.value : null;
+    });
+  }
+
+  /** Static array of tracked work items relevant to this suite */
+  static workItems = [
+    "WI#277087 - https://dev.azure.com/Lithia Motors/Data and Apps/_workitems/edit/277087"
+  ];
 }
 
 module.exports = { PD20MainPage };
