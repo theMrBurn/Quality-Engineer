@@ -94,7 +94,7 @@
     "testDir": "Playwright/tests/test_pd20/test_main_page",
     "retries": 0,
     "use": {
-      "storageState": "Playwright/helpers/login/dev_pd20_auth.json",
+      "storageState": "Playwright/helpers/login/lpp_auth.json",
       "baseURL": "https://dev.apps.lithiadriveway.com/performance-dashboard"
     }
   },
