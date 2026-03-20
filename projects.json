@@ -95,7 +95,7 @@
     "retries": 0,
     "use": {
       "storageState": "Playwright/helpers/login/dev_pd20_auth.json",
-      "baseURL": "https://dev.apps.lithia.com/performancedashboard"
+      "baseURL": "https://dev.apps.lithiadriveway.com/performance-dashboard"
     }
   },
 
