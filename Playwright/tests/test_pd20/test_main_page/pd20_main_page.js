@@ -90,6 +90,13 @@ class PD20MainPage {
         await frame.waitForSelector("#report-container", { timeout: 60000 });
         return frame.locator("#report-container");
       },
+
+      // Locators for navigation outside iframe
+      navButtonByName: (name, exact = false) =>
+        this.page.getByRole("button", { name, exact }),
+
+      navLinkByName: (name) =>
+        this.page.getByRole("link", { name }),
     };
 
     // Embedded test parameters keyed by paramKey
@@ -118,6 +125,9 @@ class PD20MainPage {
     };
 
     this.testParams = this.testParamsMap[this.paramKey] || this.testParamsMap.default;
+
+    // Store dynamic locators scraped from latest scrape
+    this.dynamicLocators = {};
   }
 
   getTestParams() {
@@ -137,7 +147,7 @@ class PD20MainPage {
   }
 
   async clickElement(locatorName) {
-    const locatorFunc = this.locators[locatorName];
+    const locatorFunc = this.locators[locatorName] || this.dynamicLocators[locatorName];
     if (!locatorFunc) throw new Error(`Locator '${locatorName}' not found`);
     const element = locatorFunc.length ? await locatorFunc() : locatorFunc();
     console.log(`[${new Date().toISOString()}] Waiting for '${locatorName}' to be visible before click`);
@@ -148,7 +158,7 @@ class PD20MainPage {
   }
 
   async fillInput(locatorName, value) {
-    const locatorFunc = this.locators[locatorName];
+    const locatorFunc = this.locators[locatorName] || this.dynamicLocators[locatorName];
     if (!locatorFunc) throw new Error(`Locator '${locatorName}' not found`);
     const element = locatorFunc.length ? await locatorFunc() : locatorFunc();
     console.log(`[${new Date().toISOString()}] Waiting for '${locatorName}' to be visible before fill`);
@@ -159,7 +169,7 @@ class PD20MainPage {
   }
 
   async getText(locatorName) {
-    const locatorFunc = this.locators[locatorName];
+    const locatorFunc = this.locators[locatorName] || this.dynamicLocators[locatorName];
     if (!locatorFunc) throw new Error(`Locator '${locatorName}' not found`);
     const element = locatorFunc.length ? await locatorFunc() : locatorFunc();
     const text = await element.textContent();
@@ -167,7 +177,7 @@ class PD20MainPage {
   }
 
   async checkElementVisibility(locatorName) {
-    const locatorFunc = this.locators[locatorName];
+    const locatorFunc = this.locators[locatorName] || this.dynamicLocators[locatorName];
     if (!locatorFunc) throw new Error(`Locator '${locatorName}' not found`);
     const element = locatorFunc.length ? await locatorFunc() : locatorFunc();
     console.log(`[${new Date().toISOString()}] Checking visibility of '${locatorName}'`);
@@ -176,13 +186,64 @@ class PD20MainPage {
 
   // Generic method: get selected option label or value of any select element locator
   async getSelectedOption(locatorName) {
-    const locatorFunc = this.locators[locatorName];
+    const locatorFunc = this.locators[locatorName] || this.dynamicLocators[locatorName];
     if (!locatorFunc) throw new Error(`Locator '${locatorName}' not found`);
     const selectElement = locatorFunc.length ? await locatorFunc() : locatorFunc();
     return selectElement.evaluate((select) => {
       const selectedOption = select.selectedOptions[0];
       return selectedOption ? selectedOption.label || selectedOption.value : null;
     });
+  }
+
+  /**
+   * Navigate to another report section by clicking UI buttons/links outside iframe.
+   * @param {string} buttonName - button text
+   * @param {string} linkName - link text
+   */
+  async navigateToReportSection(buttonName, linkName) {
+    console.log(`[${new Date().toISOString()}] Navigating to section via button/link: ${buttonName} / ${linkName}`);
+    const btn = this.locators.navButtonByName(buttonName, true);
+    await btn.waitFor({ state: "visible", timeout: 15000 });
+    await btn.click();
+    await this.page.waitForLoadState("networkidle");
+
+    const link = this.locators.navLinkByName(linkName);
+    await link.waitFor({ state: "visible", timeout: 15000 });
+    await link.click();
+    await this.page.waitForLoadState("networkidle");
+  }
+
+  /**
+   * Dynamically update locators from scraped locatorMap
+   * @param {Map<string, string>} locatorMap - Map of key => selector string from scrape
+   */
+  updateLocatorsFromScrape(locatorMap) {
+    if (!locatorMap || !(locatorMap instanceof Map)) {
+      console.warn(`[${new Date().toISOString()}] updateLocatorsFromScrape: invalid locatorMap provided.`);
+      return;
+    }
+
+    let updateCount = 0;
+
+    for (const [key, selector] of locatorMap.entries()) {
+      if (!key || !selector) continue;
+
+      const existing = this.locators[key] || this.dynamicLocators[key];
+
+      // If locator already exists and selector is unchanged, skip
+      if (existing && typeof existing === "function") {
+        // Can't easily compare selectors if existing is a function
+        // To keep simple: always overwrite in dynamicLocators to ensure latest selector used
+        this.dynamicLocators[key] = () => this.page.locator(selector);
+        updateCount++;
+      } else {
+        // Add new dynamic locator
+        this.dynamicLocators[key] = () => this.page.locator(selector);
+        updateCount++;
+      }
+    }
+
+    console.log(`[${new Date().toISOString()}] updateLocatorsFromScrape: Updated/Added ${updateCount} locators dynamically.`);
   }
 
   /** Static array of tracked work items relevant to this suite */
