@@ -1,0 +1,19 @@
+{
+  "urls": {
+    "mainPage": "https://dev.apps.lithiadriveway.com/performance-dashboard"
+  },
+  "inputs": {
+    "inputField1": "1000",
+    "inputField2": "2500",
+    "inputField3": "-300"
+  },
+  "buttonLabels": {
+    "applyBookmark": "Apply Bookmark",
+    "saveButton": "Save",
+    "cancelButton": "Cancel"
+  },
+  "expectedTexts": {
+    "bookmarkApplied": "Bookmark applied successfully",
+    "saveSuccess": "Saved successfully"
+  }
+}
