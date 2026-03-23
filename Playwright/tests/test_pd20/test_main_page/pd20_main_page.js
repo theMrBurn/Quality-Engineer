@@ -2,11 +2,11 @@ const { expect } = require("@playwright/test");
 
 /**
  * PD20 Main Page Object with locators and common interaction methods.
- * 
+ *
  * Work Items / Bug Fixes Tested:
  * - WI#277087: Drill-through functionality on /sales-log with slicer selections should always open reports.
  *   Bookmarks or active drill-through states should not prevent repeated drill-throughs.
- *   https://dev.azure.com/LithiaMotors/Data%20and%20Apps/_workitems/edit/277087
+ *   https://dev.azure.com/Lithia Motors/Data%20and%20Apps/_workitems/edit/277087
  *
  * Future work items can be appended here as needed.
  */
@@ -41,22 +41,26 @@ class PD20MainPage {
       appHeader: () => this.page.getByRole("banner"),
 
       // The following are async getters for iframe-contained elements:
-
-      /**
-       * Wait for Power BI iframe and get content frame.
-       */
       getPowerBIFrame: async () => {
         console.log(`[${new Date().toISOString()}] Waiting for Power BI iframe attachment...`);
-        const frameHandle = await this.page.waitForSelector(
-          this.locators.powerBIFrameSelector,
-          { timeout: 60000 }
-        );
-        const contentFrame = await frameHandle.contentFrame();
-        if (!contentFrame) {
-          throw new Error("Power BI iframe contentFrame not acquired");
+        try {
+          const frameHandle = await this.page.waitForSelector(
+            this.locators.powerBIFrameSelector,
+            { timeout: 30000, state: "visible" }
+          );
+          if (!frameHandle) {
+            throw new Error("Power BI iframe element not found or not visible");
+          }
+          const contentFrame = await frameHandle.contentFrame();
+          if (!contentFrame) {
+            throw new Error("Power BI iframe contentFrame not acquired");
+          }
+          console.log(`[${new Date().toISOString()}] Power BI iframe contentFrame acquired.`);
+          return contentFrame;
+        } catch (e) {
+          console.error(`[${new Date().toISOString()}] Failed to find or access Power BI iframe: ${e.message}`);
+          throw e;
         }
-        console.log(`[${new Date().toISOString()}] Power BI iframe contentFrame acquired.`);
-        return contentFrame;
       },
 
       monthSlicerDropdown: async () => {
@@ -99,7 +103,6 @@ class PD20MainPage {
         this.page.getByRole("link", { name }),
     };
 
-    // Embedded test parameters keyed by paramKey
     this.testParamsMap = {
       default: {
         urls: {
@@ -114,19 +117,17 @@ class PD20MainPage {
           bookmarkApplied: "Bookmark applied successfully",
         },
         drillthrough: {
-          month: "March",
-          year: "2023",
+          month: "October",
+          year: "2025",
           repeatCount: 3,
           urlContains: "sales-log",
           reportVerifySelectors: ["#report-container", ".some-key-report-element"] // Replace with your actual selectors
         },
       },
-      // Add more param sets as needed
     };
 
     this.testParams = this.testParamsMap[this.paramKey] || this.testParamsMap.default;
 
-    // Store dynamic locators scraped from latest scrape
     this.dynamicLocators = {};
   }
 
@@ -153,7 +154,7 @@ class PD20MainPage {
     console.log(`[${new Date().toISOString()}] Waiting for '${locatorName}' to be visible before click`);
     await element.waitFor({ state: "visible", timeout: 15000 });
     await element.click();
-    await this.page.waitForLoadState("networkidle");
+    await this.page.waitForLoadState("load");
     console.log(`[${new Date().toISOString()}] Clicked '${locatorName}'`);
   }
 
@@ -164,7 +165,7 @@ class PD20MainPage {
     console.log(`[${new Date().toISOString()}] Waiting for '${locatorName}' to be visible before fill`);
     await element.waitFor({ state: "visible", timeout: 15000 });
     await element.fill(value);
-    await this.page.waitForLoadState("networkidle");
+    await this.page.waitForLoadState("load");
     console.log(`[${new Date().toISOString()}] Filled '${locatorName}' with '${value}'`);
   }
 
@@ -184,7 +185,6 @@ class PD20MainPage {
     await expect(element).toBeVisible({ timeout: 15000 });
   }
 
-  // Generic method: get selected option label or value of any select element locator
   async getSelectedOption(locatorName) {
     const locatorFunc = this.locators[locatorName] || this.dynamicLocators[locatorName];
     if (!locatorFunc) throw new Error(`Locator '${locatorName}' not found`);
@@ -195,28 +195,19 @@ class PD20MainPage {
     });
   }
 
-  /**
-   * Navigate to another report section by clicking UI buttons/links outside iframe.
-   * @param {string} buttonName - button text
-   * @param {string} linkName - link text
-   */
   async navigateToReportSection(buttonName, linkName) {
     console.log(`[${new Date().toISOString()}] Navigating to section via button/link: ${buttonName} / ${linkName}`);
     const btn = this.locators.navButtonByName(buttonName, true);
     await btn.waitFor({ state: "visible", timeout: 15000 });
     await btn.click();
-    await this.page.waitForLoadState("networkidle");
+    await this.page.waitForLoadState("load");
 
     const link = this.locators.navLinkByName(linkName);
     await link.waitFor({ state: "visible", timeout: 15000 });
     await link.click();
-    await this.page.waitForLoadState("networkidle");
+    await this.page.waitForLoadState("load");
   }
 
-  /**
-   * Dynamically update locators from scraped locatorMap
-   * @param {Map<string, string>} locatorMap - Map of key => selector string from scrape
-   */
   updateLocatorsFromScrape(locatorMap) {
     if (!locatorMap || !(locatorMap instanceof Map)) {
       console.warn(`[${new Date().toISOString()}] updateLocatorsFromScrape: invalid locatorMap provided.`);
@@ -227,29 +218,12 @@ class PD20MainPage {
 
     for (const [key, selector] of locatorMap.entries()) {
       if (!key || !selector) continue;
-
-      const existing = this.locators[key] || this.dynamicLocators[key];
-
-      // If locator already exists and selector is unchanged, skip
-      if (existing && typeof existing === "function") {
-        // Can't easily compare selectors if existing is a function
-        // To keep simple: always overwrite in dynamicLocators to ensure latest selector used
-        this.dynamicLocators[key] = () => this.page.locator(selector);
-        updateCount++;
-      } else {
-        // Add new dynamic locator
-        this.dynamicLocators[key] = () => this.page.locator(selector);
-        updateCount++;
-      }
+      this.dynamicLocators[key] = () => this.page.locator(selector);
+      updateCount++;
     }
 
     console.log(`[${new Date().toISOString()}] updateLocatorsFromScrape: Updated/Added ${updateCount} locators dynamically.`);
   }
-
-  /** Static array of tracked work items relevant to this suite */
-  static workItems = [
-    "WI#277087 - https://dev.azure.com/Lithia Motors/Data and Apps/_workitems/edit/277087"
-  ];
 }
 
 module.exports = { PD20MainPage };

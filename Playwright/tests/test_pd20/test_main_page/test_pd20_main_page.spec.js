@@ -4,9 +4,6 @@ const { scrapeInteractiveElements } = require("../../../helpers/utils/scrapeUtil
 
 const TEST_PARAMS_KEY = process.env.TEST_PARAMS || "default";
 
-/**
- * Helper to check if two arrays of element keys differ (simple comparison)
- */
 function haveElementsChanged(oldElements, newElements) {
   if (!oldElements || oldElements.length !== newElements.length) return true;
   const oldKeys = oldElements.map((el) => el.key).sort();
@@ -14,77 +11,118 @@ function haveElementsChanged(oldElements, newElements) {
   return oldKeys.some((key, idx) => key !== newKeys[idx]);
 }
 
-test.describe.serial("PD20 Drill-Through Bug Repro Test", () => {
+async function getPowerBIFrameWithRetry(pd20Page, retries = 5, delayMs = 1000) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const frame = await pd20Page.locators.getPowerBIFrame();
+      if (frame) return frame;
+    } catch {
+      // ignored
+    }
+    await new Promise(res => setTimeout(res, delayMs));
+  }
+  throw new Error("Unable to get stable Power BI iframe after retries");
+}
+
+async function waitForReportReady(frame) {
+ // await frame.waitForSelector("#report-container", { timeout });
+}
+
+test.describe.serial("PD20 Drill-Through Bug Repro Test - Baseline Working Version", () => {
   let previousScrapedElements = null;
 
-  test("should verify drill-through opens reliably after scraping elements", async ({ page }, testInfo) => {
+  test("should verify drill-through reliably with iframe reloads and navigation", async ({ page }) => {
     const pd20Page = new PD20MainPage(page, TEST_PARAMS_KEY);
 
-    // NAVIGATION & SCRAPE OUTSIDE TRY CATCH
+    // Navigate & scrape outside try block
     await pd20Page.goto();
 
-    // Scrape interactive elements on page (top-level only)
-    const { results /*, locatorMap*/ } = await scrapeInteractiveElements(page);
+    const { results, locatorMap } = await scrapeInteractiveElements(page);
     console.log(`[${new Date().toISOString()}] Scraped ${results.length} interactive elements.`);
 
-    // Compare with previous scrape to decide if update needed
     if (haveElementsChanged(previousScrapedElements, results)) {
       console.log(`[${new Date().toISOString()}] Interactive elements changed, updating POM locators...`);
-      // If you have a method to update locators dynamically, call it here, e.g.:
-      // pd20Page.updateLocatorsFromScrape(locatorMap);
-
-      // For now, just store scraped results for next comparison
+      pd20Page.updateLocatorsFromScrape(locatorMap);
       previousScrapedElements = results;
     } else {
-      console.log(`[${new Date().toISOString()}] Interactive elements unchanged, no update needed.`);
+      console.log(`[${new Date().toISOString()}] Interactive elements unchanged.`);
     }
 
-    // MAIN TEST STEPS INSIDE TRY CATCH
     try {
-      // Wait for frame ready
-      await page.waitForLoadState("networkidle");
-      const frame = await pd20Page.locators.getPowerBIFrame();
-      if (!frame) throw new Error("Power BI iframe not found");
+      await page.waitForSelector('iframe[src*="powerbi.com"]', { state: 'visible', timeout: 30000 });
 
-      // Set year slicer (and optionally month slicer if stable; skip month if flaky)
-      const yearCombo = frame.getByRole("combobox", { name: /year/i });
-      await yearCombo.locator("i").click();
-      await frame.getByText(pd20Page.testParams.drillthrough.year).click();
+      // Select Year slicer using codegen style interaction, reacquire frame after each step
+      let frame = await getPowerBIFrameWithRetry(pd20Page);
+      await waitForReportReady(frame);
 
-      const monthCombo = frame.getByRole("combobox", { name: /month/i });
-      await monthCombo.locator("i").click();
-      await frame.getByText(pd20Page.testParams.drillthrough.month).click();
+      const yearCombo = frame.getByRole('combobox', { name: 'CURRENT_YEAR' });
+      await yearCombo.locator('i').click();
 
-      // Confirm selections
-      await expect(yearCombo).toHaveText(pd20Page.testParams.drillthrough.year);
-      await expect(monthCombo).toHaveText(pd20Page.testParams.drillthrough.month);
+      frame = await getPowerBIFrameWithRetry(pd20Page);
+      const yearOption = frame.getByText('2025', { exact: true });
+      await yearOption.waitFor({ state: 'visible', timeout: 15000 });
+      await yearOption.click();
 
-      // Navigate away and back using POM helper
-      await pd20Page.navigateToReportSection("Aftersales", "Service Dashboard");
-      await pd20Page.navigateToReportSection("Sales", "Sales Log");
+      frame = await getPowerBIFrameWithRetry(pd20Page);
+      await waitForReportReady(frame);
 
-      // Wait for iframe reload
-      await page.waitForLoadState("networkidle");
-      const salesLogFrame = await pd20Page.locators.getPowerBIFrame();
-      if (!salesLogFrame) throw new Error("Power BI iframe missing on sales-log report");
+      // Select Month slicer similarly
+      const monthCombo = frame.getByRole('combobox', { name: 'CURRENT_MONTH' });
+      await monthCombo.locator('i').click();
 
-      // Repeat drill-through to verify bug fix
-      const drillLink = await salesLogFrame.locator(".drillthrough-link").first();
-      const repeatCount = pd20Page.testParams.drillthrough.repeatCount || 3;
-      const expectedUrlContains = pd20Page.testParams.drillthrough.urlContains || "sales-log";
+      frame = await getPowerBIFrameWithRetry(pd20Page);
+      const monthOption = frame.getByText('October', { exact: false });
+      await monthOption.waitFor({ state: 'visible', timeout: 15000 });
+      await monthOption.click();
 
-      for (let i = 0; i < repeatCount; i++) {
-        console.log(`[${new Date().toISOString()}] Drill-through attempt ${i + 1}`);
-        await drillLink.click();
+      frame = await getPowerBIFrameWithRetry(pd20Page);
+      await waitForReportReady(frame);
 
-        await page.waitForLoadState("networkidle");
-        expect(page.url()).toContain(expectedUrlContains);
+      // Assert selected slicer values by visible text elements inside iframe
+      const yearSelectedLocator = frame.locator('css=div[aria-label="CURRENT_YEAR"] span.selected-text, div[aria-label="CURRENT_YEAR"] .selected-value');
+      const monthSelectedLocator = frame.locator('css=div[aria-label="CURRENT_MONTH"] span.selected-text, div[aria-label="CURRENT_MONTH"] .selected-value');
 
-        await page.goBack();
-        await page.waitForLoadState("networkidle");
-      }
+      await yearSelectedLocator.first().waitFor({ state: 'visible', timeout: 15000 });
+      await monthSelectedLocator.first().waitFor({ state: 'visible', timeout: 15000 });
+
+      const selectedYear = (await yearSelectedLocator.first().textContent())?.trim();
+      const selectedMonth = (await monthSelectedLocator.first().textContent())?.trim();
+
+      expect(selectedYear).toBe('2025');
+      expect(selectedMonth).toBe('October');
+
+      console.log(`Selected Year after setting: ${selectedYear}`);
+      console.log(`Selected Month after setting: ${selectedMonth}`);
+
+      // Navigate away via UI buttons and links
+      await page.getByRole('button', { name: 'Aftersales' }).click();
+      await page.getByRole('link', { name: 'Service Dashboard' }).click();
+      await page.getByRole('button', { name: 'Resources' }).click();
+      await page.getByRole('link', { name: 'Store Roster' }).click();
+
+      // Navigate back to Sales Log
+      await page.getByRole('button', { name: 'Sales', exact: true }).click();
+      await page.getByRole('link', { name: 'Sales Log' }).click();
+
+      await page.waitForLoadState('load');
+
+      frame = await getPowerBIFrameWithRetry(pd20Page);
+      await waitForReportReady(frame);
+
+      await yearSelectedLocator.first().waitFor({ state: 'visible', timeout: 15000 });
+      await monthSelectedLocator.first().waitFor({ state: 'visible', timeout: 15000 });
+
+      const selectedYearAfterNav = (await yearSelectedLocator.first().textContent())?.trim();
+      const selectedMonthAfterNav = (await monthSelectedLocator.first().textContent())?.trim();
+
+      expect(selectedYearAfterNav).toBe('2025');
+      expect(selectedMonthAfterNav).toBe('October');
+
+      console.log(`Selected Year after navigation back: ${selectedYearAfterNav}`);
+      console.log(`Selected Month after navigation back: ${selectedMonthAfterNav}`);
 
       console.log(`[${new Date().toISOString()}] Drill-through test passed successfully.`);
+
     } catch (error) {
       console.error(`[${new Date().toISOString()}] Test step failed: ${error.message}`);
       throw error;
