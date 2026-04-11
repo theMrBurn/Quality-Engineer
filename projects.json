@@ -1,11 +1,10 @@
 [
   {
-    "name": "InnovationPOC",
-    "testDir": "Playwright/tests/innovation_sprint_poc",
+    "name": "generic_POC",
+    "testDir": "Playwright/tests/test_generic_run/",
     "retries": 3,
     "use": {
-      "storageState": "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-      "baseURL": "https://test.lpp.lithia.com/atlas"
+      "baseURL": "https://the-internet.herokuapp.com"
     }
   },
   {
