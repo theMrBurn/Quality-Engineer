@@ -14,7 +14,7 @@
  *
  * Usage:
  *   node Playwright/base/selfHealReporter.js
- *   node Playwright/base/selfHealReporter.js --project DenaliLPPTest
+ *   node Playwright/base/selfHealReporter.js --project GenericPOC
  *   node Playwright/base/selfHealReporter.js --type regression
  *   node Playwright/base/selfHealReporter.js --pending-only
  *   node Playwright/base/selfHealReporter.js --format markdown    # ADO/GitHub artifact

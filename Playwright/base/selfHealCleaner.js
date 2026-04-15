@@ -14,17 +14,17 @@
  *   Ignore             — mark a suggestion ignored / false_positive in the store
  *
  * Usage:
- *   node Playwright/base/selfHealCleaner.js --project DenaliLPPTest
- *   node Playwright/base/selfHealCleaner.js --project DenaliLPPTest --apply-key loginButton --mode fallback
- *   node Playwright/base/selfHealCleaner.js --project DenaliLPPTest --apply-key exportButton --mode locator --target denaliPortal.js
- *   node Playwright/base/selfHealCleaner.js --project DenaliLPPTest --ignore-key someNoise
- *   node Playwright/base/selfHealCleaner.js --project DenaliLPPTest --output patch
- *   node Playwright/base/selfHealCleaner.js --project DenaliLPPTest --dry-run --apply-key loginButton --mode fallback
- *   node Playwright/base/selfHealCleaner.js --project DenaliLPPTest --clean-noise
+ *   node Playwright/base/selfHealCleaner.js --project GenericPOC
+ *   node Playwright/base/selfHealCleaner.js --project GenericPOC --apply-key loginButton --mode fallback
+ *   node Playwright/base/selfHealCleaner.js --project GenericPOC --apply-key exportButton --mode locator --target todo_page.js
+ *   node Playwright/base/selfHealCleaner.js --project GenericPOC --ignore-key someNoise
+ *   node Playwright/base/selfHealCleaner.js --project GenericPOC --output patch
+ *   node Playwright/base/selfHealCleaner.js --project GenericPOC --dry-run --apply-key loginButton --mode fallback
+ *   node Playwright/base/selfHealCleaner.js --project GenericPOC --clean-noise
  *
  * Makefile shortcuts:
- *   make suggest PROJECT=DenaliLPPTest
- *   make patch   PROJECT=DenaliLPPTest
+ *   make suggest PROJECT=GenericPOC
+ *   make patch   PROJECT=GenericPOC
  */
 
 "use strict";
@@ -572,7 +572,7 @@ function main() {
 
   if (!opts.project) {
     console.error(`\n  ${C.red}--project <name> is required.${C.reset}`);
-    console.error(`  ${C.dim}Example: node Playwright/base/selfHealCleaner.js --project DenaliLPPTest${C.reset}\n`);
+    console.error(`  ${C.dim}Example: node Playwright/base/selfHealCleaner.js --project GenericPOC${C.reset}\n`);
     process.exit(1);
   }
 

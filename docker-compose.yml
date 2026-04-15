@@ -28,11 +28,10 @@ services:
     depends_on:
       app:
         condition: service_healthy
-    environment:
-      BASEURL_SPEDEV: https://spedev.lithiainc.com/main/store/
-      BASEURL_FI_MGMT_API_DEV: http://app:3330
-      AUT_URL: http://app:3330
-      # Note: No PLAYWRIGHT_PROJECT set here for flexibility
+    # Per-project baseURL env vars follow the BASEURL_<PROJECT_NAME> convention.
+    # playwright.config.js reads these as the highest-priority override.
+    # (none set by default — projects.json values are authoritative)
+    # No PLAYWRIGHT_PROJECT set here for flexibility.
     volumes:
       - .:/workspace:cached
       - /workspace/node_modules

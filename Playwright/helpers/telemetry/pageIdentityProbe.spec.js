@@ -5,16 +5,14 @@
  * no file:// fixtures, no network, no auth, no baseURL dependency. Safe to
  * run in any environment that already has Playwright installed.
  *
- * Invocation (from repo root, after logging into your VPN is NOT needed):
+ * Invocation (from repo root):
  *
  *   npx playwright test \
  *     Playwright/helpers/telemetry/pageIdentityProbe.spec.js \
- *     --project=InnovationPOC
+ *     --project=GenericPOC
  *
  * The --project flag can be any project defined in projects.json; the
  * probe doesn't use baseURL/storageState so it's immaterial which one.
- * Picking InnovationPOC just avoids firing up authenticated sessions
- * you don't need.
  */
 
 const { test, expect } = require("@playwright/test");
@@ -50,9 +48,9 @@ test.describe("normalizeRoute", () => {
   test("normalizes ids inside the hash fragment (SPA hash routing)", () => {
     expect(
       normalizeRoute(
-        "https://test.lpp.lithia.com/atlas#/sales/dealership/12345",
+        "https://app.example.com/module#/section/entity/12345",
       ),
-    ).toBe("/atlas#/sales/dealership/:id");
+    ).toBe("/module#/section/entity/:id");
   });
 
   test("replaces UUID segments", () => {
@@ -92,19 +90,19 @@ test.describe("pageIdentityProbe against synthetic pages", () => {
   }) => {
     await page.setContent(`
       <html>
-        <head><title>Atlas — Sales Operations</title></head>
+        <head><title>Demo App — Metrics Module</title></head>
         <body>
           <nav aria-label="Breadcrumb">
             <ol>
-              <li><a href="/atlas">Atlas</a></li>
-              <li><a href="/atlas/sales">Sales</a></li>
-              <li>Dealership 12345</li>
+              <li><a href="/app">Demo</a></li>
+              <li><a href="/app/metrics">Metrics</a></li>
+              <li>Entity 12345</li>
             </ol>
           </nav>
-          <h1>Dealership 12345</h1>
+          <h1>Entity 12345</h1>
           <section>
-            <h2>Total Sales</h2>
-            <p>Month-to-date revenue for this dealership.</p>
+            <h2>Total Revenue</h2>
+            <p>Month-to-date revenue for this entity.</p>
             <h2>Inventory</h2>
             <p>Active inventory counts by category.</p>
           </section>
@@ -114,13 +112,13 @@ test.describe("pageIdentityProbe against synthetic pages", () => {
 
     const identity = await pageIdentityProbe(page);
 
-    expect(identity.title).toBe("Atlas — Sales Operations");
-    expect(identity.headings.h1).toEqual(["Dealership 12345"]);
-    expect(identity.headings.h2).toEqual(["Total Sales", "Inventory"]);
+    expect(identity.title).toBe("Demo App — Metrics Module");
+    expect(identity.headings.h1).toEqual(["Entity 12345"]);
+    expect(identity.headings.h2).toEqual(["Total Revenue", "Inventory"]);
     expect(identity.breadcrumbs).toEqual([
-      "Atlas",
-      "Sales",
-      "Dealership 12345",
+      "Demo",
+      "Metrics",
+      "Entity 12345",
     ]);
     expect(identity.visibleTextChars).toBeGreaterThan(0);
   });
@@ -173,18 +171,18 @@ test.describe("pageIdentityProbe against synthetic pages", () => {
   }) => {
     await page.setContent(`
       <html>
-        <head><title>Escalade DIMS</title></head>
+        <head><title>Demo App — Records</title></head>
         <body>
-          <div class="breadcrumb">Escalade › DIMS › Lien 4242</div>
-          <h1>Lien 4242</h1>
+          <div class="breadcrumb">Demo › Records › Record 4242</div>
+          <h1>Record 4242</h1>
         </body>
       </html>
     `);
 
     const identity = await pageIdentityProbe(page);
 
-    expect(identity.breadcrumbs).toEqual(["Escalade", "DIMS", "Lien 4242"]);
-    expect(identity.headings.h1).toEqual(["Lien 4242"]);
+    expect(identity.breadcrumbs).toEqual(["Demo", "Records", "Record 4242"]);
+    expect(identity.headings.h1).toEqual(["Record 4242"]);
   });
 
   test("caps heading lists at 10 entries to avoid flooding snapshot", async ({
@@ -226,10 +224,10 @@ test.describe("pageIdentityProbe against synthetic pages", () => {
 
 test.describe("diffPageIdentity", () => {
   const baseline = {
-    title: "Atlas — Sales",
-    routeSignature: "/atlas#/sales",
+    title: "Demo App — Metrics",
+    routeSignature: "/app#/metrics",
     headings: { h1: ["Home"], h2: ["Totals", "Trends"] },
-    breadcrumbs: ["Atlas", "Sales"],
+    breadcrumbs: ["Demo", "Metrics"],
     visibleTextChars: 1000,
   };
 
@@ -246,7 +244,7 @@ test.describe("diffPageIdentity", () => {
   });
 
   test("title drift", () => {
-    const d = diffPageIdentity(baseline, { ...baseline, title: "Atlas v2" });
+    const d = diffPageIdentity(baseline, { ...baseline, title: "Demo App v2" });
     expect(d.titleChanged).toBe(true);
   });
 
@@ -270,7 +268,7 @@ test.describe("diffPageIdentity", () => {
   test("breadcrumbs order change is flagged", () => {
     const d = diffPageIdentity(baseline, {
       ...baseline,
-      breadcrumbs: ["Sales", "Atlas"], // swapped
+      breadcrumbs: ["Metrics", "Demo"], // swapped
     });
     expect(d.breadcrumbsChanged).toBe(true);
   });

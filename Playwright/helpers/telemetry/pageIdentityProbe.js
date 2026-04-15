@@ -28,8 +28,8 @@
  * Replace numeric-id and UUID path segments with placeholders so two sweeps
  * of "same page, different record" collapse to a single route signature.
  *
- *   /dealership/12345                 → /dealership/:id
- *   /atlas#/sales/dealership/12345    → /atlas#/sales/dealership/:id
+ *   /entity/12345                     → /entity/:id
+ *   /app#/section/entity/12345        → /app#/section/entity/:id
  *   /items/a3f7c2e1-... (UUID)        → /items/:uuid
  *   /v1/api                           → /v1/api   (short non-numeric untouched)
  */

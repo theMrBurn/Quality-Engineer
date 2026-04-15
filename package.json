@@ -18,16 +18,16 @@
     "npm": "^11.7.0",
     "punycode2": "^1.0.1"
   },
-  "name": "application-qa-test-automation",
+  "name": "quality-engineer",
   "version": "1.0.0",
-  "description": "[please see Test Automation Repo Wiki](https://dev.azure.com/LithiaMotors/Application%20QA%20Test%20Automation/_wiki/wikis/Application-QA-Test-Automation.wiki/2136/Quality-Engineer-Setup-and-Technical-Onboarding) for instructions on getting started.",
+  "description": "Playwright test automation framework — pattern showcase with passive-parallel baseTest, self-healing POM, and realtime telemetry.",
   "main": "generate-devcontainer-profiles.js",
   "repository": {
     "type": "git",
-    "url": "https://dev.azure.com/LithiaMotors/_git/Application%20QA%20Test%20Automation"
+    "url": "https://github.com/theMrBurn/Quality-Engineer.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["playwright", "test-automation", "page-object-model", "self-healing", "regression-testing"],
+  "author": "theMrBurn",
   "license": "ISC",
   "type": "commonjs"
 }

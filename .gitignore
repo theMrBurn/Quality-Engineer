@@ -20,14 +20,6 @@ playwright/.cache/
 Playwright/test_results/
 Playwright/test_results/test-xray-report.xml
 
-# Ignore Taurus results and artifacts
-Taurus/results/
-Taurus/ATLAS/results/
-Taurus/ATLAS/artifacts
-
-# Ignore helper files
-
-
 # Ignore blobs and other results
 blob-report/
 test-results/
