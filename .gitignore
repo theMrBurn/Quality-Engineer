@@ -26,3 +26,6 @@ test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Runtime regression artifacts (regenerated per run)
+Playwright/regression-data/
