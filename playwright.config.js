@@ -35,6 +35,7 @@ function toEnvVarKey(projectName) {
 
 // Load projects from JSON file with defensive error handling
 let projects = [];
+let hasIssue = false;
 try {
   const projectsPath = path.resolve(__dirname, "projects.json");
   if (fs.existsSync(projectsPath)) {
@@ -42,12 +43,18 @@ try {
     projects = JSON.parse(rawProjects);
   } else {
     console.warn(`Warning: projects.json not found at ${projectsPath}`);
+    hasIssue = true;
   }
 } catch (err) {
   console.error("Error reading or parsing projects.json:", err);
+  hasIssue = true;
 }
 
-console.log("Loaded projects:", projects);
+if (hasIssue) {
+  console.log("Loaded projects:", projects);
+} else {
+  console.log("Loaded projects: confirmed");
+}
 
 projects = resolveStorageState(projects);
 
@@ -71,6 +78,7 @@ projects = projects.map((project) => {
 
   if (!baseURL) {
     console.warn(`Warning: baseURL missing for project "${project.name}"`);
+    hasIssue = true;
   }
 
   return {
@@ -92,12 +100,17 @@ if (singleProject) {
   const filtered = projects.filter((p) => p.name === singleProject);
   if (filtered.length === 0) {
     console.warn(`Warning: PLAYWRIGHT_PROJECT="${singleProject}" matched no projects in projects.json`);
+    hasIssue = true;
   } else {
     projects = filtered;
   }
 }
 
-console.log("Configured projects:", projects);
+if (hasIssue) {
+  console.log("Configured projects:", projects);
+} else {
+  console.log("Configured projects: confirmed");
+}
 
 /**
  * @type {import('@playwright/test').PlaywrightTestConfig}
