@@ -3,164 +3,46 @@
     "name": "GenericPOC",
     "testDir": "Playwright/tests/test_generic_run",
     "retries": 0,
+    "grep": "@internet",
     "use": {
       "baseURL": "https://the-internet.herokuapp.com"
     }
   },
   {
-    "name": "PDAdminLocal",
-    "testDir": "Playwright/tests/test_pd20/test_PD_Admin",
-    "retries": 3,
-    "use": {
-      "baseURL": "http://localhost:3000/"
-    }
-  },
-  {
-    "name": "PD_2_Local",
-    "testDir": "Playwright/tests/test_pd20/test_main_page",
+    "name": "TodoMVC",
+    "testDir": "Playwright/tests/test_generic_run",
     "retries": 0,
+    "grep": "@todo",
     "use": {
-      "storageState": "Playwright/helpers/login/local_pd20_auth.json",
-      "baseURL": "http://localhost:3000/"
+      "baseURL": "https://demo.playwright.dev/todomvc"
     }
   },
   {
-    "name": "PD_2_Dev",
-    "testDir": "Playwright/tests/test_pd20/test_main_page",
+    "name": "PublicAPI",
+    "testDir": "Playwright/tests/test_generic_run",
+    "retries": 1,
+    "grep": "@api",
+    "use": {
+      "baseURL": "https://jsonplaceholder.typicode.com"
+    }
+  },
+  {
+    "name": "IframeDemo",
+    "testDir": "Playwright/tests/test_generic_run",
     "retries": 0,
+    "grep": "@iframe",
     "use": {
-      "storageState": "Playwright/helpers/login/lpp_auth.json",
-      "baseURL": "https://dev.apps.lithiadriveway.com/performance-dashboard"
+      "baseURL": "https://the-internet.herokuapp.com"
     }
   },
   {
-    "name": "AtlasWeb",
-    "testDir": "Playwright/tests/test_LPP_web/atlas_web",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "https://test.lpp.lithia.com/"
-    }
-  },
-  {
-    "name": "AtlasWebLocal",
-    "testDir": "Playwright/tests/test_LPP_web/atlas_web",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "http://localhost:3000/atlas/"
-    }
-  },
-  {
-    "name": "AtlasWebE2E",
-    "testDir": "Playwright/tests/test_LPP_web/atlas_web/atlas_e2e",
+    "name": "StorageStateDemo",
+    "testDir": "Playwright/tests/test_generic_run",
     "retries": 0,
+    "grep": "@storage",
     "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "https://test.lpp.lithia.com/",
-      "launchOptions": {
-        "slowMo": 500
-      },
-      "defaultStore": ""
-    }
-  },
-  {
-    "name": "AtlasWebUAT",
-    "testDir": "Playwright/tests/test_LPP_web/atlas_web",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "https://uat.lpp.lithia.com/"
-    }
-  },
-  {
-    "name": "AtlasDealershipListings",
-    "testDir": "Playwright/tests/test_LPP_web/atlas_web/dealership_listings",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "https://test.lpp.lithia.com/"
-    }
-  },
-  {
-    "name": "AtlasPlanDetailsView",
-    "testDir": "Playwright/tests/test_LPP_web/atlas_web/plan_details",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "https://test.lpp.lithia.com/"
-    }
-  },
-  {
-    "name": "AtlasSalesOps",
-    "testDir": "Playwright/tests/test_LPP_web/atlas_web/sales_operations/",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "https://test.lpp.lithia.com/"
-    }
-  },
-  {
-    "name": "AtlasServiceDetailOps",
-    "testDir": "Playwright/tests/test_LPP_web/atlas_web/service_detail_operations",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "https://test.lpp.lithia.com/"
-    }
-  },
-  {
-    "name": "AtlasPartsOps",
-    "testDir": "Playwright/tests/test_LPP_web/atlas_web/parts_operations",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "https://test.lpp.lithia.com/"
-    }
-  },
-  {
-    "name": "AtlasBodyShopOps",
-    "testDir": "Playwright/tests/test_LPP_web/atlas_web/body_shop_operations",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "https://test.lpp.lithia.com/"
-    }
-  },
-  {
-    "name": "AtlasTotalStoreOps",
-    "testDir": "Playwright/tests/test_LPP_web/atlas_web/total_store/",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "https://test.lpp.lithia.com/"
-    }
-  },
-  {
-    "name": "AtlasAPI",
-    "testDir": "Playwright/tests/test_LPP_api/atlas_api",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/atlas_test_env_auth.json",
-      "baseURL": "https://test.lpp.lithia.com/"
-    }
-  },
-  {
-    "name": "TahoeLOFAPI_Local",
-    "testDir": "Playwright/tests/test_LPP_api/tahoe_api",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-      "baseURL": "http://localhost:5000/api"
-    }
-  },
-  {
-    "name": "TahoeLOFAPI_Test",
-    "testDir": "Playwright/tests/test_LPP_api/tahoe_api",
-    "retries": 3,
-    "use": {
-      "storageState": "Playwright/helpers/login/test_DenaliLPP_superUser.json",
-      "baseURL": "https://azwu2loftest-apim.azure-api.net/api/"
+      "storageState": "Playwright/helpers/login/the_internet_storage_state.json",
+      "baseURL": "https://the-internet.herokuapp.com"
     }
   }
 ]
