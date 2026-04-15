@@ -1,0 +1,8 @@
+{
+  "landingLinks": [
+    { "key": "formAuthLink", "label": "Form Authentication" },
+    { "key": "checkboxesLink", "label": "Checkboxes" },
+    { "key": "dropdownLink", "label": "Dropdown" },
+    { "key": "dynamicLoadingLink", "label": "Dynamic Loading" }
+  ]
+}
