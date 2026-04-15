@@ -51,11 +51,23 @@ console.log("Loaded projects:", projects);
 
 projects = resolveStorageState(projects);
 
+// projects.json carries `grep` as a string (JSON has no RegExp literal).
+// Playwright's project config requires a RegExp instance — convert here.
+projects = projects.map((project) => {
+  if (typeof project.grep === "string") {
+    return { ...project, grep: new RegExp(project.grep) };
+  }
+  return project;
+});
+
 // Defensive map to avoid accessing undefined properties and check baseURL presence
 projects = projects.map((project) => {
   if (!project.use) project.use = {};
   const envKey = toEnvVarKey(project.name);
-  const baseURL = process.env[envKey] || project.use.baseURL;
+  // BASEURL_<PROJECT> env var takes highest priority (per-project override).
+  // process.env.BASEURL is the generic fallback used by `make test BASEURL=...`
+  // and the ADO pipeline baseUrl parameter.
+  const baseURL = process.env[envKey] || project.use.baseURL || process.env.BASEURL;
 
   if (!baseURL) {
     console.warn(`Warning: baseURL missing for project "${project.name}"`);
@@ -70,13 +82,28 @@ projects = projects.map((project) => {
   };
 });
 
+// PLAYWRIGHT_PROJECT env var — restricts which projects are loaded into the runner.
+// Used by devcontainer profiles (devcontainer.json sets this per profile) so that
+// `npx playwright test` inside the container only sees the active project without
+// requiring a --project flag.
+// The Makefile and pipeline always pass --project explicitly and do not set this var.
+const singleProject = process.env.PLAYWRIGHT_PROJECT;
+if (singleProject) {
+  const filtered = projects.filter((p) => p.name === singleProject);
+  if (filtered.length === 0) {
+    console.warn(`Warning: PLAYWRIGHT_PROJECT="${singleProject}" matched no projects in projects.json`);
+  } else {
+    projects = filtered;
+  }
+}
+
 console.log("Configured projects:", projects);
 
 /**
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
 const config = {
-  globalSetup: "",
+  globalSetup: "./Playwright/base/globalSetup",
 
   testDir: "Playwright/tests",
 
