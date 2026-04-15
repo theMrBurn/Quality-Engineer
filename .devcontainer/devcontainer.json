@@ -5,277 +5,69 @@
     "context": ".."
   },
   "remoteEnv": {
-    "PLAYWRIGHT_PROJECT": "InnovationPOC"
+    "PLAYWRIGHT_PROJECT": "GenericPOC"
   },
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
-  "extensions": ["ms-playwright.playwright"],
+  "extensions": [
+    "ms-playwright.playwright"
+  ],
   "postCreateCommand": "npm install && npx playwright install --with-deps",
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
   ],
   "workspaceFolder": "/workspace",
   "remoteUser": "node",
-  "runArgs": ["--env", "PLAYWRIGHT_PROJECT=InnovationPOC"],
+  "runArgs": [
+    "--env",
+    "PLAYWRIGHT_PROJECT=GenericPOC"
+  ],
   "profiles": {
-    "InnovationPOC": {
+    "GenericPOC": {
       "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "InnovationPOC"
+        "PLAYWRIGHT_PROJECT": "GenericPOC"
       },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=InnovationPOC"]
+      "runArgs": [
+        "--env",
+        "PLAYWRIGHT_PROJECT=GenericPOC"
+      ]
     },
-    "FI_mgmt_API_DEV": {
+    "TodoMVC": {
       "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "FI_mgmt_API_DEV"
+        "PLAYWRIGHT_PROJECT": "TodoMVC"
       },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=FI_mgmt_API_DEV"]
+      "runArgs": [
+        "--env",
+        "PLAYWRIGHT_PROJECT=TodoMVC"
+      ]
     },
-    "FI_mgmt_UI_DEV": {
+    "PublicAPI": {
       "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "FI_mgmt_UI_DEV"
+        "PLAYWRIGHT_PROJECT": "PublicAPI"
       },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=FI_mgmt_UI_DEV"]
+      "runArgs": [
+        "--env",
+        "PLAYWRIGHT_PROJECT=PublicAPI"
+      ]
     },
-    "FI_mgmt_UI_Local": {
+    "IframeDemo": {
       "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "FI_mgmt_UI_Local"
+        "PLAYWRIGHT_PROJECT": "IframeDemo"
       },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=FI_mgmt_UI_Local"]
+      "runArgs": [
+        "--env",
+        "PLAYWRIGHT_PROJECT=IframeDemo"
+      ]
     },
-    "FI_mgmt_API_Local": {
+    "StorageStateDemo": {
       "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "FI_mgmt_API_Local"
+        "PLAYWRIGHT_PROJECT": "StorageStateDemo"
       },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=FI_mgmt_API_Local"]
-    },
-    "PDash_test": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "PDash_test"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=PDash_test"]
-    },
-    "PD_1_Local": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "PD_1_Local"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=PD_1_Local"]
-    },
-    "PDash_Login_test": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "PDash_Login_test"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=PDash_Login_test"]
-    },
-    "PDAdminLocal": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "PDAdminLocal"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=PDAdminLocal"]
-    },
-    "PD_2_Local": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "PD_2_Local"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=PD_2_Local"]
-    },
-    "PD_2_Dev": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "PD_2_Dev"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=PD_2_Dev"]
-    },
-    "AtlasWeb": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasWeb"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasWeb"]
-    },
-    "AtlasWebLocal": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasWebLocal"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasWebLocal"]
-    },
-    "AtlasWebE2E": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasWebE2E"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasWebE2E"]
-    },
-    "AtlasWebUAT": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasWebUAT"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasWebUAT"]
-    },
-    "AtlasDealershipListings": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasDealershipListings"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasDealershipListings"]
-    },
-    "AtlasPlanDetailsView": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasPlanDetailsView"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasPlanDetailsView"]
-    },
-    "AtlasSalesOps": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasSalesOps"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasSalesOps"]
-    },
-    "AtlasServiceDetailOps": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasServiceDetailOps"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasServiceDetailOps"]
-    },
-    "AtlasPartsOps": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasPartsOps"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasPartsOps"]
-    },
-    "AtlasBodyShopOps": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasBodyShopOps"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasBodyShopOps"]
-    },
-    "AtlasTotalStoreOps": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasTotalStoreOps"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasTotalStoreOps"]
-    },
-    "AtlasAPI": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AtlasAPI"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AtlasAPI"]
-    },
-    "TahoeLOFAPI_Local": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "TahoeLOFAPI_Local"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=TahoeLOFAPI_Local"]
-    },
-    "TahoeLOFAPI_Test": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "TahoeLOFAPI_Test"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=TahoeLOFAPI_Test"]
-    },
-    "AllPayTest": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AllPayTest"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AllPayTest"]
-    },
-    "AllPayDev": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AllPayDev"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AllPayDev"]
-    },
-    "AllPayUAT": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "AllPayUAT"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=AllPayUAT"]
-    },
-    "DenaliLPPTest": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "DenaliLPPTest"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=DenaliLPPTest"]
-    },
-    "SaharaLPOTest": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "SaharaLPOTest"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=SaharaLPOTest"]
-    },
-    "SaharaNewLienTest": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "SaharaNewLienTest"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=SaharaNewLienTest"]
-    },
-    "SaharaFlooringPayoffs": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "SaharaFlooringPayoffs"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=SaharaFlooringPayoffs"]
-    },
-    "SaharaFlooringRequests": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "SaharaFlooringRequests"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=SaharaFlooringRequests"]
-    },
-    "SaharaLHM": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "SaharaLHM"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=SaharaLHM"]
-    },
-    "EscaladeDIMS": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "EscaladeDIMS"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=EscaladeDIMS"]
-    },
-    "EscaladeVDT": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "EscaladeVDT"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=EscaladeVDT"]
-    },
-    "CamaroDMM": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "CamaroDMM"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=CamaroDMM"]
-    },
-    "BMDLocal": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "BMDLocal"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=BMDLocal"]
-    },
-    "BMDDev": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "BMDDev"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=BMDDev"]
-    },
-    "BMDUAT": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "BMDUAT"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=BMDUAT"]
-    },
-    "BMDProd": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "BMDProd"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=BMDProd"]
-    },
-    "SPEDev": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "SPEDev"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=SPEDev"]
-    },
-    "Impact_Builder_Web_Test": {
-      "remoteEnv": {
-        "PLAYWRIGHT_PROJECT": "Impact_Builder_Web_Test"
-      },
-      "runArgs": ["--env", "PLAYWRIGHT_PROJECT=Impact_Builder_Web_Test"]
+      "runArgs": [
+        "--env",
+        "PLAYWRIGHT_PROJECT=StorageStateDemo"
+      ]
     }
   }
 }
