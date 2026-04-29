@@ -29,11 +29,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Set working directory inside container
 WORKDIR /workspace
 
+# Shared browser cache so root-time install is visible to runtime `node` user
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+
 # Copy package.json and package-lock.json as root first
 COPY package*.json ./
 
 # Install node dependencies and Playwright browsers as root
-RUN npm install && npx playwright install --with-deps
+RUN mkdir -p /ms-playwright \
+ && npm install \
+ && npx playwright install --with-deps \
+ && chmod -R a+rx /ms-playwright
 
 # Copy all source code as root
 COPY . .
